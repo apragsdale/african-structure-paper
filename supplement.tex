@@ -1,0 +1,98 @@
+\documentclass[]{article}
+\usepackage[round]{natbib}
+
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{authblk}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{booktabs}
+
+% lorem ipsum dummy text
+\usepackage{lipsum}
+
+\lstset{language=Python}
+
+% cross-reference with main text
+\usepackage{xr}
+\externaldocument{paper}
+
+% local definitions
+\newcommand{\comment}[1]{{\textcolor{red}{Comment: #1}}}
+
+\begin{document}
+\title{Supporting Information for ``A weakly structured stem for human origins in Africa''}
+\author{Aaron P. Ragsdale, Timothy D. Weaver, Brenna M. Henn, and Simon Gravel}
+\date{\today}
+\maketitle
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+
+\tableofcontents
+\newpage
+
+\section{Data and sequencing}
+
+\subsection{Sequencing and variant calling}
+\cite{Kelleher2016-lw}
+
+\subsection{Nama sample collection and consent}
+
+\subsection{Details about populations used in analyses}
+
+\subsection{Filtering and subsetting data}
+
+\section{Computing statistics}
+
+\subsection{Computing LD and diversity statistics}
+
+\subsection{Estimating two-locus statistics with small sample sizes}
+
+\subsection{Computing conditional SFS}
+
+\section{Model specification and fitting}
+
+\subsection{General strategy for building models and introducing complexity}
+
+\subsection{Optimization using moments}
+
+\subsection{Confidence intervals using godambe methods}
+
+\section{Gene genealogy reconstruction}
+
+\section{Predictions from inferred demographic models}
+
+\subsection{$F_{ST}$ between coexisting populations over time}
+
+\subsection{$f_4$ statistics between pairs of contemporary and pairs of ancient populations}
+
+\section{Validations using simulatinos from inferred demographic models}
+
+\subsection{Simulation details}
+
+\subsection{cSFS prediction under inferred models}
+
+\subsection{Relate curves from inferred models}
+
+\subsection{Distribution of deep branch affinities to Neanderthal sequence}
+
+\subsection{Mutation versus recombination rates}
+
+\break
+
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{plainnat}
+\bibliography{paper}
+
+\break
+
+\addcontentsline{toc}{section}{Supporting figures and tables}
+\section*{Supporting figures and tables}
+
+\end{document}
