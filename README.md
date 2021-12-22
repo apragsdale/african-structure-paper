@@ -1,7 +1,9 @@
-# Generic latex article template
+# A weakly structured stem for human origins in Africa
 
-This template includes a main document "paper" and its "supplement". The two
-documents can share references to figures, tables, etc using the
-cross-referencing package `xr`.
+This repository contains the manuscript and supplementary material for "A
+weakly structured stem for human origins in Africa." To build the document,
+simply type `make` in this directory.
 
-To build, simply type `make`.
+## Contributing
+
+
