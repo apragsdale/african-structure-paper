@@ -19,7 +19,10 @@
 \externaldocument{paper}
 
 % local definitions
-\newcommand{\comment}[1]{{\textcolor{red}{Comment: #1}}}
+\newcommand{\sgcomment}[1]{{\textcolor{red}{SG: #1}}}
+\newcommand{\bmhcomment}[1]{{\textcolor{blue}{BMH: #1}}}
+\newcommand{\aprcomment}[1]{{\textcolor{magenta}{APR: #1}}}
+\newcommand{\tdwcomment}[1]{{\textcolor{cyan}{TDW: #1}}}
 
 \begin{document}
 \title{Supporting Information for ``A weakly structured stem for human origins in Africa''}
@@ -92,7 +95,37 @@
 
 \break
 
-\addcontentsline{toc}{section}{Supporting figures and tables}
-\section*{Supporting figures and tables}
+\addcontentsline{toc}{section}{Supporting tables and figures}
+\section*{Supporting tables and figures}
+
+\begin{table}[ht]
+\caption{
+    \label{tab:single_origin}
+    \textbf{Best-fit parameters from the Single-Origin model.}
+    \aprcomment{fill in caption}
+}
+\centering
+\begin{tabular}[t]{lp{8cm}ll}
+    \toprule
+    Parameter & Description & Value & Std. err.\\
+    \midrule
+    $N_e$ & Ancestral effective population size & 10198 & 403 \\
+    $N_{MH}$ & Size of modern-human lineage between Neanderthal and Nama splits & 21111 & 529 \\
+    $N_{Nama_0}$ & Initial Nama size & 10224 & 370 \\
+    $N_{Nama_F}$ & Final Nama size & 222 & 9 \\
+    $N_{MSL_0}$ & Initial Mende size & 17211 & 769 \\
+    $N_{MSL_F}$ & Final Mende size & 16822 & 606 \\
+    $N_{EA}$ & Size of East African Branch & 7139 & 273 \\
+    $N_{Gumuz_F}$ & Final Gumuz size & 3831 & 131 \\
+    $N_{EP}$ & East African agriculturist size & 13033 & 491 \\
+    $N_{GBR_0}$ & Initial British size & 846 & 33 \\
+    $N_{GBR_F}$ & Final British size & 12121 & 507 \\
+    $N_{Neand}$ & Neanderthal size & 1867 & 105 \\
+    $T_{Nama}$ & Nama split time (years) & 110400 & 2525 \\
+    $m_{Nama-MSL}$ & Nama-Mende symmetric migration rate & $2.82\times10^{-5}$ & $0.158\times10^{-5}$ \\
+    $m_{Nama-EA}$ & Nama-East Africa symmetric migration rate & $4.94\times10^{-5}$ & $0.197\times10^{-5}$ \\
+    \bottomrule
+\end{tabular}
+\end{table}
 
 \end{document}
