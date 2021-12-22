@@ -24,6 +24,9 @@
 \newcommand{\aprcomment}[1]{{\textcolor{magenta}{APR: #1}}}
 \newcommand{\tdwcomment}[1]{{\textcolor{cyan}{TDW: #1}}}
 
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
 \begin{document}
 \title{Supporting Information for ``A weakly structured stem for human origins in Africa''}
 \author{Aaron P. Ragsdale, Timothy D. Weaver, Brenna M. Henn, and Simon Gravel}
@@ -95,17 +98,17 @@
 
 \break
 
-\addcontentsline{toc}{section}{Supporting tables and figures}
-\section*{Supporting tables and figures}
+\addcontentsline{toc}{section}{Supporting tables}
+\section*{Supporting tables}
 
 \begin{table}[ht]
 \caption{
     \label{tab:single_origin}
     \textbf{Best-fit parameters from the Single-Origin model.}
-    \aprcomment{fill in caption}
+    \aprcomment{fill in caption - generation time of 29 years, other details}
 }
 \centering
-\begin{tabular}[t]{lp{8cm}ll}
+\begin{tabular}[t]{rP{8cm}cc}
     \toprule
     Parameter & Description & Value & Std. err.\\
     \midrule
@@ -115,17 +118,159 @@
     $N_{Nama_F}$ & Final Nama size & 222 & 9 \\
     $N_{MSL_0}$ & Initial Mende size & 17211 & 769 \\
     $N_{MSL_F}$ & Final Mende size & 16822 & 606 \\
-    $N_{EA}$ & Size of East African Branch & 7139 & 273 \\
+    $N_{EA}$ & Size of East African branch & 7139 & 273 \\
     $N_{Gumuz_F}$ & Final Gumuz size & 3831 & 131 \\
     $N_{EP}$ & East African agriculturist size & 13033 & 491 \\
     $N_{GBR_0}$ & Initial British size & 846 & 33 \\
     $N_{GBR_F}$ & Final British size & 12121 & 507 \\
     $N_{Neand}$ & Neanderthal size & 1867 & 105 \\
     $T_{Nama}$ & Nama split time (years) & 110400 & 2525 \\
-    $m_{Nama-MSL}$ & Nama-Mende symmetric migration rate & $2.82\times10^{-5}$ & $0.158\times10^{-5}$ \\
-    $m_{Nama-EA}$ & Nama-East Africa symmetric migration rate & $4.94\times10^{-5}$ & $0.197\times10^{-5}$ \\
+    $m_{Nama-MSL}$ & Nama--Mende symmetric migration rate & $2.82\times10^{-5}$ & $0.158\times10^{-5}$ \\
+    $m_{Nama-EA}$ & Nama--East Africa symmetric migration rate & $4.94\times10^{-5}$ & $0.197\times10^{-5}$ \\
+    $m_{MSL-EA}$ & Mende--East Africa migration rate & $18.76\times10^{-5}$ & $0.764\times10^{-5}$ \\
+    $m_{EA-GBR}$ & East Africa--Europe migration rate & $4.42\times10^{-5}$ & $0.239\times10^{-5}$ \\
+    $m_{EA-EA}$ & Intra-East Africa migration rate & $41.28\times10^{-5}$ & $1.33\times10^{-5}$ \\
+    $f_{GBR \rightarrow EP}$ & Ancestry proportion of East African agriculturalists from GBR 12 ka ($1-f$ from Gumuz) & 0.658 & 0.0039 \\
+    $f_{EP \rightarrow Nama}$ & Ancestry proportion from EA pastoralists to Nama 2 ka & 0.279 & 0.0039 \\
+    $f_{GBR \rightarrow Nama}$ & Ancestry proportion from Europeans to Nama 10 generations ago & 0.150 & 0.0019 \\
     \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{table}[ht]
+\caption{
+    \label{tab:continuous_migration}
+    \textbf{Best-fit parameters from the Continuous-Migration model.}
+    \aprcomment{fill in caption - generation time of 29 years, other details}
+}
+\centering
+\begin{tabular}[t]{rP{8cm}cc}
+    \toprule
+    Parameter & Description & Value & Std. err.\\
+    \midrule
+    $N_e$ & Ancestral effective population size & 7270 & 1777 \\
+    $N_{stem1}$ & Size of stem 1 lineage between Neanderthal and Nama splits & 8256 & 1612 \\
+    $N_{stem2}$ & Size of stem 2 lineage & 13547 & 2488 \\
+    $N_{Nama_0}$ & Initial Nama size & 11939 & 2989 \\
+    $N_{Nama_F}$ & Final Nama size & 221 & 54 \\
+    $N_{MSL_0}$ & Initial Mende size & 9738 & 2479 \\
+    $N_{MSL_F}$ & Final Mende size & 28150 & 6628 \\
+    $N_{EA}$ & Size of East African branch & 7489 & 1841 \\
+    $N_{Gumuz_F}$ & Final Gumuz size & 3728 & 915 \\
+    $N_{EP}$ & East African agriculturist size & 13072 & 3246 \\
+    $N_{GBR_0}$ & Initial British size & 959 & 231 \\
+    $N_{GBR_F}$ & Final British size & 11822 & 2889 \\
+    $N_{Neand}$ & Neanderthal size & 2670 & 591 \\
+    $T_{stems}$ & Stem split time (years) & 1163072 & 390803 \\
+    $T_{Nama}$ & Nama split time (years) & 134745 & 17775 \\
+    $m_{Nama-MSL}$ & Nama--Mende symmetric migration rate & $0.98\times10^{-5}$ & $0.366\times10^{-5}$ \\
+    $m_{Nama-EA}$ & Nama--East Africa symmetric migration rate & $4.08\times10^{-5}$ & $1.02\times10^{-5}$ \\
+    $m_{MSL-EA}$ & Mende--East Africa migration rate & $21.4\times10^{-5}$ & $5.32\times10^{-5}$ \\
+    $m_{EA-GBR}$ & East Africa--Europe migration rate & $4.17\times10^{-5}$ & $1.02\times10^{-5}$ \\
+    $m_{EA-EA}$ & Intra-East Africa migration rate & $33.6\times10^{-5}$ & $8.35\times10^{-5}$ \\
+    $f_{GBR \rightarrow EP}$ & Ancestry proportion of East African agriculturalists from GBR 12 ka ($1-f$ from Gumuz) & 0.642 & 0.0037 \\
+    $f_{EP \rightarrow Nama}$ & Ancestry proportion from EA pastoralists to Nama 2 ka & 0.255 & 0.0043 \\
+    $f_{GBR \rightarrow Nama}$ & Ancestry proportion from Europeans to Nama 10 generations ago & 0.156 & 0.0021 \\
+    $m_{stems}$ & Stem 1--stem 2 migration rate & $6.43\times10^{-5}$ & $1.05\times10^{-5}$ \\
+    $m_{stem2-Nama}$ & Stem 2--Nama migration rate & $5.82\times10^{-5}$ & $1.60\times10^{-5}$ \\
+    $m_{stem2-MSL}$ & Stem 2--Mende migration rate & $16.4\times10^{-5}$ & $4.19\times10^{-5}$ \\
+    $m_{stem2-EA}$ & Stem 2--East Africa migration rate & $3.10\times10^{-5}$ & $0.901\times10^{-5}$ \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{
+    \label{tab:merger_without_stem_migration}
+    \textbf{Best-fit parameters from the Merger-Without-Stem-Migration model.}
+    \aprcomment{fill in caption - generation time of 29 years, other details}
+}
+\centering
+\begin{tabular}[t]{rP{8cm}cc}
+    \toprule
+    Parameter & Description & Value & Std. err.\\
+    \midrule
+    $N_e$ & Ancestral effective population size & 11258 & 326 \\
+    $N_{stem1}$ & Size of stem 1 lineage between stem 1--stem 2 split and stem 1E--stem 1S split & 113 & 76 \\
+    $N_{stem2}$ & Size of stem 2 lineage & 23984 & 1149 \\
+    $N_{Nama_0}$ & Initial Nama and stem 1S size & 13134 & 384 \\
+    $N_{Nama_F}$ & Final Nama size & 225 & 7.3 \\
+    $N_{MSL_0}$ & Initial Mende size & 11856 & 322 \\
+    $N_{MSL_F}$ & Final Mende size & 25558 & 987 \\
+    $N_{EA}$ & Size of East African and stem 1E branch & 9136 & 246 \\
+    $N_{Gumuz_F}$ & Final Gumuz size & 3385 & 102 \\
+    $N_{EP}$ & East African agriculturist size & 13650 & 408 \\
+    $N_{GBR_0}$ & Initial British size & 931 & 29 \\
+    $N_{GBR_F}$ & Final British size & 12064 & 334 \\
+    $N_{Neand}$ & Neanderthal size & 1935 & 91 \\
+    $T_{stems}$ & Stem split time (years) & 420881 & 27380 \\
+    $T_{stem1}$ & Stem 1 split time into stem 1E and stem 1S (years) & 367434 & 19952 \\
+    $m_{Nama-MSL}$ & Nama--Mende symmetric migration rate & $0.361\times10^{-5}$ & $0.113\times10^{-5}$ \\
+    $m_{Nama-EA}$ & Nama--East Africa symmetric migration rate & $4.00\times10^{-5}$ & $0.130\times10^{-5}$ \\
+    $m_{MSL-EA}$ & Mende--East Africa migration rate & $19.5\times10^{-5}$ & $0.548\times10^{-5}$ \\
+    $m_{EA-GBR}$ & East Africa--Europe migration rate & $3.77\times10^{-5}$ & $0.152\times10^{-5}$ \\
+    $m_{EA-EA}$ & Intra-East Africa migration rate & $37.1\times10^{-5}$ & $1.26\times10^{-5}$ \\
+    $f_{GBR \rightarrow EP}$ & Ancestry proportion of East African agriculturalists from GBR 12 ka ($1-f$ from Gumuz) & 0.647 & 0.0037 \\
+    $f_{EP \rightarrow Nama}$ & Ancestry proportion from EA pastoralists to Nama 2 ka & 0.257 & 0.0042 \\
+    $f_{GBR \rightarrow Nama}$ & Ancestry proportion from Europeans to Nama 10 generations ago & 0.156 & 0.0021 \\
+    $T_{Nama}$ & Time of Nama merger event & 117392 & 8253 \\
+    $f_{stem 2 \rightarrow Nama}$ & Proportion of stem 2 ancsestry making up initial Nama lineage ($1-f$ from stem 1S) & 0.707 & 0.0086 \\
+    $T_{EA}$ & Time of East Africa merger event & 94892 & 3648 \\
+    $f_{stem 2 \rightarrow EA}$ & Proportion of stem 2 ancestry making up initial East Africa lineage ($1-f$ from stem 1E) & 0.481 & 0.0074 \\
+    $T_{MSL}$ & Time of secondary admixture from stem 2 to Mende & 23922 & 570 \\
+    $f_{stem 2 \rightarrow MSL}$ & Proportion of ancestry from secondary stem 2 admixture to Mende & 0.168 & 0.0036 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{
+    \label{tab:merger_with_stem_migration}
+    \textbf{Best-fit parameters from the Merger-With-Stem-Migration model.}
+    \aprcomment{fill in caption - generation time of 29 years, other details}
+}
+\centering
+\begin{tabular}[t]{rP{8cm}cc}
+    \toprule
+    Parameter & Description & Value & Std. err.\\
+    \midrule
+    $N_e$ & Ancestral effective population size & 11479 & 1369 \\
+    $N_{stem1}$ & Size of stem 1 lineage between Neanderthal split and stem 1E--stem 1S split & 117 & 838 \\
+    $N_{stem2}$ & Size of stem 2 lineage & 24393 & 6668 \\
+    $N_{Nama_0}$ & Initial Nama size & 13211 & 1514 \\
+    $N_{Nama_F}$ & Final Nama size & 223 & 31 \\
+    $N_{MSL_0}$ & Initial Mende size & 11444 & 1165 \\
+    $N_{MSL_F}$ & Final Mende size & 27417 & 4332 \\
+    $N_{EA}$ & Size of East African Branch & 9077 & 1628 \\
+    $N_{Gumuz_F}$ & Final Gumuz size & 3402 & 337 \\
+    $N_{EP}$ & East African agriculturist size & 13506 & 1684 \\
+    $N_{GBR_0}$ & Initial British size & 953 & 122 \\
+    $N_{GBR_F}$ & Final British size & 12406 & 1678 \\
+    $N_{Neand}$ & Neanderthal size & 2416 & 235 \\
+    $T_{stems}$ & Stem split time (years) & 1442022 & 426449 \\
+    $T_{stem1}$ & Stem 1S--stem 1E split time (years) & 479401 & 166339 \\
+    $m_{Nama-MSL}$ & Nama--Mende symmetric migration rate & $0.712\times10^{-5}$ & $0.401\times10^{-5}$ \\
+    $m_{Nama-EA}$ & Nama--East Africa symmetric migration rate & $4.35\times10^{-5}$ & $0.912\times10^{-5}$ \\
+    $m_{MSL-EA}$ & Mende--East Africa migration rate & $19.8\times10^{-5}$ & $2.57\times10^{-5}$ \\
+    $m_{EA-GBR}$ & East Africa--Europe migration rate & $3.87\times10^{-5}$ & $0.550\times10^{-5}$ \\
+    $m_{EA-EA}$ & Intra-East Africa migration rate & $35.9\times10^{-5}$ & $5.36\times10^{-5}$ \\
+    $f_{GBR \rightarrow EP}$ & Ancestry proportion of East African agriculturalists from GBR 12 ka ($1-f$ from Gumuz) & 0.640 & 0.0075 \\
+    $f_{EP \rightarrow Nama}$ & Ancestry proportion from EA pastoralists to Nama 2 ka & 0.257 & 0.0049 \\
+    $f_{GBR \rightarrow Nama}$ & Ancestry proportion from Europeans to Nama 10 generations ago & 0.157 & 0.0031 \\
+    $m_{stems}$ & Stem 1--stem 2 migration rate & $11.6\times10^{-5}$ & $8.74\times10^{-5}$ \\
+    $T_{Nama}$ & Time of Nama merger event & 118547 & 28170 \\
+    $f_{stem 2 \rightarrow Nama}$ & Proportion of stem 2 ancsestry making up initial Nama lineage ($1-f$ from stem 1S) & 0.714 & 0.067 \\
+    $T_{EA}$ & Time of East Africa merger event & 98083 & 8865 \\
+    $f_{stem 2 \rightarrow EA}$ & Proportion of stem 2 ancestry making up initial East Africa lineage ($1-f$ from stem 1E) & 0.495 & 0.059 \\
+    $T_{MSL}$ & Time of secondary admixture from stem 2 to Mende & 25119 & 641 \\
+    $f_{stem 2 \rightarrow MSL}$ & Proportion of ancestry from secondary stem 2 admixture to Mende & 0.181 & 0.0085 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\break
+
+\addcontentsline{toc}{section}{Supporting figures}
+\section*{Supporting figures}
 
 \end{document}
