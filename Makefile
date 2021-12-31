@@ -5,6 +5,8 @@ paper.pdf: paper.tex paper.bib
 	bibtex supplement
 	pdflatex supplement.tex
 	pdflatex paper.tex
+	pdflatex supplement.tex
+	pdflatex paper.tex
 
 paper.ps: paper.dvi
 	dvips paper
