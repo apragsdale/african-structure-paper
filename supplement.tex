@@ -28,12 +28,8 @@
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \begin{document}
-<<<<<<< HEAD
 \title{Supporting Information for\\
 ``A weakly structured stem for human origins in Africa''}
-=======
-\title{A weakly structured stem for human origins in Africa\\Supporting Information}
->>>>>>> ce008d3132f1f3a70cfe3e60e8f7fbe8cae4e22f
 \author{Aaron P. Ragsdale, Timothy D. Weaver, Brenna M. Henn, and Simon Gravel}
 \date{\today}
 \maketitle
@@ -85,9 +81,16 @@ African, Near Eastern, and East African gene flow.
 
 \subsection{Nama sample collection and consent}
 
-DNA samples were collected in South Africa (Richtersveld) with IRB approval
-from Stanford University, Stellenbosch University (ZA) and SUNY Stony Brook.
-\aprcomment{Does this need to be expanded on at all?}
+DNA samples were collected from three Nama communities in the Richtersveld
+region of South Africa, which borders southern Namibia, in 2012. A community
+guide was present during each interview and facilitated consent in Afrikaans or
+Nama. Written consent was recorded per our IRB protocol with human subjects
+approval from Stanford University (Protocol \#13829), Stellenbosch University
+(N11/07/210) and later maintained via SUNY Stony Brook (Protocol \#727494).
+Saliva samples were extracted from Oragene [OGR-500] kits at Stellenbosch
+University. Results stemming from genetic analyses have been communicated in
+2015, 2019, 2021 via community presentations, a radio interview and to
+representatives of the Richtersveld National Park.
 
 \subsection{Details about populations used in analyses}
 
@@ -125,7 +128,7 @@ had less than 100 contiguous base pairs.
 \aprcomment{$D^2$, $D_z$, $\pi_2$, and $H$. Definitions, notation,
 indexing\ldots}
 
-\subsection{Computing LD and diversity statistics}
+\subsection{Computing LD and diversity statistics}\label{sec:computing-stats}
 
 We compared single- and two-locus statistics in the data to predictions based
 on detailed demographic models. Model predictions were obtained using
@@ -192,7 +195,7 @@ sample and are informative of the Neanderthal demography. These statistics were
 included in the fit, but statistics requiring more than one Neanderthal sample
 to estimate were removed.
 
-\subsection{Computing conditional SFS}
+\subsection{Computing conditional SFS}\label{sec:computing-csfs}
 
 The conditional site frequency spectrum (or cSFS) is the distribution of allele
 frequencies restricted to loci that satisfy a given condition. Specifically, we
@@ -204,7 +207,7 @@ uniform under neutrality and a simple split model (with no subsequent
 migration) between the ancestors of modern humans and Neanderthal
 \citep{Chen2007-iy}. By contrast, a U-shaped distribution has been taken as
 evidence for archaic introgression from a population whose split from modern
-humans is at least as old as that of Neanderthal’s
+humans is at least as old as that of the human-Neanderthal split
 \citet{Durvasula2020-td,Yang2012-ze}. Because we wanted to compare our
 inferences (based on intergenic sites) to inferences from previous work (based
 on whole-genome data), we computed the cSFS for both intergenic and all sites
@@ -219,13 +222,91 @@ predictions are discussed in the model prediction section below.
 
 \section{Model specification and fitting}
 
+For the early history, we tested model parameterizations that cover many of the
+proposed scenarios of population structure, size changes, and/or archaic
+admixture. The simplest model, in terms of number of parameters, was a
+single-origin expansion of modern humans, with no structure in the stem and no
+archaic admixture aside from the Neanderthal admixture in Eurasian populations
+following the out-of-Africa migration. This model allowed for a population size
+change in the stem of modern humans between the ancestral split of the
+human-Neanderthal lineages and the more recent split of branches leading to
+Southern and West/Eastern African populations.
 
+To include population structure in early human history, we considered multiple
+parameterizations of models that allowed more than a single stem population. In
+general, stem populations were allowed to vary in their sizes, split times, and
+migration rates, with parameterizations flexible enough to encompass proposed
+scenarios of either archaic admixture or population structure, both connected
+by gene flow or with isolation between stems.
+
+In one parameterization of early structure, which we refer to as a “continuous
+migration” model, a secondary stem population (stem 2) split from the primary
+stem (stem 1) that leads to modern humans. Stem 1 contributed to present-day
+populations via a series of population splits similar to the single-origin
+model, while stem 2 contributed through continuous symmetric migrations with
+contemporaneous populations. The symmetrical migration rates could differ
+across population pairs and over different epochs. This continuous migration
+was allowed until stem 2 disappeared, which occurred as recently as 5kya. We
+tested models that both allowed or disallowed migration between stems, i.e.,
+before stem 1 split into S/E/W African populations.
+
+In another parameterization of early structure, a secondary stem population
+(stem 2) contributed ancestry to present-day populations via a series of
+instantaneous admixture events (i.e., pulse admixture or “merger” events) to
+lineages leading to sampled present-day African populations. Merger events were
+allowed to occur in one or more of the Nama, Mende, and Gumuz branches, as well
+as the branch of East and West Africans prior to their split. Those admixture
+events were allowed to occur at any time along those branches, and with any
+proportions, and stem 2 was allowed to split from the primary stem at any time
+before subsequent divergences (and either before or after the split of the
+Neanderthal branch). We tested models that allowed migration between the early
+stems, before subsequent splits and admixture events, as well as models that
+were restricted to isolation between stem branches. Depending on the specific
+parameters, such models encompass commonly-considered ghost archaic admixture
+scenarios (e.g., if a long-isolated lineage more recently contributes a
+minority of ancestry to one or more populations), as well as relatively simple
+fragmentation-coalescence scenarios.
+
+Based on the geographical locations of present-day populations, we tentatively
+labeled ancestral branches using a parsimony in migration, referring to South,
+East, and West African branches (S/E/W AFR, Figure X). We do not know the
+geographical location of these ancestral populations (nor even if they
+correspond to populations with a well-defined geographic range), and these
+labels should be considered as tentative. However, we found it useful to name
+branches in reference to where in Africa their descendants are found.
+\sgcomment{Please double-check this paragraph! TODO Brenna?}
 
 \subsection{General strategy for building models and introducing complexity}
 
 \subsection{Optimization using moments}
 
+moments-LD uses a composite likelihood approach to simultaneously fit relative
+pairwise diversity and LD statistics over a range of recombination distances.
+Likelihoods were computed independently for pairwise diversity and each
+recombination distance bin using a multivariate Guassian likelihood function as
+described in Section \ref{sec:computing-stats}. These were multiplied across
+bins and the single set of heterozygosity statistics following the approach
+detailed in \citet{Ragsdale2019-nt}. For each model tested, we ran multiple
+rounds of optimization, alternating between the \emph{optimize\_log\_fim},
+\emph{optimize\_log\_powell}, and \emph{optimize\_lbfgsb} methods to explore
+parameter space and hone in on the best fit parameters. Initial guesses for
+parameters were chosen from demographically plausible starting points and then
+perturbed to explore space, using gradient descent (on the log of the
+parameters). The best fits from these initial rounds of optimization were then
+chosen as the starting points for optimization using the Powell and/or the
+L-BFGS-B methods (as implemented in the SciPy optimization package
+\cite{Virtanen2020-kr}). This process was repeated with alternating
+optimization methods until the best fit parameter set converged consistently.
+
 \subsection{Confidence intervals using Godambe methods}
+
+The bootstrap replicates that were used to compute the variance-covariance
+structure of the observed statistics within bins were also used to build 500
+bootstrap replicates of the data by resampling with replacement. For the best
+fit parameters, we computed confidence intervals using the Godambe Information
+approach, which corrects composite likelihood estimates of confidence intervals
+to account for nonindependence in the data, including linkages between loci and
+nonindependence of recombination bins \cite{Coffman2016-yq}.
 
 \section{Gene genealogy reconstruction}
 
@@ -429,5 +510,14 @@ predictions are discussed in the model prediction section below.
 
 \addcontentsline{toc}{section}{Supporting figures}
 \section*{Supporting figures}
+
+\begin{figure}[ht]
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{figures/supp-possible-models.png}
+    \caption{\textbf{supp}.}
+    \label{fig:supp-possible-models}
+\end{center}
+\end{figure}
+
 
 \end{document}
