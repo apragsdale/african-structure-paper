@@ -18,12 +18,3 @@ jobs:
         run: |
           apk add make
           make
-
-    - name: Build documents
-      run: make
-      
-    - name: Run check
-      run: make check
-      
-    - name: Run distcheck
-      run: make distcheck
