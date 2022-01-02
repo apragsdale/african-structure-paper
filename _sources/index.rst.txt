@@ -14,4 +14,4 @@ African structure paper and supplement
    :caption: Manuscript
    :maxdepth: 1
 
-   introduction
+   PDFs
