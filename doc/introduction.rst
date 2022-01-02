@@ -2,6 +2,9 @@
 Introduction
 ============
 
-The paper can be found here: :download:`pdf <paper.pdf>`
+These documents were built from the most recent commit to the manuscript
+repository. 
 
-The supplement can be found here: :download:`pdf <supplement.pdf>`
+The paper can be found here: :download:`paper.pdf <paper.pdf>`
+
+The supplement can be found here: :download:`supplement.pdf <supplement.pdf>`
