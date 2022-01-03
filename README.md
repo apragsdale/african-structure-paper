@@ -30,7 +30,7 @@ brew install basictex
 You can make small edits in the browser by navigating to the file and clicking
 the "edit" button (which looks like a pencil in the top-right corner of the
 window). Any edits you make can then be committed directly to the repository
-but completing the "Commit changes" section at the bottom of the page. Just include
+by completing the "Commit changes" section at the bottom of the page. Just include
 a short phrase saying what you edited and click the green "Commit changes" button.
 
 To make larger edits and to compile the document, you should first clone the
@@ -38,10 +38,10 @@ repository to your own computer, make changes there, commit the changes locally,
 and then push those changes back to the repository.
 
 *Note: It's best to make small commits and push often to ensure conflicts don't
-arise. Also, to coordinate to make sure only one person is tackling a given
-section at a time.*
+arise. Also, it's helpful to coordinate to make sure only one person is tackling
+a given section at a time to avoid merge conflicts.*
 
-### Clone the repo
+### To clone the repo
 ```sh
 cd Documents  # or wherever you want this project to live locally
 git clone git@github.com:apragsdale/african-structure-paper.git
@@ -49,7 +49,7 @@ cd african-structure-paper
 make
 ```
 
-### Push your recent edits to the repo
+### To push your recent edits to the repo
 After editing some section, do the following
 ```sh
 git add [files-you-edited]
