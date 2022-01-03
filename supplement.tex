@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{booktabs}
+\usepackage{amsfonts}
 
 \lstset{language=Python}
 
@@ -20,6 +21,8 @@
 \newcommand{\bmhcomment}[1]{{\textcolor{blue}{BMH: #1}}}
 \newcommand{\aprcomment}[1]{{\textcolor{magenta}{APR: #1}}}
 \newcommand{\tdwcomment}[1]{{\textcolor{cyan}{TDW: #1}}}
+
+\newcommand{\E}{\mathbb{E}}
 
 \usepackage{array}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -110,20 +113,63 @@ representatives of the Richtersveld National Park.
 \subsection{Filtering and subsetting data}
 
 All analyses presented in this work focus on biallelic single nucleotide
-polymorphisms within the 1000 Genomes Phase 3 strict mask.
-
-For the moments-LD analysis, we focused on intergenic locations because these
-appear less affected by natural selection compared to both synonymous and
-nonsynonymous variation \citep{Ragsdale2018-dd}. To enable comparison with
-Neanderthal DNA, we excluded regions for which the Vindija Neanderthal sample
-had less than 100 contiguous base pairs. 
+polymorphisms within the 1000 Genomes Phase 3 strict mask.  For the moments-LD
+analysis, we focused on intergenic locations because these appear less affected
+by natural selection compared to both synonymous and nonsynonymous variation
+\citep{Ragsdale2018-dd}. To enable comparison with Neanderthal DNA, we excluded
+regions for which the Vindija Neanderthal sample had less than 100 contiguous
+base pairs. 
 
 \section{Computing statistics}
 
 \subsection{LD and diversity statistics used in model fits}
 
-\aprcomment{$D^2$, $D_z$, $\pi_2$, and $H$. Definitions, notation,
-indexing\ldots}
+We used multi-population linkage disequilibrium (LD) and pairwise diverisity
+statistics to fit demographic models to data. These statistics, introduced and
+described in detail in \citet{Ragsdale2019-nt}, are the multi-population analog
+of the classic LD statistics first described and computed by
+\citet{Hill1968-vu,Ohta1971-yd}.
+
+Given two biallelic loci, with alleles $A$ and $a$ and the left locus and
+allels $B$ and $b$ at the right locus, the standard covariance measure of LD is
+$D=p_{AB}p_{ab}-p_{Ab}p_{aB}$, where $p_{AB}$ is the frequency of $AB$
+haplotypes in a population (and thus the probability of drawing an $AB$
+haplotype in a random sample of that population). \citet{Hill1968-vu} solve for
+the expectation of $D^2$ using a system of equations that includes
+$\E[Dz] = \E[D(1-2p_A)(1-2p_B)]$ and $\E[\pi_2] =
+\E[p_A(1-p_A)p_B(1-p_B)]$, where $p_A$ and $p_B$ are the frequencies of
+$A$ and $B$ at the left and right loci, respectively. This system also requires
+the expected pairwise diversity (or expected heterozygosity, assuming random
+mating), denoted $\E[H] = \E[2p_A(1-p_A)] =
+\E[2p_B(1-pB)]$, assuming equal mutation rates at the two loci.
+
+\citet{Ragsdale2019-nt} showed how to compute the analogous multi-population
+set of LD statistics, and we refer readers there for details on their
+definitions, computation, and interpretations. In short, we obtain expectations
+of $D^2$ in each population, the cross-population product $D_iD_j$ (where $i$
+and $j$ index populations), as well as those additional statistics $Dz$ and
+$\pi_2$ taken over different combinations of population indexing. That is
+$Dz_{i, j, k} = D_i(1-2p_{A,j})(1-2p_{B,k})$ and
+$\pi_{2;i,j,k,l}=p_{A,i}(1-p_{A,j})p_{B,k}(1-2p_{B,l})$. We consider statistics
+normalized by $\pi_2$ in a reference population (throughout, we use the Mende
+$\pi_2$), which removes any dependence on the mutation rate. Thus, statistics
+take the form $\sigma_{d;i,j}^2 = \frac{\E[D^2_{i,j}]}{\E[\pi_2]}$,
+$\sigma_{Dz;i,j,k}=\frac{\E[Dz_{i,j,k}]}{\E[\pi_2]}$, and so on.
+Multi-population pairwise diversity statistics $\E[H_i]=\E[2p_i(1-p_i)]$ and
+$\E[H_{i,j}] = \E[p_i(1-p_j) + p_j(1-p_i)]$ were also normalized by $H$ in the
+Mende, so that all pairwise diversity measures are relative to the reference
+population.
+
+$\sigma_{Dz}$ has been shown to be sensitive to deep population structure and
+archaic admixture \citep{Ragsdale2019-nt}, and this statistic is closely
+related to $S^*$ statistics used to scan for introgressed haplotypes
+\citep{Plagnol2006-lt}. Pairwise diversity statistics $H_{i,j}$ have also been
+widely used in demographic inference involving ancient DNA and many samples, as
+$f_2$, $f_3$ and $f_4$ statistics can be expressed as linear combinations of
+$H_{i,j}$. $f$-statistics form the basis of admixture graph analysis
+\aprcomment{cite}. Therefore, the set of statistics used here encompass
+multiple features of genetic data that have been used to infer models of
+archaic admixture and population structure involving many populations.
 
 \subsection{Computing LD and diversity statistics}\label{sec:computing-stats}
 
@@ -361,17 +407,62 @@ nonindependence of recombination bins \cite{Coffman2016-yq}.
 
 \section{Gene genealogy reconstruction}
 
+We used Relate version 1.0.16 \citep{Speidel2019-nj} to reconstruct genome-wide
+gene genealogies using a combined set of 1000 Genomes and African Diversity
+Reference Panel datasets, retaining all AFR-labeled populations and GBR, CEU,
+PJL, and CHB from the 1000 Genomes panel and the Nama, Gumuz, Oromo, and Amhara
+from ADRP. We used all autosomes and applied the 1000 Genomes Phase 3 strict
+mask, we used an ancestral sequence determined by a 6-primate alignment
+(human\_ancestor\_GRCh37\_e59), and we used the HapMap II combined
+recombination map, all in GRCh37 coordinates. We assumed a generation time of
+29 years, a mutation rate of 1.25e-8, and followed the standard pipeline
+described in the Relate documentation.
+
+From the reconstructed gene genealogies, we computed coalescence rates within
+and between populations using Relate’s function RelateCoalescentRate. This
+allows for an estimate of the instantaneous inverse coalescence rate (IIRC) for
+samples drawn within each population (the inverse of which is often interpreted
+as the effective population size history), and the relative cross coalescence
+rates between pairs of populations (which are commonly used to estimate
+divergence times).
+
+Following \citet{Speidel2019-nj} we also identified “deep branches” within gene
+trees. Such a “deep branch” is a branch within a marginal tree that has its
+upper end (or node) extending to more than 1 million years in age, and we
+partitioned deep branches based on their lower end ages into bins between 0 and
+1Ma. Such branches can be categorized by their association with Neanderthals by
+comparing mutations that fall upon such a branch to the allele found in a
+Neanderthal genome sequence. For this, we used the published high-coverage
+Vindija Neanderthal \citep{Prufer2017-kk}. Again following the analysis in
+\citet{Speidel2019-nj}, if one or more mutations on a deep branch are shared
+with the Neanderthal sequence, the branch is inferred to have passed through
+the Neanderthal lineage.
+
+A deep branch is assigned to a contemporary population if at least one sample
+from that population has ancestry that passes through that branch.
+\citet{Speidel2019-nj} show that deep branches with lower ends more recent than
+the Neanderthal introgression event are enriched for Neanderthal-matching
+alleles in Eurasian populations, while a large majority of deep branches in
+1000 Genomes West African populations do not match either the Neanderthal or
+Denisovan samples. This observation was taken as further evidence for deep
+population structure or archaic admixture in West African populations from an
+unidentified hominin unrelated to the Neanderthal/Denisovan complex.
+
 \section{Predictions from inferred demographic models}
 
 \subsection{$F_{ST}$ between coexisting populations over time}
 
 \subsection{$f_4$ statistics between pairs of contemporary and pairs of ancient populations}
 
-\section{Validations using simulatinos from inferred demographic models}
+\section{Validations using simulations from inferred demographic models}
 
 \subsection{Simulation details}
 
 \subsection{cSFS prediction under inferred models}
+
+\section{Supplementary results}
+
+\subsection{Conditional SFS}
 
 \subsection{Relate curves from inferred models}
 
