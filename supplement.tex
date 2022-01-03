@@ -9,9 +9,6 @@
 \usepackage{color}
 \usepackage{booktabs}
 
-% lorem ipsum dummy text
-\usepackage{lipsum}
-
 \lstset{language=Python}
 
 % cross-reference with main text
@@ -277,6 +274,60 @@ branches in reference to where in Africa their descendants are found.
 \sgcomment{Please double-check this paragraph! TODO Brenna?}
 
 \subsection{General strategy for building models and introducing complexity}
+
+With up to six sampled populations in final demographic models that we fit,
+there are many parameters to learn. Even in the simplest model involving all
+populations (such as the tree-like single-origin model), there are a few dozen
+parameters defining split times, migration rates, admixture timings and
+proportions, and population sizes and size changes. Thus, parameter space for a
+given model topology is large. In addition, the space of possible model
+topologies is itself large – as the number of populations increases, the number
+of possible topologies also increases, as there are more possibilities for the
+order of divergence and admixture events. 
+
+In order to narrow the set of possible models to plausible scenarios and to
+avoid overfitting, we took an approach that combined the incremental addition
+of complexity, starting with fewer populations before combining all
+populations, as well as fixing parameters that have been previously estimated
+or that fit consistently across all model scenarios. By initially considering
+sets of two or three populations, we were able to narrow down the relative
+orders of divergences between African and Eurasian populations. Assuming simple
+isolation-with-migration models, the Nama appeared to be the earliest diverging
+population of those we considered, with West African (Mende) and East African
+(Gumuz) populations diverging more recently, followed by the split of the
+Eurasian branch from the East African branch.
+
+We performed an initial round of optimization including all six populations
+with a family of models including single- and multiple-stem scenarios as
+described in the previous section. We identified parameters that reached
+consistent values across all models. These included the timings of recent or
+non-central divergences and admixture events:
+\begin{itemize}
+    \item East/West African population split: 60ka
+    \item East African/European split: 50 ka
+    \item Neanderthal introgression to Eurasian branch: 45 ka
+    \item Neanderthal/human split: 550 ka
+    \item Eurasian back-to-African migration: 12 ka
+\end{itemize}
+When testing multiple variations of the more complex models, we kept these
+values fixed. This reduced the potential for overfitting the more complex
+models, while reducing the computational cost of optimization.
+
+Our models also included recent events to account for known migrations,
+admixtures, and growths and declines in effective population sizes. Many of
+these parameters were fixed based on previous historical, genetic, or
+anthropological research, namely
+\begin{itemize}
+    \item East African pastoralist to South African admixture: 2 ka \cite{}
+    \item European to South African admixture: 10 generations ago \cite{}
+    \item Mende population expansion and Gumuz population decline: 5 ka \cite{}
+    \item South African population decline following colonial admixture: 9 generations ago \cite{}
+\end{itemize}
+While the dates of these events were fixed, the sizes and proportions were
+allowed to vary in the fits. The total number of parameters that were
+ultimately inferred were 18-26 \aprcomment{check!}, depending on the complexity
+of the model.
+
 
 \subsection{Optimization using moments}
 
