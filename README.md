@@ -7,7 +7,7 @@ you may need to type `make -B` instead to force a rebuild.
 
 GitHub is set up to automatically build the manuscript from the most recent
 commit, and PDFs of the paper and supplement can be found
-[here](https://apragsdale.github.io/african-structure-paper/introduction.html).
+[here](https://apragsdale.github.io/african-structure-paper/PDFs.html).
 
 ## Getting started
 
