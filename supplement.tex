@@ -135,13 +135,13 @@ allels $B$ and $b$ at the right locus, the standard covariance measure of LD is
 $D=p_{AB}p_{ab}-p_{Ab}p_{aB}$, where $p_{AB}$ is the frequency of $AB$
 haplotypes in a population (and thus the probability of drawing an $AB$
 haplotype in a random sample of that population). \citet{Hill1968-vu} solve for
-the expectation of $D^2$ using a system of equations that includes
-$\E[Dz] = \E[D(1-2p_A)(1-2p_B)]$ and $\E[\pi_2] =
-\E[p_A(1-p_A)p_B(1-p_B)]$, where $p_A$ and $p_B$ are the frequencies of
-$A$ and $B$ at the left and right loci, respectively. This system also requires
-the expected pairwise diversity (or expected heterozygosity, assuming random
-mating), denoted $\E[H] = \E[2p_A(1-p_A)] =
-\E[2p_B(1-pB)]$, assuming equal mutation rates at the two loci.
+the expectation of $D^2$ using a system of equations that includes $\E[Dz] =
+\E[D(1-2p_A)(1-2p_B)]$ and $\E[\pi_2] = \E[p_A(1-p_A)p_B(1-p_B)]$, where $p_A$
+and $p_B$ are the frequencies of $A$ and $B$ at the left and right loci,
+respectively. This system also requires the expected pairwise diversity (or
+expected heterozygosity, assuming random mating), denoted $\E[H] =
+\E[2p_A(1-p_A)] = \E[2p_B(1-pB)]$, assuming equal mutation rates at the two
+loci.
 
 \citet{Ragsdale2019-nt} showed how to compute the analogous multi-population
 set of LD statistics, and we refer readers there for details on their
@@ -187,8 +187,8 @@ in the recombination maps by considering two different recombination maps, the
 OMNI YRI and HapMapII
 \citep{1000_Genomes_Project_Consortium2015-zq,International_HapMap_Consortium2007-vn}.
 Statistics were largely unchanged by using a different map
-(Figure~\ref{fig:sup-map_comparison}). \aprcomment{These maps are both inferred
-using array data, which is sparse. Comment on this.}
+(Figure~\ref{fig:supp-omni-hapmap-comparison}). \aprcomment{These maps are both
+inferred using array data, which is sparse. Comment on this.}
 
 We removed bins of recombination distance less than a recombination distance of
 $r = 5\times10^{-6}$ (at a rough estimate of 1 cM/Mb, this corresponds to a minimum
@@ -405,6 +405,17 @@ approach, which corrects composite likelihood estimates of confidence intervals
 to account for nonindependence in the data, including linkages between loci and
 nonindependence of recombination bins \cite{Coffman2016-yq}.
 
+Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}
+give the best fit values for all parameters in the four models considered here,
+along with standard errors using computed using the Godambe method.
+Figures~\ref{fig:supp-single-origin-fits}--\ref{fig:supp-merger-with-stem-migration-fits}
+show the corresponding fits to many of the LD statistics used in the inference.
+The $\sigma_{Dz}$ statistics are fit poorly by the single-origin model, while
+the models with multiple stems all provide reasonable fits to the data. The
+merger-with-stem-migration model performed the best of these four models,
+although the fits were nearly visually indistiguishable from the fits from the
+merger-with-stem-migration model.
+
 \section{Gene genealogy reconstruction}
 
 We used Relate version 1.0.16 \citep{Speidel2019-nj} to reconstruct genome-wide
@@ -427,10 +438,12 @@ rates between pairs of populations (which are commonly used to estimate
 divergence times).
 
 Following \citet{Speidel2019-nj} we also identified “deep branches” within gene
-trees. Such a “deep branch” is a branch within a marginal tree that has its
-upper end (or node) extending to more than 1 million years in age, and we
-partitioned deep branches based on their lower end ages into bins between 0 and
-1Ma. Such branches can be categorized by their association with Neanderthals by
+trees. Such a “deep branch” is a branch within a marginal tree (meaning, the
+tree at a given locus) that has its upper end (i.e., the node of its
+coalescence with another branch) extending to more than 1 million years in age,
+and we partitioned deep branches based on their lower node ages (where two or
+more branches coalesce into this single branch) into bins between 0 and 1Ma.
+Such branches can be categorized by their association with Neanderthals by
 comparing mutations that fall upon such a branch to the allele found in a
 Neanderthal genome sequence. For this, we used the published high-coverage
 Vindija Neanderthal \citep{Prufer2017-kk}. Again following the analysis in
@@ -483,7 +496,7 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 
 \begin{table}[ht]
 \caption{
-    \label{tab:single_origin}
+    \label{tab:supp-single-origin}
     \textbf{Best-fit parameters from the Single-Origin model.}
     \aprcomment{fill in caption - generation time of 29 years, other details}
 }
@@ -519,7 +532,7 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 
 \begin{table}[ht]
 \caption{
-    \label{tab:continuous_migration}
+    \label{tab:supp-continuous-migration}
     \textbf{Best-fit parameters from the Continuous-Migration model.}
     \aprcomment{fill in caption - generation time of 29 years, other details}
 }
@@ -561,7 +574,7 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 
 \begin{table}[ht]
 \caption{
-    \label{tab:merger_without_stem_migration}
+    \label{tab:supp-merger-without-stem-migration}
     \textbf{Best-fit parameters from the Merger-Without-Stem-Migration model.}
     \aprcomment{fill in caption - generation time of 29 years, other details}
 }
@@ -605,7 +618,7 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 
 \begin{table}[ht]
 \caption{
-    \label{tab:merger_with_stem_migration}
+    \label{tab:supp-merger-with-stem-migration}
     \textbf{Best-fit parameters from the Merger-With-Stem-Migration model.}
     \aprcomment{fill in caption - generation time of 29 years, other details}
 }
@@ -654,12 +667,54 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 \section*{Supporting figures}
 
 \begin{figure}[ht]
-\begin{center}
+    \centering
     \includegraphics[width=0.65\textwidth]{figures/supp-possible-models.png}
-    \caption{\textbf{supp}.}
+    \caption{\textbf{Proposed models of early human history in Africa.}}
     \label{fig:supp-possible-models}
-\end{center}
 \end{figure}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-omni-hapmap-comparison.pdf}
+    \caption{
+        \textbf{Comparison of LD statistics parsed using two recombination maps}
+        The recombination map determines genetic distances between pairs of SNPs,
+        so using different maps could result in systematic biases in parsed
+        statistics if the maps differ significantly. Here, the solid lines are
+        statistics parsed using the HapMapII recombination map, and dashed lines
+        are using the OMNI-YRI map. Shading represents 95\% confidence intervals
+        from the OMNI map. These two maps results in LD statistics that are
+        indistinguishable from one another.
+    }
+    \label{fig:supp-omni-hapmap-comparison}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-single-origin-fits.pdf}
+    \caption{\textbf{Single-origin model fit to LD statistics.}}
+    \label{fig:supp-single-origin-fits}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-continuous-migration-fits.pdf}
+    \caption{\textbf{Continuous-migration model fit to LD statistics.}}
+    \label{fig:supp-continuous-migration-fits}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-merger-without-stem-migration-fits.pdf}
+    \caption{\textbf{Merger-without-stem-migration model fit to LD statistics.}}
+    \label{fig:supp-merger-without-stem-migration-fits}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-merger-with-stem-migration-fits.pdf}
+    \caption{\textbf{Merger-with-stem-migration model fit to LD statistics.}}
+    \label{fig:supp-merger-with-stem-migration-fits}
+\end{figure}
 
 \end{document}
