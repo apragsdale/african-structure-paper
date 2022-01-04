@@ -9,6 +9,7 @@
 \usepackage{color}
 \usepackage{booktabs}
 \usepackage{amsfonts}
+\usepackage{bm}
 
 \lstset{language=Python}
 
@@ -123,6 +124,7 @@ base pairs.
 \section{Computing statistics}
 
 \subsection{LD and diversity statistics used in model fits}
+\label{sec:supp-ld-stats}
 
 We used multi-population linkage disequilibrium (LD) and pairwise diverisity
 statistics to fit demographic models to data. These statistics, introduced and
@@ -684,7 +686,9 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
         statistics parsed using the HapMapII recombination map, and dashed lines
         are using the OMNI-YRI map. Shading represents 95\% confidence intervals
         from the OMNI map. These two maps results in LD statistics that are
-        indistinguishable from one another.
+        indistinguishable from one another. Notations for each statistic are
+        described in section~\ref{sec:supp-ld-stats} and indexed by populations
+        (0: Nama, 1: Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
     }
     \label{fig:supp-omni-hapmap-comparison}
 \end{figure}
@@ -692,29 +696,142 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-single-origin-fits.pdf}
-    \caption{\textbf{Single-origin model fit to LD statistics.}}
+    \caption{
+        \textbf{Single-origin model fit to LD statistics.}
+        Predicted vs observed two-locus statistics as a function of genetic
+        distance for the single-origin model. Each panel represents a different
+        set of two-locus statistics. Solid lines represent estimates using the
+        single-origin model. Dashed lines represent observed statistics.
+        Notation and indexing of statistics are described in the
+        Fig.~\ref{fig:supp-omni-hapmap-comparison} caption.
+    }
     \label{fig:supp-single-origin-fits}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-continuous-migration-fits.pdf}
-    \caption{\textbf{Continuous-migration model fit to LD statistics.}}
+    \caption{
+        \textbf{Continuous-migration model fit to LD statistics.}
+        Predicted vs observed two-locus statistics as a function of genetic
+        distance for the continuous-migration model. Each panel represents a different
+        set of two-locus statistics. Solid lines represent estimates using the
+        continuous-migration model. Dashed lines represent observed statistics.
+        Notation and indexing of statistics are described in the
+        Fig.~\ref{fig:supp-omni-hapmap-comparison} caption.
+    }
     \label{fig:supp-continuous-migration-fits}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-merger-without-stem-migration-fits.pdf}
-    \caption{\textbf{Merger-without-stem-migration model fit to LD statistics.}}
+    \caption{
+        \textbf{Merger-without-stem-migration model fit to LD statistics.}
+        Predicted vs observed two-locus statistics as a function of genetic
+        distance for the merger-without-stem-migration model. Each panel
+        represents a different set of two-locus statistics.
+        Solid lines represent estimates using the
+        merger-without-stem-migration model.
+        Dashed lines represent observed statistics.
+        Notation and indexing of statistics are described in the
+        Fig.~\ref{fig:supp-omni-hapmap-comparison} caption.
+    }
     \label{fig:supp-merger-without-stem-migration-fits}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-merger-with-stem-migration-fits.pdf}
-    \caption{\textbf{Merger-with-stem-migration model fit to LD statistics.}}
+    \caption{
+        \textbf{Merger-with-stem-migration model fit to LD statistics.}
+        Predicted vs observed two-locus statistics as a function of genetic
+        distance for the merger-with-stem-migration model. Each panel
+        represents a different set of two-locus statistics.
+        Solid lines represent estimates using the
+        merger-with-stem-migration model.
+        Dashed lines represent observed statistics.
+        Notation and indexing of statistics are described in the
+        Fig.~\ref{fig:supp-omni-hapmap-comparison} caption.
+    }
     \label{fig:supp-merger-with-stem-migration-fits}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    %\includegraphics{figures/supp-FST-panels}
+    \caption{
+        \textbf{Predicted \bm{$F_{ST}$} between contemporaneous populations over time.}
+    }
+    \label{fig:supp-FST-panels}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-f4s-single-origin.pdf}
+    \caption{
+        \textbf{Predicted \bm{$f_4$} between pairs of modern populations
+        and ancient branches from the single-origin model.}
+    }
+    \label{fig:supp-f4s-single-origin}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-f4s-continuous-migration.pdf}
+    \caption{
+        \textbf{Predicted \bm{$f_4$} between pairs of modern populations
+        and ancient branches from the continuous-migration model.}
+    }
+    \label{fig:supp-f4s-continuous-migration}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-f4s-merger-without-stem-migration.pdf}
+    \caption{
+        \textbf{Predicted \bm{$f_4$} between pairs of modern populations
+        and ancient branches from the merger-without-stem-migration model.}
+    }
+    \label{fig:supp-f4s-merger-without-stem-migration}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-f4s-merger-with-stem-migration.pdf}
+    \caption{
+        \textbf{Predicted \bm{$f_4$} between pairs of modern populations
+        and ancient branches from the merger-with-stem-migration model.}
+    }
+    \label{fig:supp-f4s-merger-with-stem-migration}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-csfs-single-origin.pdf}
+    \caption{caption}
+    \label{fig:supp-csfs-single-origin}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-csfs-continuous-migration.pdf}
+    \caption{caption}
+    \label{fig:supp-csfs-continuous-migration}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-csfs-merger-without-stem-migration.pdf}
+    \caption{caption}
+    \label{fig:supp-csfs-merger-without-stem-migration}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-csfs-merger-with-stem-migration.pdf}
+    \caption{caption}
+    \label{fig:supp-csfs-merger-with-stem-migration}
 \end{figure}
 
 \end{document}
