@@ -9,6 +9,7 @@
 \usepackage{color}
 \usepackage{booktabs}
 \usepackage{amsfonts}
+\usepackage{amsmath}
 \usepackage{bm}
 
 \lstset{language=Python}
@@ -474,9 +475,115 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 
 $F_{ST}$ can be interpreted as a measure of population structure, given by the
 proportion of genetic variance in a multi-population sample that can be
-attributed to drift between populations in that sample. 
+attributed to drift between populations in that sample \cite{Bhatia2013-sq}.
+$F_{ST}$ depends on population divergence times as well as subsequent gene flow
+and population sizes: migration between populations reduces $F_{ST}$ while
+small effective population sizes can lead to large values. For each of the four
+inferred demographic models presented here, we computed predicted $F_{ST}$ for
+pairs of contemporaneous populations over time. For sampled populations,
+predicted $F_{ST}$ can be compared to data (Fig.~\ref{fig:supp-FST-panels}). We
+computed $F_{ST}$ as a ratio of expected (or average) variances, using observed
+pairwise diversity within and between populations as
+\begin{equation}
+    F_{ST}(i, j) = \frac{\E[2H_{i,j} - H_i - H_j]}{\E[2H_{i,j} + H_i + H_j]}.
+    \label{eq:FST}
+\end{equation}
+
+In all inferred models, $F_{ST}$s between Neanderthals and the ancestors of
+modern humans were much larger than between any pair of modern human
+populations or their ancestors (stems). $F_{ST}$ between modern human
+populations over the last 100 thousand years remained relatively low, at
+$\sim0.1$ or less. In the continuous-migration model, the two stem populations
+also were predicted to have low $F_{ST}$ within this range, as migration rates
+were inferred to be high enough to maintain genetic similarity. In both the
+merger-without-stem-migration and the merger-with-stem-migration, one of the
+stem populations was inferred to have a short, severe bottleneck, which led to
+increased $F_{ST}$ between stem populations during that time. However, this
+period of relatively large $F_{ST}$ did not result in large $F_{ST}$ between
+more recent pairs of populations due to their roughly similar levels of
+contributions to the ancestors of modern humans. \aprcomment{We caution that
+the severe bottleneck may be an artifact of the model parameterization?}
 
 \subsection{$f_4$ statistics between pairs of contemporary and pairs of ancient populations}
+
+To evaluate the degree to which divergence among modern populations is
+inherited from divergence between early stem population, we computed f4
+statistics of the form
+\begin{equation}
+    f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2) = 
+    \E[(f_{\text{stem}_1} - f_{\text{stem}_2})(f_{\text{modern}_1}-f_{\text{modern}_2})]
+    \label{eq:f4}
+\end{equation}
+This statistic measures co-linearity of genetic drift between modern
+populations $(f_{\text{modern}_1}-f_{\text{modern}_2})$ and stem populations
+$(f_{\text{stem}_1}-f_{\text{stem}_2})$ (see
+Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}
+and \citet{Lipson2020-cq}).
+
+To contrast these statistics to divergence across modern populations,
+\begin{equation}
+    f_2(\text{modern}_1, \text{modern}_2) =
+    \E[(f_{\text{modern}_1}-f_{\text{modern}_2})^2]),
+\end{equation}
+we interpret the $f$-statistics as scalar products between vectors in 
+allele frequency space. In particular, the vector 
+$v=(f_{\text{modern}_1}-f_{\text{modern}_2})$, 
+representing differences in allele frequencies across modern populations,
+can be written as $v=v_\perp + v_\parallel$, a component perpendicular and
+a component parallel to the divergence $(f_{\text{stem}_1}-f_{\text{stem}_2})$
+across stems. We can then decompose 
+$f_2(\text{modern}_1,\text{modern}_2) = v_\perp^2+v_\parallel^2$, with  
+\begin{equation}
+    v_\perp^2 = f_4^2(\text{stem}_1, \text{stem}_2; 
+    \text{modern}_1, \text{modern}_2)/f_2(\text{stem}_1, \text{stem}_2)
+\end{equation}
+
+Finally, the proportion of modern-day structure
+$f_2(\text{modern}_1, \text{modern}_2)$ that is accounted for by the
+component parallel to ancient population structure is
+\begin{equation}
+    \alpha^2 = \frac{v_\perp^2}{f_2(\text{modern}_1, \text{modern}_2)} =
+    \frac{f_4^2(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)}
+    {f_2(\text{stem}_1,\text{stem}_2)f_2(\text{modern}_1, \text{modern}_2)}.
+\end{equation}
+$\alpha^2$ can be interpreted as the proportion of the $f_2$
+divergence across modern populations that is aligned with the differences in
+allele frequencies across ancient populations. However, drift occurring after
+the time of sampling of ancient populations is not correlated to drift
+occurring before that time. For this reason, we also interpret $\alpha^2$ as the
+proportion of the $f_2$ divergence across modern populations that is explained by
+the differences in allele frequencies across ancient populations. We report
+this predicted statistic for each of the four inferred demographic models in
+Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/supp-f4-scenarios}
+    \caption{
+        \textbf{Present day structure attributable to ancient population structure.}
+        The statistic 
+        $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)$
+        captures how much of present-day population structure can be attributed to 
+        population structure among the stems. The blue line represents genetic drift 
+        along ancestral branches between modern populations, while the red line 
+        represents drift between stem populations. $f_4$ measures the overlap 
+        between the blue and red line, which corresponds to shared genetic drift 
+        between the two pairs. 
+        In scenario A, modern populations are descended from distinct stems, and 
+        $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)$
+        equals the drift between stems, $f_2(\text{stem}_1, \text{stem}_2)$.
+        In scenario B, despite deep population structure, there is no shared drift
+        and $f_4=0$. That is, present-day population structure is unrelated to
+        structure among stems. In more realistic scenario C, where $\text{modern}_1$
+        receives a proportion $m$ of its ancestry from the dotted arrow, the overlap
+        is only found along the corresponding path, and $f_4$ depends on both
+        ancestry proportion $m$ and drift between stems,
+        $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)
+        = mf_2(\text{stem}_1, \text{stem}_2)$
+        \aprcomment{Get better resolution image from Simon}
+    }
+    \label{fig:supp-f4-scenarios}
+\end{figure}
 
 \section{Validations using simulations from inferred demographic models}
 
@@ -493,6 +600,8 @@ attributed to drift between populations in that sample.
 \subsection{Distribution of deep branch affinities to Neanderthal sequence}
 
 \subsection{Mutation versus recombination rates}
+
+\subsection{Re-inference of an IM model from simulated data}
 
 \break
 
