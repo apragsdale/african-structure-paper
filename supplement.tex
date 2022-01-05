@@ -11,6 +11,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{bm}
+\usepackage{xspace}
 
 \lstset{language=Python}
 
@@ -25,6 +26,10 @@
 \newcommand{\tdwcomment}[1]{{\textcolor{cyan}{TDW: #1}}}
 
 \newcommand{\E}{\mathbb{E}}
+\newcommand{\moments}{\texttt{moments}\xspace}
+\newcommand{\Relate}{\texttt{Relate}\xspace}
+\newcommand{\msprime}{\texttt{msprime}\xspace}
+\newcommand{\demes}{\texttt{demes}\xspace}
 
 \usepackage{array}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -106,7 +111,7 @@ representatives of the Richtersveld National Park.
         agriculturalists with large proportion of back-to-Africa Eurasian ancestry); 
         Eurasian: British (GBR)
     \item Combined with the high coverage Vindija neanderthal genome
-    \item For running Relate, we used a larger set of populations. We kept all 
+    \item For running \Relate, we used a larger set of populations. We kept all 
         African 1000 Genomes populations, along with the Nama, Gumuz, Oromo, and
         Amhara, as well as 4 Eurasian populations from 1000 Genomes: GBR, CEU, PJL,
         and CHB
@@ -115,12 +120,12 @@ representatives of the Richtersveld National Park.
 \subsection{Filtering and subsetting data}
 
 All analyses presented in this work focus on biallelic single nucleotide
-polymorphisms within the 1000 Genomes Phase 3 strict mask.  For the moments-LD
-analysis, we focused on intergenic locations because these appear less affected
-by natural selection compared to both synonymous and nonsynonymous variation
-\citep{Ragsdale2018-dd}. To enable comparison with Neanderthal DNA, we excluded
-regions for which the Vindija Neanderthal sample had less than 100 contiguous
-base pairs. 
+polymorphisms within the 1000 Genomes Phase 3 strict mask.  For the
+\moments-LD analysis, we focused on intergenic regions because these
+appear less affected by natural selection compared to both synonymous and
+nonsynonymous variation \citep{Ragsdale2018-dd}. To enable comparison with
+Neanderthal DNA, we excluded regions for which the Vindija Neanderthal sample
+had less than 100 contiguous base pairs. 
 
 \section{Computing statistics}
 
@@ -179,7 +184,7 @@ archaic admixture and population structure involving many populations.
 We compared single- and two-locus statistics in the data to predictions based
 on detailed demographic models. Model predictions were obtained using
 recursions described in \citet{Ragsdale2019-nt} and implemented in the software
-\emph{moments.LD} (\url{https://bitbucket.org/simongravel/moments/src/main/}).
+\moments (\url{https://bitbucket.org/simongravel/moments/src/main/}).
 The model computes expected patterns of single-nucleotide pairwise diversity
 and linkage disequilibrium as a function of recombination distance between
 variants within and across populations, under the assumption of neutrality.
@@ -226,14 +231,9 @@ The approach from \citet{Ragsdale2020-nz} provides unbiased estimates of the LD
 statistics considered here, which can be directly compared to expectations for
 those same statistics computed from the multi-population Hill-Robertson system.
 Estimated statistics for populations with smaller sample sizes have greater
-uncertainty, which is largely accounted for by computing variances and
-covariances via bootstrap, assuming our samples are unrelated and the
-population is randomly mating. 
-
-\sgcomment{I don't think that this is true if our bootstrap is
-over genomic regions. In an infinite genome with a tiny sample size, we would
-estimate no uncertainty...  Or at least, it is only true if the Neandertal form
-a truly randomly mating population...  }
+uncertainty, which is accounted for by computing variances and covariances via
+bootstrap over genomic regions, assuming that there is no correlation between
+distant genomic regions (i.e., no long-range LD).
 
 Some statistics, such as $\E[D_i D_j]$, require at least two diploid samples
 from a population to compute. Since we used a single Neanderthal sample, such
@@ -385,23 +385,24 @@ of the model.
 
 \subsection{Optimization using moments}
 
-moments-LD uses a composite likelihood approach to simultaneously fit relative
-pairwise diversity and LD statistics over a range of recombination distances.
-Likelihoods were computed independently for pairwise diversity and each
-recombination distance bin using a multivariate Guassian likelihood function as
-described in Section \ref{sec:computing-stats}. These were multiplied across
-bins and the single set of heterozygosity statistics following the approach
-detailed in \citet{Ragsdale2019-nt}. For each model tested, we ran multiple
-rounds of optimization, alternating between the \emph{optimize\_log\_fim},
-\emph{optimize\_log\_powell}, and \emph{optimize\_lbfgsb} methods to explore
-parameter space and hone in on the best fit parameters. Initial guesses for
-parameters were chosen from demographically plausible starting points and then
-perturbed to explore space, using gradient descent (on the log of the
-parameters). The best fits from these initial rounds of optimization were then
-chosen as the starting points for optimization using the Powell and/or the
-L-BFGS-B methods (as implemented in the SciPy optimization package
-\cite{Virtanen2020-kr}). This process was repeated with alternating
-optimization methods until the best fit parameter set converged consistently.
+\moments-LD uses a composite likelihood approach to simultaneously fit
+relative pairwise diversity and LD statistics over a range of recombination
+distances.  Likelihoods were computed independently for pairwise diversity and
+each recombination distance bin using a multivariate Guassian likelihood
+function as described in Section \ref{sec:computing-stats}. These were
+multiplied across bins and the single set of heterozygosity statistics
+following the approach detailed in \citet{Ragsdale2019-nt}. For each model
+tested, we ran multiple rounds of optimization, alternating between the
+\emph{optimize\_log\_fim}, \emph{optimize\_log\_powell}, and
+\emph{optimize\_lbfgsb} methods to explore parameter space and hone in on the
+best fit parameters. Initial guesses for parameters were chosen from
+demographically plausible starting points and then perturbed to explore space,
+using gradient descent (on the log of the parameters). The best fits from these
+initial rounds of optimization were then chosen as the starting points for
+optimization using the Powell and/or the L-BFGS-B methods (as implemented in
+the SciPy optimization package \cite{Virtanen2020-kr}). This process was
+repeated with alternating optimization methods until the best fit parameter set
+converged consistently.
 
 \subsection{Confidence intervals using Godambe methods}
 
@@ -426,7 +427,7 @@ merger-with-stem-migration model.
 
 \section{Gene genealogy reconstruction}
 
-We used Relate version 1.0.16 \citep{Speidel2019-nj} to reconstruct genome-wide
+We used \Relate version 1.0.16 \citep{Speidel2019-nj} to reconstruct genome-wide
 gene genealogies using a combined set of 1000 Genomes and African Diversity
 Reference Panel datasets, retaining all AFR-labeled populations and GBR, CEU,
 PJL, and CHB from the 1000 Genomes panel and the Nama, Gumuz, Oromo, and Amhara
@@ -435,15 +436,15 @@ mask, we used an ancestral sequence determined by a 6-primate alignment
 (human\_ancestor\_GRCh37\_e59), and we used the HapMap II combined
 recombination map, all in GRCh37 coordinates. We assumed a generation time of
 29 years, a mutation rate of 1.25e-8, and followed the standard pipeline
-described in the Relate documentation.
+described in the \Relate documentation.
 
 From the reconstructed gene genealogies, we computed coalescence rates within
-and between populations using Relate’s function RelateCoalescentRate. This
-allows for an estimate of the instantaneous inverse coalescence rate (IIRC) for
-samples drawn within each population (the inverse of which is often interpreted
-as the effective population size history), and the relative cross coalescence
-rates between pairs of populations (which are commonly used to estimate
-divergence times).
+and between populations using \Relate’s function \texttt{RelateCoalescentRate}.
+This allows for an estimate of the instantaneous inverse coalescence rate
+(IIRC) for samples drawn within each population (the inverse of which is often
+interpreted as the effective population size history), and the relative cross
+coalescence rates between pairs of populations (which are commonly used to
+estimate divergence times).
 
 Following \citet{Speidel2019-nj} we also identified “deep branches” within gene
 trees. Such a “deep branch” is a branch within a marginal tree (meaning, the
@@ -587,21 +588,115 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
 
 \section{Validations using simulations from inferred demographic models}
 
+Here we focus on four parameterizations of early human history: (1) a “single
+origin” with recent expansion, (2) primary and second stem populations with
+“continuous migration”, (3) two stem populations that do not exchange migrants
+before merging to form regional African populations, referred to as a “merger
+without stem migration”, and (4) two stem populations that are allowed to
+exchange migrants before merging to form regional African populations, referred
+to as a “merger with stem migration”. Given the best fit parameters for each
+model
+(Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
+we used \msprime version 1.0.4 \citep{Kelleher2016-lw,Baumdicker2021-mj} to
+simulate sampled individual genomes to match the data used in inference (see
+simulation details below). Using these simulations, we compared additional
+statistics and inferences between simulated and real data that were not used in
+the original optimization. These comparisons serve as independent validations
+of our inferred demographic models by assessing how well those models fit
+aspects of the data that have been used in other studies as evidence of
+population structure or archaic admixture from an unidentified hominin species
+within Africa.
+
 \subsection{Simulation details}
+
+The four inferred demographic models (single origin, continuous migration,
+merger without stem migration, and merger with stem migration) were converted
+to \demes format (Gower, Ragsdale, \emph{et al.}, in prep) and used as
+the input demography for \msprime simulations. We sampled the same
+number of individuals from each population as used in the inference (Nama: 44,
+Mende: 85, Gumuz: 23, combined Oromo/Amhara: 46, British: 91, and Vindija
+Neanderthal: 1). We assumed a generation time of 29 years, a per-base mutation
+rate of $1.25\times10^{-8}$, a per-base recombination rate of $1\times10^{-8}$
+(corresponding to 1cM/Mb), and we simulated 100 replicates with sequence
+lengths of 50Mb per replicate. We computed the conditional site frequency
+spectrum (cSFS) conditioned on observing the derived variant in the Neanderthal
+sample, and reconstructed gene genealogies using \Relate to obtain coalescence
+rate trajectories and distributions of deep branches passing through the
+Neanderthal branch. Each analysis followed the same procedure as described
+above in the analysis of the real data.
 
 \subsection{cSFS prediction under inferred models}
 
+We compared the observed cSFS to model predictions for the Nama, Mende, and
+Gumuz populations. The cSFS from data is sensitive to ancestral allele
+misidentification, but our simulations assume perfect knowledge of the
+ancestral allele. To investigate the role of misidentification, we compared
+predicted and observed cSFS for transitions and transversions separately as
+well as jointly.
+
+For each comparison, we fit a misidentification parameter $p_{misid}$ as well
+as a scaled mutation rate $\theta$. The misidentification parameter is the
+fraction $p_{misid}$ of loci that have the ancestral state misidentified.
+Accounting for $p_{misid}$ mixes the predicted joint population SFS with a
+small amount of the ancestral-allele-reversed SFS (i.e. for a two-population
+joint SFS, $SFS_{misid}(i, j)=(1-p_{misid})*SFS(i, j) + p_{misid}*SFS(n-i,
+m-j)$), where $n$ and $m$ are the sample sizes from the two populations. The
+cSFS for the first population (conditioning on the second) is found by
+projecting the sample size to $(n, 1)$ and taking $cSFS=SFS(:,1)$. $\theta$ and
+$p_{misid}$ were chosen to maximize a likelihood assuming that each observed
+entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
+
 \section{Supplementary results}
 
-\subsection{Conditional SFS}
+\subsection{Alternative statistics for four models}
 
-\subsection{Relate curves from inferred models}
+\subsubsection{Conditional SFS}
 
-\subsection{Distribution of deep branch affinities to Neanderthal sequence}
+The single-origin model fit the cSFS relatively poorly across the three
+populations compared to the models that allow structure between stem
+populations (Fig.~\ref{fig:supp-csfs-single-origin}). The model that best fit
+the cSFS was the merger-with-stem-migration model, which also provided the best
+fit to pairwise diversity and LD statistics in the initial optimization. For
+the Mende and Gumuz, the merger-with-stem-migration model fits the data very
+well, while it underestimates rare variants in the Nama cSFS
+(Fig.~\ref{fig:supp-csfs-merger-with-stem-migration}). Models learned from the
+two-locus statistics provided a better qualitative description of the cSFS than
+models previously fit directly to the cSFS  (see, e.g., figure 1 in
+\citet{Durvasula2020-td}). We found that the inferred ancestral
+misidentification rates were concordant across populations. The inferred rates
+of ancestral misidentification were about twice as high for transitions
+relative to transversions as expected, qualitatively, from the higher
+transition mutation rate \citep{Hernandez2007-mf}.
+
+\subsubsection{Relate curves from inferred models}
+
+\aprcomment{TODO}
+
+\subsubsection{Distribution of deep branch affinities to Neanderthal sequence}
+
+\aprcomment{TODO}
 
 \subsection{Mutation versus recombination rates}
 
-\subsection{Re-inference of an IM model from simulated data}
+Prior studies primarily relied on the mutation clock in order to date events
+such as population divergence, and uncertainty about the mutation rate
+translates in uncertainty in timing estimates (e.g., \citet{Moorjani2016-qj}).
+Recent whole genome sequencing studies from non-pathological pedigrees have
+typically estimated mutation rates to be $1.2-1.3\times10^{-8}$ per site per
+generation \citep{Sasani2019-zp,Tian2019-zv}. A rate of $1.3\times10^{-8}$ also
+approximates the rate predicted by a mutational model from Gnomad
+\citep{Karczewski2020-le} in the $\sim$650Mb of intergenic regions selected for
+demographic inference in this study. However, \moments differs from other
+approaches by relying on a recombination clock, which has been argued to be
+more robust to estimation than a mutational clock \citep{Moorjani2016-ur}. To
+fit patterns of diversity which were inferred using the recombination map here,
+mutation rates on the order of $2\times10^{-8}$ would be needed.
+\aprcomment{This discrepancy between the mutation clock and recombination
+clock\dots}
+
+\subsection{Re-inference of IM models from simulated data}
+
+\aprcomment{TODO}
 
 \break
 
@@ -611,8 +706,8 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
 
 \clearpage
 
-\addcontentsline{toc}{section}{Supporting tables}
-\section*{Supporting tables}
+\addcontentsline{toc}{section}{Supporting tables and figures}
+\section*{Supporting tables and figures}
 
 \begin{table}[ht]
 \caption{
@@ -782,9 +877,6 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
 \end{table}
 
 \clearpage
-
-\addcontentsline{toc}{section}{Supporting figures}
-\section*{Supporting figures}
 
 \begin{figure}[ht]
     \centering
