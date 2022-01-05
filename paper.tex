@@ -7,6 +7,7 @@
 \usepackage{authblk}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{booktabs}
 
 \lstset{language=Python}
 
@@ -52,7 +53,7 @@ populations across Africa, including representatives from eastern and western
 groups, as well as 44 newly whole-genome sequenced individuals from the Nama
 (Khoe-San). Despite the complexity of African population history, present-day
 population structure dates back to Marine Isotope Stage (MIS) 5. The earliest
-population divergence among contemporary populations occurs 120-135ka, between
+population divergence among contemporary populations occurs 120-135kya, between
 the Khoe-San and other groups. Prior to the divergence of contemporary African
 groups, we infer long-lasting structure between two or more weakly
 differentiated ancestral Homo spp. populations connected by gene flow over
@@ -73,7 +74,7 @@ robust inferences about deep history.
 
 \section*{Introduction}
 
-Archaeological sites from the Middle Stone Age (approx. 300ka-40ka) are widely
+Archaeological sites from the Middle Stone Age (approx. 300kya-40kya) are widely
 distributed across Africa, and are particularly well represented in the
 northern, eastern and southern parts of the continent. Similarly, fossil crania
 such as those from the sites of Jebel Irhoud \citep{Hublin2017-cq}, Herto
@@ -88,7 +89,7 @@ precedents, or were local “dead-ends” from which contemporary \emph{Homo
 sapiens} do not descend. Recently, synthetic attempts to reconcile genetic and
 paleoanthropological data include proposals for a Pan-African origin of
 \emph{Homo sapiens} by which populations in many regions of the continent
-contributed to the formation of Homo sapiens beginning at least 300ka
+contributed to the formation of Homo sapiens beginning at least 300kya
 \citep{Stringer2016-mj,Scerri2018-nl,Scerri2019-xg}.
 
 Genetic models have been hampered in their contribution to this discussion
@@ -134,27 +135,28 @@ of alternative models.
 
 We inferred detailed demographic histories using 4x-8x whole-genome sequencing
 data for four diverse African populations, comprising the Nama (Khoe-San from
-South Africa, newly presented here), Mende (MSL from Sierre Leone
-\citep{1000_Genomes_Project_Consortium2015-zq}), Gumuz (recent descendents of a
-hunter-gatherer group from Ethiopia \citep{Gurdasani2015-qy,Gopalan2019-wd}),
-and Eastern African agriculturalists (Amhara and Oromo from Ethiopia
-\citep{Gurdasani2015-qy}). The Amhara and Oromo populations, despite speaking
-distinct Afro-Asiatic languages, are highly genetically similar
-\citep{Pagani2015-pz,Gopalan2019-wd} and thus the two groups were combined for
-a larger sample size (Figure~\ref{fig:1}). We also included the British
-(GBR) from the 1000 Genomes Project in our demographic models as a
-representative source of back-to-Africa gene flow and recent colonial admixture
-in South Africa. Finally, we added a high-coverage ancient Neanderthal genome
-from Vindija Cave, Croatia \citep{Prufer2017-kk} to account for archaic gene
-flow from Neanderthals in non-Africans and gauge the relative time depth of
-divergence, assuming Neanderthals diverged 550ka from a common stem. For each
-population, we computed low-order allele frequency and linkage disequilibrium
-(LD) statistics that are well suited for both low- and high-coverage genomes
-\citep{Ragsdale2019-nt,Ragsdale2020-nz}. Using a maximum-likelihood inference
-framework, we then fit to these statistics a family of parameterized
-demographic models that involve population splits, size changes, continuous and
-variable migration rates, and punctuated admixture events, to learn about the
-nature of population structure over the past million years.
+South Africa, newly presented here), Mende (MSL from Sierre Leone, Phase 3 of
+the 1000 Genomes Project \citep{1000_Genomes_Project_Consortium2015-zq}), Gumuz
+(recent descendents of a hunter-gatherer group from Ethiopia
+\citep{Gurdasani2015-qy,Gopalan2019-wd}), and Eastern African agriculturalists
+(Amhara and Oromo from Ethiopia \citep{Gurdasani2015-qy}). The Amhara and Oromo
+populations, despite speaking distinct Afro-Asiatic languages, are highly
+genetically similar \citep{Pagani2015-pz,Gopalan2019-wd} and thus the two
+groups were combined for a larger sample size (Figure~\ref{fig:1}). We also
+included the British (GBR) from the 1000 Genomes Project in our demographic
+models as a representative source of back-to-Africa gene flow and recent
+colonial admixture in South Africa. Finally, we added a high-coverage ancient
+Neanderthal genome from Vindija Cave, Croatia \citep{Prufer2017-kk} to account
+for archaic gene flow from Neanderthals in non-Africans and gauge the relative
+time depth of divergence, assuming Neanderthals diverged 550kya from a common
+stem. For each population, we computed low-order allele frequency and linkage
+disequilibrium (LD) statistics that are well suited for both low- and
+high-coverage genomes \citep{Ragsdale2019-nt,Ragsdale2020-nz}. Using a
+maximum-likelihood inference framework, we then fit to these statistics a
+family of parameterized demographic models that involve population splits, size
+changes, continuous and variable migration rates, and punctuated admixture
+events, to learn about the nature of population structure over the past million
+years.
 
 \begin{figure}[ht]
 \begin{center}
@@ -184,12 +186,12 @@ contemporary groups, including models allowing for ancestral reticulation
 
 Regardless of the model choice for early epochs, inference of recent human
 demographic history from two thousand \aprcomment{why two thousand, instead of
-just ``up to 150ka''?} to 150ka was remarkably robust. The earliest divergence
+just ``up to 150kya''?} to 150kya was remarkably robust. The earliest divergence
 among contemporary sampled human populations differentiates the southern
-African Nama from other African groups between 110--135ka, with low to moderate
+African Nama from other African groups between 110--135kya, with low to moderate
 levels of subsequent gene flow \aprcomment{(Table 1)}. In none of the
 high-likelihood models which we explored did the divergence between Nama and
-other populations exceed $\sim$150ka. We conclude that, regardless of model
+other populations exceed $\sim$150kya. We conclude that, regardless of model
 specification, geographic patterns of \emph{Homo sapiens} population structure
 date back to the Late Middle Stone Age in Africa, likely arising during MIS 5.
 Although we find evidence for earlier population structure in Africa (see
@@ -201,7 +203,7 @@ Given this consistency in inferred recent history and the numerical challenge
 of optimizing a large number of parameters, we fixed several parameters related
 to recent population history so as to focus on more ancient events (Supp.
 Methods). The time of divergence of Western and Eastern African populations was
-set to 60ka, just prior to the split of Eurasians and East Africans 50ka. Both
+set to 60kya, just prior to the split of Eurasians and East Africans 50kya. Both
 models predict relatively high subsequent gene flow between the two regions
 ($m=2\times10^{-4}$). Admixture from Neanderthals to Europeans directly
 following the out-of-Africa migration was set to 1.5\% at 45kya (Supp.
@@ -218,28 +220,158 @@ contribution 2,000 ya. Colonial period admixture from Europeans into the Nama
 was estimated at 15\%, similar to proportions inferred by ADMIXTURE
 \aprcomment{cite} (Figure~\ref{fig:1}).
 
-\subsection*{Deep population structure but not archaic admixture within Africa}
-
-\subsection*{Reconciling multiple lines of genetic evidence}
-
-\section*{Discussion}
-
-\subsection*{The Middle Stone Age in Africa}
-
-\subsection*{Contrasting archaic admixture and a weakly structured stem}
-
-\section*{Methods}
-A placeholder citation \citep{Kelleher2016-lw}.
-
 \begin{figure}[ht]
 \begin{center}
 \makebox[\textwidth][c]{} % \includegraphics{figures/fig2.png}}
-\caption{\textbf{The second main figure}.
+\caption{\textbf{}.
     A placeholder - best fit model(s).
 }
 \label{fig:2}
 \end{center}
 \end{figure}
+
+\subsection*{Deep population structure but not archaic admixture within Africa}
+
+To account for population structure prior to 135kya, we allowed for two or more
+“stem” populations which could diverge either before or after the Neanderthal
+split. We considered models both with and without migration between these stem
+populations, and in both cases we tested two different types of gene exchange
+during the expansion phase. 1) One of the stem population expands (splits into
+contemporary populations), and the other stem population(s) has continuous
+symmetric migration with those populations; or 2) expansion of one or more of
+the stem populations, with an instantaneous pulse (or “merger”) from the other
+stem population. These models are meant to capture scenarios 2B and 2C (Figure
+2). \aprcomment{update this last sentence}
+
+Allowing for continuous migration between the stem populations substantially
+improved the fits relative to zero migration (e.g. $LL \approx -102,600$ vs.
+$-107,700$). With continuous migration, population structure extends back to
+1.1--1.4Mya \aprcomment{(Table 1)}. Migration between the stems in these models
+is low but non-negligible, with a fraction of migrant lineages each generation
+estimated as $m=6.43\times10^{-5}-1.16\times10^{-4}$. For comparison, this is
+at least as large as migration inferred between the Ethiopian East Africans and
+British populations over the past 50kya \aprcomment{(Table 1)}. This ongoing
+(or, at least, periodic) gene flow qualitatively distinguishes these models
+from previously proposed archaic admixture models \aprcomment{(Figure S1C)} as
+the early branches remain closely related throughout (Figure 3).
+\aprcomment{this last phrase may need to be updated, with regard to Fig
+\ref{fig:supp-FST-panels}}
+
+Likelihood-based parameter confidence intervals are relatively narrow within
+each specified model
+(Tables~\ref{tab:supp-single-origin-fits}--\ref{tab:supp-merger-with-stem-migration-fits}),
+reflecting an informative statistical approach. As expected, model assumptions
+have a larger impact on parameter estimates. To convey model uncertainty, we
+highlight features of two models with the highest \aprcomment{not the
+highest\ldots merger-without-stem-migration at -107,650}log likelihoods. These
+differ primarily in whether early stems are assumed to give rise to modern
+populations in multiple discrete merger events or in continuous migrations
+\aprcomment{(Figure 2)}. Additional models are discussed in
+\aprcomment{Supplement XXX}.
+
+The “Multiple Merger” model has better log-likelihood than the “Continuous
+Migration” model (-102,600 vs. -116,000, respectively). The two models differ
+in the timing of divergence and the relative Ne of the two stems
+(Figure~\ref{fig:2}). The two models also differ in the mode of divergence
+during the Middle Stone Age. 
+
+Under the continuous-migration model, the two stems give rise to contemporary
+populations in western, southern and eastern Africa but with differing
+proportions of ancestry derived from “Stem 1” and “Stem 2” (Figure 2). For
+example, the Nama and Gumuz have lower levels of migration with Stem 2
+($m=5.8\times10^{-5}$ and $3.1\times10^{-5}$, respectively), relative to the
+Mende. The Mende continue to exchange migrants with Stem 2
+($m=1.6\times10^{-4}$) long after their separation 60kya; this is a similar
+level of gene flow as between the Mende and Eastern Africans (Table 1). 
+\aprcomment{paragraphs above need work, and condensing}
+
+\aprcomment{also below, too much information - we don't actually believe these
+models}
+
+In contrast, under the Multiple Merger model, we allowed for stem populations
+to have large instantaneous contributions, in different proportions, to form
+the different contemporary groups. However, the ghost populations do not neatly
+line up one-to-one with southern, western and eastern populations. We observe a
+deep bottleneck in Stem 1 down to $N_e=117$. This represents the lower bound
+allowed in our optimization (i.e. 1\% of the $N_{ancestral}$) and the size of
+this bottleneck is poorly constrained ($\sigma_{N_e}=838$). After a long period
+of exchange with Stem 2, Stem 1 then fractures into “Stem 1E” and “Stem 1S”
+479kya. The timing of this divergence was also poorly constrained ($\sigma_T=
+166$kya). These populations evolve independently until approximately 119kya
+when Stem 1S and Stem 2 merge to form the ancestors of the Nama, with
+proportions 29\%, 71\% respectively. Similarly, Stem 1E and Stem 2 merge to
+form the ancestors of the Western Africans and Eastern Africans (and thus also
+all individuals who later disperse during the Out of Africa event). The
+ancestral Western / Eastern African group derives equal ancestry from the two
+stems (50\% from Stem 1E and Stem 2, Table 1). Finally, the Mende receive a
+large pulse of gene flow from Stem 2, replacing 18\% of their population 25kya.
+The later Stem 2 contribution to the Western African Mende resulted in better
+model fits (LL). This may indicate that an ancestral Stem 2 population
+occupied Western or Central Africa, broadly speaking. The differing proportions
+in the Nama and Eastern Africans may also indicate geographic separation of
+Stem 1S in southern Africa and Stem 1E in eastern Africa. 
+
+\begin{table}
+    \centering
+    \begin{tabular}{l|l|l}
+        \toprule
+        Parameter & Value & Something else \\
+        \midrule
+        x & y & z \\
+        \bottomrule
+    \end{tabular}
+    \caption{caption}
+    \label{tab:migration-rates}
+\end{table}
+
+\subsection*{Reconciling multiple lines of genetic evidence}
+
+Previous studies have found support for archaic admixture in Africa using
+two-locus statistics \citep{Hsieh2016-gk,Ragsdale2019-nt}, the conditional SFS
+(cSFS) \citep{Durvasula2020-td}, and reconstruction of gene genealogies
+\citep{Speidel2019-nj}. \aprcomment{Will need to check how strongly the Relate
+paper claims that this supports archaic admixture vs simply deep structure. It
+wasn't a model fit, in any case.} However, none of these studies considered a
+weakly structured stem. We validated our Continuous Migration and Multiple
+Merger models with additional independent approaches. We find that the two
+models describe the cSFS accurately \aprcomment{(Figure SX)}, even though this
+statistic was not used in the fit.  Both models outperform archaic models fit
+directly to the cSFS (for example, compare with Figure~1 in
+\citet{Durvasula2020-td}).
+
+Similarly, we generated estimates of effective population size as inferred from
+coalescence rates with Relate. Changes in Ne over time from prior studies
+strongly support a bottleneck in Out of Africa populations, but African
+populations also dip in effective size around 200kya, although this decrease is
+more modest than the OOA event [Mallick 2016]. One possible explanation is that
+ancestral population structure during the Middle Stone Age inflated Ne and
+subsequent gene flow among ancestral Africans resulted in a lower Ne after
+100-200kya [Chikhi?]. To our knowledge, explicit comparisons of this hypothesis
+with SMC-style approaches have not been published. We simulated genomic data
+under 4 models (Figure SX). All models, including the Single Origin model,
+generate multi-modal curves indicating that the ancestral increase in Ne
+between 100kya-1Mya is a general feature of the coalescent rate in humans.
+Simulated Relate Ne curves under the CM and MM are distinguished by having 2
+and 3 modes, respectively. The Continuous Migration model had the better
+qualitative fit with the data, but the ancestral mode was shifted further back
+in time relative to the data. All simulated models underestimated the level of
+population growth during the Holocene, indicating additional free parameters
+are necessary to refine these growth rates. \aprcomment{Discussion on this
+paragraph moved to issues (issue \#1)}
+
+Relative cross-coalescence rates (rCCR) have recently been used to estimate
+divergence between a pair of populations, as measured by the rate of
+coalescence between two groups divided by the mean within population
+coalescence. Simulations of rCCR accuracy, however, focus on a ‘clean split’
+between populations whereby groups diverge without subsequent gene flow.
+Published estimates of the earliest human divergences with rCCR, which range
+from 150kya-100kya \citep{Bergstrom2021-iw}, may be significantly biased when
+compared to more complex models with gene flow as inferred here. We find that
+midpoint estimates of rCCR are poor estimates for population divergence, often
+underestimating divergence time by 50\% or greater (e.g. Mende vs. Gumuz ~15kya
+compared to a true divergence 60kya, \aprcomment{Supp Figure SX}). We suggest
+that rCCR analyses which do not fit multiple parameters including gene flow
+should be interpreted with caution.
 
 \begin{figure}[ht]
 \begin{center}
@@ -261,7 +393,140 @@ A placeholder citation \citep{Kelleher2016-lw}.
 \end{center}
 \end{figure}
 
+\section*{Discussion}
+
+Any attempt at building detailed models of human history is subject to model
+misspecification. This is true of earlier studies, which often assumed that
+data inconsistent with a single origin model must be explained by archaic
+admixture. This is also true of this study. While it remains prohibitive to
+fully explore the space of plausible models of early human \bmhcomment{we use
+this phrase a lot. human or hominin? Tim?} population structure, we sought to
+capture model uncertainty by exploring multiple parameterizations of early
+human population structure. The best-fit models presented here include
+reticulation and low-level migration between early human populations rather
+than archaic admixture. We cannot rule out that more complex models involving
+additional stems, or hybrid models including both weak structure and archaic
+admixture may better explain the data. Because parameters related to the split
+time, migration rates, and relative sizes of the early stems were variable
+across models, reflecting a degree of confounding among these parameters, we
+refrained from introducing additional branches (and therefore additional
+parameters) during that period. \sgcomment{Some statement about hitting the
+boundary} Rather than interpreting the two stems as representing well-defined
+and stable populations over hundreds of thousands of years, we interpret the
+weakly structured stem as consistent, e.g., with a coalescence and
+fragmentation model \citep{Scerri2019-xg}.  Eventual ancient DNA samples from
+Africa could further distinguish the archaic admixture model from the weakly
+structured stem model. \sgcomment{Or models involving more diversity within
+Africa?}
+
+\subsection*{The Middle Stone Age in Africa}
+
+By contrast, our inferred models paint a more consistent picture of the late
+Middle Stone Age as a critical period of change, assuming that estimates from
+the recombination clock accurately relate to geological chronologies
+(Supplement). During the Middle Stone Age, the Multiple Merger indicates three
+major stem lineages in Africa, tentatively assigned to southern (Stem 1S),
+eastern (Stem 1E) and western/central Africa (Stem 2). While the length of
+isolation among the stems is variable across model fits, models with this
+period of divergence, isolation and then a merger event (i.e. a “reticulation”)
+out-performed models with bifurcating divergence and continuous gene flow. 
+
+A population reticulation involves multiple stems contributing genetically to
+the formation of a group. One way in which this can happen is through the
+geographic expansion of one or both stems. For example, if during MIS 5, either
+Stem 1S from southern Africa moved northward thereby encountering the Stem 2,
+or Stem 2 moved from central/western Africa southward into Stem 1S -- then we
+could observe disproportionate ancestry contributions from different stems in
+modern groups. We observed two merger events. The first, between Stem 1S and
+Stem 2, results in the formation of an ancestral Khoe-San population ~120kya.
+The second ~100kya between Stem 1E and Stem 2, results in the formation of the
+ancestors of East/West Africans as well as later “Out of Africans”.  The rapid
+rise in sea levels and increased precipitation during MIS 5e, following a
+glacial period of aridity across Africa \citep{Blome2012-lw}, might have
+triggered migration inland away from the coasts, as has been suggested for the
+Paleo-Agulhas plain \citep{Marean2014-pg}. 
+
+Following these merger events, the stems subsequently fracture into
+subpopulations which then appear to persist over the past ~120kya. These
+subpopulations can be linked to modern-day groups despite subsequent gene flow
+across the continent; for example, a genetic lineage sampled in the Nama has an
+XX probability of being in the ancestral ‘southern’ subpopulation 50kya versus
+XX probability of being in the ‘eastern’ subpopulation (Figure XX). We also
+find that Stem 2 continued to contribute to western Africans during the Last
+Glacial Period, indicative that this gene flow likely occurred in
+western/central Africa (Table 1). 
+
+\subsection*{Contrasting archaic admixture and a weakly structured stem}
+
+Evidence for archaic admixture in Eurasia has bolstered the plausibility of
+archaic admixture having also occurred in Africa. For this reason, previous
+work has focused on archaic admixture to explain patterns of polymorphism
+inconsistent with a single origin model. Here, we have shown that weakly
+structured stem models better capture these patterns. They also help explain an
+ecological riddle posed by the archaic admixture model. Neanderthal populations
+were separated from early \emph{Homo sapiens} by thousands of kilometers and
+continental geographic barriers. By contrast, an archaic hominin population in
+Africa would need to have stayed in relative reproductive isolation from the
+human lineage over hundreds of thousands of years despite closer geographic
+proximity and reproductive compatibility. The weakly structured stem model
+resolves this ecological riddle by accommodating continuous or recurrent
+contact between two or more groups present in Africa.
+
+There is evidence for both deleterious and adaptive archaic-derived alleles in
+modern genomes in the form of a depletion of Neanderthal ancestry in regulatory
+regions \citep{Petr2019-xo} or an increased frequency of archaic-related
+haplotypes such as at \emph{EPAS1} among Tibetans (e.g.,
+\citet{Zhang2021-xx}).\sgcomment{Probably not the best reference} Under an
+archaic African admixture model, the estimated 8--10\% introgression rate is
+much higher than Neanderthal gene flow, and would have plausibly been fertile
+ground for dramatic selection for or against archaic-derived haplotypes over a
+short period \citep{Wall2019-ao}. By contrast, adaptation under a weakly
+structured stem would have occurred continuously over much longer periods.
+Patterns of polymorphism that are inconsistent with the single-stem model
+predictions have been used to infer putative archaic admixed segments
+\citep{Plagnol2006-lt,Hsieh2016-gk,Wall2019-ao,Durvasula2020-td}, negative
+selection against such segments \citep{Wall2019-ao}, and pervasive positive
+selection \citep{Schrider2017-kl}. However, such approaches are subject to high
+false positives in the presence of population structure with migration
+\citep{Petr2019-xo}, and their interpretation should be re-examined in light of
+a weakly structured stem model in Africa.
+
+Multiple studies have shown a correspondence between phenotypic
+differentiation, usually assessed with measurements of the cranium, and genetic
+differentiation among human populations and between humans and Neanderthals
+\citep{Relethford1994-mh,Weaver2008-ho,Von_Cramon-Taubadel2009-zb}. If we
+assume that this correspondence also holds for early human ancestral
+populations in Africa, the weakly structured stem model would predict that the
+fossils deriving from each of the two stems should be morphologically quite
+similar (supplementary text X)\aprcomment{Will we still include this?}, even if
+they are from different parts of Africa, with differences across stems closer
+to those across contemporary human populations than to human-Neanderthal
+differences. Differences within stems would be comparable to differences within
+recent human populations. Identifying the morphological signature of ancient
+structure in the fossil record will require careful analysis of many broadly
+similar remains. Our model further predicts that morphologically distinct
+crania such as XX and YY are unlikely representatives of branches that
+contributed appreciably to modern human ancestries.\sgcomment{Here I am being
+somewhat forceful. We could use conditional to emphasize that these conclusion
+are under the weakly structured stem model.}
+
+\section*{Methods}
+
+See Supplement, for now.
+
 \section*{Acknowledgements}
+
+We are grateful for the DNA contribution from each participant which enabled
+this study; in particular we wish to highlight the generous participation of
+the Richtersveld Nama community in South Africa and help from local research
+assistants Willem DeKlerk and Hendrik Kaimann. Additional assistance and
+community engagement was conducted by Justin Myrick, Chris Gignoux, Caitlen
+Uren and Cedric Werely. We thank the African Genome Diversity Project for data
+generation, including Tommy Carensten, Deepti Gurdasani, and Manj Sandhu. We
+also thank Sriram Sankararam, \dots for helpful discussion. This research was
+supported by an NIH grant R35GM133531 (to BMH) and XXX. The content is solely
+the responsibility of the authors and does not necessarily represent the
+official views of the National Institutes of Health.
 
 \break
 
