@@ -222,23 +222,28 @@ the bootstrap description to that section. TODO: discuss Aaron + Simon}
 \subsection{Estimating two-locus statistics with small sample sizes}
 
 The approach from \citet{Ragsdale2020-nz} provides unbiased estimates of the LD
-statistics considered here, with smaller sample sizes causing greater
-uncertainty in the estimated statistics, but is accounted for by computing
-variances/covariances via bootstrap. \sgcomment{I don't think that this is true
-if our bootstrap is over genomic regions. In an infinite genome with a tiny
-sample size, we would estimate no uncertainty...  Or at least, it is only true
-if the Neandertal form a truly randomly mating population...  }
+statistics considered here, which can be directly compared to expectations for
+those same statistics computed from the multi-population Hill-Robertson system.
+Estimated statistics for populations with smaller sample sizes have greater
+uncertainty, which is largely accounted for by computing variances and
+covariances via bootstrap, assuming our samples are unrelated and the
+population is randomly mating. 
 
-Some statistics, such as $D^2$, require at least two diploid samples to
-compute. Since we used a single Neanderthal sample, these statistics for the
-Neandertal population were not used in the fit. By contrast, there are
-statistics that only require a single sample per population to estimate. These
-include cross-population heterozygosity, as well as some statistics involving
-more than one population. For example, statistics of the form
-$D_{human}(1-2p_{human})(1-2q_{neanderthal})$ require a single Neanderthal
-sample and are informative of the Neanderthal demography. These statistics were
-included in the fit, but statistics requiring more than one Neanderthal sample
-to estimate were removed.
+\sgcomment{I don't think that this is true if our bootstrap is
+over genomic regions. In an infinite genome with a tiny sample size, we would
+estimate no uncertainty...  Or at least, it is only true if the Neandertal form
+a truly randomly mating population...  }
+
+Some statistics, such as $\E[D_i D_j]$, require at least two diploid samples
+from a population to compute. Since we used a single Neanderthal sample, such
+statistics for the Neandertal population were not used in the fit. By contrast,
+there are statistics that only require a single sample in a given population to
+estimate. These include cross-population nucleotide diversity measures, as well
+as some LD statistics involving more than one population. For example,
+statistics of the form $D_{human}(1-2p_{human})(1-2q_{neanderthal})$ require a
+single Neanderthal sample and are informative of the Neanderthal demography.
+These statistics were included in the fit, but statistics requiring more than
+one Neanderthal sample to estimate were removed.
 
 \subsection{Computing conditional SFS}\label{sec:computing-csfs}
 
@@ -466,6 +471,10 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 \section{Predictions from inferred demographic models}
 
 \subsection{$F_{ST}$ between coexisting populations over time}
+
+$F_{ST}$ can be interpreted as a measure of population structure, given by the
+proportion of genetic variance in a multi-population sample that can be
+attributed to drift between populations in that sample. 
 
 \subsection{$f_4$ statistics between pairs of contemporary and pairs of ancient populations}
 
@@ -759,9 +768,10 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 
 \begin{figure}[ht]
     \centering
-    %\includegraphics{figures/supp-FST-panels}
+    \includegraphics[width=\textwidth]{figures/supp-fsts-all-models.pdf}
     \caption{
         \textbf{Predicted \bm{$F_{ST}$} between contemporaneous populations over time.}
+        \aprcomment{Plot ordering, line colors and styles, etc need to be cleaned up}
     }
     \label{fig:supp-FST-panels}
 \end{figure}
@@ -809,28 +819,36 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-csfs-single-origin.pdf}
-    \caption{caption}
+    \caption{
+        \textbf{Conditional SFS compared to single-origin model.}
+    }
     \label{fig:supp-csfs-single-origin}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-csfs-continuous-migration.pdf}
-    \caption{caption}
+    \caption{
+        \textbf{Conditional SFS compared to continuous-migration model.}
+    }
     \label{fig:supp-csfs-continuous-migration}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-csfs-merger-without-stem-migration.pdf}
-    \caption{caption}
+    \caption{
+        \textbf{Conditional SFS compared to merger-without-stem-migration model.}
+    }
     \label{fig:supp-csfs-merger-without-stem-migration}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-csfs-merger-with-stem-migration.pdf}
-    \caption{caption}
+    \caption{
+        \textbf{Conditional SFS compared to merger-with-stem-migration model.}
+    }
     \label{fig:supp-csfs-merger-with-stem-migration}
 \end{figure}
 
