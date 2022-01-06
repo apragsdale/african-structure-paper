@@ -429,6 +429,7 @@ although the fits were nearly visually indistiguishable from the fits from the
 merger-with-stem-migration model.
 
 \section{Gene genealogy reconstruction}
+\label{sec:relate}
 
 We used \Relate version 1.0.16 \citep{Speidel2019-nj} to reconstruct genome-wide
 gene genealogies using a combined set of 1000 Genomes and African Diversity
@@ -459,9 +460,9 @@ Such branches can be categorized by their association with Neanderthals by
 comparing mutations that fall upon such a branch to the allele found in a
 Neanderthal genome sequence. For this, we used the published high-coverage
 Vindija Neanderthal \citep{Prufer2017-kk}. Again following the analysis in
-\citet{Speidel2019-nj}, if one or more mutations on a deep branch are shared
-with the Neanderthal sequence, the branch is inferred to have passed through
-the Neanderthal lineage.
+\citet{Speidel2019-nj}, if one or more mutations on a deep branch (carrying at
+least two derived mutations) are shared with the Neanderthal sequence, the
+branch is inferred to have passed through the Neanderthal lineage.
 
 A deep branch is assigned to a contemporary population if at least one sample
 from that population has ancestry that passes through that branch.
@@ -673,13 +674,13 @@ transition mutation rate \citep{Hernandez2007-mf}.
 
 \subsubsection{Relate curves from inferred models}
 
-We used \Relate to reconstruct gene genealogies from the simulations under our
-four inferred demographic models. From each of these, following the same
-approach as for the analysis of the actual data, we computed coalescence rates
-within and between sampled populations. From the coalescence rates, we
-estimated the inverse instantaneous coalescence rate (IICR, often interpreted
-as a trajector of $N_e$) for each population, as well as relative cross
-coalescence rates between pairs of populations.
+We used \Relate \citep{Speidel2019-nj} to reconstruct gene genealogies from the
+simulations under our four inferred demographic models. From each of these,
+following the same approach as for the analysis of the actual data, we computed
+coalescence rates within and between sampled populations. From the coalescence
+rates, we estimated the inverse instantaneous coalescence rate (IICR, often
+interpreted as a trajector of $N_e$) for each population, as well as relative
+cross coalescence rates between pairs of populations.
 
 We note that the IICR is a function of not only population sizes, but also of
 population structure and migration, and interpreting it as an actual population
@@ -723,7 +724,18 @@ between actual and simulated data, and inherent weaknesses of those methods.}
 
 \subsubsection{Distribution of deep branch affinities to Neanderthal sequence}
 
-\aprcomment{TODO}
+Following \citet{Speidel2019-nj}, we also characterized Neanderthal-matching
+deep branches (see Section~\ref{sec:relate}) in our simulated data under the
+four inferred demographic models. Comparing deep-branch distributions from the
+data (Fig.~\ref{fig:supp-deep-branches-data}) to the models
+(Fig.~\ref{fig:supp-deep-branches-sim}), we find consistent trends between each
+of the four models and the data in the ordering of proportions of lineages from
+each population that are labeled as Neanderthal-matching deep branches. This
+proportion is slightly over-estimated in each of the African populations
+compared to the data, but is closest in the merger-with-stem-migration model
+(which also fit the LD statistics the best of the four models). Given the
+discrepancies between the data IICR and the model IICR, these differenes are
+not surprising \aprcomment{what more to say here\dots}
 
 \subsection{Mutation versus recombination rates}
 
@@ -745,7 +757,34 @@ clock\dots}
 
 \subsection{Re-inference of IM models from simulated data}
 
-\aprcomment{TODO}
+Recent studies \aprcomment{have been quite interested in characterizing the
+``earliest divergence time among human populations''}, and such analyses
+typically fit simple isolation-with-migration (IM) or ``clean split'' models to
+observed allele frequencies or inferred coalescence times among and between
+populations \citep{Bergstrom2021-iw} \aprcomment{and others}. Simple IM models
+typically fit a constant $N_e$ within each diverged population, their split
+time, and a symmetric continuous migration rate (which could be fixed to zero,
+equivalent to the ``clean split'' model). We explored the effect of fitting
+such simplified models of history to data from more complex models by
+simulating the site frequency spectrum (SFS) under each of our four models for
+pairs of populations and reinferring an IM and clean split model for each pair.
+The simulations assumed 10 diploid individuals were sampled from each
+population.
+
+As expected, the clean split models consistently provide divergence times $T$
+that are more recent than the IM models. Because $T$ and subsequent migration
+can be inversely confounded in SFS inference, fixing migration rates to zero
+results in more recent inferred $T$ (Fig.~\ref{fig:supp-IM-misspecification}).
+Even though each of our four models inferred divergences of all human
+populations $\sim$120kya, ancient structure biases inferences and gives
+inflated estimates of $T$. A similar effect occurs when the ancestral
+population size increases prior to the population split
+\citep{Momigliano2021-th}, which is the case in our inferred single-origin
+model. \aprcomment{I want to highlight this more in the main text.} Inferred
+$T$ between the Nama and other populations were $>$200kya under the IM model,
+and $\sim$50--130kya under the clean split model.
+
+\aprcomment{There's plenty more we could say about this.}
 
 \break
 
@@ -1051,7 +1090,6 @@ clock\dots}
     \caption{
         \textbf{Predicted \bm{$f_4$} between pairs of modern populations
         and ancient branches from the single-origin model.}
-            \aprcomment{The y label should be $f_4^2/f_2f_2$ in these figures!}
     }
     \label{fig:supp-f4s-single-origin}
 \end{figure}
