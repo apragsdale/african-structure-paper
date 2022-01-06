@@ -179,6 +179,10 @@ $H_{i,j}$. $f$-statistics form the basis of admixture graph analysis
 multiple features of genetic data that have been used to infer models of
 archaic admixture and population structure involving many populations.
 
+\aprcomment{We used the Omni YRI map (though see figure showing similarity to
+statistics under the HapMapII map). Assumed a generation time of 29 years for
+rescaling times in years to generations.}
+
 \subsection{Computing LD and diversity statistics}\label{sec:computing-stats}
 
 We compared single- and two-locus statistics in the data to predictions based
@@ -385,24 +389,23 @@ of the model.
 
 \subsection{Optimization using moments}
 
-\moments-LD uses a composite likelihood approach to simultaneously fit
-relative pairwise diversity and LD statistics over a range of recombination
-distances.  Likelihoods were computed independently for pairwise diversity and
-each recombination distance bin using a multivariate Guassian likelihood
-function as described in Section \ref{sec:computing-stats}. These were
-multiplied across bins and the single set of heterozygosity statistics
-following the approach detailed in \citet{Ragsdale2019-nt}. For each model
-tested, we ran multiple rounds of optimization, alternating between the
-\emph{optimize\_log\_fim}, \emph{optimize\_log\_powell}, and
-\emph{optimize\_lbfgsb} methods to explore parameter space and hone in on the
-best fit parameters. Initial guesses for parameters were chosen from
-demographically plausible starting points and then perturbed to explore space,
-using gradient descent (on the log of the parameters). The best fits from these
-initial rounds of optimization were then chosen as the starting points for
-optimization using the Powell and/or the L-BFGS-B methods (as implemented in
-the SciPy optimization package \cite{Virtanen2020-kr}). This process was
-repeated with alternating optimization methods until the best fit parameter set
-converged consistently.
+\moments-LD uses a composite likelihood approach to simultaneously fit relative
+pairwise diversity and LD statistics over a range of recombination distances.
+Likelihoods were computed independently for pairwise diversity and each
+recombination distance bin using a multivariate Guassian likelihood function as
+described in Section \ref{sec:computing-stats}. These were multiplied across
+bins and the single set of heterozygosity statistics following the approach
+detailed in \citet{Ragsdale2019-nt}. For each model tested, we ran multiple
+rounds of optimization, alternating between the \emph{optimize\_log\_fim},
+\emph{optimize\_log\_powell}, and \emph{optimize\_lbfgsb} methods to explore
+parameter space and hone in on the best fit parameters. Initial guesses for
+parameters were chosen from demographically plausible starting points and then
+perturbed to explore space, using gradient descent (on the log of the
+parameters). The best fits from these initial rounds of optimization were then
+chosen as the starting points for optimization using the Powell and/or the
+L-BFGS-B methods (as implemented in the SciPy optimization package
+\cite{Virtanen2020-kr}). This process was repeated with alternating
+optimization methods until the best fit parameter set converged consistently.
 
 \subsection{Confidence intervals using Godambe methods}
 
@@ -441,7 +444,7 @@ described in the \Relate documentation.
 From the reconstructed gene genealogies, we computed coalescence rates within
 and between populations using \Relate’s function \texttt{RelateCoalescentRate}.
 This allows for an estimate of the instantaneous inverse coalescence rate
-(IIRC) for samples drawn within each population (the inverse of which is often
+(IICR) for samples drawn within each population (the inverse of which is often
 interpreted as the effective population size history), and the relative cross
 coalescence rates between pairs of populations (which are commonly used to
 estimate divergence times).
@@ -670,7 +673,53 @@ transition mutation rate \citep{Hernandez2007-mf}.
 
 \subsubsection{Relate curves from inferred models}
 
-\aprcomment{TODO}
+We used \Relate to reconstruct gene genealogies from the simulations under our
+four inferred demographic models. From each of these, following the same
+approach as for the analysis of the actual data, we computed coalescence rates
+within and between sampled populations. From the coalescence rates, we
+estimated the inverse instantaneous coalescence rate (IICR, often interpreted
+as a trajector of $N_e$) for each population, as well as relative cross
+coalescence rates between pairs of populations.
+
+We note that the IICR is a function of not only population sizes, but also of
+population structure and migration, and interpreting it as an actual population
+size history is tenuous.  However, it is still a statistic that can be computed
+from the data and compared to predictions under the model, and can therefore be
+informative about aspects of the data that our models fail to predict.
+\aprcomment{I think we want to say something along these lines above\dots} We
+also note that the coalescence rates inferred from data used a larger set of
+populations from the combined 1000 Genomes/AGRP dataset, while our model
+simulations only included a subset of 5 populations. This may lead to
+differences in resolution of the inferences.
+
+The data shows the characteristic ``hump'' of increased IICR ($N_e$) 100-300k
+for all populations, followed by a decrease in size among all populations that
+is sharpest in the Eurasian populations and also pronounced in the East African
+populations that have high proportions of Eurasian ancestry (Amhara and Oromo)
+(Fig.~\ref{fig:supp-iicr-data}). The model-inferred $N_e$ curves also show this
+general trend for the more recent reduction in $N_e$
+(Fig.~\ref{fig:supp-iicr-sim}). In the the more distant past, $N_e$ fluctuates
+in a manner that is broadly similar across models with observed ``humps'' of
+increased $N_e$. Despite the large differences in parameterizations and
+interpretations of the four inferred demographic models, each of them show
+reconstructed $N_e$ trajectories that are qualitatively similar, highlighting
+the difficulty in learning complex demography in the deep past from
+reconstructed coalescence rate trajectories.
+
+We also compared the relative cross-coalescence rates (RCCR) between pairs of
+populations in the four inferred demographic models
+(Figures~\ref{fig:supp-rccr-single-origin}--\ref{fig:supp-rccr-merger-with-stem-migration})
+to those in the data (Fig.~\ref{fig:supp-rccr-data}). In the recent past
+($<$10ka), each of the models show increased RCCR compared to the data.
+However, in the medium to more distant past, the RCCR provide a good match to
+the data in each of the four models, including both their timing and ordering
+of increased cross coalescences. The failure to match both the IIRC and RCCR in
+the recent past in all models suggests that additional parameters would be
+needed to account for recent increases in population sizes. As is the case with
+other methods that reconstruct size history trajectories from inferred coalesce
+rates (e.g. PSMC, MSMC), \Relate has difficulty inferring coalescences that
+occur in the recent past, \aprcomment{likely a combination of some differences
+between actual and simulated data, and inherent weaknesses of those methods.}
 
 \subsubsection{Distribution of deep branch affinities to Neanderthal sequence}
 
@@ -712,8 +761,10 @@ clock\dots}
 \begin{table}[ht]
 \caption{
     \label{tab:supp-single-origin}
-    \textbf{Best-fit parameters from the Single-Origin model.}
-    \aprcomment{fill in caption - generation time of 29 years, other details}
+    \textbf{Best-fit parameters from the single-origin model.}
+    Inferred values are scaled to physical units assuming a generation time of
+    29 years. This model gave a log-likelihood of -189,434. \aprcomment{See
+    figure XX with all parameters labeled.}
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -749,7 +800,9 @@ clock\dots}
 \caption{
     \label{tab:supp-continuous-migration}
     \textbf{Best-fit parameters from the Continuous-Migration model.}
-    \aprcomment{fill in caption - generation time of 29 years, other details}
+    Inferred values are scaled to physical units assuming a generation time of
+    29 years. This model gave a log-likelihood of -116,000. \aprcomment{See
+    figure XX with all parameters labeled.} 
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -791,7 +844,9 @@ clock\dots}
 \caption{
     \label{tab:supp-merger-without-stem-migration}
     \textbf{Best-fit parameters from the Merger-Without-Stem-Migration model.}
-    \aprcomment{fill in caption - generation time of 29 years, other details}
+    Inferred values are scaled to physical units assuming a generation time of
+    29 years. This model gave a log-likelihood of -107,652. \aprcomment{See
+    figure XX with all parameters labeled.} 
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -835,7 +890,9 @@ clock\dots}
 \caption{
     \label{tab:supp-merger-with-stem-migration}
     \textbf{Best-fit parameters from the Merger-With-Stem-Migration model.}
-    \aprcomment{fill in caption - generation time of 29 years, other details}
+    Inferred values are scaled to physical units assuming a generation time of
+    29 years. This model gave a log-likelihood of -102,633. \aprcomment{See
+    figure XX with all parameters labeled.} 
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -881,7 +938,9 @@ clock\dots}
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.65\textwidth]{figures/supp-possible-models.png}
-    \caption{\textbf{Proposed models of early human history in Africa.}}
+    \caption{
+        \textbf{Proposed models of early human history in Africa.}
+    }
     \label{fig:supp-possible-models}
 \end{figure}
 
@@ -972,7 +1031,16 @@ clock\dots}
     \includegraphics[width=\textwidth]{figures/supp-fsts-all-models.pdf}
     \caption{
         \textbf{Predicted \bm{$F_{ST}$} between contemporaneous populations over time.}
-        \aprcomment{Plot ordering, line colors and styles, etc need to be cleaned up}
+        \aprcomment{Plot ordering, line colors and styles, etc need to be cleaned up.
+        Add panel labels.}
+        All models (A: single origin, B: continuous migration, C: merger without stem
+        migration, D: merger with stem migration) match observed $F_{ST}$ between
+        sampled populations. The continuous-migration model predicts that human stem
+        populations remain genetically similar, while the merger with and without
+        stem migration models predict a period of increased $F_{ST}$ between ancestors
+        of modern humans. This is largely due to the very small inferred $N_e$ in one of
+        the stem branches, which leads to a rapid increase in differentiation due to
+        drift.
     }
     \label{fig:supp-FST-panels}
 \end{figure}
@@ -983,6 +1051,7 @@ clock\dots}
     \caption{
         \textbf{Predicted \bm{$f_4$} between pairs of modern populations
         and ancient branches from the single-origin model.}
+            \aprcomment{The y label should be $f_4^2/f_2f_2$ in these figures!}
     }
     \label{fig:supp-f4s-single-origin}
 \end{figure}
@@ -1059,7 +1128,7 @@ clock\dots}
     \caption{
         \textbf{Inverse instantaneous coalescence rates inferred from the data.}
     }
-    \label{fig:supp-relate-sizes}
+    \label{fig:supp-iicr-data}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1068,7 +1137,7 @@ clock\dots}
     \caption{
         \textbf{Inverse instantaneous coalescence rates reinferred from simulated data.}
     }
-    \label{fig:supp-relate-sizes-sim}
+    \label{fig:supp-iicr-sim}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1077,7 +1146,7 @@ clock\dots}
     \caption{
         \textbf{Relative cross-coalescence rates inferred from the data.}
     }
-    \label{fig:supp-relate-rccr}
+    \label{fig:supp-rccr-data}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1087,7 +1156,7 @@ clock\dots}
         \textbf{Relative cross-coalescence rates reinferred from simulated data
         under the single-origin model.}
     }
-    \label{fig:supp-relate-rccr-sim}
+    \label{fig:supp-rccr-single-origin}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1097,7 +1166,7 @@ clock\dots}
         \textbf{Relative cross-coalescence rates reinferred from simulated data
         under the continuous-migration model.}
     }
-    \label{fig:supp-relate-rccr-sim}
+    \label{fig:supp-rccr-continuous-migration}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1107,7 +1176,7 @@ clock\dots}
         \textbf{Relative cross-coalescence rates reinferred from simulated data
         under the merger-without-stem-migration-model.}
     }
-    \label{fig:supp-relate-rccr-sim}
+    \label{fig:supp-rccr-merger-without-stem-migration}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1117,7 +1186,7 @@ clock\dots}
         \textbf{Relative cross-coalescence rates reinferred from simulated data
         under the merger-with-stem-migration model.}
     }
-    \label{fig:supp-relate-rccr-sim}
+    \label{fig:supp-rccr-merger-with-stem-migration}
 \end{figure}
 
 \begin{figure}[ht]
