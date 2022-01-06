@@ -476,38 +476,39 @@ unidentified hominin unrelated to the Neanderthal/Denisovan complex.
 
 \section{Predictions from inferred demographic models}
 
-\subsection{$F_{ST}$ between coexisting populations over time}
+\subsection{Divergence between coexisting populations over time}
 
-$F_{ST}$ can be interpreted as a measure of population structure, given by the
-proportion of genetic variance in a multi-population sample that can be
-attributed to drift between populations in that sample \cite{Bhatia2013-sq}.
-$F_{ST}$ depends on population divergence times as well as subsequent gene flow
-and population sizes: migration between populations reduces $F_{ST}$ while
-small effective population sizes can lead to large values. For each of the four
+We considered a few different measures of differentiation between populations  in four inferred models, starting with $F_{ST}.$ For each of the four
 inferred demographic models presented here, we computed predicted $F_{ST}$ for
-pairs of contemporaneous populations over time. For sampled populations,
-predicted $F_{ST}$ can be compared to data (Fig.~\ref{fig:supp-FST-panels}). We
+pairs of contemporaneous populations over time. 
+
+$F_{ST}$ represents the
+proportion of genetic variance in a multi-population sample that can be
+attributed to drift between populations in that sample (e.g., \cite{Bhatia2013-sq}).
+$F_{ST}$ depends on population divergence times, gene flow,
+and population sizes. For present-day sampled populations,
+predicted $F_{ST}$ can be compared to data (Fig.~\ref{fig:supp-FST-panels}), while past estimates represent model predictions about the differentiation between past populations. We
 computed $F_{ST}$ as a ratio of expected (or average) variances, using observed
-pairwise diversity within and between populations as
+pairwise diversity within and between populations as \sgcomment{WHich estimator is that? If this is the one recommended in Bhatia, cite?}
 \begin{equation}
     F_{ST}(i, j) = \frac{\E[2H_{i,j} - H_i - H_j]}{\E[2H_{i,j} + H_i + H_j]}.
     \label{eq:FST}
 \end{equation}
-
+\sgcomment{where $H_{ij}$ is the average number of differences between one haploid copy of the genome from population $i$ and one from population $j$.}
 In all inferred models, $F_{ST}$s between Neanderthals and the ancestors of
 modern humans were much larger than between any pair of modern human
 populations or their ancestors (stems). $F_{ST}$ between modern human
-populations over the last 100 thousand years remained relatively low, at
+populations over the last $100ka$ remained relatively low, at
 $\sim0.1$ or less. In the continuous-migration model, the two stem populations
 also were predicted to have low $F_{ST}$ within this range, as migration rates
 were inferred to be high enough to maintain genetic similarity. In both the
 merger-without-stem-migration and the merger-with-stem-migration, one of the
 stem populations was inferred to have a short, severe bottleneck, which led to
-increased $F_{ST}$ between stem populations during that time. However, this
-period of relatively large $F_{ST}$ did not result in large $F_{ST}$ between
-more recent pairs of populations due to their roughly similar levels of
-contributions to the ancestors of modern humans. \aprcomment{We caution that
-the severe bottleneck may be an artifact of the model parameterization?}
+increased $F_{ST}$ between stem populations during that time. In the merger with stem migration, $F_{ST}$ reached a maximum value of $0.3$ between stems, intermediate between human-Neanderthal divergence ($0.54$ \sgcomment{check}) and the maximum $F_{ST}$ observed between contemporary human populations ($0.07$.) 
+
+Whereas the high $F_{ST}$ value between Neanderthal and humans reflects both elevated genetic differences between the genomes of modern humans and neanderthal and reduced diversity within the Neanderthal population (\sgcomment{Figure X}), the increased $F_{ST}$ between the stems is primarily due to an inferred bottleneck reducing stem diversity, while genetic differentiation between individuals from the two stems is within the range of genetic differentiation between (and even within) human populations. In other words, our best fit model describes two stems with one stems showing reduced diversity, but individuals across stems showing no more differentiation than two modern population.  \sgcomment{Previous paragraph could use rereading.}
+
+
 
 \subsection{$f_4$ statistics between pairs of contemporary and pairs of ancient populations}
 
@@ -679,15 +680,13 @@ simulations under our four inferred demographic models. From each of these,
 following the same approach as for the analysis of the actual data, we computed
 coalescence rates within and between sampled populations. From the coalescence
 rates, we estimated the inverse instantaneous coalescence rate (IICR, often
-interpreted as a trajector of $N_e$) for each population, as well as relative
+interpreted as an estimator of $N_e$) for each population, as well as relative
 cross coalescence rates between pairs of populations.
 
-We note that the IICR is a function of not only population sizes, but also of
-population structure and migration, and interpreting it as an actual population
-size history is tenuous.  However, it is still a statistic that can be computed
-from the data and compared to predictions under the model, and can therefore be
+The IICR is only a reliable estimator of $N_e$ in the absence of population structure. . However, since IIRC are readily estimated and visually interesting, it is commonly attempted even when the assumption is not met \cite{}. 
+Even if the assumption is not met, the inferred IIRC can be interpreted as a summary statistic for which model predictions can be compared to data. and can therefore be
 informative about aspects of the data that our models fail to predict.
-\aprcomment{I think we want to say something along these lines above\dots} We
+\sgcomment{Insert inferences with same populations?}. We
 also note that the coalescence rates inferred from data used a larger set of
 populations from the combined 1000 Genomes/AGRP dataset, while our model
 simulations only included a subset of 5 populations. This may lead to
