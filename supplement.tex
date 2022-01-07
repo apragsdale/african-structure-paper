@@ -511,6 +511,7 @@ Whereas the high $F_{ST}$ value between Neanderthal and humans reflects both ele
 
 
 \subsection{$f_4$ statistics between pairs of contemporary and pairs of ancient populations}
+\label{sec:f4}
 
 To evaluate the degree to which divergence among modern populations is
 inherited from divergence between early stem population, we computed f4
@@ -1090,8 +1091,17 @@ and $\sim$50--130kya under the clean split model.
         \textbf{Predicted pairwise differentiation between contemporaneous populations.}
         \aprcomment{Plot ordering, line colors and styles, etc need to be cleaned up.
         Add panel labels.}
-        All models (A: single origin, B: continuous migration, C: merger without stem
-        migration, D: merger with stem migration)\dots
+        $H_{i,j}$ is the predicted pairwise differentiaion between two populations,
+        which we normalize by the observed pairwise diversity in the Mende sample.
+        The single-origin model (A) shows larger deviations between observed and
+        expected differentiation than the models with early human structure
+        (B: continuousmigration, C: merger without stem migration, D: merger with 
+        stem migration). In the merger models (C and D), while $F_{ST}$ is large
+        between early stems due to the sharp bottleneck in one of those branches,
+        the pairwise differences are comparable to the continuous-migration model.
+        Stem 1E and Stem 1S have low differentiation, as the bottleneck in Stem 1
+        (which they both split from) sharply reduces diversity by the time of the
+        split. This has the effect of large $F_{ST}$ but small $H_{i,j}$.
     }
     \label{fig:supp-h12-panels}
 \end{figure}
@@ -1102,6 +1112,10 @@ and $\sim$50--130kya under the clean split model.
     \caption{
         \textbf{Predicted \bm{$f_4$} between pairs of modern populations
         and ancient branches from the single-origin model.}
+        $f_4(A, B; X, Y)/f_2(A, B)f_2(X, Y)$ is interpreted as the proportion of the
+        amount of drift between sampled populations $A$ and $B$ that can be
+        attributed to drift between populations $X$ and $Y$, sampled in the past
+        (see Section~\ref{sec:f4}). \aprcomment{\dots}
     }
     \label{fig:supp-f4s-single-origin}
 \end{figure}
