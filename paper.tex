@@ -9,6 +9,7 @@
 \usepackage{color}
 \usepackage{booktabs}
 
+
 \lstset{language=Python}
 
 % local definitions
@@ -61,13 +62,11 @@ hundreds of thousands of years (i.e. a weakly structured stem). We find that
 weakly structured stem models provide more likely explanations of polymorphism
 that had previously been attributed to contributions from archaic hominins in
 Africa.
-\sgcomment{IF we were not afraid of the racists, we could write something like:
-"Despite the genetic similarity between these populations, 4 to 10\% of random
-genetic differences among [modern human populations] can be attributed to this
-early genetic drift.}
 In contrast to models with archaic introgression, we predict that fossil
 remains from coexisting ancestral populations should be morphologically
-similar. We show that model misspecification explains variation in previous
+similar. 
+Despite genetic similarity between these populations, an inferred \sgcomment{4 to 10\%} of random genetic differences among [modern human populations] can be attributed to genetic drift between stems.
+We show that model misspecification explains variation in previous
 divergence time estimates and argue that studying a suite of models is key to
 robust inferences about deep history.
 }
@@ -184,9 +183,8 @@ contemporary groups, including models allowing for ancestral reticulation
 (Figure~\ref{fig:supp-possible-models}C), and African multi-regionalism
 (Figure~\ref{fig:supp-possible-models}D).
 
-Regardless of the model choice for early epochs, inference of recent human
-demographic history from two thousand \aprcomment{why two thousand, instead of
-just ``up to 150kya''?} to 150kya was remarkably robust. The earliest divergence
+Regardless of the model choice for early epochs, inference of human
+demographic history in the last 150kya was remarkably robust. The earliest divergence
 among contemporary sampled human populations differentiates the southern
 African Nama from other African groups between 110--135kya, with low to moderate
 levels of subsequent gene flow \aprcomment{(Table 1)}. In none of the
@@ -257,7 +255,7 @@ the early branches remain closely related throughout (Figure 3).
 \aprcomment{this last phrase may need to be updated, with regard to Fig
 \ref{fig:supp-FST-panels}}
 
-Likelihood-based parameter confidence intervals are relatively narrow within
+Likelihood-based parameter confidence intervals  \sgcomment{or: Bootstrap-based confidence interval reflecting the finite length of the genome?}   are relatively narrow within
 each specified model
 (Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
 reflecting an informative statistical approach. As expected, model assumptions
@@ -315,13 +313,48 @@ Stem 1S in southern Africa and Stem 1E in eastern Africa.
     \centering
     \begin{tabular}{l|l|l}
         \toprule
-        Parameter & Value & Something else \\
+        Parameter & Value & Value \\
         \midrule
         x & y & z \\
         \bottomrule
     \end{tabular}
     \caption{caption}
     \label{tab:migration-rates}
+\end{table}
+
+%Please add the following packages if necessary:
+%\usepackage{booktabs, multirow} % for borders and merged ranges
+%\usepackage{soul}% for underlines
+%\usepackage[table]{xcolor} % for cell colors
+%\usepackage{changepage,threeparttable} % for wide tables
+%If the table is too wide, replace \begin{table}[!htp]...\end{table} with
+%\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]...\end{threeparttable}\end{adjustwidth}
+\begin{table}[!htp]\centering
+
+\scriptsize
+\begin{tabular}{lrrrrrr}\toprule
+\textbf{Likelihood} &\textbf{Label} &\textbf{Population Pair} &\textbf{Divergence}&\textbf{Migration rate} &\textbf{Migration duration } \\
+& & & \textbf{Time (kya)} & \textbf{per generation} &\textbf{ (kya)}\\\midrule
+\textbf{Continuous Model} & & & & & \\
+LL= -116000 &missing &Stem 1 vs. Stem 2 &1,163 &6.43e-5 &1,028 \\
+&c, add copies &Nama vs. Other Africans* &135 &4.1E-5, 9.8E-6 &135, 60 \\
+& not shown &Mende vs. East Africans &60 &\textbf{2.14e-4} &55 \\
+& not shown &East Africans vs. British &50 &4.17e-5 &50 \\
+& labeled &Gumuz vs. Amhara/Oromo &12 &\textbf{3.36e-4} &12 \\
+& green &Stem 2 vs. Mende &NA &\textbf{1.64e-4} &55 \\
+& orange &Stem 2 vs. Nama &NA &5.82e-5 &130 \\
+\textbf{Merger Model} & & & & & \\
+LL= -102633 & &Stem 1 vs. Stem 2 &1,442 &\textbf{1.16e-4} &963 \\
+& &Stem 1S vs. Stem 1E &479 &0.00e+0 &NA \\
+& &Nama vs. Other Africans &119 &4.4E-5, 7.1E-6 &117 \\
+& &Stem 2 vs. Stem 1E &98 &\textbf{5.00e-1} &pulse \\
+& &Mende vs. East Africans &60 &\textbf{1.98e-4} &38 \\
+& &East Africans vs. British &50 &3.87e-5 &50 \\
+& &Gumuz vs. Amhara/Oromo &12 &\textbf{3.59e-4} &12 \\
+& &Stem 2 vs. Mende &NA &\textbf{0.18} &pulse \\
+\bottomrule
+\end{tabular}
+\caption{Table 1 copied from dropbox}
 \end{table}
 
 \subsection*{Reconciling multiple lines of genetic evidence}
