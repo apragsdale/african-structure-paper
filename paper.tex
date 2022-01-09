@@ -134,9 +134,9 @@ of alternative models.
 
 We inferred detailed demographic histories using 4x-8x whole-genome sequencing
 data for four diverse African populations, comprising the Nama (Khoe-San from
-South Africa, newly presented here), Mende (MSL from Sierre Leone, Phase 3 of
-the 1000 Genomes Project \citep{1000_Genomes_Project_Consortium2015-zq}), Gumuz
-(recent descendents of a hunter-gatherer group from Ethiopia
+South Africa, newly presented here), Mende (from Sierre Leone, MSL from the
+Phase 3 1000 Genomes Project \citep{1000_Genomes_Project_Consortium2015-zq}),
+Gumuz (recent descendents of a hunter-gatherer group from Ethiopia
 \citep{Gurdasani2015-qy,Gopalan2019-wd}), and Eastern African agriculturalists
 (Amhara and Oromo from Ethiopia \citep{Gurdasani2015-qy}). The Amhara and Oromo
 populations, despite speaking distinct Afro-Asiatic languages, are highly
@@ -144,7 +144,7 @@ genetically similar \citep{Pagani2015-pz,Gopalan2019-wd} and thus the two
 groups were combined for a larger sample size (Figure~\ref{fig:1}). We also
 included the British (GBR) from the 1000 Genomes Project in our demographic
 models as a representative source of back-to-Africa gene flow and recent
-colonial admixture in South Africa. Finally, we added a high-coverage ancient
+colonial admixture in South Africa. Finally, we used a high-coverage ancient
 Neanderthal genome from Vindija Cave, Croatia \citep{Prufer2017-kk} to account
 for archaic gene flow from Neanderthals in non-Africans and gauge the relative
 time depth of divergence, assuming Neanderthals diverged 550kya from a common
@@ -173,12 +173,13 @@ years.
 We began with a model of geographic expansion from a single ancestral source
 followed by migration between populations
 (Figure~\ref{fig:supp-possible-models}A), without allowing for contribution
-from an archaic African lineage. As expected \citep{Ragsdale2019-nt}, this
-first model was a poor fit to the data qualitatively
-(Figure~\ref{fig:supp-single-origin-fits}) and quantitatively (log-likelihood
-($LL$) $\approx -189,000$, Table~\ref{tab:supp-single-origin}). We next explored a
-suite of models in which population structure predates the differentiation of
-contemporary groups, including models allowing for ancestral reticulation
+from an archaic African lineage or population structure prior to the expansion.
+As expected \citep{Ragsdale2019-nt}, this first model was a poor fit to the
+data qualitatively (Figure~\ref{fig:supp-single-origin-fits}) and
+quantitatively (log-likelihood ($LL$) $\approx -189,400$,
+Table~\ref{tab:supp-single-origin}). We next explored a suite of models in
+which population structure predates the differentiation of contemporary groups,
+including models allowing for ancestral reticulation
 (Figure~\ref{fig:supp-possible-models}B), archaic admixture
 (Figure~\ref{fig:supp-possible-models}C), and African multi-regionalism
 (Figure~\ref{fig:supp-possible-models}D).
@@ -187,23 +188,24 @@ Regardless of the model choice for early epochs, inference of human
 demographic history in the last 150kya was remarkably robust. The earliest divergence
 among contemporary sampled human populations differentiates the southern
 African Nama from other African groups between 110--135kya, with low to moderate
-levels of subsequent gene flow \aprcomment{(Table 1)}. In none of the
+levels of subsequent gene flow (Table\ref{tab:migration-rates}). In none of the
 high-likelihood models which we explored did the divergence between Nama and
-other populations exceed $\sim$150kya. We conclude that, regardless of model
+other populations exceed $\sim$140kya. We conclude that, regardless of model
 specification, geographic patterns of \emph{Homo sapiens} population structure
 date back to the Late Middle Stone Age in Africa, likely arising during MIS 5.
 Although we find evidence for earlier population structure in Africa (see
 below), present-day populations cannot be easily mapped onto these more ancient
 stem groups as only a small proportion of drift between modern populations can
-be attributed to drift between stems \aprcomment{(Figure 3)}. 
+be attributed to drift between stems (Figures~\ref{fig:3} and
+\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}). 
 
 Given this consistency in inferred recent history and the numerical challenge
 of optimizing a large number of parameters, we fixed several parameters related
 to recent population history so as to focus on more ancient events (Supp.
 Methods). The time of divergence of Western and Eastern African populations was
-set to 60kya, just prior to the split of Eurasians and East Africans 50kya. Both
+set to 60kya, just prior to the split of Eurasians and East Africans 50kya. All
 models predict relatively high subsequent gene flow between the two regions
-($m=2\times10^{-4}$). Admixture from Neanderthals to Europeans directly
+($m\approx2\times10^{-4}$). Admixture from Neanderthals to Europeans directly
 following the out-of-Africa migration was set to 1.5\% at 45kya (Supp.
 Methods). Back-to-Africa gene flow at the beginning of the Holocene primarily
 affected the ancestors of the Ethiopian agricultural populations, comprising
@@ -215,8 +217,8 @@ Oromo into the Nama, a signal which is likely a proxy for the movement of
 Eastern African caprid and cattle pastoralists
 \citep{Henn2008-xo,Breton2014-xb}, here estimated to constitute a 25\% ancestry
 contribution 2,000 ya. Colonial period admixture from Europeans into the Nama
-was estimated at 15\%, similar to proportions inferred by ADMIXTURE
-\aprcomment{cite} (Figure~\ref{fig:1}).
+was estimated at 15\%, similar to proportions inferred by \texttt{ADMIXTURE}
+\citep{Alexander2009-sw} (Figure~\ref{fig:1}).
 
 \begin{figure}[t!]
     \centering
@@ -247,10 +249,12 @@ split. We considered models both with and without migration between these stem
 populations, and in both cases we tested two different types of gene exchange
 during the expansion phase. 1) One of the stem population expands (splits into
 contemporary populations), and the other stem population(s) has continuous
-symmetric migration with those populations; or 2) expansion of one or more of
-the stem populations, with an instantaneous pulse (or “merger”) from the other
-stem population. These models are meant to capture scenarios 2B and 2C (Figure
-2). \aprcomment{update this last sentence}
+symmetric migration with those populations; or 2) one or more of the stem
+populations expands, with instantaneous pulse (or “merger”) events from the
+other stem population, so that diversifying branches are formed through the
+coalescence of multiple ancestral populations. Depending on parameter values,
+this scenario encompasses archaic introgression and
+fragmentation-and-coalescence models.
 
 \begin{table}[t!]
     \centering
@@ -265,7 +269,7 @@ stem population. These models are meant to capture scenarios 2B and 2C (Figure
         \textbf{Continuous Model} & & & & & \\
         LL= -115,500 & a & Stem 1, Stem 2 & 1,163 & 6.43e-5 & 1,028 \\
         & b & Stem 2, Nama & NA & 5.82e-5 & 130 \\
-        & c, d & Stem 2, Other Africans & NA & 3.10e-5, \textbf{1.64e-4} & 130, 55 \\
+        & c, d & Stem 2, Other Africans* & NA & 3.10e-5, \textbf{1.64e-4} & 130, 55 \\
         & e, f & Nama, Other Africans* & 135 & 4.1e-5, 9.8e-6 & 135, 60 \\
         & g & Mende, East Africans & 60 & \textbf{2.14e-4} & 60 \\
         & h & East Africans, British & 50 & 4.17e-5 & 50 \\
@@ -276,44 +280,47 @@ stem population. These models are meant to capture scenarios 2B and 2C (Figure
         & b & Stem 2 to Nama & 119 & \textbf{0.71} & pulse \\
         & c & Stem 2 to Stem 1E & 98 & \textbf{0.50} & pulse \\
         & d & Stem 2 to Mende & 25 & \textbf{0.18} & pulse \\
-        & e, f & Nama, Other Africans & 119 & 4.4e-5, 7.1e-6 & 119, 60 \\
-        & g, & Mende, East Africans & 60 & \textbf{1.98e-4} & 60 \\
+        & e, f & Nama, Other Africans* & 119 & 4.4e-5, 7.1e-6 & 119, 60 \\
+        & g, & Mende, East Africans* & 60 & \textbf{1.98e-4} & 60 \\
         & h & East Africans, British & 50 & 3.87e-5 & 50 \\
         & i & Gumuz, Amhara/Oromo &12 & \textbf{3.59e-4} & 12 \\
         \bottomrule
     \end{tabular}
     \caption{
-        \textbf{Migration and divergence parameters from best fit models.}\\
-        \aprcomment{Labels are keyed to Figure~\ref{fig:2}}
+        \textbf{Migration and divergence parameters from best fit models.}
+        Labeled migration rates correspond to symmetric continuous migration
+        bands shown in Figure~\ref{fig:2}. Both the continuous-migration and
+        merger models \ldots
+        \aprcomment{also define *}
     }
     \label{tab:migration-rates}
 \end{table}
 
 Allowing for continuous migration between the stem populations substantially
 improved the fits relative to zero migration (e.g. $LL \approx -102,600$ vs.
-$-107,700$). With continuous migration, population structure extends back to
-1.1--1.4Mya \aprcomment{(Table 1)}. Migration between the stems in these models
-is low but non-negligible, with a fraction of migrant lineages each generation
-estimated as $m=6.43\times10^{-5}-1.16\times10^{-4}$. For comparison, this is
-at least as large as migration inferred between the Ethiopian East Africans and
-British populations over the past 50kya \aprcomment{(Table 1)}. This ongoing
-(or, at least, periodic) gene flow qualitatively distinguishes these models
-from previously proposed archaic admixture models \aprcomment{(Figure S1C)} as
-the early branches remain closely related throughout (Figure 3).
-\aprcomment{this last phrase may need to be updated, with regard to Fig
-\ref{fig:supp-FST-panels}}
+$-107,700$ in the merger scenario and $LL \approx -115,500$ vs. $-128,000$ with
+continuous migration). With continuous migration between stems, population
+structure extends back to 1.1--1.4Mya (Table~\ref{tab:migration-rates}).
+Migration between the stems in these models is moderate, with a fraction of
+migrant lineages each generation estimated as
+$m=6.43\times10^{-5}-1.16\times10^{-4}$. For comparison, this roughly compares
+to inferred migration rates between connected contemporary populations over the
+past 50kya (Table~\ref{tab:migration-rates}). This ongoing (or, at least,
+periodic) gene flow qualitatively distinguishes these models from previously
+proposed archaic admixture models (Figure~\ref{fig:supp-proposed-models}C) as
+the early branches remain closely related (Figure 3). \aprcomment{this last
+phrase may need to be updated, with regard to Fig \ref{fig:supp-FST-panels}}
 
-Likelihood-based parameter confidence intervals  \sgcomment{or: Bootstrap-based confidence interval reflecting the finite length of the genome?}   are relatively narrow within
-each specified model
+Bootstrap-based confidence intervals are relatively narrow within each
+specified model
 (Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
 reflecting an informative statistical approach. As expected, model assumptions
 have a larger impact on parameter estimates. To convey model uncertainty, we
-highlight features of two models with the highest \aprcomment{not the
-highest\ldots merger-without-stem-migration at -107,650}log likelihoods. These
-differ primarily in whether early stems are assumed to give rise to modern
-populations in multiple discrete merger events or in continuous migrations
-\aprcomment{(Figure 2)}. Additional models are discussed in
-\aprcomment{Supplement XXX}.
+highlight features of two models with high likelihoods. These differ primarily
+in whether early stems are assumed to give rise to modern populations in
+multiple discrete merger events or in continuous migrations
+(Figure~\ref{fig:2}). Additional models are discussed in the Supporting
+Material.
 
 The “Multiple Merger” model has better log-likelihood than the “Continuous
 Migration” model (-102,600 vs. -115,500, respectively). The two models differ
@@ -329,10 +336,6 @@ example, the Nama and Gumuz have lower levels of migration with Stem 2
 Mende. The Mende continue to exchange migrants with Stem 2
 ($m=1.6\times10^{-4}$) long after their separation 60kya; this is a similar
 level of gene flow as between the Mende and Eastern Africans (Table 1). 
-\aprcomment{paragraphs above need work, and condensing}
-
-\aprcomment{also below, too much information - we don't actually believe these
-models}
 
 In contrast, under the Multiple Merger model, we allowed for stem populations
 to have large instantaneous contributions, in different proportions, to form
@@ -374,7 +377,7 @@ directly to the cSFS (for example, compare with Figure~1 in
 
 \begin{figure}[t!]
     \centering
-    \includegraphics{figures/fig3.pdf}
+    %\includegraphics{figures/fig3.pdf}
     \caption{
         \textbf{fig3}
     }
@@ -416,14 +419,11 @@ compared to a true divergence 60kya, \aprcomment{Supp Figure SX}). We suggest
 that rCCR analyses which do not fit multiple parameters including gene flow
 should be interpreted with caution.
 
-\begin{figure}[ht]
-\begin{center}
-    \makebox[\textwidth][c]{} % \includegraphics{figures/fig3.pdf}}
-\caption{\textbf{The fourth main figure}.
-    A placeholder - predictions (FST and/or f4).
-}
-\label{fig:4}
-\end{center}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics{figures/fig4}
+    \caption{fig4}
+    \label{fig:4}
 \end{figure}
 
 \section*{Discussion}
