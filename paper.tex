@@ -157,7 +157,7 @@ changes, continuous and variable migration rates, and punctuated admixture
 events, to learn about the nature of population structure over the past million
 years.
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
 \begin{center}
 \makebox[\textwidth][c]{\includegraphics{figures/fig1.pdf}}
 \caption{\textbf{Geography and genetic diversity within Africa}.
@@ -218,14 +218,25 @@ contribution 2,000 ya. Colonial period admixture from Europeans into the Nama
 was estimated at 15\%, similar to proportions inferred by ADMIXTURE
 \aprcomment{cite} (Figure~\ref{fig:1}).
 
-\begin{figure}[ht]
-\begin{center}
-\makebox[\textwidth][c]{} % \includegraphics{figures/fig2.png}}
-\caption{\textbf{}.
-    A placeholder - best fit model(s).
-}
-\label{fig:2}
-\end{center}
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/fig2}
+    \caption{
+        \textbf{Two best fit models with a weakly structured stem.}
+        In both the the parameterizations of early population structure,
+        continuous migration (A) and fragmentation with mergers (B), models
+        that include ongoing migration between stem populations outperform
+        those in which stem populations are isolated. Most populations are
+        connected by continuous, reciprocal migration that are incidated by 
+        double-headed arrows (labels matched to migration rates and divergence
+        times in Table~\ref{tab:migration-rates}), and which lasts for the
+        duration of concurrence of contemporaneous populations. The
+        merger-with-stem-migration model (B) outperformed the
+        continuous-migration model (A), $LL=-102,600$ vs $-115,500$,
+        respectively, and both models provide a much better fit to diversity
+        and LD statistics than a single-origin model of recent expansion.
+    }
+    \label{fig:2}
 \end{figure}
 
 \subsection*{Deep population structure but not archaic admixture within Africa}
@@ -240,6 +251,43 @@ symmetric migration with those populations; or 2) expansion of one or more of
 the stem populations, with an instantaneous pulse (or “merger”) from the other
 stem population. These models are meant to capture scenarios 2B and 2C (Figure
 2). \aprcomment{update this last sentence}
+
+\begin{table}[t!]
+    \centering
+    \scriptsize
+    \begin{tabular}{lllrrrr}
+        \toprule
+        \textbf{Likelihood} & \textbf{Label} & \textbf{Population Pair} &
+            \textbf{Divergence} & \textbf{Migration rate} & \textbf{Migration} \\
+        & & & 
+            \textbf{Time (kya)} & \textbf{per generation} & \textbf{duration (ky)} \\
+        \midrule
+        \textbf{Continuous Model} & & & & & \\
+        LL= -115,500 & a & Stem 1, Stem 2 & 1,163 & 6.43e-5 & 1,028 \\
+        & b & Stem 2, Nama & NA & 5.82e-5 & 130 \\
+        & c, d & Stem 2, Other Africans & NA & 3.10e-5, \textbf{1.64e-4} & 130, 55 \\
+        & e, f & Nama, Other Africans* & 135 & 4.1e-5, 9.8e-6 & 135, 60 \\
+        & g & Mende, East Africans & 60 & \textbf{2.14e-4} & 60 \\
+        & h & East Africans, British & 50 & 4.17e-5 & 50 \\
+        & i & Gumuz, Amhara/Oromo & 12 &\textbf{3.36e-4} & 12 \\
+        \textbf{Merger Model} & & & & & \\
+        LL= -102,600 & a & Stem 1, Stem 2 & 1,442 & \textbf{1.16e-4} & 963 \\
+        & -- & Stem 1S, Stem 1E & 479 & 0 (fixed) & -- \\
+        & b & Stem 2 to Nama & 119 & \textbf{0.71} & pulse \\
+        & c & Stem 2 to Stem 1E & 98 & \textbf{0.50} & pulse \\
+        & d & Stem 2 to Mende & 25 & \textbf{0.18} & pulse \\
+        & e, f & Nama, Other Africans & 119 & 4.4e-5, 7.1e-6 & 119, 60 \\
+        & g, & Mende, East Africans & 60 & \textbf{1.98e-4} & 60 \\
+        & h & East Africans, British & 50 & 3.87e-5 & 50 \\
+        & i & Gumuz, Amhara/Oromo &12 & \textbf{3.59e-4} & 12 \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+        \textbf{Migration and divergence parameters from best fit models.}\\
+        \aprcomment{Labels are keyed to Figure~\ref{fig:2}}
+    }
+    \label{tab:migration-rates}
+\end{table}
 
 Allowing for continuous migration between the stem populations substantially
 improved the fits relative to zero migration (e.g. $LL \approx -102,600$ vs.
@@ -309,54 +357,6 @@ occupied Western or Central Africa, broadly speaking. The differing proportions
 in the Nama and Eastern Africans may also indicate geographic separation of
 Stem 1S in southern Africa and Stem 1E in eastern Africa. 
 
-\begin{table}
-    \centering
-    \begin{tabular}{l|l|l}
-        \toprule
-        Parameter & Value & Value \\
-        \midrule
-        x & y & z \\
-        \bottomrule
-    \end{tabular}
-    \caption{caption}
-    \label{tab:migration-rates}
-\end{table}
-
-%Please add the following packages if necessary:
-%\usepackage{booktabs, multirow} % for borders and merged ranges
-%\usepackage{soul}% for underlines
-%\usepackage[table]{xcolor} % for cell colors
-%\usepackage{changepage,threeparttable} % for wide tables
-%If the table is too wide, replace \begin{table}[!htp]...\end{table} with
-%\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]...\end{threeparttable}\end{adjustwidth}
-\begin{table}[!htp]\centering
-
-\scriptsize
-\begin{tabular}{lrrrrrr}\toprule
-\textbf{Likelihood} &\textbf{Label} &\textbf{Population Pair} &\textbf{Divergence}&\textbf{Migration rate} &\textbf{Migration duration } \\
-& & & \textbf{Time (kya)} & \textbf{per generation} &\textbf{ (kya)}\\\midrule
-\textbf{Continuous Model} & & & & & \\
-LL= -116000 &missing &Stem 1 vs. Stem 2 &1,163 &6.43e-5 &1,028 \\
-&c, add copies &Nama vs. Other Africans* &135 &4.1E-5, 9.8E-6 &135, 60 \\
-& not shown &Mende vs. East Africans &60 &\textbf{2.14e-4} &55 \\
-& not shown &East Africans vs. British &50 &4.17e-5 &50 \\
-& labeled &Gumuz vs. Amhara/Oromo &12 &\textbf{3.36e-4} &12 \\
-& green &Stem 2 vs. Mende &NA &\textbf{1.64e-4} &55 \\
-& orange &Stem 2 vs. Nama &NA &5.82e-5 &130 \\
-\textbf{Merger Model} & & & & & \\
-LL= -102633 & &Stem 1 vs. Stem 2 &1,442 &\textbf{1.16e-4} &963 \\
-& &Stem 1S vs. Stem 1E &479 &0.00e+0 &NA \\
-& &Nama vs. Other Africans &119 &4.4E-5, 7.1E-6 &117 \\
-& &Stem 2 vs. Stem 1E &98 &\textbf{5.00e-1} &pulse \\
-& &Mende vs. East Africans &60 &\textbf{1.98e-4} &38 \\
-& &East Africans vs. British &50 &3.87e-5 &50 \\
-& &Gumuz vs. Amhara/Oromo &12 &\textbf{3.59e-4} &12 \\
-& &Stem 2 vs. Mende &NA &\textbf{0.18} &pulse \\
-\bottomrule
-\end{tabular}
-\caption{Table 1 copied from dropbox}
-\end{table}
-
 \subsection*{Reconciling multiple lines of genetic evidence}
 
 Previous studies have found support for archaic admixture in Africa using
@@ -371,6 +371,15 @@ models describe the cSFS accurately \aprcomment{(Figure SX)}, even though this
 statistic was not used in the fit.  Both models outperform archaic models fit
 directly to the cSFS (for example, compare with Figure~1 in
 \citet{Durvasula2020-td}).
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics{figures/fig3.pdf}
+    \caption{
+        \textbf{fig3}
+    }
+    \label{fig:3}
+\end{figure}
 
 Similarly, we generated estimates of effective population size as inferred from
 coalescence rates with Relate. Changes in Ne over time from prior studies
@@ -406,16 +415,6 @@ underestimating divergence time by 50\% or greater (e.g. Mende vs. Gumuz ~15kya
 compared to a true divergence 60kya, \aprcomment{Supp Figure SX}). We suggest
 that rCCR analyses which do not fit multiple parameters including gene flow
 should be interpreted with caution.
-
-\begin{figure}[ht]
-\begin{center}
-    \makebox[\textwidth][c]{} % \includegraphics{figures/fig3.pdf}}
-\caption{\textbf{The third main figure}.
-    A placeholder - validation (Relate and cSFS).
-}
-\label{fig:3}
-\end{center}
-\end{figure}
 
 \begin{figure}[ht]
 \begin{center}
