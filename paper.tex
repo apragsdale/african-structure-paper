@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass{article}
 \usepackage[super,numbers]{natbib}
 
 \usepackage{fullpage}
@@ -8,7 +8,6 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{booktabs}
-
 
 \lstset{language=Python}
 
@@ -369,10 +368,15 @@ Africa and Stem 1E in eastern Africa.
 
 \begin{figure}[t!]
     \centering
-    %\includegraphics{figures/fig3.pdf}
+    \includegraphics{figures/fig3.pdf}
     \caption{
-        \aprcomment{\textbf{fig3} will show some predictions. FST, f4 between 
-        contemporaneous populations, for example.}
+        \textbf{Predicted population structure over time.}
+        From the best fit models of our two parameterizations (top row:
+        continuous migration, bottom row: multiple merger), we computed
+        preditions of population structure between contemporaneous populations
+        over time ($F_{ST}$) and the proportion of drift between pairs of sampled
+        populations that aligns with drift between populations in the past
+        ($\alpha^2$).
     }
     \label{fig:3}
 \end{figure}
@@ -391,6 +395,28 @@ model (Figures~\ref{fig:4}A-C and
 even though this statistic was not used in the fit. Both models outperform
 archaic models fit directly to the cSFS (for example, compare with Figure~1 in
 \citet{Durvasula2020-td}).
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics{figures/fig4}
+    \caption{
+        \textbf{Model validation using independent statistics.} (A--C) Using
+        our best fit models to the LD and pairwise diversity statistics, we
+        simulated expected conditional site-frequency-spectra (cSFS) and
+        compared to the observed cSFS from the data. Our inferred models
+        provide a good fit to the data, even though these were not used in our
+        inference. Across the three populations, ancestral state
+        misidentification was consistently inferred to be 1.5--1.7\% for
+        intergenic loci (Supp. Methods). (D, E) We used Relate
+        \citep{Speidel2019-nj} to reconstruct genome-wide gene genealogies,
+        which we used to estimate coalescence rate trajectories. While
+        coalescence rate distributions are informative statistics about past
+        evolutionary processes, interpretation can be hindered by migration and
+        population structure. Translating relative cross-coalescence curves
+        into population divergences is especially prone to misinterpretation.
+    }
+    \label{fig:4}
+\end{figure}
 
 We used \texttt{Relate} \citep{Speidel2019-nj} to infer the distribution of
 coalescence rates over time, which are commonly interpreted as effective
@@ -431,16 +457,6 @@ $\sim$15kya compared to a true divergence of 60kya), and recent migration can
 lead to the misordering of divergence events (Figure~\ref{fig:4}E). We suggest
 that rCCR analyses which do not fit multiple parameters including gene flow
 should be interpreted with caution.
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics{figures/fig4}
-    \caption{
-        \textbf{Captions for figure 4.}
-        Some validation (cSFS), and coal rate curve examples.
-    }
-    \label{fig:4}
-\end{figure}
 
 \section*{Discussion}
 
