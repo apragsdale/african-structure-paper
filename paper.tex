@@ -63,7 +63,7 @@ Africa.
 In contrast to models with archaic introgression, we predict that fossil
 remains from coexisting ancestral populations should be morphologically
 similar. 
-Despite genetic similarity between these populations, an inferred \sgcomment{4 to 10\%} of random genetic differences among [modern human populations] can be attributed to genetic drift between stems.
+Despite genetic similarity between these populations, an inferred \sgcomment{4 to 10\%} of random genetic differences among [modern human populations] can be attributed to genetic drift between stem populations.
 We show that model misspecification explains variation in previous
 divergence time estimates and argue that studying a suite of models is key to
 robust inferences about deep history.
@@ -140,7 +140,7 @@ Gumuz (recent descendents of a hunter-gatherer group from Ethiopia
 populations, despite speaking distinct Afro-Asiatic languages, are highly
 genetically similar \citep{Pagani2015-pz,Gopalan2019-wd} and thus the two
 groups were combined for a larger sample size (Figure~\ref{fig:1}). We also
-included the British (GBR) from the 1000 Genomes Project in our demographic
+included the British (GBR) from the 1000 Genomes Project \sgcomment{phase 3} in our demographic
 models as a representative source of back-to-Africa gene flow and recent
 colonial admixture in South Africa. Finally, we used a high-coverage ancient
 Neanderthal genome from Vindija Cave, Croatia \citep{Prufer2017-kk} to account
@@ -194,8 +194,9 @@ other African groups between 110--135kya, with low to moderate levels of
 subsequent gene flow (Table\ref{tab:migration-rates}). In none of the
 high-likelihood models which we explored did the divergence between Nama and
 other populations exceed $\sim$140kya. We conclude that, regardless of model
-specification, geographic patterns of \emph{Homo sapiens} population structure
+specification, geographic patterns of contemporary \emph{Homo sapiens} population structure
 date back to the Late Middle Stone Age in Africa, likely arising during MIS 5.
+\sgcomment{Alt formulation: Thus all models suggest that broad geographic patterns of contemporary population structure date back to MIS 5}
 Although we find evidence for earlier population structure in Africa (see
 below), present-day populations cannot be easily mapped onto these more ancient
 stem groups as only a small proportion of drift between modern populations can
@@ -211,6 +212,7 @@ models predict relatively high subsequent gene flow between the two regions
 ($m\approx2\times10^{-4}$). Admixture from Neanderthals to Europeans directly
 following the out-of-Africa migration was set to 1.5\% at 45kya (Supp.
 Methods). Back-to-Africa gene flow at the beginning of the Holocene primarily
+\sgcomment{Here it is not clear whether we are still talking about parameters that we fixed. I think we are also missing a clear description of the best-fit model. That *could* go after the description of the model uncertainty}
 affected the ancestors of the Ethiopian agricultural populations, comprising
 over half of their genetic ancestry, estimated to be 64--65\%. The past 5,000
 years also saw major demographic changes, including strong population growth
@@ -291,7 +293,7 @@ was estimated at 15\%, similar to proportions inferred by \texttt{ADMIXTURE}
 
 \subsection*{Deep but connected population structure within Africa}
 
-To account for population structure prior to 135kya, we allowed for two or more
+To account for population structure prior to 135kya, we allowed \sgcomment {alt: three of our four models allowed} for two or more
 “stem” populations which could diverge either before or after the Neanderthal
 split. We considered models both with and without migration between these stem
 populations, and in both cases we tested two different types of gene exchange
@@ -300,6 +302,7 @@ contemporary populations), and the other stem population(s) has continuous
 symmetric migration with those populations; or 2) one or more of the stem
 populations expands, with instantaneous pulse (or “merger”) events from the
 other stem population, so that diversifying branches are formed through the
+\sgcomment{This sentence is not clear to me. Do we mean: In other words, the more recent populations are formed by mergers of multiple ancestral populations }
 coalescence of multiple ancestral populations. Depending on parameter values,
 this scenario encompasses archaic introgression and
 fragmentation-and-coalescence models.
@@ -322,7 +325,7 @@ Bootstrap-based confidence intervals are relatively narrow within each
 specified model
 (Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
 reflecting an informative statistical approach. As expected, model assumptions
-have a larger impact on parameter estimates. To convey model uncertainty we
+have a larger impact on parameter estimates (and thus, uncertainty). To convey model uncertainty, we
 highlight features of two inferred models with high likelihoods, the
 “multiple-merger” and the the “continuous-migration” model that both allow
 migration between stem branches. These differ primarily in the timing of the
@@ -330,6 +333,10 @@ early divergence of stem populations and their relative $N_e$
 (Figure~\ref{fig:2}). The two models also differ in the mode of divergence
 during the Middle Stone Age. 
 
+\sgcomment{I don't love this new structure because it breaks the model description in two parts separated by the bootstrap. Maybe we have to, but I would have preferred a unified description of the models. 
+For example, we could start this section by the bootstrap discussion ("In all models, likelihood differences are large and bootstrap confidence interval narrow within each specified model ...  We therefore highlight two models".
+Then we describe model 1, describe model 2, and contrast the two. 
+ ) }
 Under the continuous-migration model, one of the two stems diverges into
 lineages leading to contemporary populations in western, southern and eastern
 Africa, and the other (Stem 2) contributes variable ancestry to those
@@ -373,9 +380,9 @@ Africa and Stem 1E in eastern Africa.
         From the best fit models of our two parameterizations (top row:
         continuous migration, bottom row: multiple merger), we computed
         preditions of population structure between contemporaneous populations
-        over time ($F_{ST}$) and the proportion of drift between pairs of sampled
+        over time ($F_{ST}$ \sgcomment{not sure I want Fst here, vs pi}) and the proportion of drift between pairs of sampled
         populations that aligns with drift between populations in the past
-        ($\alpha^2$).
+        ($\alpha^2$). \sgcomment{point to supplement, since nonstandard}
     }
     \label{fig:3}
 \end{figure}
