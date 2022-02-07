@@ -610,6 +610,10 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
     \label{fig:supp-f4-scenarios}
 \end{figure}
 
+\subsection{What does this mean for expectation of morphology btw branches?}
+
+\aprcomment{Tim to fill in, and edit section header}
+
 \section{Validations using simulations from inferred demographic models}
 
 Here we focus on four parameterizations of early human history: (1) a “single
@@ -756,6 +760,7 @@ discrepancies between the data IICR and the model IICR, these differenes are
 not surprising \aprcomment{what more to say here\dots}
 
 \subsection{Mutation versus recombination rates}
+\label{sec:supp-mutation}
 
 Prior studies primarily relied on the mutation clock in order to date events
 such as population divergence, and uncertainty about the mutation rate
@@ -765,13 +770,29 @@ typically estimated mutation rates to be $1.2-1.3\times10^{-8}$ per site per
 generation \citep{Sasani2019-zp,Tian2019-zv}. A rate of $1.3\times10^{-8}$ also
 approximates the rate predicted by a mutational model from Gnomad
 \citep{Karczewski2020-le} in the $\sim$650Mb of intergenic regions selected for
-demographic inference in this study. However, \moments differs from other
-approaches by relying on a recombination clock, which has been argued to be
-more robust to estimation than a mutational clock \citep{Moorjani2016-ur}. To
-fit patterns of diversity which were inferred using the recombination map here,
-mutation rates on the order of $2\times10^{-8}$ would be needed.
-\aprcomment{This discrepancy between the mutation clock and recombination
-clock\dots}
+demographic inference in this study. \moments differs from other approaches by
+relying on a recombination clock, which has been argued to be more robust to
+estimation than a mutational clock \citep{Moorjani2016-ur}.
+
+From our recombination-rate-calibrated demographic models, we can estimate the
+mutation rates needed to fit patterns of pairwise diversity. With our best-fit
+model (merger-with-stem-migration,
+Table~\ref{tab:supp-merger-with-stem-migration}), a mutation rate of
+$1.33\times10^{-8}$ recovers the observed diversity within and between
+populations, closely matching the average mutation rate estimated from the
+Gnomad mutation model. The other inferred demographic models
+(Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-without-stem-migration})
+would require mutation rates of $1.75-1.90\times10^{-8}$ to match pairwise
+diversity. \aprcomment{Because the merger-with-stem-migration model provides
+the best fit to the LD statistics, the cSFS, \emph{and} the Gnomad mutation
+rate, \dots}
+
+\aprcomment{The differences in recovered mutation rates between models could
+cut both ways: on one hand, it could help discriminate between models. One the
+other hand, it should mutation rate estimation in this manner is sensitive to
+the model parameterization, and we might expect it to be poorly constrained.
+Did we just get lucky that our best-fit model also matches the Gnomad mutation
+rate estimate for these same intergenic regions?}
 
 \subsection{Re-inference of IM models from simulated data}
 \label{sec:IM-reinfer}
@@ -1156,18 +1177,21 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics[width=\textwidth]{figures/supp-h12s-all-models.pdf}
     \caption{
-        \textbf{Predicted pairwise differentiation between contemporaneous populations.}
-        $H_{i,j}$ is the predicted pairwise differentiaion between two populations,
-        which we normalize by the observed pairwise diversity in the Mende sample.
-        The single-origin model (A) shows larger deviations between observed and
-        expected differentiation than the models with early human structure
-        (B: continuousmigration, C: merger without stem migration, D: merger with 
-        stem migration). In the merger models (C and D), while $F_{ST}$ is large
-        between early stems due to the sharp bottleneck in one of those branches,
-        the pairwise differences are comparable to the continuous-migration model.
-        Stem 1E and Stem 1S have low differentiation, as the bottleneck in Stem 1
-        (which they both split from) sharply reduces diversity by the time of the
-        split. This has the effect of large $F_{ST}$ but small $H_{i,j}$.
+        \textbf{Predicted pairwise differentiation between contemporaneous
+        populations.} $H_{i,j}$ is the predicted pairwise differentiaion
+        between two populations per base-pair, using a mutation rate estimated
+        from matching predicted to observed pairwise diversity from the
+        intergenic data used in the fits (see Sec.~\ref{sec:supp-mutation}).
+        The single-origin model (A) shows larger deviations between observed
+        and expected differentiation than the models with early human structure
+        (B: continuous migration, C: merger without stem migration, D: merger
+        with stem migration). In the merger models (C and D), while $F_{ST}$ is
+        large between early stems due to the sharp bottleneck in one of those
+        branches, the pairwise differences are comparable to the
+        continuous-migration model. Stem 1E and Stem 1S have low
+        differentiation, as the bottleneck in Stem 1 (which they both split
+        from) sharply reduces diversity by the time of the split. This has the
+        effect of large $F_{ST}$ but small $H_{i,j}$.
     }
     \label{fig:supp-h12-panels}
 \end{figure}
