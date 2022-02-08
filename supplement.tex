@@ -10,6 +10,7 @@
 \usepackage{booktabs}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{bm}
 \usepackage{xspace}
 
@@ -48,7 +49,9 @@
 \setcounter{table}{0}
 \setcounter{equation}{0}
 
+\small
 \tableofcontents
+\normalsize
 \newpage
 
 \section{Data and sequencing}
@@ -59,23 +62,23 @@ Low coverage (4-8x) Illumina short read data were generated for the Nama,
 Gumuz, Amhara and Oromo populations as part of the African Diversity Reference
 Panel (Sanger / Wellcome Trust) \citep{Gurdasani2015-qy,Pagani2015-pz} and
 approved through a secondary data analysis agreement for this project. Briefly,
-raw reads were aligned to GRCH37 with BWAmem \aprcomment{cite}, duplicates
+raw reads were aligned to GRCH37 with BWAmem, duplicates
 marked with Picard MarkDuplicates, reads were realigned around indels with GATK
-RealignerTargetCreater / IndelRealigner followed by BQSR with dbSNP 137.
+RealignerTargetCreater/IndelRealigner followed by BQSR with dbSNP 137.
 Contamination checks were performed requiring that FREEMIX $<0.05$;
 contamination checks resulted in the elimination of 22 Nama samples. We note
 that the high heterozygosity in these genomes both due to inherent genetic
 diversity and admixture may have violated base assumptions for this
 heterozygosity check. Genomes were then variant called with GATK3.2 Unified
-Genotyper \aprcomment{cite} using joint calling across 2,478 individuals within
+Genotyper \citep{DePristo2011-up} using joint calling across 2,478 individuals within
 the ADRP dataset with a minimum base quality of 17. Data were merged with 1000
 Genomes Phase 3 \citep{1000_Genomes_Project_Consortium2015-zq} using the union
-of sites identified with bcftools isec (-n+1) \aprcomment{cite} then refined
+of sites identified with bcftools isec (-n+1) \citep{Danecek2021-kc} then refined
 with Variant Recalibrator with a truth sensitivity threshold of 99.5\%. HapMap
 III and dbSNP 138 served as known sites while 1000 Genomes Phase 1 Omni2.5 and
 Phase 1 genomic SNP served as the training set. After VR, no batch effects were
 observed along PC1 and PC2 for 1000 Genomes vs. ADRP. Phasing on the combined
-dataset was performed via SHAPEIT2 \aprcomment{cite} and utilized the duoHMM
+dataset was performed via SHAPEIT2 \citep{Delaneau2013-aw} and utilized the duoHMM
 option for duos and trios. We highlight 82 Nama genomes which are newly
 available (unpublished) under accession number EGAD00001006198. Among these 82
 Nama samples, we down-sampled the individuals to minimize close relatives and
@@ -83,7 +86,7 @@ admixture, such that 44 Nama genomes were retained. 2nd and 3rd degrees
 relatives were inferred from reconstructed pedigrees with Omni2.5 SNP array
 data. Individuals with $>70\%$ estimated Khoe-San ancestry were retained for
 analysis, after partitioning ancestry into $k=6$ clusters with ADMIXTURE
-\aprcomment{cite} where alternative ancestries represent European, West
+\citep{Alexander2009-sw} where alternative ancestries represent European, West
 African, Near Eastern, and East African gene flow. 
 
 \subsection{Nama sample collection and consent}
@@ -121,7 +124,7 @@ representatives of the Richtersveld National Park.
 
 All analyses presented in this work focus on biallelic single nucleotide
 polymorphisms within the 1000 Genomes Phase 3 strict mask.  For the
-\moments-LD analysis, we focused on intergenic regions because these
+\texttt{moments-LD} analysis, we focused on intergenic regions because these
 appear less affected by natural selection compared to both synonymous and
 nonsynonymous variation \citep{Ragsdale2018-dd}. To enable comparison with
 Neanderthal DNA, we excluded regions for which the Vindija Neanderthal sample
@@ -175,13 +178,9 @@ related to $S^*$ statistics used to scan for introgressed haplotypes
 widely used in demographic inference involving ancient DNA and many samples, as
 $f_2$, $f_3$ and $f_4$ statistics can be expressed as linear combinations of
 $H_{i,j}$. $f$-statistics form the basis of admixture graph analysis
-\aprcomment{cite}. Therefore, the set of statistics used here encompass
+\citep{Lipson2020-cq}. Therefore, the set of statistics used here encompass
 multiple features of genetic data that have been used to infer models of
 archaic admixture and population structure involving many populations.
-
-\aprcomment{We used the Omni YRI map (though see figure showing similarity to
-statistics under the HapMapII map). Assumed a generation time of 29 years for
-rescaling times in years to generations.}
 
 \subsection{Computing LD and diversity statistics}\label{sec:computing-stats}
 
@@ -199,8 +198,9 @@ in the recombination maps by considering two different recombination maps, the
 OMNI YRI and HapMapII
 \citep{1000_Genomes_Project_Consortium2015-zq,International_HapMap_Consortium2007-vn}.
 Statistics were largely unchanged by using a different map
-(Figure~\ref{fig:supp-omni-hapmap-comparison}). \aprcomment{These maps are both
-inferred using array data, which is sparse. Comment on this.}
+(Figure~\ref{fig:supp-omni-hapmap-comparison}), although both maps were
+inferred using array data, which is sparser than whole-genome sequencing data.
+In subsequent analyses, we used data based on recombination rates fromthe Omni YRI map.
 
 We removed bins of recombination distance less than a recombination distance of
 $r = 5\times10^{-6}$ (at a rough estimate of 1 cM/Mb, this corresponds to a minimum
@@ -257,22 +257,22 @@ frequencies restricted to loci that satisfy a given condition. Specifically, we
 consider the distribution of allele frequencies in present-day populations
 conditioned on the Vindija Neanderthal carrying the derived allele relative to
 the inferred ancestral allele. Ancestral alleles alleles were determined from a
-6 primate alignment \aprcomment{cite}. This cSFS is expected to be close to
+6 primate alignment \citep{1000_Genomes_Project_Consortium2015-zq}.
+This cSFS is expected to be close to
 uniform under neutrality and a simple split model (with no subsequent
 migration) between the ancestors of modern humans and Neanderthal
 \citep{Chen2007-iy}. By contrast, a U-shaped distribution has been taken as
 evidence for archaic introgression from a population whose split from modern
 humans is at least as old as that of the human-Neanderthal split
-\citet{Durvasula2020-td,Yang2012-ze}. Because we wanted to compare our
-inferences (based on intergenic sites) to inferences from previous work (based
-on whole-genome data), we computed the cSFS for both intergenic and all sites
-genome-wide. Sites with no calls in the Vindija Neanderthal were excluded from
-this analysis. \aprcomment{Figures XX.}
+\citet{Durvasula2020-td,Yang2012-ze}.
+Sites with no calls in the Vindija Neanderthal were excluded from
+this analysis.
 
 Because we were concerned that cSFS analyses may be affected by incorrect
 inference of the ancestral allele \cite{Hernandez2007-mf}, we computed the cSFS
 for all mutations, and for transitions and transversions separately
-\aprcomment{(Figure X, cSFS)}. Comparisons of these observed cSFS with model
+(Figures~\ref{fig:supp-csfs-single-origin}--\ref{fig:supp-csfs-merger-with-stem-migration}).
+Comparisons of these observed cSFS with model
 predictions are discussed in the model prediction section below. 
 
 \section{Model specification and fitting}
@@ -331,6 +331,10 @@ labels should be considered as tentative. However, we found it useful to name
 branches in reference to where in Africa their descendants are found.
 \sgcomment{Please double-check this paragraph! TODO Brenna?}
 
+Parameters were converted to physical units
+(years, effective population sizes, etc)
+assuming a human generation time of 29 years.
+
 \subsection{General strategy for building models and introducing complexity}
 
 With up to six sampled populations in final demographic models that we fit,
@@ -383,20 +387,20 @@ anthropological research, namely
 \end{itemize}
 While the dates of these events were fixed, the sizes and proportions were
 allowed to vary in the fits. The total number of parameters that were
-ultimately inferred were 18-26 \aprcomment{check!}, depending on the complexity
+ultimately inferred were 21-31, depending on the complexity
 of the model.
 
 
-\subsection{Optimization using moments}
+\subsection{Optimization using \moments}
 
-\moments-LD uses a composite likelihood approach to simultaneously fit relative
+\texttt{moments-LD} uses a composite likelihood approach to simultaneously fit relative
 pairwise diversity and LD statistics over a range of recombination distances.
 Likelihoods were computed independently for pairwise diversity and each
 recombination distance bin using a multivariate Guassian likelihood function as
 described in Section \ref{sec:computing-stats}. These were multiplied across
 bins and the single set of heterozygosity statistics following the approach
 detailed in \citet{Ragsdale2019-nt}. For each model tested, we ran multiple
-rounds of optimization, alternating between the \emph{optimize\_log\_fim},
+rounds of optimization, alternating between the \emph{optimize\_log\_fmin},
 \emph{optimize\_log\_powell}, and \emph{optimize\_lbfgsb} methods to explore
 parameter space and hone in on the best fit parameters. Initial guesses for
 parameters were chosen from demographically plausible starting points and then
@@ -511,9 +515,9 @@ merger-without-stem-migration and the merger-with-stem-migration, one of the
 stem populations was inferred to have a short, severe bottleneck, which led to
 increased $F_{ST}$ between stem populations during that time. In the merger
 with stem migration, $F_{ST}$ reached a maximum value of $0.3$ between stems,
-intermediate between human-Neanderthal divergence ($0.54$ \sgcomment{check})
+intermediate between human-Neanderthal divergence ($0.45$)
 and the maximum $F_{ST}$ observed between contemporary human populations
-($0.07$.) 
+($\lessapprox 0.1$.) 
 
 Whereas the high $F_{ST}$ value between Neanderthal and humans reflects both
 elevated genetic differences between the genomes of modern humans and
@@ -522,9 +526,9 @@ neanderthal and reduced diversity within the Neanderthal population
 primarily due to an inferred bottleneck reducing stem diversity, while genetic
 differentiation between individuals from the two stems is within the range of
 genetic differentiation between (and even within) human populations. In other
-words, our best fit model describes two stems with one stems showing reduced
-diversity, but individuals across stems showing no more differentiation than
-two modern population. \sgcomment{Previous paragraph could use rereading.}
+words, our best fit model describes two stems with one stem showing reduced
+diversity, but individuals across stems showing similar differentiation to
+that between two modern population.
 
 
 \subsection{\bm{$f_4$} statistics between pairs of contemporary
@@ -605,7 +609,6 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
         ancestry proportion $m$ and drift between stems,
         $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)
         = mf_2(\text{stem}_1, \text{stem}_2)$
-        \aprcomment{Get better resolution image from Simon}
     }
     \label{fig:supp-f4-scenarios}
 \end{figure}
@@ -706,11 +709,15 @@ rates, we estimated the inverse instantaneous coalescence rate (IICR, often
 interpreted as an estimator of $N_e$) for each population, as well as relative
 cross coalescence rates between pairs of populations.
 
-The IICR is only a reliable estimator of $N_e$ in the absence of population structure. . However, since IIRC are readily estimated and visually interesting, it is commonly attempted even when the assumption is not met \cite{}. 
-Even if the assumption is not met, the inferred IIRC can be interpreted as a summary statistic for which model predictions can be compared to data. and can therefore be
+The IICR is only a reliable estimator of $N_e$ in the absence of population structure.
+However, since IIRC are readily estimated and visually interesting,
+it is commonly attempted even when the assumption is not met
+\citep{}\aprcomment{what citation did you have in mind here, Simon?}.
+Even if the assumption is not met, the inferred IIRC can be interpreted as a
+summary statistic for which model predictions can be compared to data.
+It can therefore be
 informative about aspects of the data that our models fail to predict.
-\sgcomment{Insert inferences with same populations?}. We
-also note that the coalescence rates inferred from data used a larger set of
+We also note that the coalescence rates inferred from data used a larger set of
 populations from the combined 1000 Genomes/AGRP dataset, while our model
 simulations only included a subset of 5 populations. This may lead to
 differences in resolution of the inferences.
@@ -739,25 +746,24 @@ the data in each of the four models, including both their timing and ordering
 of increased cross coalescences. The failure to match both the IIRC and RCCR in
 the recent past in all models suggests that additional parameters would be
 needed to account for recent increases in population sizes. As is the case with
-other methods that reconstruct size history trajectories from inferred coalesce
+other methods that reconstruct size history trajectories from inferred coalescence
 rates (e.g. PSMC, MSMC), \Relate has difficulty inferring coalescences that
-occur in the recent past, \aprcomment{likely a combination of some differences
-between actual and simulated data, and inherent weaknesses of those methods.}
+occur in the recent past.
 
 \subsubsection{Distribution of deep branch affinities to Neanderthal sequence}
 
 Following \citet{Speidel2019-nj}, we also characterized Neanderthal-matching
 deep branches (see Section~\ref{sec:relate}) in our simulated data under the
 four inferred demographic models. Comparing deep-branch distributions from the
-data (Fig.~\ref{fig:supp-deep-branches-data}) to the models
+data (Fig.~\ref{fig:supp-deep-branches}) to the models
 (Fig.~\ref{fig:supp-deep-branches-sim}), we find consistent trends between each
 of the four models and the data in the ordering of proportions of lineages from
 each population that are labeled as Neanderthal-matching deep branches. This
 proportion is slightly over-estimated in each of the African populations
 compared to the data, but is closest in the merger-with-stem-migration model
-(which also fit the LD statistics the best of the four models). Given the
-discrepancies between the data IICR and the model IICR, these differenes are
-not surprising \aprcomment{what more to say here\dots}
+(which also fit the LD statistics the best of the four highlighted models).
+Given the qualitative discrepancies between the data IICR and the model IICR,
+the differences in Neanderthal branch affinities is unsurprising.
 
 \subsection{Mutation versus recombination rates}
 \label{sec:supp-mutation}
@@ -770,7 +776,8 @@ typically estimated mutation rates to be $1.2-1.3\times10^{-8}$ per site per
 generation \citep{Sasani2019-zp,Tian2019-zv}. A rate of $1.3\times10^{-8}$ also
 approximates the rate predicted by a mutational model from Gnomad
 \citep{Karczewski2020-le} in the $\sim$650Mb of intergenic regions selected for
-demographic inference in this study. \moments differs from other approaches by
+demographic inference in this study.
+\texttt{moments-LD} differs from other approaches by
 relying on a recombination clock, which has been argued to be more robust to
 estimation than a mutational clock \citep{Moorjani2016-ur}.
 
@@ -783,48 +790,40 @@ populations, closely matching the average mutation rate estimated from the
 Gnomad mutation model. The other inferred demographic models
 (Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-without-stem-migration})
 would require mutation rates of $1.75-1.90\times10^{-8}$ to match pairwise
-diversity. \aprcomment{Because the merger-with-stem-migration model provides
-the best fit to the LD statistics, the cSFS, \emph{and} the Gnomad mutation
-rate, \dots}
-
-\aprcomment{The differences in recovered mutation rates between models could
-cut both ways: on one hand, it could help discriminate between models. One the
-other hand, it should mutation rate estimation in this manner is sensitive to
-the model parameterization, and we might expect it to be poorly constrained.
-Did we just get lucky that our best-fit model also matches the Gnomad mutation
-rate estimate for these same intergenic regions?}
+diversity.
 
 \subsection{Re-inference of IM models from simulated data}
 \label{sec:IM-reinfer}
 
-Recent studies \aprcomment{have been quite interested in characterizing the
-``earliest divergence time among human populations''}, and such analyses
+Recent studies have focused on characterizing the timing of the earliest
+divergences among human populations, and such analyses
 typically fit simple isolation-with-migration (IM) or ``clean split'' models to
 observed allele frequencies or inferred coalescence times among and between
-populations \citep{Bergstrom2021-iw} \aprcomment{and others}. Simple IM models
-typically fit a constant $N_e$ within each diverged population, their split
+populations (see \citet{Weaver2008-ho,Bergstrom2021-iw} for recent reviews).
+Simple IM models
+typically fit a constant $N_e$ within the two diverged population, the split
 time, and a symmetric continuous migration rate (which could be fixed to zero,
 equivalent to the ``clean split'' model). We explored the effect of fitting
 such simplified models of history to data from more complex models by
 simulating the site frequency spectrum (SFS) under each of our four models for
 pairs of populations and reinferring an IM and clean split model for each pair.
-The simulations assumed 10 diploid individuals were sampled from each
-population. \aprcomment{Simulation details - 500 Mb, r=1e-8, u=2e-8}
+The simulations sampled 10 diploid individuals from each
+population, and we used \msprime \citep{Baumdicker2021-mj} to simulated
+500 Mb of total sequence length (the sum over500 replicates each 1 Mb in length)
+with constant recombination rate $r=10^{-8}$ and mutation rate $u=2\times10^{-8}.$
 
 As expected, the clean split models consistently provide divergence times $T$
 that are more recent than the IM models. Because $T$ and subsequent migration
 can be inversely confounded in SFS inference, fixing migration rates to zero
 results in more recent inferred $T$ (Fig.~\ref{fig:supp-IM-misspecification}).
 Even though each of our four models inferred divergences of all human
-populations $\sim$120kya, ancient structure biases inferences and gives
-inflated estimates of $T$. A similar effect occurs when the ancestral
+populations $\sim$120kya, ancient structure and size changes in the simulations
+biases re-inferences and gives inflated estimates of $T$.
+Such an effect has been shown to occur when the ancestral
 population size increases prior to the population split
-\citep{Momigliano2021-th}, which is the case in our inferred single-origin
-model. \aprcomment{I want to highlight this more in the main text.} Inferred
-$T$ between the Nama and other populations were $>$200kya under the IM model,
+\citep{Momigliano2021-th}, which is the case in our inferred single-origin model.
+Re-inferred $T$ between the Nama and other populations were $>$200kya under the IM model,
 and $\sim$50--130kya under the clean split model.
-
-\aprcomment{There's plenty more we could say about this.}
 
 \break
 
@@ -842,8 +841,8 @@ and $\sim$50--130kya under the clean split model.
     \label{tab:supp-single-origin}
     \textbf{Best-fit parameters from the single-origin model.}
     Inferred values are scaled to physical units assuming a generation time of
-    29 years. This model gave a log-likelihood of -189,434. \aprcomment{See
-    figure XX with all parameters labeled.}
+    29 years. This model gave a log-likelihood of -189,434.
+    \aprcomment{include fixed parameters}
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -881,8 +880,8 @@ and $\sim$50--130kya under the clean split model.
     \textbf{Best-fit parameters from the Continuous-Migration model with isolation
     between stems.}
     Inferred values are scaled to physical units assuming a generation time of
-    29 years. This model gave a log-likelihood of -126,644. \aprcomment{See
-    figure XX with all parameters labeled.} 
+    29 years. This model gave a log-likelihood of -126,644.
+    \aprcomment{include fixed parameters}
     \aprcomment{This table is a new fit, the analog of the merger-without-stem-migration
     model. Here, it's the same as the continuous-migration model, just with migration
     in the stem disallowed. Thus, there is one fewer parameter, and stems are forced
@@ -930,8 +929,8 @@ and $\sim$50--130kya under the clean split model.
     \label{tab:supp-continuous-migration}
     \textbf{Best-fit parameters from the Continuous-Migration model.}
     Inferred values are scaled to physical units assuming a generation time of
-    29 years. This model gave a log-likelihood of -115,500. \aprcomment{See
-    figure XX with all parameters labeled.} 
+    29 years. This model gave a log-likelihood of -115,500.
+    \aprcomment{include fixed parameters}
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -974,8 +973,8 @@ and $\sim$50--130kya under the clean split model.
     \label{tab:supp-merger-without-stem-migration}
     \textbf{Best-fit parameters from the Merger-Without-Stem-Migration model.}
     Inferred values are scaled to physical units assuming a generation time of
-    29 years. This model gave a log-likelihood of -107,652. \aprcomment{See
-    figure XX with all parameters labeled.} 
+    29 years. This model gave a log-likelihood of -107,652.
+    \aprcomment{include fixed parameters} 
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -1021,8 +1020,8 @@ and $\sim$50--130kya under the clean split model.
     \label{tab:supp-merger-with-stem-migration}
     \textbf{Best-fit parameters from the Merger-With-Stem-Migration model.}
     Inferred values are scaled to physical units assuming a generation time of
-    29 years. This model gave a log-likelihood of -102,633. \aprcomment{See
-    figure XX with all parameters labeled.} 
+    29 years. This model gave a log-likelihood of -102,633.
+    \aprcomment{include fixed parameters} 
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -1264,7 +1263,8 @@ and $\sim$50--130kya under the clean split model.
     \caption{
         \textbf{Conditional SFS compared to single-origin model.}
         The single-origin model provides a poor fit to the observed cSFS in
-        the Mende, Gumuz, and Nama. Ancestral state misidentification was
+        the Mende, Gumuz, and Nama. Ancestral state misidentification
+        (labeled as $p_m$ in the figure legends) was
         inferred to be between 1 and $2\%$, and misidentification rates were
         consistent across model comparisons. Misidentification rates of
         transition-type mutations were roughly double that of transversion-type
@@ -1282,7 +1282,9 @@ and $\sim$50--130kya under the clean split model.
         The continuous-migration model provides a better fit to the data than
         either the single-origin model or the merger-without-stem-migration
         model, although systematic deviations are still noticeable in each
-        population.
+        population. Ancestral state misidentification ($p_m$), as estimated
+        with all models, is roughly doubled for transition-type mutations
+        compared to transversions.
     }
     \label{fig:supp-csfs-continuous-migration}
 \end{figure}
@@ -1297,6 +1299,9 @@ and $\sim$50--130kya under the clean split model.
         and merger-with-stem-migratino models. Along with the poorer likelihood this
         model provides to the two-locus statistics, validation usin the cSFS
         disfavors a model with strict isolation between stem populations.
+        Ancestral state misidentification ($p_m$), as estimated
+        with all models, is roughly doubled for transition-type mutations
+        compared to transversions.
     }
     \label{fig:supp-csfs-merger-without-stem-migration}
 \end{figure}
@@ -1315,7 +1320,9 @@ and $\sim$50--130kya under the clean split model.
         misidentification rates are consistent with the known difference in mutation
         rates between transitions and transversions, as well as other SFS-based
         inferences in humans using the Thousand Genomes data and the 6-primate
-        alignment (see Methods).
+        alignment (see Methods). Ancestral state misidentification ($p_m$), as estimated
+        with all models, is roughly doubled for transition-type mutations
+        compared to transversions.
     }
     \label{fig:supp-csfs-merger-with-stem-migration}
 \end{figure}
