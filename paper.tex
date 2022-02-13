@@ -29,14 +29,15 @@
 \author[3]{Elizabeth G. Atkinson}
 \author[4]{Eileen Hoal}
 \author[4]{Marlo M\"{o}ller}
-\author[2,6,*]{Brenna M. Henn}
-\author[7,**]{Simon Gravel}
+\author[2,6,^,*]{Brenna M. Henn}
+\author[7,^,**]{Simon Gravel}
 \affil[1]{Department of Integrative Biology, University of Wisconsin, Madison, WI, USA}
 \affil[2]{Department of Anthropology, University of California, Davis, Davis, CA, USA}
-\affil[3]{FIXME: }
+\affil[3]{Department of Molecular and Human Genetics, Baylor College of Medicine, TX, USA}
 \affil[4]{DSI-NRF Centre of Excellence for Biomedical Tuberculosis Research; South African Medical Research Council Centre for Tuberculosis Research; Division of Molecular Biology and Human Genetics, Faculty of Medicine and Health Sciences, Stellenbosch University, Cape Town, South Africa}
 \affil[6]{UC Davis Genome Center, University of California, Davis, Davis, CA, USA}
 \affil[7]{Department of Human Genetics, McGill University, Montreal, QC, Canada}
+\affil[^]{Co-Corresponding Authors}
 \affil[*]{bmhenn@ucdavis.edu}
 \affil[**]{simon.gravel@mcgill.ca}
 \maketitle
@@ -55,9 +56,9 @@ population structure dates back to Marine Isotope Stage (MIS) 5. The earliest
 population divergence among contemporary populations occurs 120-135kya, between
 the Khoe-San and other groups. Prior to the divergence of contemporary African
 groups, we infer long-lasting structure between two or more weakly
-differentiated ancestral Homo spp. populations connected by gene flow over
+differentiated ancestral \emph{Homo spp.} populations connected by gene flow over
 hundreds of thousands of years (i.e. a weakly structured stem). We find that
-weakly-structured-stem models provide more likely explanations of polymorphism
+weakly structured stem models provide more likely explanations of polymorphism
 that had previously been attributed to contributions from archaic hominins in
 Africa.
 In contrast to models with archaic introgression, we predict that fossil
@@ -166,7 +167,7 @@ years.
         West, East, and South Africa. Both PCA (B, C) and \texttt{ADMIXTURE}
         (D) illustrate the well-characterized high levels of genetic diversity
         and signatures of recent migration and gene flow within Africa.
-        We built parameterized models using the newly-sequenced Nama, Mende
+        We built parameterized models using the newly-sequenced Nama from South Africa, Mende
         from Sierre Leone, Gumuz, Oromo and Amhara from Ethiopia, and the
         British and Vindija Neanderthal individual (bold fonts).
         \aprcomment{work on this caption}
@@ -193,12 +194,11 @@ Regardless of the model choice for early epochs, inference of human demographic
 history for the last 150kya was remarkably robust. The earliest divergence among
 contemporary human populations differentiates the southern African Nama from
 other African groups between 110--135kya, with low to moderate levels of
-subsequent gene flow (Table\ref{tab:migration-rates}). In none of the
+subsequent gene flow (Table \ref{tab:migration-rates}). In none of the
 high-likelihood models which we explored did the divergence between Nama and
-other populations exceed $\sim$140kya. We conclude that
-geographic patterns of contemporary \emph{Homo sapiens} population structure
-date back to the Late Middle Stone Age in Africa, likely arising during MIS 5.
-%\sgcomment{Alt formulation: Thus all models suggest that broad geographic patterns of contemporary population structure date back to MIS 5}
+other populations exceed $\sim$140kya. 
+We conclude that geographic patterns of contemporary \emph{Homo sapiens} population structure
+date back to the late Middle Stone Age in Africa, likely arising during MIS 5.
 Although we find evidence for earlier population structure in Africa (see
 below), present-day populations cannot be easily mapped onto these more ancient
 stem groups as only a small proportion of drift between modern populations can
@@ -207,14 +207,13 @@ be attributed to drift between stems (Figures~\ref{fig:3} and
 
 Given this consistency in inferred recent history and the numerical challenge
 of optimizing a large number of parameters, we fixed several parameters related
-to recent population history so as to focus on more ancient events (Supp.
-Methods). The time of divergence of Western and Eastern African populations was
-set to 60kya, just prior to the split of Eurasians and East Africans 50kya. All
-models infer relatively high subsequent gene flow between the two regions
-($m\approx2\times10^{-4}$). Admixture from Neanderthals to Europeans directly
-following the out-of-Africa migration was set to 1.5\% at 45kya (Supp.
-Methods). Back-to-Africa gene flow at the beginning of the Holocene primarily
-\sgcomment{Here it is not clear whether we are still talking about parameters that we fixed. I think we are also missing a clear description of the best-fit model. That *could* go after the description of the model uncertainty}
+to recent population history so as to focus on more ancient events (see below). Fixed parameters included
+divergence time the time of divergence between Western and Eastern African populations,
+set to 60kya, just prior to the split of Eurasians and East Africans set to 50kya. 
+We also fixed the amount of admixture from Neanderthals to Europeans directly
+following the out-of-Africa migration which was set to 1.5\% at 45kya (Supp. Methods). 
+All models infer relatively high subsequent gene flow between the two regions
+($m\approx2\times10^{-4}$). Back-to-Africa gene flow at the beginning of the Holocene primarily
 affected the ancestors of the Ethiopian agricultural populations, comprising
 over half of their genetic ancestry, estimated to be 64--65\%. The past 5,000
 years also saw major demographic changes, including strong population growth
