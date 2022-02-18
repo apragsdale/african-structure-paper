@@ -536,30 +536,30 @@ and pairs of ancient populations}
 \label{sec:f4}
 
 To evaluate the degree to which divergence among modern populations is
-inherited from divergence between early stem population, we computed f4
+inherited from divergence between early stem population, we computed $f_4$
 statistics of the form
 \begin{equation}
     f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2) = 
-    \E[(f_{\text{stem}_1} - f_{\text{stem}_2})(f_{\text{modern}_1}-f_{\text{modern}_2})]
+    \E[(p_{\text{stem}_1} - p_{\text{stem}_2} )(p_{\text{modern}_1} -p_{\text{modern}_2} )]
     \label{eq:f4}
 \end{equation}
 This statistic measures co-linearity of genetic drift between modern
-populations $(f_{\text{modern}_1}-f_{\text{modern}_2})$ and stem populations
-$(f_{\text{stem}_1}-f_{\text{stem}_2})$ (see
+populations $(p_{\text{modern}_1} -p_{\text{modern}_2} )$ and stem populations
+$(p_{\text{stem}_1} -p_{\text{stem}_2} )$ (see
 Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}
 and \citet{Lipson2020-cq}).
 
 To contrast these statistics to divergence across modern populations,
 \begin{equation}
     f_2(\text{modern}_1, \text{modern}_2) =
-    \E[(f_{\text{modern}_1}-f_{\text{modern}_2})^2]),
+    \E[(p_{\text{modern}_1} -p_{\text{modern}_2} )^2]),
 \end{equation}
 we interpret the $f$-statistics as scalar products between vectors in 
 allele frequency space. In particular, the vector 
-$v=(f_{\text{modern}_1}-f_{\text{modern}_2})$, 
+$v=(p_{\text{modern}_1} -p_{\text{modern}_2} )$, 
 representing differences in allele frequencies across modern populations,
 can be written as $v=v_\perp + v_\parallel$, a component perpendicular and
-a component parallel to the divergence $(f_{\text{stem}_1}-f_{\text{stem}_2})$
+a component parallel to the divergence $(p_{\text{stem}_1} -p_{\text{stem}_2} )$
 across stems. We can then decompose 
 $f_2(\text{modern}_1,\text{modern}_2) = v_\perp^2+v_\parallel^2$, with  
 \begin{equation}
