@@ -544,34 +544,33 @@ statistics of the form
     \label{eq:f4}
 \end{equation}
 This statistic measures co-linearity of genetic drift between modern
-populations $(p_{\text{modern}_1} -p_{\text{modern}_2} )$ and stem populations
-$(p_{\text{stem}_1} -p_{\text{stem}_2} )$ (see
+populations $v= (p_{\text{modern}_1} -p_{\text{modern}_2} )$ and stem populations
+$w= (p_{\text{stem}_1} -p_{\text{stem}_2} )$ (see
 Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}
-and \citet{Lipson2020-cq}).
+and \citet{Lipson2020-cq} for an overview of $f_4$ statistics).
 
 To contrast these statistics to divergence across modern populations,
 \begin{equation}
     f_2(\text{modern}_1, \text{modern}_2) =
-    \E[(p_{\text{modern}_1} -p_{\text{modern}_2} )^2]),
+    \E[(p_{\text{modern}_1} -p_{\text{modern}_2} )^2],
 \end{equation}
-we interpret the $f$-statistics as scalar products between vectors in 
-allele frequency space. In particular, the vector 
-$v=(p_{\text{modern}_1} -p_{\text{modern}_2} )$, 
-representing differences in allele frequencies across modern populations,
-can be written as $v=v_\perp + v_\parallel$, a component perpendicular and
-a component parallel to the divergence $(p_{\text{stem}_1} -p_{\text{stem}_2} )$
-across stems. We can then decompose 
+we interpret the $f$-statistics as scalar products between vectors $v$ and $w$, i.e.,  
+$f_2(\text{modern}_1, \text{modern}_2) = v\cdot v$ and 
+$f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2) = v\cdot w.$
+We can then write $v=v_\perp + v_\parallel$ as the sum of a component $v_\perp$ perpendicular and
+a component $v_\parallel$ parallel to $w = (p_{\text{stem}_1} -p_{\text{stem}_2} ).$
+We can then decompose 
 $f_2(\text{modern}_1,\text{modern}_2) = v_\perp^2+v_\parallel^2$, with  
 \begin{equation}
-    v_\perp^2 = f_4^2(\text{stem}_1, \text{stem}_2; 
-    \text{modern}_1, \text{modern}_2)/f_2(\text{stem}_1, \text{stem}_2)
+    v_\parallel^2 = \frac{(v \cdot w)^2}{w\cdot w} = \frac{ f_4^2(\text{stem}_1, \text{stem}_2; 
+    \text{modern}_1, \text{modern}_2)}{f_2(\text{stem}_1, \text{stem}_2)}
 \end{equation}
 
 Finally, the proportion of modern-day structure
-$f_2(\text{modern}_1, \text{modern}_2)$ that is accounted for by the
+$v^2 = f_2(\text{modern}_1, \text{modern}_2)$ that is accounted for by the
 component parallel to ancient population structure is
 \begin{equation}
-    \alpha^2 = \frac{v_\perp^2}{f_2(\text{modern}_1, \text{modern}_2)} =
+    \alpha^2 = \frac{v_\parallel^2}{v^2} =
     \frac{f_4^2(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)}
     {f_2(\text{stem}_1,\text{stem}_2)f_2(\text{modern}_1, \text{modern}_2)}.
 \end{equation}
@@ -580,7 +579,7 @@ divergence across modern populations that is aligned with the differences in
 allele frequencies across ancient populations. However, drift occurring after
 the time of sampling of ancient populations is not correlated to drift
 occurring before that time. For this reason, we also interpret $\alpha^2$ as the
-proportion of the $f_2$ divergence across modern populations that is explained by
+proportion of the $f_2$ divergence across modern populations that is \emph{explained by}
 the differences in allele frequencies across ancient populations. We report
 this predicted statistic for each of the four inferred demographic models in
 Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}.
