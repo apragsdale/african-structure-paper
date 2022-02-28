@@ -162,13 +162,13 @@ years.
     \centering
     \includegraphics{figures/fig1.pdf}
     \caption{
-        \textbf{Representative genetic diversity within Africa.}
-        (A) Select populations from 1000 Genomes and ADRP illustrate diversity from
+        \textbf{Genetic diversity across Africa.}
+        (A) Select populations from 1000 Genomes and ADRP   \sgcomment{define} illustrate diversity from
         western, eastern and southern Africa. We chose representatives from each region
         to build parameterized models, including the newly-sequenced Nama from South Africa, Mende
         from Sierre Leone, Gumuz, Oromo and Amhara from Ethiopia, and the
-        British and Vindija Neanderthal individual (bold fonts). (B, C) PCA highlights the range of genetic divergence anchored 
-        by western Africans, Nama, Gumuz and the British. (D) \texttt{ADMIXTURE}
+        British and Vindija Neanderthal individual (bold fonts \sgcomment{I don't see bold fonts}). (B, C) PCA highlights the range of genetic divergence anchored 
+        by western Africans, Nama, Gumuz and the British. \sgcomment{I think we should indicate the origin on PCAS, also possible variance explained.} (D) \texttt{ADMIXTURE}
         illustrates signatures of recent gene flow in Africa which reflect colonial-period migration into the Nama,
         Back-to-Africa gene flow among some Ethiopians, and Khoe-San admixture in the Zulu.
     }
@@ -212,7 +212,7 @@ Fixed parameters included
 the time of divergence between Western and Eastern African populations,
 set to 60kya, just prior to the split of Eurasians and East Africans set to 50kya. 
 We also fixed the amount of admixture from Neanderthals to Europeans directly
-following the out-of-Africa migration which was set to 1.5\% at 45kya (Supp. Methods). These constraints allowed us to integrate information from previous \sgcomment{genetic and archaelogical?} research,
+following the out-of-Africa migration which was set to 1.5\% at 45kya (Supp. Methods). These constraints allowed us to integrate information from previous genetic and archaelogical research,
 to infer robust migration rates. For example, all models infer relatively high gene flow between Eastern and Western Africa
 ($m\approx2\times10^{-4},$ the proportion of migrant lineages per generation). We further find that Back-to-Africa gene flow at the beginning of the Holocene primarily
 affected the ancestors of the Ethiopian agricultural populations, comprising
@@ -282,7 +282,7 @@ was estimated at 15\%, similar to proportions inferred by \texttt{ADMIXTURE} (Fi
         bands shown in Figure~\ref{fig:2}. Both the continuous migration and
         merger models inferred a relatively deep split of human stem branches,
         though they were connected by ongoing migration that maintained their
-        genetic similarity. Bold text indicates migration rates above \sgcomment{XX} 
+        genetic similarity. Bold text indicates migration rates above $1e-4$ 
         *: The ancestors of the Nama diverged from other African groups
         $\sim$120--135kya, which later branch into West and East African
         groups 60kya. Migration rates and durations are shown for 1) East Africans
@@ -326,7 +326,7 @@ to inferred migration rates between connected contemporary populations over the
 past 50kya (Table~\ref{tab:migration-rates}). This ongoing (or at least,
 periodic) gene flow qualitatively distinguishes these models from previously
 proposed archaic admixture models (Figure~\ref{fig:supp-possible-models}C) as
-the early branches remain closely related, \sgcomment{and each branch contributes large amounts to all contemporary populations} (Figure 3). 
+the early branches remain closely related, and each branch contributes large amounts to all contemporary populations (Figure 3). 
 Because of this 
 relatedness, only $1\%$ to $4\%$ of genetic differentiation among modern populations can be traced back
 to this early population structure (Figure 3 and supplementary text)
@@ -427,37 +427,16 @@ archaic models fit directly to the cSFS (for example, compare with Figure~1 in
 \end{figure}
 
 We used \texttt{Relate} \citep{Speidel2019-nj} to infer the distribution of
-coalescence rates over time, which are commonly interpreted as effective
-population size histories. Trajectories of $N_e$ from prior studies strongly
-support a bottleneck in Out of Africa populations. African populations also dip
-in effective size around 100-200kya, although this decrease is more modest than
-the OOA event \citep{Mallick2016-lx}. One possible explanation is that
-ancestral population structure during the Middle Stone Age inflated $N_e$ and
-subsequent gene flow among ancestral Africans resulted in a more recent
-decreased $N_e$ \citep{Mazet2016-wn}.
-%To our knowledge, explicit comparisons of this hypothesis with SMC-style
-%approaches have not been published.
-We simulated genomic data under four inferred demographic models to compare
-with observed coalescence rate histories. All models, including the
-single-origin model, generate multi-modal curves recapitulating an inferred ancestral
-increase in $N_e$ between 100kya-1Mya (Figure \ref{fig:supp-iicr-sim}). Thus the reduction in inverse coalescence rate 
-is captured in our model, but is primarily explained by population structure in the best-fitting models \sgcomment{is that fair?}.     
-None of the models perfectly match the exact timing of
-the early fluctuations in $N_e$ observed in the data (Figure \ref{fig:supp-iicr-data-subset}). 
-\sgcomment{Perhaps: These discrepancies are comparable to discrepancies observed in relate curves inferred 
-for the same populations using different subsets of the data (see Figures \ref{ig:supp-iicr-data-subset} and \ref{ig:supp-iicr-data-subset})}
-%Simulated Relate Ne curves under the CM and MM are distinguished by having 2
-%and 3 modes, respectively.  The Continuous Migration model had the better
-%qualitative fit with the data, but the ancestral mode was shifted further back
-%in time relative to the data.
-Each simulated model also underestimated the level of population growth during
-the Holocene, indicating either artifacts of data inference in real data or that additional free parameters are necessary to refine
-these growth rates. \sgcomment{Perhaps: There are other discrepancies between odel }
-
-\sgcomment{I am not sure I am happy with these interpretations 
--- let's discuss. I feel like this paragraph does not support our data well, and a likely culprit 
-in explaining the differences is the inaccuracy of TMRCA estimates from real data.
-Also, we would need a link to a supplementary figure!}
+coalescence rates over time in real data and data simulated from our inferred models. Many 
+previous studies have found a reduction of coalescence rates 
+between $1000$kya and $100$kya in humans, and thus inferred an increase 
+in $N_e$ during the same period. \citep{Li, Durbin}. 
+This increase in $N_e$ could be due to either an increase in population or to 
+ancestral population structure during the Middle Stone Age \citep{Mazet2016-wn}.
+All models, including the
+single-origin model, recapitulate an inferred ancestral
+increase in $N_e$ between 100kya-1Mya (Figure \ref{fig:supp-iicr-sim} and supplementary section \sgcomment{X}). Whereas the single-origin model achieves this by
+an increase in $N_e$ during that period, the best-fit model recapitulate this pattern without corresponding population size changes.      
 
 Relative cross-coalescence rates (rCCR) have recently been used to estimate
 divergence between a pair of populations, as measured by the rate of
@@ -583,7 +562,7 @@ differentiation among human populations and between humans and Neanderthals
 assume that this correspondence also holds for early human ancestral
 populations in Africa, the weakly-structured-stem model would predict that the
 fossils deriving from each of the two stems should be morphologically quite
-similar (supplementary text \sgcomment{X})\aprcomment{Will we still include this?} \sgcomment{yes!}, even if
+similar (supplementary text \sgcomment{X}), even if
 they are from different parts of Africa, with differences across stems closer
 to those across contemporary human populations than to human-Neanderthal
 differences. Identifying the morphological signature of ancient
