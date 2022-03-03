@@ -130,6 +130,22 @@ nonsynonymous variation \citep{Ragsdale2018-dd}. To enable comparison with
 Neanderthal DNA, we excluded regions for which the Vindija Neanderthal sample
 had less than 100 contiguous base pairs. 
 
+\subsection{PCA and \texttt{ADMIXTURE} analysis}
+
+We used principal component analysis (PCA) from \texttt{scikit-learn}
+\citep{Pedregosa2011-ke} and \texttt{ADMIXTURE} version 1.3.0
+\citep{Alexander2011-aq} to summarize genetic diversity among a broader set of
+1000 Genomes and ADRP populations (Figure~\ref{fig:1} in the main text). Data
+filtering was identical for both analyses. We retained biallelic SNPs with no
+missing data and minor allele frequency greater that 5\%. We then thinned the
+remaining sites to remove SNPs in high linkage disequilibrium with one another.
+We used the \texttt{locate\_unlinked} function from \texttt{scikit-allel}
+version 1.2.1 \citep{Miles2021-yq} to identify SNPs in low linkage
+disequilibrium, using a threshold of $r^2=0.1$, a window size of 100 SNPs, and
+a step size of 20 SNPs, removing the remaining SNPs. This process was iterated
+five times for each chromosome, resulting in 327,656 roughly unlinked SNPs used
+in the PCA and \texttt{ADMIXTURE} analyses.
+
 \section{Computing statistics}
 
 \subsection{LD and diversity statistics used in model fits}
