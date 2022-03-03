@@ -163,13 +163,17 @@ years.
     \includegraphics{figures/fig1.pdf}
     \caption{
         \textbf{Genetic diversity across Africa.}
-        (A) Select populations from 1000 Genomes and ADRP   \sgcomment{define} illustrate diversity from
-        western, eastern and southern Africa. We chose representatives from each region
-        to build parameterized models, including the newly-sequenced Nama from South Africa, Mende
+        (A) Select populations from the 1000 Genomes and African Diversity Reference Panels
+        illustrate diversity from western, eastern and southern Africa.
+        We chose representatives from each region to build parameterized models,
+        including the newly-sequenced Nama from South Africa, Mende
         from Sierre Leone, Gumuz, Oromo and Amhara from Ethiopia, and the
-        British and Vindija Neanderthal individual (bold fonts \sgcomment{I don't see bold fonts}). (B, C) PCA highlights the range of genetic divergence anchored 
-        by western Africans, Nama, Gumuz and the British. \sgcomment{I think we should indicate the origin on PCAS, also possible variance explained.} (D) \texttt{ADMIXTURE}
-        illustrates signatures of recent gene flow in Africa which reflect colonial-period migration into the Nama,
+        British and Vindija Neanderthal individual.
+        (B, C) PCA highlights the range of genetic divergence anchored 
+        by western Africans, Nama, Gumuz and the British.
+        Percentages show variance explained by each principal component.
+        (D) \texttt{ADMIXTURE} illustrates signatures of recent gene flow in Africa
+        which reflect colonial-period migration into the Nama,
         Back-to-Africa gene flow among some Ethiopians, and Khoe-San admixture in the Zulu.
     }
     \label{fig:1}
@@ -228,7 +232,7 @@ was estimated at 15\%, similar to proportions inferred by \texttt{ADMIXTURE} (Fi
 
 \begin{figure}[t!]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/fig2}
+    \includegraphics[width=0.6\textwidth]{figures/fig2-melisa}
     \caption{
         \textbf{A weakly structured stem best describes two-locus statistics}
         In the two best-fitting parameterizations of early population structure,
@@ -238,7 +242,8 @@ was estimated at 15\%, similar to proportions inferred by \texttt{ADMIXTURE} (Fi
         connected by continuous, reciprocal migration that are indicated by 
         double-headed arrows (labels matched to migration rates and divergence
         times in Table~\ref{tab:migration-rates}). These migrations last for the
-        duration of concurrence \sgcomment{concurrence or co-occurence? What does this mean in either case?} of contemporaneous populations \sgcomment{Is what we mean: Migration rates are constant over epochs delimited by population splits or mergers, see Supplementary table XX? }. The
+        duration of co-existence of contemporaneous populations with constant
+        migration rates over those intervals. The
         merger-with-stem-migration model (B, with  $LL=-102,600$) outperformed the
         continuous-migration model (A, with $LL=-115,500$ ).
     }
@@ -256,7 +261,7 @@ was estimated at 15\%, similar to proportions inferred by \texttt{ADMIXTURE} (Fi
             \textbf{Time (kya)} & \textbf{per generation} & \textbf{duration (ky)} \\
         \midrule
         \textbf{Continuous Model} & & & & & \\
-        LL= -115,500 & a & Stem 1, Stem 2 & 1,163 & 6.43e-5 & 1,028 \\
+        $LL= -115,500$ & a & Stem 1, Stem 2 & 1,163 & 6.43e-5 & 1,028 \\
         & b & Stem 2, Nama & NA & 5.82e-5 & 130 \\
         & c, d & Stem 2, Other Africans* & NA & 3.10e-5, \textbf{1.64e-4} & 130, 55 \\
         & e, f & Nama, Other Africans* & 135 & 4.1e-5, 9.8e-6 & 135, 60 \\
@@ -264,7 +269,7 @@ was estimated at 15\%, similar to proportions inferred by \texttt{ADMIXTURE} (Fi
         & h & East Africans, British & 50 & 4.17e-5 & 50 \\
         & i & Gumuz, Amhara/Oromo & 12 &\textbf{3.36e-4} & 12 \\
         \textbf{Merger Model} & & & & & \\
-        LL= -102,600 & a & Stem 1, Stem 2 & 1,442 & \textbf{1.16e-4} & 963 \\
+        $LL= -102,600$ & a & Stem 1, Stem 2 & 1,442 & \textbf{1.16e-4} & 963 \\
         & -- & Stem 1S, Stem 1E & 479 & 0 (fixed) & -- \\
         & b & Stem 2 to Nama & 119 & \textbf{0.71} & pulse \\
         & c & Stem 2 to Stem 1E & 98 & \textbf{0.50} & pulse \\
@@ -358,8 +363,9 @@ proportions 29\%, 71\% respectively. Similarly, Stem 1E and Stem 2 combine in
 equal proportions (50\% each) to form the ancestors of the Western Africans and
 Eastern Africans (and thus also all individuals who later disperse during the
 Out of Africa event). Finally, the Mende receive a large additional pulse of
-gene flow from Stem 2, replacing 18\% of their population 25kya. The later Stem
-2 contribution to the Western African Mende resulted in better model fits (LL \sgcomment{Something is missing here}).
+gene flow from Stem 2, replacing 18\% of their population 25kya.
+The later Stem 2 contribution to the Western African Mende resulted in
+better model fits ($\Delta LL \approx 60,000$).
 This may indicate that an ancestral Stem 2 population occupied Western or
 Central Africa, broadly speaking. The differing proportions in the Nama and
 Eastern Africans may also indicate geographic separation of Stem 1S in southern
@@ -370,14 +376,20 @@ Africa and Stem 1E in eastern Africa.
     \includegraphics{figures/fig3.pdf}
     \caption{
         \textbf{Predicted population structure over time.}
-        From the best fit models of our two parameterizations (top row:
-        continuous migration, bottom row: merger with stem migration), we predicted
-       pairwise differences $H_{i,j}$ between individuals sampled from populations $i$ and $j$ 
-       existing at time $t$. 
-        To understand how drift between stems explains present-day structure, 
-        we also computed the proportion $\alpha^2$ of drift between pairs of sampled present-day
-        populations that aligns with drift between past populations (Here Nama and Mende, see Section~S\ref{sec:f4} for details and additional comparisons \sgcomment{do we have extra comparisons there?}).
-        Both models infer deep population structure with modest contributions to present-day genetic differentiation. Most present differentiation dates back to the last 100kya.}
+        From the best fit models of our two parameterizations (A and B:
+        continuous migration, C and D: merger with stem migration),
+        we predicted pairwise differences $H_{i,j}$ between individuals
+        sampled from populations $i$ and $j$ existing at time $t$ (A and C).
+        (B and D) To understand how drift between stems explains present-day structure, 
+        we also computed the proportion $\alpha^2$ of drift between pairs of
+        sampled present-day
+        populations that aligns with drift between past populations
+        (here Nama and Mende, see Section~S\ref{sec:f4} for details and additional
+        comparisons in Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}).
+        Both models infer deep population structure with modest contributions to
+        present-day genetic differentiation.
+        Most present differentiation dates back to the last 100kya.
+    }
     \label{fig:3}
 \end{figure}
 
@@ -427,7 +439,7 @@ We used \texttt{Relate} \citep{Speidel2019-nj} to infer the distribution of
 coalescence rates over time in real data and data simulated from our inferred models. Many 
 previous studies have found a reduction of coalescence rates 
 between $1000$kya and $100$kya in humans, and thus inferred an increase 
-in $N_e$ during the same period. \citep{Li, Durbin}. 
+in $N_e$ during the same period \citep{Li2011-le}.
 This increase in $N_e$ could be due to either an increase in population or to 
 ancestral population structure during the Middle Stone Age \citep{Mazet2016-wn}.
 All models, including the
@@ -506,14 +518,16 @@ triggered migration inland away from the coasts, as has been suggested for the
 Paleo-Agulhas plain \citep{Marean2014-pg}. 
 
 Following these merger events, the stems subsequently fracture into
-subpopulations which then appear to persist over the past ~120kya. These
+subpopulations which then appear to persist over the past $\sim120$kya. These
 subpopulations can be linked to modern-day groups despite subsequent gene flow
-across the continent; for example, a genetic lineage sampled in the Nama has an
-\sgcomment{XX} probability of being inherited from the ancestral ‘southern’ subpopulation 50kya versus
-\sgcomment{XX} probability of being inherited from the ‘eastern’ subpopulation (Figure \sgcomment{XX}). We also
+across the continent; for example, a genetic lineage sampled in the Gumuz has a
+$0.44$ probability of being inherited from the ancestral ‘eastern’ subpopulation
+(Stem 1E) 150kya versus $0.03$ probability of being inherited from the ‘southern’
+subpopulation (Stem 1S) and $0.53$ probability of being inherited from Stem 2
+(see Table~\ref{tab:supp-lineage-probabilitys} for additional comparisons). We also
 find that Stem 2 continued to contribute to western Africans during the Last
 Glacial Period, indicative that this gene flow likely occurred in
-western/central Africa (Table 1). 
+western/central Africa (Table~\ref{tab:migration-rates}). 
 
 
 
