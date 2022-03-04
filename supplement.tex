@@ -228,25 +228,6 @@ distances due to processes like multinucleotide mutations
 unphased genotypes to compute LD statistics, as proposed in
 \citet{Ragsdale2020-nz}. 
 
-Finally, we estimated uncertainty due to the finite amount of genetic material
-used in inference using bootstrap over 500 segments along the genome with
-roughly equal lengths of retained sequences within each segment. First, for
-each distance bin, we used these bootstrap samples to obtain a
-variance-covariances matrix across all statistics. This variance-covariance
-matrix was used to obtain a model likelihood for each recombination distance
-bin and single-locus nucleotide diversity, as a multivariate Gaussian
-likelihood. The full model likelihood was taken as the product of likelihoods
-over each bin. In other words, we optimized a composite likelihood where
-observations in different bins were taken to be independent. To account for
-correlations across bins in uncertainty estimates, we estimated parameter
-confidence intervals using the same bootstrap set using the Godambe information
-matrix \citep{Coffman2016-yq}. \sgcomment{is redundancy here with section
-"Optimization using moments". I think we can get rid of this and say:
-"optimization and uncertainty calculations are described in section
-"Optimization using moments""?, This may be a bit more complicated, since the
-Optimizatino section relies on this description. I think we should just punt
-the bootstrap description to that section. TODO: discuss Aaron + Simon}
-
 \subsection{Estimating two-locus statistics with small sample sizes}
 
 The approach from \citet{Ragsdale2020-nz} provides unbiased estimates of the LD
@@ -430,15 +411,25 @@ L-BFGS-B methods (as implemented in the SciPy optimization package
 \cite{Virtanen2020-kr}). This process was repeated with alternating
 optimization methods until the best fit parameter set converged consistently.
 
-\subsection{Confidence intervals using Godambe methods}
+\subsection{Uncertainty and confidence intervals using Godambe methods}
 
-The bootstrap replicates that were used to compute the variance-covariance
-structure of the observed statistics within bins were also used to build 500
-bootstrap replicates of the data by resampling with replacement. For the best
-fit parameters, we computed confidence intervals using the Godambe Information
-approach, which corrects composite likelihood estimates of confidence intervals
-to account for nonindependence in the data, including linkages between loci and
-nonindependence of recombination bins \cite{Coffman2016-yq}.
+To compute likelihoods, we needed an estimate of the joint distribution of summary statistics. 
+We estimated uncertainty due to the finite amount of genetic material
+used in inference using bootstrap over 500 segments along the genome with
+roughly equal lengths of retained sequences within each segment. First, for
+each distance bin, we used these bootstrap samples to obtain a
+variance-covariances matrix across all statistics. This variance-covariance
+matrix was used to obtain a model likelihood for each recombination distance
+bin and single-locus nucleotide diversity, as a multivariate Gaussian
+likelihood. The full model likelihood was taken as the product of likelihoods
+over each bin. In other words, we optimized a composite likelihood where
+observations in different bins were taken to be independent. 
+
+For the best fit parameters, we computed confidence intervals using the 
+same set of bootstraped samples and Godambe Information
+approach \citep{Coffman2016-yq}, which corrects composite likelihood estimates of confidence intervals
+to account for nonindependence in the data, including linkage between loci and
+nonindependence of recombination bins.
 
 Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}
 give the best fit values for all parameters in the four models considered here,
