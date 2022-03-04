@@ -1,15 +1,13 @@
 \documentclass[]{article}
 \usepackage[super,numbers]{natbib}
 
-\usepackage{fullpage}
-\usepackage{listings}
+\usepackage[margin=1in]{geometry}
+%\usepackage{showframe}
 \usepackage{url}
 \usepackage{authblk}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{booktabs}
-
-\lstset{language=Python}
 
 % local definitions
 \newcommand{\sgcomment}[1]{{\textcolor{red}{SG: #1}}}
@@ -161,7 +159,7 @@ years.
 \begin{figure}[ht!]
     \centering
     \includegraphics{figures/fig1.pdf}
-    \caption{
+    \caption[width=\textwidth]{
         \textbf{Genetic diversity across Africa.}
         (A) Select populations from the 1000 Genomes and African Diversity Reference Panels
         illustrate diversity from western, eastern and southern Africa.
@@ -568,18 +566,29 @@ a weakly-structured-stem model within Africa.
 Multiple studies have shown a correspondence between phenotypic
 differentiation, usually assessed with measurements of the cranium, and genetic
 differentiation among human populations and between humans and Neanderthals
-\citep{Relethford1994-mh,Weaver2008-ho,Von_Cramon-Taubadel2009-zb}. If we
-assume that this correspondence also holds for early human ancestral
-populations in Africa, the weakly-structured-stem model would predict that the
-fossils deriving from each of the two stems should be morphologically quite
-similar (supplementary text \sgcomment{X}), even if
-they are from different parts of Africa, with differences across stems closer
-to those across contemporary human populations than to human-Neanderthal
-differences. Identifying the morphological signature of ancient
-structure in the fossil record will thus require careful analysis of many broadly
-similar remains. Morphologically distinct
-crania such as \sgcomment{XX} and \sgcomment{YY} are unlikely representatives of branches that
-contributed appreciably to modern human ancestries.
+\citep{Relethford1994-mh,Weaver2008-ho,Von_Cramon-Taubadel2009-zb}. The fossil
+record of Africa is sparse during the time period of the stems, but of the
+available fossils, some are very similar to present-day humans (e.g., from Omo
+Kibish, Ethiopia), others are similar in some features but not others (e.g.,
+from Jebel Irhoud, Morocco), and others are very different (e.g., from
+Dinaledi, South Africa) in morphology. If, as our model predicts, the
+morphological differences between the stems were comparable to those among
+present-day human populations, the most divergent fossils are unlikely to
+represent the branches that contributed appreciably to present-day human
+ancestries. 
+
+%If we
+%assume that this correspondence also holds for early human ancestral
+%populations in Africa, the weakly-structured-stem model would predict that the
+%fossils deriving from each of the two stems should be morphologically quite
+%similar (supplementary text \sgcomment{X}), even if
+%they are from different parts of Africa, with differences across stems closer
+%to those across contemporary human populations than to human-Neanderthal
+%differences. Identifying the morphological signature of ancient
+%structure in the fossil record will thus require careful analysis of many broadly
+%similar remains. Morphologically distinct
+%crania such as \sgcomment{XX} and \sgcomment{YY} are unlikely representatives of branches that
+%contributed appreciably to modern human ancestries.
 
 \section*{Methods}
 
