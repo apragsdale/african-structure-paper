@@ -351,6 +351,7 @@ Parameters were converted to physical units
 assuming a human generation time of 29 years.
 
 \subsection{General strategy for building models and introducing complexity}
+\label{sec:models}
 
 With up to six sampled populations in final demographic models that we fit,
 there are many parameters to learn. Even in the simplest model involving all
@@ -387,7 +388,8 @@ non-central divergences and admixture events:
     \item Eurasian back-to-African migration: 12 ka
 \end{itemize}
 When testing multiple variations of the more complex models, we kept these
-values fixed. This reduced the potential for overfitting the more complex
+values fixed (see Table~\ref{tab:fixed_params} for a complete list of all fixed
+parameters). This reduced the potential for overfitting the more complex
 models, while reducing the computational cost of optimization.
 
 Our models also included recent events to account for known migrations,
@@ -849,12 +851,44 @@ and $\sim$50--130kya under the clean split model.
 \section*{Supporting tables and figures}
 
 \begin{table}[ht]
+    \caption{
+        \label{tab:fixed-params}
+        \textbf{Fixed parameters in inferred demographic models.}
+        Many of the fixed parameters are specific to the Neanderthal branch, are
+        constrained by known history, or were consistently fit across multiple
+        model parameterizations. We assumed a generation time of 29 years throughout.
+        See Section~\ref{sec:models} for details.
+    }
+    \centering
+    \begin{tabular}[t]{rP{8cm}c}
+        \toprule
+        Parameter & Description & Value \\
+        \midrule
+        $T_{MH-Neand}$ & The time of the split between branches leading to Neanderthals and modern humans & 550ka \\
+        $T_{NI-Vin}$ & The time of the split between branches leading to the Vindija sample and the Neanderthal population that mixed with expanding modern humans & 80ka \\
+        $T_{Vin}$ & The sample time of the Vindija Neanderthal individual & 50ka \\
+        $T_{NI\rightarrow EUR}$ & The timing of admixture from Neanderthals to modern humans & 45ka \\
+        $f_{NI\rightarrow EUR}$ & The proportion of admixture from Neanderthals to modern humans & 0.015 \\
+        $T_{E-W}$ & The split time of East and West African populations & 60ka \\
+        $T_{GBR}$ & The split time of Eurasian and East African populations & 50ka \\
+        $T_{GBR\rightarrow EA}$ & The time of the back-to-Africa admixture event, giving rise to the Amhara/Oromo branch & 12ka \\
+        $T_{expan}$ & The expansion time of the Mende and contraction time of the Gumuz & 5ka \\
+        $T_{EA\rightarrow Nama}$ & The admixture time of East African pastoralists to the Nama & 67 gen. \\
+        $T_{GBR\rightarrow Nama}$ & The admixture time of Europeans to the Nama & 10 gen. \\
+        $T_{bottle}$ & The bottleneck time of the Nama population & 9 gen. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
 \caption{
     \label{tab:supp-single-origin}
     \textbf{Best-fit parameters from the single-origin model.}
+    This model includes a single stem population that splits into modern human
+    groups. Fixed parameters are specifed in Table~\ref{tab:fixed-params}.
     Inferred values are scaled to physical units assuming a generation time of
     29 years. This model gave a log-likelihood of -189,434.
-    \aprcomment{include fixed parameters}
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -896,7 +930,6 @@ and $\sim$50--130kya under the clean split model.
     continuous migration between Stem 2 and modern populations, but disallows
     migration between Stem 2 and Stem 1, which later splits into branches leading
     to South, East, and West African populations.
-    \aprcomment{include fixed parameters}
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -940,7 +973,6 @@ and $\sim$50--130kya under the clean split model.
     \textbf{Best-fit parameters from the Continuous-Migration model.}
     Inferred values are scaled to physical units assuming a generation time of
     29 years. This model gave a log-likelihood of -115,500.
-    \aprcomment{include fixed parameters}
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -984,7 +1016,6 @@ and $\sim$50--130kya under the clean split model.
     \textbf{Best-fit parameters from the Merger-Without-Stem-Migration model.}
     Inferred values are scaled to physical units assuming a generation time of
     29 years. This model gave a log-likelihood of -107,652.
-    \aprcomment{include fixed parameters} 
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
@@ -1031,7 +1062,6 @@ and $\sim$50--130kya under the clean split model.
     \textbf{Best-fit parameters from the Merger-With-Stem-Migration model.}
     Inferred values are scaled to physical units assuming a generation time of
     29 years. This model gave a log-likelihood of -102,633.
-    \aprcomment{include fixed parameters} 
 }
 \centering
 \begin{tabular}[t]{rP{8cm}cc}
