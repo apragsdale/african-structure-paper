@@ -182,8 +182,7 @@ and $j$ index populations), as well as those additional statistics $Dz$ and
 $\pi_2$ taken over different combinations of population indexing. That is
 $Dz_{i, j, k} = D_i(1-2p_{A,j})(1-2p_{B,k})$ and
 $\pi_{2;i,j,k,l}=p_{A,i}(1-p_{A,j})p_{B,k}(1-2p_{B,l})$. We consider statistics
-normalized by $\pi_2$ in a reference population (throughout, we use the Mende
-\comment{Why use the Mende to normalize?}
+normalized by $\pi_2$ in an arbitrary reference population (throughout, we use the Mende
 $\pi_2$), which removes any dependence on the mutation rate. Thus, statistics
 take the form $\sigma_{d;i,j}^2 = \frac{\E[D^2_{i,j}]}{\E[\pi_2]}$,
 $\sigma_{Dz;i,j,k}=\frac{\E[Dz_{i,j,k}]}{\E[\pi_2]}$, and so on.
@@ -642,10 +641,9 @@ model
 (Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
 we used \msprime version 1.0.4 \citep{Kelleher2016-lw,Baumdicker2021-mj} to
 simulate sampled individual genomes to match the data used in inference (see
-simulation details below). Using these simulations, we compared additional
-statistics and inferences between simulated and real data that were not used in
-the original optimization.
-\comment{Describe in more detail}
+simulation details below). We used these simulations to compare our model predictions to 
+predictions based on the conditional SFS (cSFS) and on relate curves (see below).  
+
 These comparisons serve as independent validations
 of our inferred demographic models by assessing how well those models fit
 aspects of the data that have been used in other studies as evidence of
@@ -921,8 +919,7 @@ and $\sim$50--130kya under the clean split model.
 \begin{table}[ht]
 \caption{
     \label{tab:supp-continuous-migration-no-mig}
-    \textbf{Best-fit parameters from the Continuous-Migration model with isolation
-    between stems.}
+    \textbf{Best-fit parameters from the Continuous-Migration model without stem migration.}
     Inferred values are scaled to physical units assuming a generation time of
     29 years. This model gave a log-likelihood of -126,644. This model allows for
     continuous migration between Stem 2 and modern populations, but disallows
@@ -1144,14 +1141,14 @@ and $\sim$50--130kya under the clean split model.
 
 
 \clearpage
-\comment{30 is a lot of supp figures... can these be condensed to be a bit less daunting to readers?}
+
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.65\textwidth]{figures/supp-possible-models.png}
     \caption{
-        \textbf{Proposed models of early human history in Africa.}
-        \comment{Lovely figure, may even want to move to main text}
+        \textbf{Models of early human history in Africa} seeking to reconcile genetic and paleoanthropological evidence \cite{Henn2018-rf}.
+         \comment{Lovely figure, may even want to move to main text}
     }
     \label{fig:supp-possible-models}
 \end{figure}
@@ -1159,7 +1156,7 @@ and $\sim$50--130kya under the clean split model.
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-omni-hapmap-comparison.pdf}
-    \caption{
+    \caption{\sgcomment{$\pi$ in figure are not rendered properly}
         \textbf{Comparison of LD statistics parsed using two recombination maps}
         The recombination map determines genetic distances between pairs of SNPs,
         so using different maps could result in systematic biases in parsed
@@ -1195,7 +1192,7 @@ and $\sim$50--130kya under the clean split model.
     \caption{
         \textbf{Continuous-migration model fit to LD statistics.}
         Predicted vs observed two-locus statistics as a function of genetic
-        distance for the continuous-migration model. Each panel represents a different
+        distance for the continuous-migration model \sgcomment{with or without migration?}. Each panel represents a different
         set of two-locus statistics. Solid lines represent estimates using the
         continuous-migration model. Dashed lines represent observed statistics.
         Notation and indexing of statistics are described in the
@@ -1241,7 +1238,7 @@ and $\sim$50--130kya under the clean split model.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/supp-fsts-all-models.pdf}
-    \caption{
+    \caption{\sgcomment{Need ABCD in figure!}
         \textbf{Predicted \bm{$F_{ST}$} between contemporaneous populations over time.}
         All models (A: single origin, B: continuous migration, C: merger without stem
         migration, D: merger with stem migration) match observed $F_{ST}$ between
@@ -1258,9 +1255,9 @@ and $\sim$50--130kya under the clean split model.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/supp-h12s-all-models.pdf}
-    \caption{
+    \caption{\sgcomment{can we sync with text colors? Need ABCD in figure}
         \textbf{Predicted pairwise differentiation between contemporaneous
-        populations.} $H_{i,j}$ is the predicted pairwise differentiaion
+        populations.} $H_{i,j}$ is the predicted pairwise differentiation
         between two populations per base-pair, using a mutation rate estimated
         from matching predicted to observed pairwise diversity from the
         intergenic data used in the fits (see Sec.~\ref{sec:supp-mutation}).
@@ -1284,7 +1281,7 @@ and $\sim$50--130kya under the clean split model.
     \caption{
         \textbf{Predicted \bm{$f_4$} between pairs of modern populations
         and ancient branches from the single-origin model.}
-        $f_4(A, B; X, Y)/f_2(A, B)f_2(X, Y)$ is interpreted as the proportion of the
+        $f_4^2(A, B; X, Y)/f_2(A, B)f_2(X, Y)$ is interpreted as the proportion of the
         amount of drift between sampled populations $A$ and $B$ that aligns with
         drift between populations $X$ and $Y$, sampled in the past
         (see Section~\ref{sec:f4}). In the single-origin model, nearly all
@@ -1306,7 +1303,7 @@ and $\sim$50--130kya under the clean split model.
         only traces back to differentiation between ancestral populations
         $\sim$100-200ka, indicating that while stem populations were structured
         (Fig.~\ref{fig:supp-FST-panels}), differentiation due to that
-        ancient structure does not contribute to differention between modern
+        ancient structure contributes little to differentiation between modern
         populations.
     }
     \label{fig:supp-f4s-continuous-migration}
