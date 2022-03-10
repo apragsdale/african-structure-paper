@@ -81,13 +81,13 @@ Phase 1 genomic SNP served as the training set. After VR, no batch effects were
 observed along PC1 and PC2 for 1000 Genomes vs. ADRP. Phasing on the combined
 dataset was performed via SHAPEIT2 \citep{Delaneau2013-aw} and utilized the duoHMM
 option for duos and trios. We highlight 82 Nama genomes which are newly
-available (unpublished) under accession number EGAD00001006198.
+available (and previously unpublished) under accession number EGAD00001006198.
 \comment{This makes is sound like these weren't generated for this project.}
-Among these 82
-Nama samples, we down-sampled the individuals to minimize close relatives and
-admixture, such that 44 Nama genomes were retained. 2nd and 3rd degrees
-relatives were inferred from reconstructed pedigrees with Omni2.5 SNP array
-data. Individuals with $>70\%$ estimated Khoe-San ancestry were retained for
+Among these 82 Nama samples, we down-sampled the individuals to minimize
+close relatives and admixture, such that 44 Nama genomes were retained.
+Second- and third-degrees relatives were inferred from reconstructed
+pedigrees with Omni2.5 SNP array data.
+Individuals with $>70\%$ estimated Khoe-San ancestry were retained for
 analysis, after partitioning ancestry into $k=6$ clusters with \texttt{ADMIXTURE}
 \comment{Justification for k=6}
 \citep{Alexander2009-sw} where alternative ancestries represent European, West
@@ -108,21 +108,24 @@ representatives of the Richtersveld National Park.
 
 \subsection{Details about populations used in analyses}
 
-\sgcomment{To be expanded. TODO: Brenna}
-\begin{itemize}
-    \item From the merged dataset of the African Diversity Reference Panel and
-        1000 Genomes phase 3 data, subsampled to population included in this study
-    \item West Africa: Mende from Sierra Leone (MSL); South Africa: newly sequenced 
-        Nama; East Africa: Gumuz (traditionally hunter-gatherer with low levels of 
-        Eurasian admixture), Oromo and Amhara (combined as traditionally 
-        agriculturalists with large proportion of back-to-Africa Eurasian ancestry); 
-        Eurasian: British (GBR)
-    \item Combined with the high coverage Vindija neanderthal genome
-    \item For running \Relate, we used a larger set of populations. We kept all 
-        African 1000 Genomes populations, along with the Nama, Gumuz, Oromo, and
-        Amhara, as well as 4 Eurasian populations from 1000 Genomes: GBR, CEU, PJL,
-        and CHB
-\end{itemize}
+From the merged dataset of the African Diversity Reference Panel (ADRP,
+citet{}) and the \citet{1000_Genomes_Project_Consortium2015-zq} phase 3 data,
+we subsampled to the populations included in this study. From the 1000 Genomes
+data, these included all populations in the African super-population (ESN, GWD,
+LWK, MSL, and YRI) and four non-African populations (CEU, GBR, CHB, and PJL).
+From the ADRP, these included the Amhara, Bakiga, Gumuz, Nama, Oromo, Somali,
+Nama, and Zulu. This larger set of populations were used in the PCA and
+\texttt{Admixture} analyses. The \texttt{Relate} analysis used a slightly
+smaller set, discluding the Bakiga, Somali, and Zulu samples.
+
+For the demographic modeling, we further subset to the regional populations,
+from West Africa: Mende from Sierra Leone (MSL); South Africa: Nama from South
+Africa (newly sequenced); East Africa: Gumuz (traditionally hunter-gatherer
+with low levels of Eurasian admixture), Oromo and Amhara (combined as
+traditionally agriculturalists with large proportion of back-to-Africa Eurasian
+ancestry); and Europe: British (GBR). These were combined with the
+high-coverage Vindija Neanderhal genome \citep{Prufer2017-kk}, resulting in 290
+total samples used in demographic inference.
 
 \subsection{Filtering and subsetting data}
 
@@ -372,7 +375,7 @@ non-central divergences and admixture events:
     \item Eurasian back-to-African migration: 12 ka
 \end{itemize}
 When testing multiple variations of the more complex models, we kept these
-values fixed (see Table~\ref{tab:fixed_params} for a complete list of all fixed
+values fixed (see Table~\ref{tab:fixed-params} for a complete list of all fixed
 parameters). This reduced the potential for overfitting the more complex
 models, while reducing the computational cost of optimization.
 
@@ -624,39 +627,63 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
     \label{fig:supp-f4-scenarios}
 \end{figure}
 
-\subsection{Relating model predictions to morphological variation} \label{sec:morpho_diff}
+\subsection{Relating model predictions to morphological variation}
+\label{sec:morpho_diff}
 
-Here we show how the predictions of our model can be related to morphological variation in the fossil record. Let $\Delta^2$ be the expected squared difference in a morphological measurement between fossil 1 and fossil 2.
-
+Here we show how the predictions of our model can be related to morphological
+variation in the fossil record.
+Let $\Delta^2$ be the expected squared difference in a morphological measurement
+between fossil 1 and fossil 2,
 \begin{equation}
-	\Delta^2=\E\left[\left(\bar{X}_1-\bar{X}_2\right)^2\right]+\E\left[V_1\right]+\E\left[V_2\right]
+    \Delta^2=\E\left[\left(\bar{X}_1-\bar{X}_2\right)^2\right]+\E\left[V_1\right]+\E\left[V_2\right],
 \end{equation}
-where $\bar{X}_1$ and $V_1$ and $\bar{X}_2$ and $V_2$ are measurement means and variances for the populations from which fossil 1 and fossil 2 are sampled. If we assume that the trait being measured is evolving neutrally, which seems reasonable as an approximation based on studies of morphological (cranial) variation in humans and Neanderthals \tdwcomment{cite here: main text references 36,37, and 38}, then
+where $\bar{X}_1$ and $V_1$ and $\bar{X}_2$ and $V_2$ are measurement means and
+variances for the populations from which fossil 1 and fossil 2 are sampled.
 
+If we assume that the trait being measured is evolving neutrally, which seems
+reasonable as an approximation based on studies of morphological (cranial)
+variation in humans and Neanderthals
+\citep{Relethford1994-mh,Weaver2008-ho,Von_Cramon-Taubadel2009-zb}, then
 \begin{equation}
-	\E\left[\left(\bar{X}_1-\bar{X}_2\right)^2\right]=4\sigma_m^2\tau_B-2\sigma_m^2\tau_{W_1}-2\sigma_m^2\tau_{W_2}
+    \E\left[\left(\bar{X}_1-\bar{X}_2\right)^2\right]=4\sigma_m^2\tau_B-2\sigma_m^2\tau_{W_1}-2\sigma_m^2\tau_{W_2},
 \end{equation}
-
 \begin{equation}
-	\E\left[V_A\right]=\frac{1}{h^2}\sigma_m^2\tau_{W_1}
+    \E\left[V_A\right]=\frac{1}{h^2}\sigma_m^2\tau_{W_1},
 \end{equation}
-
+and
 \begin{equation}
-	\E\left[V_B\right]=\frac{1}{h^2}\sigma_m^2\tau_{W_2}
+    \E\left[V_B\right]=\frac{1}{h^2}\sigma_m^2\tau_{W_2},
 \end{equation}
-where $\sigma^2_m$ is the additive genetic variance introduced by mutation (per zygote per generation), $h^2$ is the (narrow sense) heritability, $\tau_{W_1}$ and $\tau_{W_2}$ are the average coalescence time of pairs of alleles from the same population and $\tau_B$ is the average coalescence time of pairs of alleles from different populations \tdwcomment{cite here: Whitlock 1999 doi.org/10.1017/S0016672399004127 and Weaver 2016 doi.org/10.1002/ece3.2522}. Substituting and simplifying gives
-
+\aprcomment{switch between 1/2 and A/B - is that intentional, or a typo?}
+where $\sigma^2_m$ is the additive genetic variance introduced by mutation
+(per zygote per generation), $h^2$ is the (narrow sense) heritability,
+$\tau_{W_1}$ and $\tau_{W_2}$ are the average coalescence time of pairs
+of alleles from the same population and $\tau_B$ is the average coalescence
+time of pairs of alleles from different populations
+\citep{Whitlock1999-un,Weaver2016-id}.
+Substituting and simplifying gives
 \begin{equation}
-	\Delta^2=\sigma_m^2 \left( 4\tau_B+\frac{1-2h^2}{h^2} \left( \tau_{W_1}+\tau_{W_2} \right) \right)
+    \Delta^2=\sigma_m^2 \left( 4\tau_B+\frac{1-2h^2}{h^2} \left( \tau_{W_1}+\tau_{W_2} \right) \right),
 \end{equation}
-which relates $\Delta^2$ to between and within population coalescence times. As a further approximation, if we assume that the heritability of the measurement is close to one half, then
+which relates $\Delta^2$ to between and within population coalescence times.
 
+As a further approximation, if we assume that the heritability of the
+measurement is close to one half, then
 \begin{equation}
-	\Delta^2\approx4\sigma_m^2\tau_B
+    \Delta^2\approx4\sigma_m^2\tau_B,
 \end{equation}
 which shows that under these assumptions $\Delta^2$ is proportional to $\tau_B$.
 
-Nucleotide diversity, $\pi$, for pairs of individuals sampled from different populations is also proportional to $\tau_B$. Therefore, ratios of $\Delta^2$ can be predicted from ratios of $\pi$ for the same comparisons. For example, a ratio for which $\pi$ for stem 1 and stem 2 is the numerator and $\pi$ for a pair of contemporary human populations is the denominator can be used to predict $\Delta^2$ for two fossils sampled from each of the two stems based on $\Delta^2$ for contemporary humans. In this way, the predictions of our model can be related to morphological variation in the fossil record.
+Nucleotide diversity, $\pi$, for pairs of individuals sampled from different
+populations is also proportional to $\tau_B$.
+Therefore, ratios of $\Delta^2$ can be predicted from ratios of $\pi$
+for the same comparisons.
+For example, a ratio for which $\pi$ for Stem 1 and Stem 2 is the numerator
+and $\pi$ for a pair of contemporary human populations is the denominator
+can be used to predict $\Delta^2$ for two fossils sampled from each of the
+two stems based on $\Delta^2$ for contemporary humans.
+In this way, the predictions of our model can be related to morphological
+variation in the fossil record.
 
 \section{Validations using simulations from inferred demographic models}
 
@@ -1186,7 +1213,7 @@ and $\sim$50--130kya under the clean split model.
 \begin{figure}[ht]
     \centering
     \includegraphics{figures/supp-omni-hapmap-comparison.pdf}
-    \caption{\sgcomment{$\pi$ in figure are not rendered properly}
+    \caption{
         \textbf{Comparison of LD statistics parsed using two recombination maps}
         The recombination map determines genetic distances between pairs of SNPs,
         so using different maps could result in systematic biases in parsed
@@ -1222,7 +1249,8 @@ and $\sim$50--130kya under the clean split model.
     \caption{
         \textbf{Continuous-migration model fit to LD statistics.}
         Predicted vs observed two-locus statistics as a function of genetic
-        distance for the continuous-migration model \sgcomment{with or without migration?}. Each panel represents a different
+        distance for the continuous-migration model with migration between stems.
+        Each panel represents a different
         set of two-locus statistics. Solid lines represent estimates using the
         continuous-migration model. Dashed lines represent observed statistics.
         Notation and indexing of statistics are described in the
@@ -1268,7 +1296,7 @@ and $\sim$50--130kya under the clean split model.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/supp-fsts-all-models.pdf}
-    \caption{\sgcomment{Need ABCD in figure!}
+    \caption{
         \textbf{Predicted \bm{$F_{ST}$} between contemporaneous populations over time.}
         All models (A: single origin, B: continuous migration, C: merger without stem
         migration, D: merger with stem migration) match observed $F_{ST}$ between
@@ -1285,7 +1313,7 @@ and $\sim$50--130kya under the clean split model.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/supp-h12s-all-models.pdf}
-    \caption{\sgcomment{can we sync with text colors? Need ABCD in figure}
+    \caption{\sgcomment{can we sync with text colors?}
         \textbf{Predicted pairwise differentiation between contemporaneous
         populations.} $H_{i,j}$ is the predicted pairwise differentiation
         between two populations per base-pair, using a mutation rate estimated
