@@ -750,7 +750,7 @@ entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
 \subsection{Alternative statistics for four models}
 
 \subsubsection{Conditional SFS}
-
+\label{sec:cSFS}
 The single-origin model fit the cSFS relatively poorly across the three
 populations compared to the models that allow structure between stem
 populations (Fig.~\ref{fig:supp-csfs-single-origin}). The model that best fit
@@ -1398,9 +1398,9 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics{figures/supp-csfs-single-origin.pdf}
     \caption{
-        \textbf{Conditional SFS compared to single-origin model.}
-        The single-origin model provides a poor fit to the observed cSFS in
-        the Mende, Gumuz, and Nama. Ancestral state misidentification
+        \textbf{Conditional SFS compared to single-origin model predictions.}
+        The single-origin model provides a poor fit to the Neanderthal-conditional SFS in
+        the Mende, Gumuz, and Nama (see Section \ref{sec:cSFS}). Ancestral state misidentification
         (labeled as $p_m$ in the figure legends) was
         inferred to be between 1 and $2\%$, and misidentification rates were
         consistent across model comparisons. Misidentification rates of
@@ -1415,8 +1415,8 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics{figures/supp-csfs-continuous-migration.pdf}
     \caption{
-        \textbf{Conditional SFS compared to continuous-migration model.}
-        The continuous-migration model provides a better fit to the data than
+        \textbf{Conditional SFS compared to continuous-migration model predictions.}
+        The continuous-migration model provides a better fit to the Neanderthal-conditional SFS  than
         either the single-origin model or the merger-without-stem-migration
         model, although systematic deviations are still noticeable in each
         population. Ancestral state misidentification ($p_m$), as estimated
@@ -1430,15 +1430,14 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics{figures/supp-csfs-merger-without-stem-migration.pdf}
     \caption{
-        \textbf{Conditional SFS compared to merger-without-stem-migration model.}
+        \textbf{Conditional SFS compared to merger-without-stem-migration model predictions.}
         The excess of intermediate-frequency variants in the Nama and Mende
         cSFS results in a poorer fit to the cSFS compared to the continuous-migration
-        and merger-with-stem-migratino models. Along with the poorer likelihood this
-        model provides to the two-locus statistics, validation usin the cSFS
-        disfavors a model with strict isolation between stem populations.
-        Ancestral state misidentification ($p_m$), as estimated
-        with all models, is roughly doubled for transition-type mutations
-        compared to transversions.
+        and merger-with-stem-migratino models. Thus the model without stem migrations
+        provides a poorer fit 
+        to both two-locus statistics and the cSFS.
+        Ancestral state misidentification for transition-type mutations ($p_m$), as estimated
+        with all models, is roughly double that of transversions.
     }
     \label{fig:supp-csfs-merger-without-stem-migration}
 \end{figure}
@@ -1447,7 +1446,7 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics{figures/supp-csfs-merger-with-stem-migration.pdf}
     \caption{
-        \textbf{Conditional SFS compared to merger-with-stem-migration model.}
+        \textbf{Conditional SFS compared to merger-with-stem-migration model predictions.}
         The merger-with-stem-migration model, in addition to providing the best
         fit to heterozygosity and LD statistics, provided the best fit to the cSFS
         in the Nama, Gumuz, and Mende populations. Rates of ancestral state
@@ -1457,9 +1456,7 @@ and $\sim$50--130kya under the clean split model.
         misidentification rates are consistent with the known difference in mutation
         rates between transitions and transversions, as well as other SFS-based
         inferences in humans using the Thousand Genomes data and the 6-primate
-        alignment (see Methods). Ancestral state misidentification ($p_m$), as estimated
-        with all models, is roughly doubled for transition-type mutations
-        compared to transversions.
+        alignment (see Methods). 
     }
     \label{fig:supp-csfs-merger-with-stem-migration}
 \end{figure}
@@ -1494,10 +1491,10 @@ and $\sim$50--130kya under the clean split model.
         the 290 genomes from the Nama, Gumuz, Mende, Amhara/Oromo, and British.
         While the reconstructed IICR curves are qualitatively similar to those
         from the full dataset for these populations in the distant past, there
-        are noticeable discrepancies over the recent history in the last 10s of
+        are noticeable discrepancies over the recent history in the last tens of
         thousands of years. Left: Relate run on full dataset, showing focal
         populations. Right: Relate run directly on the subset dataset of focal
-        populations.
+        populations. \sgcomment{should the labels on right and left panels be identical?}
     }
     \label{fig:supp-iicr-data-subset}
 \end{figure}
@@ -1515,7 +1512,7 @@ and $\sim$50--130kya under the clean split model.
         oscillations. However, due to the discrepancies in reconstructed
         genealogies using even the same data as input
         (Figs.~\ref{fig:supp-iicr-data-subset} and \ref{fig:supp-rccr-data}),
-        it is difficult to draw firm conclusions from qualitative comparisons
+        it is difficult to draw firm conclusions from quantitative comparisons
         between reconstructed genealogies.
     }
     \label{fig:supp-iicr-sim}
@@ -1541,7 +1538,7 @@ and $\sim$50--130kya under the clean split model.
     \includegraphics[width=\textwidth]{figures/supp-relate-rccr-data-full-and-subset}
     \caption{
         \textbf{Relative cross-coalescence rates inferred from the data.} Using
-        the same reconstructed genealogies from Relate, we computed RCCR curves
+        the same \sgcomment{same was what? Figure S19 presumably?} reconstructed genealogies from Relate, we computed RCCR curves
         for pairs of populations using genealogies from the full dataset
         ($\sim1,200$ individuals) and the subset of focal populations (290
         individuals). Despite the overlap in samples, the two sets of inferred
