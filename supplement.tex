@@ -4,7 +4,11 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{listings}
 \usepackage{url}
+
 \usepackage{authblk}
+\renewcommand{\Affilfont}{\normalsize}
+\renewcommand{\Authfont}{\normalsize}
+
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{booktabs}
@@ -40,7 +44,7 @@
 \title{Supporting Information for\\
 ``A weakly structured stem for human origins in Africa''}
 \author{Aaron P. Ragsdale, Timothy D. Weaver, Elizabeth G. Atkinson, Eileen Hoal, Marlo M\"{o}ller, Brenna M. Henn, and Simon Gravel}
-\date{\today}
+\date{\normalsize \today}
 \maketitle
 
 \renewcommand{\thefigure}{S\arabic{figure}}
@@ -708,7 +712,7 @@ exchange migrants before merging to form regional African populations, referred
 to as a “merger with stem migration”. Given the best fit parameters for each
 model
 (Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
-we used \msprime version 1.0.4 \citep{Kelleher2016-lw,Baumdicker2021-mj} to
+we used \msprime version 1.0.4 \citep{Kelleher2016-lw,Baumdicker2022-mj} to
 simulate sampled individual genomes to match the data used in inference (see
 simulation details below). We used these simulations to compare our model predictions to 
 predictions based on the conditional SFS (cSFS) and on relate curves (see below).  
@@ -888,7 +892,7 @@ such simplified models of history to data from more complex models by
 simulating the site frequency spectrum (SFS) under each of our four models for
 pairs of populations and reinferring an IM and clean split model for each pair.
 The simulations sampled 10 diploid individuals from each
-population, and we used \msprime \citep{Baumdicker2021-mj} to simulated
+population, and we used \msprime \citep{Baumdicker2022-mj} to simulated
 500 Mb of total sequence length (the sum over500 replicates each 1 Mb in length)
 with constant recombination rate $r=10^{-8}$ and mutation rate $u=2\times10^{-8}.$
 
