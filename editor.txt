@@ -5,12 +5,9 @@ Many genetic studies have recently transformed our view of early human history u
 However, studies that have looked at early human history share important limitations. They typically rely on very limited data, focus on very specific aspects of
 genetic diversity to infer past events, and only consider a narrow range of possible models to explain these data.
 
-In this manuscript, we introduce new whole-genome sequence data from the Nama, a south African population that is deeply diverged from most other modern groups. 
-Using a recently developed approach, 
-we test a wide range of competing models from the anthropological and genetics literature against worldwide 
-genetic diversity patterns.
+In this manuscript, we introduce 84 new whole genomes from the Nama, a south African population that is deeply diverged from most other modern groups. 
+Using a recently developed approach that allows testing a wide range of competing models from the anthropological and genetics literature,  ...
 
-TDW COMMENT: I think we need to more clearly state why the "recently developed approach" is much better than other methods for discriminating among different models. I would also give the number of new whole genomes, so it's clear that it's not just a few.
 
 Our analyses strongly 
 support a model involving weak population structure in humans dating back to a million years ago. This is in stark contrast to
