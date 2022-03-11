@@ -1,19 +1,23 @@
-Dear editor, 
+Dear Editor, 
 
 We are pleased to submit our manuscript "A weakly structured stem for human origins in Africa" for publication. 
 Many genetic studies have recently transformed our view of early human history using genetic data to identify unexpected patterns in our history. 
 However, studies that have looked at early human history share important limitations. They typically rely on very limited data, focus on very specific aspects of
-genetic diversity to infer past events, and only consider a narrow range of possible models to explain these data. 
+genetic diversity to infer past events, and only consider a narrow range of possible models to explain these data.
 
 In this manuscript, we introduce new whole-genome sequence data from the Nama, a south African population that is deeply diverged from most other modern groups. 
 Using a recently developed approach, 
 we test a wide range of competing models from the anthropological and genetics literature against worldwide 
 genetic diversity patterns.
 
+TDW COMMENT: I think we need to more clearly state why the "recently developed approach" is much better than other methods for discriminating among different models. I would also give the number of new whole genomes, so it's clear that it's not just a few.
+
 Our analyses strongly 
 support a model involving weak population structure in humans dating back to a million years ago. This is in stark contrast to
 models currently favoured among geneticists, which feature a single recent ancestral population with archaic contributions in Africa. 
-In particular, it excludes many fossil remains as representing branches that contributed appreciably to modern humans. 
+In particular, it excludes many fossil remains as representing branches that contributed appreciably to modern humans.
+
+TDW COMMENT: I think that saying that our model excludes "many" fossils are representing branches that contributed to present-day humans is an overstatement without more analyses. I would emphasize that our approach allows us to make predictions about the fossils record and morphologically divergent fossils were unlikely to represent branches that contributed. Also, there is no mention of the finding that contemporary human population structure in Africa only goes back to 120-135ka. For a Nature cover letter, I would make two clear points about the results: 1) our model is very different from currently popular models in that contemporary human population structure in Africa is fairly shallow and there was a weakly structured stem instead of archaic hominin admixture; and 2) our model can be related to the fossil record and it predicts that morphologically divergent fossils were unlikely to represent branches that contributed.
 
 Because our analysis provides detailed quantitative  
 models of human evolution, we were able to test it against a broader range of 
@@ -28,7 +32,6 @@ Our manuscript thus establishes a weakly structured stem model as the best-suppo
 Sincerely, 
 
 The authors.            
-
 
  
  
