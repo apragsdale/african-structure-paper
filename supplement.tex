@@ -283,10 +283,10 @@ predictions are discussed in the model prediction section below.
 For the early history, we tested model parameterizations that cover many of the
 proposed scenarios of population structure, size changes, and/or archaic
 hominin admixture. The simplest model, in terms of number of parameters, was a
-single-origin expansion of modern humans, with no structure in the stem and no
+single-origin expansion of humans, with no structure in the stem and no
 archaic hominin admixture aside from the Neanderthal admixture in Eurasian populations
 following the out-of-Africa migration. This model allowed for a population size
-change in the stem of modern humans between the ancestral split of the
+change in the stem of humans between the ancestral split of the
 human-Neanderthal lineages and the more recent split of branches leading to
 Southern and West/Eastern African populations.
 
@@ -299,7 +299,7 @@ by gene flow or with isolation between stems.
 
 In one parameterization of early structure, which we refer to as a “continuous
 migration” model, a secondary stem population (stem 2) split from the primary
-stem (stem 1) that leads to modern humans. Stem 1 contributed to present-day
+stem (stem 1) that leads to contemporary humans. Stem 1 contributed to present-day
 populations via a series of population splits similar to the single-origin
 model, while stem 2 contributed through continuous symmetric migrations with
 contemporaneous populations. The symmetrical migration rates could differ
@@ -520,8 +520,8 @@ where $H_{ij}$ is the average number of differences between one haploid copy of
 the genome from population $i$ and one from population $j$, and $H_i$ and $H_j$
 are the average number of differences for two haploid copies from the same
 population. In all inferred models, $F_{ST}$s between Neanderthals and the
-ancestors of modern humans were much larger than between any pair of modern
-human populations or their ancestors (stems). $F_{ST}$ between modern human
+ancestors of contemporary humans were much larger than between any pair of contemporary
+human populations or their ancestors (stems). $F_{ST}$ between human
 populations over the last $100ka$ remained relatively low, at $\sim0.1$ or
 less. In the continuous-migration model, the two stem populations also were
 predicted to have low $F_{ST}$ within this range, as migration rates were
@@ -535,22 +535,33 @@ and the maximum $F_{ST}$ observed between contemporary human populations
 ($\lessapprox 0.1$.) 
 
 Whereas the high $F_{ST}$ value between Neanderthal and humans reflects both
-elevated genetic differences between the genomes of modern humans and
-neanderthal and reduced diversity within the Neanderthal population
+elevated genetic differences between the genomes of humans and
+Neanderthals and reduced diversity within the Neanderthal population
 (Fig.~\ref{fig:supp-FST-panels}), the increased $F_{ST}$ between the stems is
 primarily due to an inferred bottleneck reducing stem diversity, while genetic
 differentiation between individuals from the two stems is within the range of
 genetic differentiation between (and even within) human populations. In other
 words, our best fit model describes two stems with one stem showing reduced
 diversity, but individuals across stems showing similar differentiation to
-that between two modern population.
+that between two contemporary human population.
 
 
 \subsection{\bm{$f_4$} statistics between pairs of contemporary
 and pairs of ancient populations}
 \label{sec:f4}
 
-To evaluate the degree to which divergence among modern populations is
+\tdwcomment{I have tried to make the terminology about human, hominin, etc.
+consistent and unambiguous. To do this, I have avoided using "modern" because 
+"modern human" can mean "anatomically modern human" or \emph{Homo sapiens}, 
+but mostly in the paper we use it to mean "contemporary" or "present-day". I 
+think we should use "contemporary human" or "present-day human" when we mean 
+the latter and just "human" when we mean the former. I have made these changes 
+in the main text and supplement, preferentially using "contemporary" but 
+leaving "present-day" when it was already there. However, I think it would be 
+best if Simon made these changes in the equations in this section, so I don't mess 
+something up.}
+
+To evaluate the degree to which divergence among contemporary human populations is
 inherited from divergence between early stem population, we computed $f_4$
 statistics of the form
 \begin{equation}
@@ -558,13 +569,13 @@ statistics of the form
     \E[(p_{\text{stem}_1} - p_{\text{stem}_2} )(p_{\text{modern}_1} -p_{\text{modern}_2} )]
     \label{eq:f4}
 \end{equation}
-This statistic measures co-linearity of genetic drift between modern
+This statistic measures co-linearity of genetic drift between contemporary
 populations $v= (p_{\text{modern}_1} -p_{\text{modern}_2} )$ and stem populations
 $w= (p_{\text{stem}_1} -p_{\text{stem}_2} )$ (see
 Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}
 and \citet{Lipson2020-cq} for an overview of $f_4$ statistics).
 
-To contrast these statistics to divergence across modern populations,
+To contrast these statistics to divergence across contemporary populations,
 \begin{equation}
     f_2(\text{modern}_1, \text{modern}_2) =
     \E[(p_{\text{modern}_1} -p_{\text{modern}_2} )^2],
@@ -581,7 +592,7 @@ $f_2(\text{modern}_1,\text{modern}_2) = v_\perp^2+v_\parallel^2$, with
     \text{modern}_1, \text{modern}_2)}{f_2(\text{stem}_1, \text{stem}_2)}
 \end{equation}
 
-Finally, the proportion of modern-day structure
+Finally, the proportion of present-day structure
 $v^2 = f_2(\text{modern}_1, \text{modern}_2)$ that is accounted for by the
 component parallel to ancient population structure is
 \begin{equation}
@@ -590,11 +601,11 @@ component parallel to ancient population structure is
     {f_2(\text{stem}_1,\text{stem}_2)f_2(\text{modern}_1, \text{modern}_2)}.
 \end{equation}
 $\alpha^2$ can be interpreted as the proportion of the $f_2$
-divergence across modern populations that is aligned with the differences in
+divergence across contemporary populations that is aligned with the differences in
 allele frequencies across ancient populations. However, drift occurring after
 the time of sampling of ancient populations is not correlated to drift
 occurring before that time. For this reason, we also interpret $\alpha^2$ as the
-proportion of the $f_2$ divergence across modern populations that is \emph{explained by}
+proportion of the $f_2$ divergence across contemporary populations that is \emph{explained by}
 the differences in allele frequencies across ancient populations. We report
 this predicted statistic for each of the four inferred demographic models in
 Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}.
@@ -603,16 +614,16 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
     \centering
     \includegraphics[width=0.75\textwidth]{figures/supp-f4-scenarios}
     \caption{
-        \textbf{Present day structure attributable to ancient population structure.}
+        \textbf{Present-day structure attributable to ancient population structure.}
         The statistic 
         $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)$
         captures how much of present-day population structure can be attributed to 
         population structure among the stems. The blue line represents genetic drift 
-        along ancestral branches between modern populations, while the red line 
+        along ancestral branches between contemporary populations, while the red line 
         represents drift between stem populations. $f_4$ measures the overlap 
         between the blue and red line, which corresponds to shared genetic drift 
         between the two pairs. 
-        In scenario A, modern populations are descended from distinct stems, and 
+        In scenario A, contemporary populations are descended from distinct stems, and 
         $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)$
         equals the drift between stems, $f_2(\text{stem}_1, \text{stem}_2)$.
         In scenario B, despite deep population structure, there is no shared drift
@@ -916,11 +927,11 @@ and $\sim$50--130kya under the clean split model.
         \toprule
         Parameter & Description & Value \\
         \midrule
-        $T_{MH-Neand}$ & The time of the split between branches leading to Neanderthals and modern humans & 550ka \\
-        $T_{NI-Vin}$ & The time of the split between branches leading to the Vindija sample and the Neanderthal population that mixed with expanding modern humans & 80ka \\
+        $T_{MH-Neand}$ & The time of the split between branches leading to Neanderthals and humans & 550ka \\
+        $T_{NI-Vin}$ & The time of the split between branches leading to the Vindija sample and the Neanderthal population that mixed with expanding humans & 80ka \\
         $T_{Vin}$ & The sample time of the Vindija Neanderthal individual & 50ka \\
-        $T_{NI\rightarrow EUR}$ & The timing of admixture from Neanderthals to modern humans & 45ka \\
-        $f_{NI\rightarrow EUR}$ & The proportion of admixture from Neanderthals to modern humans & 0.015 \\
+        $T_{NI\rightarrow EUR}$ & The timing of admixture from Neanderthals to humans & 45ka \\
+        $f_{NI\rightarrow EUR}$ & The proportion of admixture from Neanderthals to humans & 0.015 \\
         $T_{E-W}$ & The split time of East and West African populations & 60ka \\
         $T_{GBR}$ & The split time of Eurasian and East African populations & 50ka \\
         $T_{GBR\rightarrow EA}$ & The time of the back-to-Africa admixture event, giving rise to the Amhara/Oromo branch & 12ka \\
@@ -937,7 +948,7 @@ and $\sim$50--130kya under the clean split model.
 \caption{
     \label{tab:supp-single-origin}
     \textbf{Best-fit parameters from the single-origin model.}
-    This model includes a single stem population that splits into modern human
+    This model includes a single stem population that splits into contemporary human
     groups. Fixed parameters are specifed in Table~\ref{tab:fixed-params}.
     Inferred values are scaled to physical units assuming a generation time of
     29 years. This model gave a log-likelihood of -189,434.
@@ -948,7 +959,7 @@ and $\sim$50--130kya under the clean split model.
     Parameter & Description & Value & Std. err.\\
     \midrule
     $N_e$ & Ancestral effective population size & 10198 & 403 \\
-    $N_{MH}$ & Size of modern-human lineage between Neanderthal and Nama splits & 21111 & 529 \\
+    $N_{MH}$ & Size of human lineage between Neanderthal and Nama splits & 21111 & 529 \\
     $N_{Nama_0}$ & Initial Nama size & 10224 & 370 \\
     $N_{Nama_F}$ & Final Nama size & 222 & 9 \\
     $N_{MSL_0}$ & Initial Mende size & 17211 & 769 \\
@@ -978,7 +989,7 @@ and $\sim$50--130kya under the clean split model.
     \textbf{Best-fit parameters from the Continuous-Migration model without stem migration.}
     Inferred values are scaled to physical units assuming a generation time of
     29 years. This model gave a log-likelihood of -126,644. This model allows for
-    continuous migration between Stem 2 and modern populations, but disallows
+    continuous migration between Stem 2 and contemporary populations, but disallows
     migration between Stem 2 and Stem 1, which later splits into branches leading
     to South, East, and West African populations.
 }
@@ -1302,7 +1313,7 @@ and $\sim$50--130kya under the clean split model.
         sampled populations. The continuous-migration model predicts that human stem
         populations remain genetically similar, while the merger with and without
         stem migration models predict a period of increased $F_{ST}$ between ancestors
-        of modern humans. This is largely due to the very small inferred $N_e$ in one of
+        of contemporary humans. This is largely due to the very small inferred $N_e$ in one of
         the stem branches, which leads to a rapid increase in differentiation due to
         drift.
     }
@@ -1336,7 +1347,7 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics{figures/supp-f4s-single-origin.pdf}
     \caption{
-        \textbf{Predicted \bm{$f_4$} between pairs of modern populations
+        \textbf{Predicted \bm{$f_4$} between pairs of contemporary human populations
         and ancient branches from the single-origin model.}
         $f_4^2(A, B; X, Y)/f_2(A, B)f_2(X, Y)$ is interpreted as the proportion of the
         amount of drift between sampled populations $A$ and $B$ that aligns with
@@ -1353,14 +1364,14 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics{figures/supp-f4s-continuous-migration.pdf}
     \caption{
-        \textbf{Predicted \bm{$f_4$} between pairs of modern populations
+        \textbf{Predicted \bm{$f_4$} between pairs of contemporary human populations
         and ancient branches from the continuous-migration model.}
         Despite population structure inferred to have extended up to 1Ma
-        into the past, differentiation between modern African populations
+        into the past, differentiation between contemporary African populations
         only traces back to differentiation between ancestral populations
         $\sim$100-200ka, indicating that while stem populations were structured
         (Fig.~\ref{fig:supp-FST-panels}), differentiation due to that
-        ancient structure contributes little to differentiation between modern
+        ancient structure contributes little to differentiation between contemporary
         populations.
     }
     \label{fig:supp-f4s-continuous-migration}
@@ -1370,11 +1381,11 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics{figures/supp-f4s-merger-without-stem-migration.pdf}
     \caption{
-        \textbf{Predicted \bm{$f_4$} between pairs of modern populations
+        \textbf{Predicted \bm{$f_4$} between pairs of contemporary human populations
         and ancient branches from the merger-without-stem-migration model.}
         Unlike the continuous-migration model, population structure in the stems
         following the divergence of Neanderthal and human ancestors results
-        in differentiation among modern populations that aligns with drift
+        in differentiation among contemporary populations that aligns with drift
         between the stems. In this model, migration between stem populations
         is disallowed.
     }
@@ -1385,9 +1396,9 @@ and $\sim$50--130kya under the clean split model.
     \centering
     \includegraphics{figures/supp-f4s-merger-with-stem-migration.pdf}
     \caption{
-        \textbf{Predicted \bm{$f_4$} between pairs of modern populations
+        \textbf{Predicted \bm{$f_4$} between pairs of contemporary populations
         and ancient branches from the merger-with-stem-migration model.}
-        Differentiation between modern present-day populations aligns with
+        Differentiation between present-day populations aligns with
         up to $\approx 5\%$ of the drift between stems, although some
         population pairs show even less shared drift.
     }
