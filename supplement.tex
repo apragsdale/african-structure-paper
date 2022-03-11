@@ -39,7 +39,7 @@
 \begin{document}
 \title{Supporting Information for\\
 ``A weakly structured stem for human origins in Africa''}
-\author{Aaron P. Ragsdale, Timothy D. Weaver, Brenna M. Henn, and Simon Gravel}
+\author{Aaron P. Ragsdale, Timothy D. Weaver, Elizabeth G. Atkinson, Eileen Hoal, Marlo M\"{o}ller, Brenna M. Henn, and Simon Gravel}
 \date{\today}
 \maketitle
 
@@ -80,16 +80,14 @@ III and dbSNP 138 served as known sites while 1000 Genomes Phase 1 Omni2.5 and
 Phase 1 genomic SNP served as the training set. After VR, no batch effects were
 observed along PC1 and PC2 for 1000 Genomes vs. ADRP. Phasing on the combined
 dataset was performed via SHAPEIT2 \citep{Delaneau2013-aw} and utilized the duoHMM
-option for duos and trios. We highlight 82 Nama genomes which are newly
-available (and previously unpublished) under accession number EGAD00001006198.
-\comment{This makes is sound like these weren't generated for this project.}
+option for duos and trios. We present new whole-genome data for 82 Nama individuals 
+available under accession number EGAD00001006198.
 Among these 82 Nama samples, we down-sampled the individuals to minimize
 close relatives and admixture, such that 44 Nama genomes were retained.
 Second- and third-degrees relatives were inferred from reconstructed
 pedigrees with Omni2.5 SNP array data.
 Individuals with $>70\%$ estimated Khoe-San ancestry were retained for
 analysis, after partitioning ancestry into $k=6$ clusters with \texttt{ADMIXTURE}
-\comment{Justification for k=6}
 \citep{Alexander2009-sw} where alternative ancestries represent European, West
 African, Near Eastern, and East African gene flow. 
 
@@ -142,7 +140,7 @@ had less than 100 contiguous base pairs.
 We used principal component analysis (PCA) from \texttt{scikit-learn}
 \citep{Pedregosa2011-ke} and \texttt{ADMIXTURE} version 1.3.0
 \citep{Alexander2011-aq} to summarize genetic diversity among a broader set of
-1000 Genomes and ADRP populations (Figure~\ref{fig:1} in the main text). Data
+1000 Genomes and ADRP populations (Figure~\ref{fig:diversity} in the main text). Data
 filtering was identical for both analyses. We retained biallelic SNPs with no
 missing data and minor allele frequency greater that 5\%. We then thinned the
 remaining sites to remove SNPs in high linkage disequilibrium with one another.
@@ -272,7 +270,7 @@ Sites with no calls in the Vindija Neanderthal were excluded from
 this analysis.
 
 Because we were concerned that cSFS analyses may be affected by incorrect
-inference of the ancestral allele \cite{Hernandez2007-mf}, we computed the cSFS
+inference of the ancestral allele \citep{Hernandez2007-mf}, we computed the cSFS
 for all mutations, and for transitions and transversions separately
 (Figures~\ref{fig:supp-csfs-single-origin}--\ref{fig:supp-csfs-merger-with-stem-migration}).
 Comparisons of these observed cSFS with model
@@ -327,8 +325,7 @@ fragmentation-coalescence scenarios.
 Based on the geographical locations of present-day populations, we tentatively
 labeled ancestral branches using a parsimony in migration, referring to South,
 East, and West African branches
-\comment{would also be interesting to organize by ethnolinguistic group...}
-(S/E/W AFR, Figures~\ref{fig:1},~\ref{fig:supp-possible-models}). We do not know the
+(S/E/W AFR, Figures~\ref{fig:proposed-models},~\ref{fig:diversity}). We do not know the
 geographical location of these ancestral populations (nor even if they
 correspond to populations with a well-defined geographic range), and these
 labels should be considered as tentative. However, we found it useful to name
@@ -368,10 +365,10 @@ described in the previous section. We identified parameters that reached
 consistent values across all models. These included the timings of recent or
 non-central divergences and admixture events:
 \begin{itemize}
+    \item Neanderthal/human split: 550ka
     \item East/West African population split: 60ka
     \item East African/European split: 50ka
     \item Neanderthal introgression to Eurasian branch: 45ka
-    \item Neanderthal/human split: 550ka
     \item Eurasian back-to-African migration: 12ka
 \end{itemize}
 When testing multiple variations of the more complex models, we kept these
@@ -384,13 +381,11 @@ admixtures, and growths and declines in effective population sizes. Many of
 these parameters were fixed based on previous historical, genetic, or
 anthropological research, namely
 \begin{itemize}
-    \item East African pastoralist to South African admixture: 2ka \cite{}
-    \item European to South African admixture: 10 generations ago \cite{}
-    \item Mende population expansion and Gumuz population decline: 5ka \cite{}
-    \item South African population decline following colonial admixture: 9 generations ago \cite{}
+    \item Mende population expansion and Gumuz population decline: 5ka \citep{Gopalan2022-pw}
+    \item East African pastoralist to South African admixture: 2ka \citep{Uren2016-nn}
+    \item European to South African admixture: 10 generations ago
+    \item South African population decline following colonial admixture: 9 generations ago
 \end{itemize}
-\comment{This could be organized with a bit more structure. E.g. by region, or by timepoint}
-While the dates of these events were fixed, the sizes and proportions were
 allowed to vary in the fits. The total number of parameters that were
 ultimately inferred were 21-31, depending on the complexity
 of the model.
@@ -413,7 +408,7 @@ perturbed to explore space, using gradient descent (on the log of the
 parameters). The best fits from these initial rounds of optimization were then
 chosen as the starting points for optimization using the Powell and/or the
 L-BFGS-B methods (as implemented in the SciPy optimization package
-\cite{Virtanen2020-kr}). This process was repeated with alternating
+\citep{Virtanen2020-kr}). This process was repeated with alternating
 optimization methods until the best fit parameter set converged consistently.
 
 \subsection{Uncertainty and confidence intervals using Godambe methods}
@@ -550,65 +545,72 @@ that between two contemporary human population.
 and pairs of ancient populations}
 \label{sec:f4}
 
-\tdwcomment{I have tried to make the terminology about human, hominin, etc.
-consistent and unambiguous. To do this, I have avoided using "modern" because 
-"modern human" can mean "anatomically modern human" or \emph{Homo sapiens}, 
-but mostly in the paper we use it to mean "contemporary" or "present-day". I 
-think we should use "contemporary human" or "present-day human" when we mean 
-the latter and just "human" when we mean the former. I have made these changes 
-in the main text and supplement, preferentially using "contemporary" but 
-leaving "present-day" when it was already there. However, I think it would be 
-best if Simon made these changes in the equations in this section, so I don't mess 
-something up.}
+%\tdwcomment{I have tried to make the terminology about human, hominin, etc.
+%consistent and unambiguous. To do this, I have avoided using "modern" because 
+%"modern human" can mean "anatomically modern human" or \emph{Homo sapiens}, 
+%but mostly in the paper we use it to mean "contemporary" or "present-day". I 
+%think we should use "contemporary human" or "present-day human" when we mean 
+%the latter and just "human" when we mean the former. I have made these changes 
+%in the main text and supplement, preferentially using "contemporary" but 
+%leaving "present-day" when it was already there. However, I think it would be 
+%best if Simon made these changes in the equations in this section, so I don't mess 
+%something up.}
 
 To evaluate the degree to which divergence among contemporary human populations is
 inherited from divergence between early stem population, we computed $f_4$
 statistics of the form
 \begin{equation}
     f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2) = 
-    \E[(p_{\text{stem}_1} - p_{\text{stem}_2} )(p_{\text{modern}_1} -p_{\text{modern}_2} )]
+    \E[(p_{\text{stem}_1} - p_{\text{stem}_2} )(p_{\text{present}_1} -p_{\text{present}_2} )]
     \label{eq:f4}
 \end{equation}
 This statistic measures co-linearity of genetic drift between contemporary
-populations $v= (p_{\text{modern}_1} -p_{\text{modern}_2} )$ and stem populations
+populations $v= (p_{\text{present}_1} -p_{\text{present}_2} )$ and stem populations
 $w= (p_{\text{stem}_1} -p_{\text{stem}_2} )$ (see
 Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}
 and \citet{Lipson2020-cq} for an overview of $f_4$ statistics).
 
 To contrast these statistics to divergence across contemporary populations,
 \begin{equation}
-    f_2(\text{modern}_1, \text{modern}_2) =
-    \E[(p_{\text{modern}_1} -p_{\text{modern}_2} )^2],
+    f_2(\text{present}_1, \text{present}_2) =
+    \E[(p_{\text{present}_1} -p_{\text{present}_2} )^2],
 \end{equation}
 we interpret the $f$-statistics as scalar products between vectors $v$ and $w$, i.e.,  
-$f_2(\text{modern}_1, \text{modern}_2) = v\cdot v$ and 
-$f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2) = v\cdot w.$
-We can then write $v=v_\perp + v_\parallel$ as the sum of a component $v_\perp$ perpendicular and
-a component $v_\parallel$ parallel to $w = (p_{\text{stem}_1} -p_{\text{stem}_2} ).$
+$f_2(\text{present}_1, \text{present}_2) = v\cdot v$ and 
+$f_4(\text{stem}_1, \text{stem}_2; \text{present}_1, \text{present}_2) = v\cdot w.$
+We can then write $v=v_\perp + v_\parallel$ as the sum of
+a component $v_\perp$ perpendicular and
+a component $v_\parallel$ parallel to
+$w = (p_{\text{stem}_1} -p_{\text{stem}_2} ).$
 We can then decompose 
-$f_2(\text{modern}_1,\text{modern}_2) = v_\perp^2+v_\parallel^2$, with  
+$f_2(\text{present}_1,\text{present}_2) = v_\perp^2+v_\parallel^2$, with  
 \begin{equation}
     v_\parallel^2 = \frac{(v \cdot w)^2}{w\cdot w} = \frac{ f_4^2(\text{stem}_1, \text{stem}_2; 
-    \text{modern}_1, \text{modern}_2)}{f_2(\text{stem}_1, \text{stem}_2)}
+    \text{present}_1, \text{present}_2)}{f_2(\text{stem}_1, \text{stem}_2)}
 \end{equation}
 
 Finally, the proportion of present-day structure
-$v^2 = f_2(\text{modern}_1, \text{modern}_2)$ that is accounted for by the
+$v^2 = f_2(\text{present}_1, \text{present}_2)$ that is accounted for by the
 component parallel to ancient population structure is
 \begin{equation}
     \alpha^2 = \frac{v_\parallel^2}{v^2} =
-    \frac{f_4^2(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)}
-    {f_2(\text{stem}_1,\text{stem}_2)f_2(\text{modern}_1, \text{modern}_2)}.
+    \frac{f_4^2(\text{stem}_1, \text{stem}_2; \text{present}_1, \text{present}_2)}
+    {f_2(\text{stem}_1,\text{stem}_2)f_2(\text{present}_1, \text{present}_2)}.
 \end{equation}
 $\alpha^2$ can be interpreted as the proportion of the $f_2$
 divergence across contemporary populations that is aligned with the differences in
 allele frequencies across ancient populations. However, drift occurring after
 the time of sampling of ancient populations is not correlated to drift
 occurring before that time. For this reason, we also interpret $\alpha^2$ as the
-proportion of the $f_2$ divergence across contemporary populations that is \emph{explained by}
-the differences in allele frequencies across ancient populations. We report
-this predicted statistic for each of the four inferred demographic models in
+proportion of the $f_2$ divergence across contemporary populations that is
+\emph{explained by} the differences in allele frequencies across ancient populations.
+We report this predicted statistic for each of the four inferred demographic models in
 Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}.
+In our best fit models (continuous migration and merger with stem migration),
+differentiation between Stem 1 and Stem 2
+(before the split of Stem 1 into Stem 1E and Stem 1S in the merger model)
+contributes a maximum of $4\%$ to differentiation between the Nama and Gumuz, and closer
+to $1\%$ to differentiation between the Nama and Mende or the Mende and Gumuz.
 
 \begin{figure}[ht]
     \centering
@@ -616,7 +618,7 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
     \caption{
         \textbf{Present-day structure attributable to ancient population structure.}
         The statistic 
-        $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)$
+        $f_4(\text{stem}_1, \text{stem}_2; \text{present}_1, \text{present}_2)$
         captures how much of present-day population structure can be attributed to 
         population structure among the stems. The blue line represents genetic drift 
         along ancestral branches between contemporary populations, while the red line 
@@ -624,15 +626,15 @@ Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-mig
         between the blue and red line, which corresponds to shared genetic drift 
         between the two pairs. 
         In scenario A, contemporary populations are descended from distinct stems, and 
-        $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)$
+        $f_4(\text{stem}_1, \text{stem}_2; \text{present}_1, \text{present}_2)$
         equals the drift between stems, $f_2(\text{stem}_1, \text{stem}_2)$.
         In scenario B, despite deep population structure, there is no shared drift
         and $f_4=0$. That is, present-day population structure is unrelated to
-        structure among stems. In more realistic scenario C, where $\text{modern}_1$
+        structure among stems. In more realistic scenario C, where $\text{present}_1$
         receives a proportion $m$ of its ancestry from the dotted arrow, the overlap
         is only found along the corresponding path, and $f_4$ depends on both
         ancestry proportion $m$ and drift between stems,
-        $f_4(\text{stem}_1, \text{stem}_2; \text{modern}_1, \text{modern}_2)
+        $f_4(\text{stem}_1, \text{stem}_2; \text{present}_1, \text{present}_2)
         = mf_2(\text{stem}_1, \text{stem}_2)$
     }
     \label{fig:supp-f4-scenarios}
@@ -1209,16 +1211,6 @@ and $\sim$50--130ka under the clean split model.
 
 \clearpage
 
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.65\textwidth]{figures/supp-possible-models.png}
-    \caption{
-        \textbf{Models of early human history in Africa} seeking to reconcile genetic and paleoanthropological evidence \cite{Henn2018-rf}.
-         \comment{Lovely figure, may even want to move to main text}
-    }
-    \label{fig:supp-possible-models}
-\end{figure}
 
 \begin{figure}[ht]
     \centering
