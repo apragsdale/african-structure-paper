@@ -44,8 +44,6 @@
 \date{\normalsize \today}
 \maketitle
 
-\comment{About title: "Contrasting archaic admixture and a weakly structured stem for human originas in Africa" Too long? Inconclusive?} \sgcomment{Disagree.}
-
 \begin{abstract}
 While it is now broadly accepted that \emph{Homo sapiens}
 origined within Africa, considerable
@@ -63,13 +61,12 @@ population structure dates back to Marine Isotope Stage (MIS) 5. The earliest
 population divergence among contemporary populations occurs 120-135ka, between
 the Khoe-San and other groups. Prior to the divergence of contemporary African
 groups, we infer long-lasting structure between two or more weakly
-differentiated ancestral \emph{Homo spp.}
-\comment{maybe don't abbreviate; won't be understood outside of evolutionary biology as much}
+differentiated ancestral \emph{Homo}
 populations connected by gene flow over
 hundreds of thousands of years (i.e. a weakly structured stem). We find that
 weakly structured stem models provide more likely explanations of polymorphism
 that had previously been attributed to contributions from archaic hominins in
-Africa. \aprcomment{.. to contributions from archaic hominin introgression in Africa?}
+Africa.
 In contrast to models with archaic introgression, we predict that fossil
 remains from coexisting ancestral populations should be morphologically
 similar.
@@ -97,8 +94,7 @@ population. It is unclear whether fossil specimens and archaeological sites
 represent populations which contributed to our ancestors as population
 precedents, or were local ``dead-ends'' from which contemporary \emph{Homo
 sapiens} do not descend. 
-\comment{unpack more; explain why these are at odds}
-Recently, synthetic \comment{synthetic doesn't feel quite right here, can delete}
+Recently,
 attempts to reconcile genetic and
 paleoanthropological data include proposals for a Pan-African origin of
 \emph{Homo sapiens} by which populations in many regions of the continent
@@ -131,8 +127,7 @@ with an archaic hominin admixture model, leaving out other plausible models
 Second, they
 focus on a small subset of African diversity, either because of small sample
 sizes (2-5 genomes) or because they rely on 1000 Genomes data which only
-recruited populations of recent West African ancestry (Figure \ref{fig:1}C). 
-\comment{What about the LWK?}
+recruited populations of recent West African or Bantu-speaking ancestry (Figure \ref{fig:1}C). 
 While ancient DNA from Eurasia has helped us understand early human history
 outside of Africa, there is no comparably ancient DNA to elucidate early history
 in Africa \citep{Lipson2022-xf}.
@@ -144,8 +139,7 @@ population expansion with regional persistence, archaic hominin admixture, and
 multi-regional evolution, Figure~\ref{fig:supp-possible-models}), using 290
 genomes from southern, eastern, and western Africa as well as Eurasia. By
 including geographically and genetically diverse populations across Africa, we
-infer demographic models that explain more aspects of genetic diversity
-\comment{this is a bit vague; make more detailed. e.g.: better fit patterns of LD and \ldots}
+infer demographic models that explain more features of genetic diversity
 in more
 populations than previously reported. These analyses confirm the inadequacy of
 tree-like models and provide an opportunity to directly evaluate a wide range
@@ -169,25 +163,21 @@ colonial admixture in South Africa. Finally, we used a high-coverage ancient
 Neanderthal genome from Vindija Cave, Croatia \citep{Prufer2017-kk} to account
 for gene flow from Neanderthals into non-Africans and gauge the relative
 time depth of divergence, assuming Neanderthals diverged 550ka from a common
-stem. For each population, we computed low-order
-\comment{what do you mean by low-order? not a commonly used phrase}
-\aprcomment{I think this is a fairly common term in statistics, right?}
-allele frequency and linkage
-disequilibrium (LD) statistics that are well suited for both low- and
-high-coverage genomes \sgcomment{We computed one- and two-locus statistics whose expectation within and across populations can be computed efficiently and that are well suited for both low- and
-high-coverage genomes} \citep{Ragsdale2019-nt,Ragsdale2020-nz}. Using a
+stem. We computed one- and two-locus statistics whose expectation within and across 
+populations can be computed efficiently and that are well suited for both low- and
+high-coverage genomes \citep{Ragsdale2019-nt,Ragsdale2020-nz}. Using a
 maximum-likelihood inference framework, we then fit to these statistics a
 family of parameterized demographic models that involve population splits, size
 changes, continuous and variable migration rates, and punctuated admixture
 events, to learn about the nature of population structure over the past million
-years.
+years. \sgcomment{define LD}
 
 \begin{figure}[ht!]
     \centering
     \includegraphics{figures/fig1.pdf}
     \caption[width=\textwidth]{
         \textbf{Genetic diversity across Africa.}
-        (A) Select populations from the 1000 Genomes and African Diversity Reference Panels
+        (A) \sgcomment{secure coordinates} Select populations from the 1000 Genomes and African Diversity Reference Panels
         illustrate diversity from western, eastern and southern Africa.
         We chose representatives from each region (bold labels)
         to build parameterized models,
@@ -197,10 +187,10 @@ years.
         (B, C) PCA highlights the range of genetic divergence anchored 
         by western Africans, Nama, Gumuz and the British.
         Percentages show variance explained by each principal component.
-        (D) \texttt{ADMIXTURE} illustrates signatures of recent gene flow in Africa
+        (D) \texttt{ADMIXTURE} with $K=4$ illustrates signatures of recent gene flow in Africa
         which reflect colonial-period migration into the Nama,
         Back-to-Africa gene flow among some Ethiopians, and Khoe-San admixture in the Zulu.
-        \comment{How did you land on the best fit k? Show scree plot of CV errors, or otherwise justify choice}
+        %\comment{How did you land on the best fit k? Show scree plot of CV errors, or otherwise justify choice}
     }
     \label{fig:1}
 \end{figure}
@@ -541,7 +531,7 @@ out-performed models with bifurcating divergence and continuous gene flow.
 A population reticulation involves multiple stems contributing genetically to
 the formation of a group. One way in which this can happen is through the
 geographic expansion of one or both stems. For example, if during MIS 5, either
-Stem 1S \comment{where is this illustrated/labeled?}
+Stem 1S (Figure \ref{fig:2}B) 
 from southern Africa moved northward thereby encountering the Stem 2,
 or Stem 2 moved from central/western Africa southward into Stem 1S -- then we
 could observe disproportionate ancestry contributions from different stems in
@@ -551,9 +541,9 @@ The second $\approx100$ka between Stem 1E and Stem 2, results in the formation o
 ancestors of East/West Africans as well as later ``Out of Africans''. The rapid
 rise in sea levels and increased precipitation during MIS 5e, following a
 glacial period of aridity across Africa \citep{Blome2012-lw}, might have
-triggered migration inland away from the coasts, as has been suggested for the
+triggered migration inland away from the coasts, as has been suggested, e.g., for the
 Paleo-Agulhas plain \citep{Marean2014-pg}.
-\comment{very specific... might be worth expanding a bit}
+
 
 Following these merger events, the stems subsequently fracture into
 subpopulations which then appear to persist over the past $\sim120$ka. These
@@ -601,7 +591,7 @@ selection against such segments \citep{Wall2019-ao}, and pervasive positive
 selection \citep{Schrider2017-kl}. However, such approaches are subject to high
 false positives in the presence of population structure with migration
 \citep{Petr2019-xo}, and their interpretation should be re-examined in light of
-a weakly-structured-stem model within Africa. \comment{Reviewers may suggest this demonstrated here}
+a weakly-structured-stem model within Africa. 
 
 Multiple studies have shown a correspondence between phenotypic
 differentiation, usually assessed with measurements of the cranium, and genetic
