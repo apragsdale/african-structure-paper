@@ -105,13 +105,14 @@ approval from Stanford University (Protocol \#13829), Stellenbosch University
 (N11/07/210) and later maintained via SUNY Stony Brook (Protocol \#727494).
 Saliva samples were extracted from Oragene [OGR-500] kits at Stellenbosch
 University. Results stemming from genetic analyses have been communicated in
-2015, 2019, 2021 via community presentations, a radio interview and to
+2015, 2019 and 2021 via community presentations, a radio interview and to
 representatives of the Richtersveld National Park.
 
 \subsection{Details about populations used in analyses}
 
-From the merged dataset of the African Diversity Reference Panel (ADRP,
-citet{}) and the \citet{1000_Genomes_Project_Consortium2015-zq} phase 3 data,
+From the merged dataset of the African Diversity Reference Panel (ADRP)
+\citep{Gurdasani2015-qy,Pagani2015-pz}
+and the \citet{1000_Genomes_Project_Consortium2015-zq} phase 3 data,
 we subsampled to the populations included in this study. From the 1000 Genomes
 data, these included all populations in the African super-population (ESN, GWD,
 LWK, MSL, and YRI) and four non-African populations (CEU, GBR, CHB, and PJL).
@@ -135,13 +136,14 @@ All analyses presented in this work focus on biallelic single nucleotide
 polymorphisms within the 1000 Genomes Phase 3 strict mask.  For the
 \texttt{moments-LD} analysis, we focused on intergenic regions because these
 appear less affected by natural selection compared to both synonymous and
-nonsynonymous variation \citep{Ragsdale2018-dd}. To enable comparison with
+nonsynonymous variation \citep{Ragsdale2018-dd}, removing regions that fell
+outside of the 1000 Genomes strict callability mask. To enable comparison with
 Neanderthal DNA, we excluded regions for which the Vindija Neanderthal sample
-had less than 100 contiguous base pairs. 
+had less than 100 contiguous base pairs.
 
 \subsection{PCA and \texttt{ADMIXTURE} analysis}
 
-We used principal component analysis (PCA) from \texttt{scikit-learn}
+We used principal component analysis (PCA) implemented in \texttt{scikit-learn}
 \citep{Pedregosa2011-ke} and \texttt{ADMIXTURE} version 1.3.0
 \citep{Alexander2011-aq} to summarize genetic diversity among a broader set of
 1000 Genomes and ADRP populations (Figure~\ref{fig:diversity} in the main text). Data
@@ -176,7 +178,7 @@ the expectation of $D^2$ using a system of equations that includes $\E[Dz] =
 and $p_B$ are the frequencies of $A$ and $B$ at the left and right loci,
 respectively. This system also requires the expected pairwise diversity (or
 expected heterozygosity, assuming random mating), denoted $\E[H] =
-\E[2p_A(1-p_A)] = \E[2p_B(1-pB)]$, assuming equal mutation rates at the two
+\E[2p_A(1-p_A)] = \E[2p_B(1-p_B)]$, assuming equal mutation rates at the two
 loci.
 
 \citet{Ragsdale2019-nt} showed how to compute the analogous multi-population
@@ -200,7 +202,7 @@ $\sigma_{Dz}$ has been shown to be sensitive to deep population structure and
 archaic hominin admixture \citep{Ragsdale2019-nt}, and this statistic is closely
 related to $S^*$ statistics used to scan for introgressed haplotypes
 \citep{Plagnol2006-lt}. Pairwise diversity statistics $H_{i,j}$ have also been
-widely used in demographic inference involving ancient DNA and many samples, as
+widely used in demographic inference involving ancient DNA and many statistics, as
 $f_2$, $f_3$ and $f_4$ statistics can be expressed as linear combinations of
 $H_{i,j}$. $f$-statistics form the basis of admixture graph analysis
 \citep{Lipson2020-cq}. Therefore, the set of statistics used here encompass
@@ -225,7 +227,7 @@ OMNI YRI and HapMapII
 Statistics were largely unchanged by using a different map
 (Figure~\ref{fig:supp-omni-hapmap-comparison}), although both maps were
 inferred using array data, which is sparser than whole-genome sequencing data.
-In subsequent analyses, we used data based on recombination rates fromthe Omni YRI map.
+In subsequent analyses, we used data based on recombination rates from the OMNI YRI map.
 
 We removed bins of recombination distance less than a recombination distance of
 $r = 5\times10^{-6}$ (at a rough estimate of 1 cM/Mb, this corresponds to a minimum
@@ -251,7 +253,8 @@ statistics for the Neandertal population were not used in the fit. By contrast,
 there are statistics that only require a single sample in a given population to
 estimate. These include cross-population nucleotide diversity measures, as well
 as some LD statistics involving more than one population. For example,
-statistics of the form $D_{human}(1-2p_{human})(1-2q_{neanderthal})$ require a
+statistics of the form
+$D_{\text{human}}(1-2p_{\text{human}})(1-2q_{\text{neanderthal}})$ require a
 single Neanderthal sample and are informative of the Neanderthal demography.
 These statistics were included in the fit, but statistics requiring more than
 one Neanderthal sample to estimate were removed.
@@ -268,8 +271,9 @@ This cSFS is expected to be close to
 uniform under neutrality and a simple split model (with no subsequent
 migration) between the ancestors of humans and Neanderthals
 \citep{Chen2007-iy}. By contrast, a U-shaped distribution has been taken as
-evidence for introgression from an archaic hominin population that split from humans at least as far back in time as the human-Neanderthal split
-\citet{Durvasula2020-td,Yang2012-ze}.
+evidence for introgression from an archaic hominin population that split
+from humans at least as far back in time as the human-Neanderthal split
+\citep{Yang2012-ze,Durvasula2020-td}.
 Sites with no calls in the Vindija Neanderthal were excluded from
 this analysis.
 
@@ -290,7 +294,7 @@ archaic hominin admixture aside from the Neanderthal admixture in Eurasian popul
 following the out-of-Africa migration. This model allowed for a population size
 change in the stem of humans between the ancestral split of the
 human-Neanderthal lineages and the more recent split of branches leading to
-Southern and West/Eastern African populations.
+southern and western/eastern African populations.
 
 To include population structure in early human history, we considered multiple
 parameterizations of models that allowed more than a single stem population. In
@@ -461,7 +465,7 @@ recombination map, all in GRCh37 coordinates. We assumed a generation time of
 described in the \Relate documentation.
 
 From the reconstructed gene genealogies, we computed coalescence rates within
-and between populations using \Relate’s function \texttt{RelateCoalescentRate}.
+and between populations using \texttt{Relate}’s function \texttt{RelateCoalescentRate}.
 This allows for an estimate of the instantaneous inverse coalescence rate
 (IICR) for samples drawn within each population (the inverse of which is often
 interpreted as the effective population size history), and the relative cross
@@ -514,11 +518,12 @@ in \citet{Peter2016-ys}:
     F_{ST}(i, j) = \frac{\E[2H_{i,j} - H_i - H_j]}{\E[2H_{i,j} + H_i + H_j]},
     \label{eq:FST}
 \end{equation}
-
 where $H_{ij}$ is the average number of differences between one haploid copy of
 the genome from population $i$ and one from population $j$, and $H_i$ and $H_j$
 are the average number of differences for two haploid copies from the same
-population. In all inferred models, $F_{ST}$s between Neanderthals and the
+population.
+
+In all inferred models, $F_{ST}$ between Neanderthals and the
 ancestors of contemporary humans were much larger than between any pair of contemporary
 human populations or their ancestors (stems). $F_{ST}$ between human
 populations over the last $100ka$ remained relatively low, at $\sim0.1$ or
@@ -527,8 +532,8 @@ predicted to have low $F_{ST}$ within this range, as migration rates were
 inferred to be high enough to maintain genetic similarity. In both the
 merger-without-stem-migration and the merger-with-stem-migration, one of the
 stem populations was inferred to have a short, severe bottleneck, which led to
-increased $F_{ST}$ between stem populations during that time. In the merger
-with stem migration, $F_{ST}$ reached a maximum value of $0.3$ between stems,
+increased $F_{ST}$ between stem populations during that time. In the
+merger-with-stem-migration, $F_{ST}$ reached a maximum value of $0.3$ between stems,
 intermediate between human-Neanderthal divergence ($0.45$)
 and the maximum $F_{ST}$ observed between contemporary human populations
 ($\lessapprox 0.1$.) 
@@ -545,20 +550,9 @@ diversity, but individuals across stems showing similar differentiation to
 that between two contemporary human population.
 
 
-\subsection{\bm{$f_4$} statistics between pairs of contemporary
+\subsection{Shared differentiation between pairs of contemporary
 and pairs of ancient populations}
 \label{sec:f4}
-
-%\tdwcomment{I have tried to make the terminology about human, hominin, etc.
-%consistent and unambiguous. To do this, I have avoided using "modern" because 
-%"modern human" can mean "anatomically modern human" or \emph{Homo sapiens}, 
-%but mostly in the paper we use it to mean "contemporary" or "present-day". I 
-%think we should use "contemporary human" or "present-day human" when we mean 
-%the latter and just "human" when we mean the former. I have made these changes 
-%in the main text and supplement, preferentially using "contemporary" but 
-%leaving "present-day" when it was already there. However, I think it would be 
-%best if Simon made these changes in the equations in this section, so I don't mess 
-%something up.}
 
 To evaluate the degree to which divergence among contemporary human populations is
 inherited from divergence between early stem population, we computed $f_4$
@@ -893,7 +887,7 @@ simulating the site frequency spectrum (SFS) under each of our four models for
 pairs of populations and reinferring an IM and clean split model for each pair.
 The simulations sampled 10 diploid individuals from each
 population, and we used \msprime \citep{Baumdicker2022-mj} to simulated
-500 Mb of total sequence length (the sum over500 replicates each 1 Mb in length)
+500 Mb of total sequence length (the sum over 500 replicates each 1 Mb in length)
 with constant recombination rate $r=10^{-8}$ and mutation rate $u=2\times10^{-8}.$
 
 As expected, the clean split models consistently provide divergence times $T$
