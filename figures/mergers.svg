@@ -23,13 +23,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.5658407"
-     inkscape:cx="263.65627"
-     inkscape:cy="143.61764"
-     inkscape:window-width="2344"
-     inkscape:window-height="1287"
-     inkscape:window-x="78"
-     inkscape:window-y="25"
+     inkscape:zoom="1.4835225"
+     inkscape:cx="339.39493"
+     inkscape:cy="177.28077"
+     inkscape:window-width="1440"
+     inkscape:window-height="784"
+     inkscape:window-x="1050"
+     inkscape:window-y="40"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      showguides="true"
@@ -37,7 +37,11 @@
      fit-margin-top="0.1"
      fit-margin-left="0.1"
      fit-margin-right="0.1"
-     fit-margin-bottom="0.1" />
+     fit-margin-bottom="0.1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid29154" />
+  </sodipodi:namedview>
   <defs
      id="defs2">
     <marker
@@ -258,7 +262,7 @@
      transform="translate(-16.703029,-45.405812)">
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 23.783333,56.899367 v 47.265613 h 4.816879 V 56.903062 Z"
+       d="m 25.661864,58.2224 -0.04847,46.00573 2.986822,-0.0631 V 58.2224 Z"
        id="path1189"
        sodipodi:nodetypes="ccccc" />
     <path
@@ -298,27 +302,27 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 109.88469,101.50421 v 11.48962 l 3.05575,-0.12223 v -11.36739"
+       d="m 109.88469,101.50421 0,12.28102 h 3.05575 l 0,-12.28102"
        id="path3060"
        sodipodi:nodetypes="cccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 126.50245,100.79334 0.0361,12.20049 3.05575,-0.12223 v -12.07826"
+       d="m 126.50245,100.79334 0.0361,12.99189 h 3.05575 l 0,-12.99189"
        id="path3060-6"
        sodipodi:nodetypes="cccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 143.19234,101.50421 v 11.48962 l 3.05575,-0.12223 v -11.36739"
+       d="m 143.19234,101.50421 0,12.28102 h 3.05575 l 0,-12.28102"
        id="path3060-7"
        sodipodi:nodetypes="cccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 136.62249,82.207349 v -24.56822 l -3.05575,0.12223 v 24.0793"
+       d="m 136.62249,82.207349 0,-23.984949 h -3.05575 l 0,23.618259"
        id="path3060-8"
        sodipodi:nodetypes="cccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 119.96867,81.840649 v -24.20152 l -3.05575,0.12223 v 24.07929"
+       d="m 119.96867,81.840649 0,-23.618249 h -3.05575 l 0,23.618249"
        id="path3060-6-4"
        sodipodi:nodetypes="cccc" />
     <path
@@ -403,7 +407,7 @@
          id="tspan15821"
          style="stroke-width:0.264583"
          x="20.921129"
-         y="55.826042">Stem 1</tspan></text>
+         y="55.826042">Stem 2</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:'Apple Symbols';-inkscape-font-specification:'Apple Symbols';stroke-width:0.264583"
@@ -414,18 +418,18 @@
          id="tspan15821-0"
          style="stroke-width:0.264583"
          x="56.317703"
-         y="55.900448">Stem 2</tspan></text>
+         y="55.900448">Stem 1</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:'Apple Symbols';-inkscape-font-specification:'Apple Symbols';stroke-width:0.264583"
-       x="113.20541"
-       y="54.968807"
+       x="110.215"
+       y="55.071926"
        id="text15823-1"><tspan
          sodipodi:role="line"
          id="tspan15821-2"
          style="stroke-width:0.264583"
-         x="113.20541"
-         y="54.968807">Stem1</tspan></text>
+         x="110.215"
+         y="55.071926">Stem 2</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:5.64444px;line-height:1.25;font-family:'Apple Symbols';-inkscape-font-specification:'Apple Symbols';stroke-width:0.264583"
@@ -436,6 +440,6 @@
          id="tspan15821-0-4"
          style="stroke-width:0.264583"
          x="128.74545"
-         y="55.043213">Stem2</tspan></text>
+         y="55.043213">Stem 1</tspan></text>
   </g>
 </svg>
