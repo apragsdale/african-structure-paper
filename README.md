@@ -1,5 +1,14 @@
 # A weakly structured stem for human origins in Africa
 
+The fit models presented in this paper are available in
+[Demes](https://github.com/popsim-consortium/demes-python) format as YAML
+files, found in the ``demes_models`` directory in this repository.
+
+This paper is posted as a preprint at *bioRxiv*:
+[https://doi.org/10.1101/2022.03.23.485528](https://www.biorxiv.org/content/10.1101/2022.03.23.485528v1).
+
+## Contents
+
 This repository contains the manuscript and supplementary material for "A
 weakly structured stem for human origins in Africa." To build the document,
 simply type `make` in this directory. If you have only updated the supplement,
