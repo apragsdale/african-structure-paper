@@ -747,9 +747,13 @@ two different European populations (Western Europeans from Utah, CEU, and
 Toscani in Italy, TSI). The CEU are closely related to GBR and are thus likely
 to be an equivalently close proxy for European ancestry in African individuals
 with admixed European ancestry. The TSI are likely more distantly related to
-the source of this European ancestry. We refit each of our best-fit demographic
-models using the following alternate population sets: (Nama, YRI, Gumuz,
-Oromo/Amhara, and CEU), and (Nama, MSL, Gumuz, Oromo/Amhara, and TSI).
+the source of this European ancestry. We chose not to replace the GBR
+non-European Eurasian populations, as these would be poorer proxies for early
+Holocene and recent colonial migration from the Near East and Europe back to
+Africa, and it is unclear how such a model should be interpreted. We therefore
+refit each of our best-fit demographic models using the following alternate
+population sets: (Nama, YRI, Gumuz, Oromo/Amhara, and CEU), and (Nama, MSL,
+Gumuz, Oromo/Amhara, and TSI).
 
 \subsubsection{Variable thresholds of Nama-associated ancestry}
 
@@ -879,6 +883,28 @@ entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
     \item Fits with alternate thresholds of Nama-inferred ancestry: TODO:
         fit continuous migration and the merger with stem migration model
 \end{itemize}
+
+\subsubsection{Replacing Thousand Genomes populations}
+
+We replaced the Mende (MSL) and British (GBR) population sets with Yoruba (YRI)
+and Western and Northern Europeans (CEU), respectively, and refit our inferred
+demographic models to diversity and LD statistics computed from those
+populations (along with Nama, Oromo/Amhara, and Gumuz). Because the MSL and YRI
+share recent West African ancestry, and the GBR and CEU share recent European
+ancestry, we expected most parameters in inferred models using these two
+datasets to be largely similar. Indeed, all parameters inferred using the YRI
+and CEU data were well within one standard error of the same parameters
+inferred using the MSL and GBR data, across all tested models. The one
+exception to this was the recent size of the YRI branch, inferred to be
+somewhat smaller than the final size of the analogous MSL branch ($\approx
+20,000$ vs. $\approx 30,000$, resp.). Other population sizes, migration rates,
+and divergence times were highly consistent.
+
+Because CEU and GBR are genetically closely related, we also tested the
+consistency of inferred parameters when replacing GBR with Toscani from Italy,
+a more distantly related European population set than CEU. \aprcomment{TODO}
+
+\subsubsection{Fit to LD statistics from Nama recombination map}
 
 \subsection{Relaxing fixed divergence times}
 
@@ -1368,7 +1394,8 @@ and $\sim$50--130ka under the clean split model.
     \centering
     \includegraphics{figures/supp-omni-hapmap-comparison.pdf}
     \caption{
-        \textbf{Comparison of LD statistics parsed using two recombination maps.}
+        \textbf{Comparison of LD statistics parsed using two array-based
+        recombination maps.}
         The recombination map determines genetic distances between pairs of SNPs,
         so using different maps could result in systematic biases in parsed
         statistics if the maps differ significantly. Here, the solid lines are
@@ -1378,6 +1405,28 @@ and $\sim$50--130ka under the clean split model.
         indistinguishable from one another. Notations for each statistic are
         described in section~\ref{sec:supp-ld-stats} and indexed by populations
         (0: Nama, 1: Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
+    }
+    \label{fig:supp-omni-hapmap-comparison}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-omni-nama-comparison.pdf}
+    \caption{
+        \textbf{Comparison of LD statistics parsed using OMNI YRI and
+        Nama-specific recombination map.}
+        The OMNI YRI recombination map and the Nama-inferred map
+        \citep{Van_Eeden2021-od} differ in two primary ways: 1) the YRI and
+        Nama have relatively highly diverged ancestries, and 2) the YRI
+        map was inferred from low-density array data, while the Nama map
+        was inferred from whole-genome sequencing data.
+        Nonetheless, LD statistics computed under recombination rates from
+        the two maps remain largely concordant, and inferences are not
+        strongly affected by recombination map choice (Section~\ref{sec:supp-results}).
+        Shading represents 95\% confidence intervals from the Nama-inferred
+        map. Notations for each statistic are described in
+        section~\ref{sec:supp-ld-stats} and indexed by populations (0: Nama, 1:
+        Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
     }
     \label{fig:supp-omni-hapmap-comparison}
 \end{figure}
