@@ -191,8 +191,15 @@ $Dz_{i, j, k} = D_i(1-2p_{A,j})(1-2p_{B,k})$ and
 $\pi_{2;i,j,k,l}=p_{A,i}(1-p_{A,j})p_{B,k}(1-2p_{B,l})$. We consider statistics
 normalized by $\pi_2$ in an arbitrary reference population (throughout, we use the Mende
 $\pi_2$), which removes any dependence on the mutation rate. Thus, statistics
-take the form $\sigma_{d;i,j}^2 = \frac{\E[D^2_{i,j}]}{\E[\pi_2]}$,
-$\sigma_{Dz;i,j,k}=\frac{\E[Dz_{i,j,k}]}{\E[\pi_2]}$, and so on.
+take the form 
+\begin{equation}
+\begin{split}
+\sigma_{D;i,j}^2 = \frac{\E[D^2_{i,j}]}{\E[\pi_2]}\\
+\sigma_{Dz;i,j,k}=\frac{\E[Dz_{i,j,k}]}{\E[\pi_2]},
+\end{split}
+\label{def_ld}
+\end{equation}
+and so on.
 Multi-population pairwise diversity statistics $\E[H_i]=\E[2p_i(1-p_i)]$ and
 $\E[H_{i,j}] = \E[p_i(1-p_j) + p_j(1-p_i)]$ were also normalized by $H$ in the
 Mende, so that all pairwise diversity measures are relative to the reference
@@ -783,7 +790,7 @@ relative to transversions as expected, qualitatively, from the higher
 transition mutation rate \citep{Hernandez2007-mf}.
 
 \subsubsection{Relate curves from inferred models}
-
+\label{inferred_relate}
 We used \Relate \citep{Speidel2019-nj} to reconstruct gene genealogies from the
 simulations under our four inferred demographic models. From each of these,
 following the same approach as for the analysis of the actual data, we computed
