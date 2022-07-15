@@ -80,25 +80,7 @@ robust inferences about deep history.
 
 \section*{Introduction}
 
-Archaeological sites from the Middle Stone Age (approx. 300-40ka) are widely
-distributed across Africa, and are particularly well represented in the
-northern, eastern and southern parts of the continent. Similarly, fossils 
-such as those from the sites of Jebel Irhoud, Morocco \citep{Hublin2017-cq}, Herto, Ethiopia
-\citep{White2003-bk} and Klasies River, South Africa \citep{Deacon1995-rx} demonstrate that 
-derived \emph{Homo sapiens} anatomical features were also present across the
-continent during this period. It has been difficult to reconcile these lines of
-evidence with evidence from genomics, which have suggested a predominantly
-tree-like model of recent population divergence from a single ancestral
-population. It is unclear whether fossil specimens and archaeological sites
-represent populations which contributed to our ancestors as population
-precedents, or were local ``dead-ends'' from which contemporary \emph{Homo
-sapiens} do not descend. 
-Recently,
-attempts to reconcile genetic and
-paleoanthropological data include proposals for a Pan-African origin of
-\emph{Homo sapiens} by which populations in many regions of the continent
-contributed to the formation of \emph{Homo sapiens} beginning at least 300ka
-\citep{Stringer2016-mj,Scerri2018-nl,Scerri2019-xg}.
+Decades of study of human genome variation have suggested a predominantly tree-like model of recent population divergence from a single ancestral population in Africa. It has been difficult to reconcile this finding with the fossil and archaeological record of human occupation across the vast African continent. For example, fossils such as those from the sites of Jebel Irhoud, Morocco \citep{Hublin2017-cq}, Herto, Ethiopia \citep{White2003-bk} and Klasies River, South Africa \citep{Deacon1995-rx} demonstrate that derived \emph{Homo sapiens} anatomical features were present across the continent 300-100ka. Archaeological sites from the Middle Stone Age, which has been associated with \emph{Homo sapiens} at some sites, are also widely distributed across Africa. It is unclear whether fossil specimens and archaeological sites represent populations which contributed to our ancestors as population precedents, or were local ``dead-ends'' from which contemporary \emph{Homo sapiens} do not descend. Recently, attempts to reconcile genetic and paleoanthropological data include proposals for a Pan-African origin of \emph{Homo sapiens} by which populations in many regions of the continent contributed to the formation of \emph{Homo sapiens} beginning at least 300ka \citep{Stringer2016-mj,Scerri2018-nl,Scerri2019-xg}.
 
 Genetic models have been hampered in their contribution to this discussion
 because they primarily assume (or, at least, have been tested under) a
@@ -253,8 +235,8 @@ We also fixed the amount of admixture from Neanderthals to Europeans directly
 following the out-of-Africa migration which was set to 1.5\% at 45ka (Supp. Information).
 These constraints allowed us to integrate information from previous genetic
 and archaeological research to infer robust migration rates.
-For example, all models infer relatively high gene flow between eastern and western Africa
-($m\approx2\times10^{-4},$ the proportion of migrant lineages per generation).
+For example, all models infer relatively high gene flow between Ethiopia and western Africa
+($m\approx2\times10^{-4},$ the constant proportion of migrant lineages per generation over 60ka).
 We further find that Back-to-Africa gene flow at the beginning of the Holocene primarily
 affected the ancestors of the Ethiopian agricultural populations, comprising
 over half of their genetic ancestry, estimated to be 64--65\%. The past 5,000
@@ -301,7 +283,7 @@ was estimated at 15\%, similar to proportions suggested by \texttt{ADMIXTURE}
         \midrule
         \textbf{Continuous Model} & & & & & \\
         $LL= -115,500$ & a & Stem 1, Stem 2 & 1,163 & 6.43e-5 & 1,028 \\
-        & b & Stem 2, Nama & NA & 5.82e-5 & 130 \\
+        (Table S4) & b & Stem 2, Nama & NA & 5.82e-5 & 130 \\
         & c, d & Stem 2, Other Africans* & NA & 3.10e-5, \textbf{1.64e-4} & 130, 55 \\
         & e, f & Nama, Other Africans* & 135 & 4.1e-5, 9.8e-6 & 135, 60 \\
         & g & Mende, East Africans & 60 & \textbf{2.14e-4} & 60 \\
@@ -309,7 +291,7 @@ was estimated at 15\%, similar to proportions suggested by \texttt{ADMIXTURE}
         & i & Gumuz, Amhara/Oromo & 12 &\textbf{3.36e-4} & 12 \\
         \textbf{Merger Model} & & & & & \\
         $LL= -102,600$ & a & Stem 1, Stem 2 & 1,442 & \textbf{1.16e-4} & 963 \\
-        & -- & Stem 1S, Stem 1E & 479 & 0 (fixed) & -- \\
+        (Table S6) & -- & Stem 1S, Stem 1E & 479 & 0 (fixed) & -- \\
         & b & Stem 2 to Nama & 119 & \textbf{0.71} & pulse \\
         & c & Stem 2 to Stem 1E & 98 & \textbf{0.50} & pulse \\
         & d & Stem 2 to Mende & 25 & \textbf{0.18} & pulse \\
@@ -405,16 +387,18 @@ optimization (i.e. 1\% of the ancestral $N_e$), although the size of this
 bottleneck is poorly constrained ($\sigma_{N_e}=838$). After a long period of
 exchange with Stem 2, Stem 1 then fractures into ``Stem 1E'' and ``Stem 1S''
 479ka. The timing of this divergence was also poorly constrained ($\sigma_T=
-166$ka). These populations evolve independently until approximately 119ka
-when Stem 1S and Stem 2 combine to form the ancestors of the Nama, with
+166$ka). These populations evolve independently until 119ka
+($\sigma_T=
+28$ka) when Stem 1S and Stem 2 combine to form the ancestors of the Nama, with
 proportions 29\%, 71\% respectively. Similarly, Stem 1E and Stem 2 combine in
 equal proportions (50\% each) to form the ancestors of the western Africans and
 eastern Africans (and thus also all individuals who later disperse during the
 Out of Africa event). Finally, the Mende receive a large additional pulse of
-gene flow from Stem 2, replacing 18\% of their population 25ka.
+gene flow from Stem 2, replacing 18\% of their population 25ka ($\sigma_T=
+0.6$ka).
 The later Stem 2 contribution to the western African Mende resulted in
 better model fits ($\Delta LL \approx 60,000$).
-This may indicate that an ancestral Stem 2 population occupied western or
+Speculatively, this may indicate that an ancestral Stem 2 population occupied western or
 Central Africa, broadly speaking. The differing proportions in the Nama and
 eastern Africans may also indicate geographic separation of Stem 1S in southern
 Africa and Stem 1E in eastern Africa. 
@@ -493,12 +477,10 @@ This increase in inferred $N_e$ could be due to either an increase in population
 ancestral population structure during the Middle Stone Age \citep{Mazet2015-wn}.
 All models, including the
 single-origin model, recapitulate an inferred ancestral
-increase in $N_e$ between 100ka-1Ma (Figure~\ref{fig:supp-iicr-sim}).
+increase in $N_e$ between 100ka-1Ma extending deeper in the past than the relate estimate (Figure~\ref{fig:supp-iicr-sim} and Section \ref{inferred_relate}).
 Whereas the single-origin model achieves this by
 an increase in $N_e$ during that period, the best-fit model recapitulate
-this pattern without corresponding population size changes.      
-%\comment{These are pretty complicated ideas that are not explained in detail.
-%Might be worth unpacking a bit more to make sure the reader understands}
+this pattern without corresponding population size changes.     
 
 Relative cross-coalescence rates (rCCR) have recently been used to estimate
 divergence between a pair of populations, as measured by the rate of
@@ -536,7 +518,7 @@ early history.
 The best-fit models presented here include reticulation and migration between
 early human populations rather than archaic hominin admixture from long-isolated branches.
 We cannot rule out that more complex models involving
-additional stems, or hybrid models including both weak structure and archaic
+additional stems, continuous structure, or hybrid models including both weak structure and archaic
 hominin admixture may better explain the data. Because parameters related to the split
 time, migration rates, and relative sizes of the early stems were variable
 across models, reflecting a degree of confounding among these parameters, we
@@ -571,7 +553,7 @@ from southern Africa moved northward thereby encountering Stem 2,
 or Stem 2 moved from central/western Africa southward into Stem 1S -- then we
 could observe disproportionate ancestry contributions from different stems in
 contemporary groups. We observed two merger events. The first, between Stem 1S and
-Stem 2, results in the formation of an ancestral Khoe-San population ~120ka.
+Stem 2, results in the formation of an ancestral Khoe-San population $\approx120$ka.
 The second $\approx100$ka between Stem 1E and Stem 2, results in the formation of the
 ancestors of East/West Africans as well as later ``Out of Africans''. The rapid
 rise in sea levels and increased precipitation during MIS 5e, following a
