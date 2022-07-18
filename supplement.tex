@@ -855,7 +855,7 @@ within Africa.
 
 The four inferred demographic models (single origin, continuous migration,
 merger without stem migration, and merger with stem migration) were converted
-to \demes format (Gower, Ragsdale, \emph{et al.}, in prep) and used as
+to \demes format \citep{Gower2022-yn} and used as
 the input demography for \msprime simulations. We sampled the same
 number of individuals from each population as used in the inference (Nama: 44,
 Mende: 85, Gumuz: 23, combined Oromo/Amhara: 46, British: 91, and Vindija
@@ -894,6 +894,9 @@ entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
 
 \subsection{Model fit using alternative datasets}
 \label{sec:supp-alt-data}
+
+All supplementary inference results are provided in Demes format
+\citep{Gower2022-yn} as a supplemental zipped archive.
 
 \subsubsection{Replacing Thousand Genomes populations}
 
@@ -950,7 +953,36 @@ statistical error in recombination rate estimation.
 
 \subsubsection{Varying Nama ancestry-proportion thresholds}
 
+In the demographic inference results presented in the main text, we did not
+impose a minimum threshold on inferred Nama ancestry (as estimated using
+AMDIXTURE). Because our proposed models allow for post-divergence gene flow as
+well as recent admixture events, we can jointly learn deeper history and recent
+admixture dynamics. This is in contrast to methods that do not account for
+ongoing migration or recent admixture events, for which un-admixed genomes (if
+they even exist) are needed for unbiased estimates of earlier history.
+Although the methods used in this paper (\texttt{moments-LD}) are able to infer
+early and recent history jointly, we tested the robustness of the inferred
+early history to varying ancestry proportions in the Nama population. To do
+this, we used ADMIXTURE to cluster inferred ancestry components, noting that
+ADMIXTURE-inferred ancestries are coarse and can be misleading about true
+underlying admixture proportions. Nonetheless, we included Nama individuals
+that exceeded either 90\% ro 99\% ancestry primarily shared among Nama
+individuals.
 
+For both thresholds, early history was robust in all tested models. Divergence
+times and migration rates did not vary significantly from the original fits
+that included all unrelated Nama individuals. The primary differences between
+these fits and the original fits that did not impose an ancestry threshold were
+the inferred admixture proportions of East African agriculturalists (2ka) and
+Europeans (10 generations ago) in the Nama population. The East African
+admixture proportion was reduced from $\approx 25\%$ to $20-22\%$, while the
+European admixture proportion was reduced from $\approx 15\%$ to either $5-6\%$
+(with a $90\%$ ancestry cutoff) or $3-5\%$ (with a $99\%$ ancestry cutoff). No
+other parameters were strongly affected by subsetting the Nama individuals by
+ADMIXTURE-inferred ancestry proportions. Because only the inferred proportions
+of recent admixture in our model fits changed, we conclude that our inferences
+of early history are robust to recent admixture, as long as that recent
+admixture is accounted for in the demographic models.
 
 \subsection{Relaxing fixed divergence times}
 
