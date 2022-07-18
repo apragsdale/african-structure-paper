@@ -255,7 +255,7 @@ distances due to processes like multinucleotide mutations
 unphased genotypes to compute LD statistics, as proposed in
 \citet{Ragsdale2020-nz}. 
 
-\subsection{Estimating two-locus statistics with small sample sizes}
+\subsection{Estimating two-locus statistics with finite sample sizes}
 
 The approach from \citet{Ragsdale2020-nz} provides unbiased estimates of the LD
 statistics considered here, which can be directly compared to expectations for
@@ -388,13 +388,10 @@ Eurasian branch from the East African branch.
 
 We performed an initial round of optimization including all six populations
 with a family of models including single- and multiple-stem scenarios as
-described in the previous section. We identified parameters that reached
-consistent values across all models. These included the timings of recent or
-non-central divergences and admixture events:
+described in the previous section. We identified some parameters that reached
+consistent values across all models. :
 \begin{itemize}
     \item Neanderthal/human split: 550ka
-    \item East/West African population split: 60ka
-    \item East African/European split: 50ka
     \item Neanderthal introgression to Eurasian branch: 45ka
     \item Eurasian back-to-African migration: 12ka
 \end{itemize}
@@ -402,6 +399,7 @@ When testing multiple variations of the more complex models, we kept these
 values fixed (see Table~\ref{tab:fixed-params} for a complete list of all fixed
 parameters). This reduced the potential for overfitting the more complex
 models, while reducing the computational cost of optimization.
+
 
 Our models also included recent events to account for known migrations,
 admixtures, and growths and declines in effective population sizes. Many of
@@ -416,6 +414,25 @@ anthropological research, namely
 allowed to vary in the fits. The total number of parameters that were
 ultimately inferred were 21-31, depending on the complexity
 of the model.
+
+
+In our preliminary models, the unconstrained inferred split times between East African populations 
+and Europeans was inferred to have occurred around 40kya \sgcomment{check}, which is 
+more recent than we may have expected given 
+the well-documented presence of modern humans out of Africa at that time\sgcomment{cite}, as 
+well as previous genetics-based dating of the split \sgcomment{cite}. 
+The inferred split between East and West African populations occurred about $10ka$ earlier. 
+We see two non-exclusive explanations for this apparent discrepancy. 
+First, there is uncertainty in our model fit of this parameter.
+The $95\%$ confidence interval allows for a split as far back as \sgcomment{$XX$}. 
+Second, our confidence intervals do not capture all sources of uncertainty. 
+For example, model mis-specification can lead to a mismatch between an inferred split time and the first time populations actually split. 
+Our model supposes a single OOA event with constant symmetric migrations 
+between populations, which is certainly an oversimplification \cite{}. 
+Rather than adding the many parameters required to account for these effects, 
+we fixed the split time between Europeans and the East African ancestral population at $50ka,$ and
+the split between East/West African population at $60ka$. 
+We discuss the sensitivity of our model to these assumptions in Section \ref{sec:change_dates}.
 
 
 \subsection{Optimization using \moments}
@@ -788,7 +805,7 @@ recomputed diversity and heterozygosity statistics and fit each of our
 demographic models to these statistics.
 
 \subsubsection{Varying fixed divergence times}
-
+\label{sec:change_dates}
 In order to reduce parameter space to avoid overfitting, we fixed parameters
 that have previously been inferred, including the timings of the early
 back-to-Africa migration contributing to the ancestry of East African
