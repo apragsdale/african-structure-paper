@@ -878,19 +878,6 @@ entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
 \subsection{Model fit using alternative datasets}
 \label{sec:supp-alt-data}
 
-\begin{itemize}
-    \item Using YRI and CEU, inferred parameters for each of our highlighted models
-        did not change (all well within one SD of the inferred parameters of the
-        original fit models)
-    \item TODO: run fits with TSI
-    \item Fits using the Nama recombination map, even though there were slight
-        differences in some of the LD statistics (primarily a few noticeable
-        differences in the $\pi_2$ statistics), also resulted in model fits that
-        were very similar to the original fit models.
-    \item Fits with alternate thresholds of Nama-inferred ancestry: TODO:
-        fit continuous migration and the merger with stem migration model
-\end{itemize}
-
 \subsubsection{Replacing Thousand Genomes populations}
 
 We replaced the Mende (MSL) and British (GBR) population sets with Yoruba (YRI)
@@ -909,9 +896,44 @@ and divergence times were highly consistent.
 
 Because CEU and GBR are genetically closely related, we also tested the
 consistency of inferred parameters when replacing GBR with Toscani from Italy,
-a more distantly related European population set than CEU. \aprcomment{TODO}
+a more distantly related European population set than GBR. Most parameters in
+each of the tested models were consistent with parameters inferred using GBR.
+The only large difference was found in fitting the continuous migration model,
+Nama divergence was $\approx200$ka, rather than $135$ka. Migration rates during
+this early period of the model also shifted to larger values between the stem
+populations, demonstrating that divergence times and migration rates are
+confounded parameters in this model. Notably, the multiple merger model (which
+provides a better fit to the data) was inferred to have consistent divergence
+and merger times between the models fit using GBR and TSI, with ancestral
+populations ``reshuffling'' between 100 and 120ka.
 
 \subsubsection{Fit to LD statistics from Nama recombination map}
+
+The LD statistics computed using the OMNI YRI recombination map and the
+Nama-specific recombination map were very similar, with only a handful of
+statistics showing slight visible differences
+(Figure~\ref{fig:supp-omni-nama-comparison}). We therefore expected inferred
+demographic models to be highly consistent when fit to the two sets of
+statistics. Across each of our models, inferred parameters from fits using data
+from the Nama-specific map were unchanged, with best-fit values all within one
+estimated standard error from the inferred parameters from the OMNI YRI map.
+
+Among human populations, the Nama are relatively highly diverged from the
+sampled populations used in estimating the OMNI recombination maps (such as the
+YRI), and the two recombination maps were inferred using different
+computational methods from different types of sequencing data (arrays vs. whole
+genomes). Therefore, differences between these two maps are likely near the
+upper bound for differences in recombination rates between present-day human
+populations \citep{Van_Eeden2021-od}. Because our fits were highly consistent
+when using the two recombination maps, we conclude that inferences using the
+diversity and LD statistics here are robust to variation in recombination rates
+between present-day populations as well as to any differences in inferred
+recombination rates due to true recombination rate differences or typical
+statistical error in recombination rate estimation.
+
+\subsubsection{Varying Nama ancestry-proportion thresholds}
+
+
 
 \subsection{Relaxing fixed divergence times}
 
@@ -1428,14 +1450,14 @@ and $\sim$50--130ka under the clean split model.
         map was inferred from low-density array data, while the Nama map
         was inferred from whole-genome sequencing data.
         Nonetheless, LD statistics computed under recombination rates from
-        the two maps remain largely concordant, and inferences are not
-        strongly affected by recombination map choice (Section~\ref{sec:supp-results}).
+        the two maps remain largely concordant, and inferences are
+        unaffected by recombination map choice (Section~\ref{sec:supp-results}).
         Shading represents 95\% confidence intervals from the Nama-inferred
         map. Notations for each statistic are described in
-        section~\ref{sec:supp-ld-stats} and indexed by populations (0: Nama, 1:
-        Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
+        section~\ref{sec:supp-ld-stats}, and indexes represent populations
+        (0: Nama, 1: Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
     }
-    \label{fig:supp-omni-hapmap-comparison}
+    \label{fig:supp-omni-nama-comparison}
 \end{figure}
 
 \begin{figure}[ht]
