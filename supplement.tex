@@ -389,10 +389,9 @@ Eurasian branch from the East African branch.
 We performed an initial round of optimization including all six populations
 with a family of models including single- and multiple-stem scenarios as
 described in the previous section. We identified some parameters that reached
-consistent values across all models. :
+consistent values across all models:
 \begin{itemize}
     \item Neanderthal/human split: 550ka
-    \item Neanderthal introgression to Eurasian branch: 45ka
     \item Eurasian back-to-African migration: 12ka
 \end{itemize}
 When testing multiple variations of the more complex models, we kept these
@@ -400,40 +399,48 @@ values fixed (see Table~\ref{tab:fixed-params} for a complete list of all fixed
 parameters). This reduced the potential for overfitting the more complex
 models, while reducing the computational cost of optimization.
 
-
 Our models also included recent events to account for known migrations,
 admixtures, and growths and declines in effective population sizes. Many of
 these parameters were fixed based on previous historical, genetic, or
 anthropological research, namely
 \begin{itemize}
+    \item Neanderthal introgression to Eurasian branch: 45ka
     \item Mende population expansion and Gumuz population decline: 5ka \citep{Gopalan2022-pw}
     \item East African pastoralist to South African admixture: 2ka \citep{Uren2016-nn}
     \item European to South African admixture: 10 generations ago
     \item South African population decline following colonial admixture: 9 generations ago
 \end{itemize}
-allowed to vary in the fits. The total number of parameters that were
+The total number of parameters that were
 ultimately inferred were 21-31, depending on the complexity
 of the model.
 
-
-In our preliminary models, the unconstrained inferred split times between East African populations 
-and Europeans was inferred to have occurred around 40kya \sgcomment{check}, which is 
-more recent than we may have expected given 
-the well-documented presence of modern humans out of Africa at that time\sgcomment{cite}, as 
-well as previous genetics-based dating of the split \sgcomment{cite}. 
-The inferred split between East and West African populations occurred about $10ka$ earlier. 
-We see two non-exclusive explanations for this apparent discrepancy. 
-First, there is uncertainty in our model fit of this parameter.
-The $95\%$ confidence interval allows for a split as far back as \sgcomment{$XX$}. 
-Second, our confidence intervals do not capture all sources of uncertainty. 
-For example, model mis-specification can lead to a mismatch between an inferred split time and the first time populations actually split. 
-Our model supposes a single OOA event with constant symmetric migrations 
-between populations, which is certainly an oversimplification \cite{}. 
-Rather than adding the many parameters required to account for these effects, 
-we fixed the split time between Europeans and the East African ancestral population at $50ka,$ and
-the split between East/West African population at $60ka$. 
-We discuss the sensitivity of our model to these assumptions in Section \ref{sec:change_dates}.
-
+In our preliminary models, the unconstrained inferred split times between East
+African populations and Europeans was inferred to have occurred around $40$ka,
+which is more recent than we may have expected given the well-documented
+presence of modern humans outside of Africa at that time \citep{}, as well as
+previous genetics-based dating of splits between African and Eurasian
+populations \citep{}. The unconstrained inferred split between East and West
+African populations occurred about $10$ka earlier
+(Section~\ref{sec:supp-results}).
+%We see two non-exclusive explanations for this apparent discrepancy. First,
+%there is uncertainty in our model fit of this parameter. The $95\%$ confidence
+%interval allows for a split as far back as \sgcomment{$XX$}.
+Across all models, the $95\%$ confidence intervals for the OOA event was
+roughly $38 \pm 5$ka, and for the East/West African split was $45 \pm 10$ka.
+However, our confidence intervals do not capture all sources of uncertainty.
+For example, model mis-specification can lead to a mismatch between an inferred
+split time and the first time populations actually split. Our model supposes a
+single OOA event followed by constant symmetric migrations between populations,
+which is certainly an oversimplification \citep{}. Additionally, most previous
+estimates of the time of the OOA expansion compared Eurasian and West African
+populations. Our inferred time of the East/West African divergence aligns with
+previous estimates of the OOA event at $\approx 60$ka (themselves inferred from
+oversimplified demographic models). Rather than adding the many parameters
+required to account for these effects, we fixed the split time between
+Europeans and the East African ancestral population at $50$ka, and the split
+between East/West African population at $60$ka.
+%We discuss the sensitivity of our model to these assumptions in Section
+%\ref{sec:change-dates}.
 
 \subsection{Optimization using \moments}
 
@@ -984,20 +991,39 @@ of recent admixture in our model fits changed, we conclude that our inferences
 of early history are robust to recent admixture, as long as that recent
 admixture is accounted for in the demographic models.
 
-\subsection{Relaxing fixed divergence times}
+\subsection{Relaxed inference of divergence times}
+\label{sec:change-dates}
 
-\begin{itemize}
-    \item Fixed to older dates (100ka: E/W split, 60ka: OOA event). These fixed
-        values stretched the other inferred parameters to older times, and resulted
-        in a worse log-likelihood
-    \item Allowed to vary, the best-fit inferred E/W split time and OOA event
-        were more recent 35-50ka, instead of our fixed 50-60ka. \aprcomment{I
-        still don't find this entirely unreasonable, as E Africans and Eurasian
-        populations may be more closely related than the oldest evidence of H.
-        sapiens in Europe (up to 50ka), or those earliest H. sapiens are likely
-        not to be the direct ancestors of present-day Europeans. Still, it's
-        probably too recent of a split, and fixing to 50ka is defensible.}
-\end{itemize}
+In the primary results presented in the main text
+(Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
+we fixed a number of parameters that have been previously inferred or are well
+constrained by historical records (Section~\ref{sec:models}), including the
+Eurasian out-of-Africa expansion at 50ka and the divergence of Western and
+Eastern African groups at 60ka. To evaluate the effects of these choices on the
+inference of other parameters in the model, we first fixed those modeled
+divergence times to 60ka (for the out-of-Africa expansion) and 100ka (for the
+E/W African divergence). In the next section, we allow those parameters to be
+fit along with all other model parameters.
+
+By fixing those divergence times to older dates, the inferred models preferred
+older dates for the other free divergence time parameters. These dates were
+stretched by a similar proportion that our fixed parameters were shifted, so
+that the Nama divergence time was inferred to be $\approx150$ka, rather than
+$\approx130$ka. Notably, older divergence times resulted in models with worse
+likelihoods than our primary presented results. Overall, these inferred models
+have a similar interpretation to the primary inference results, and the deep
+population structure was unaffected by these choices.
+
+When we allowed the out-of-Africa expansion and Eastern/Western African
+divergence times to be jointly fit in model optimization, we found that the
+best-fit inferred E/W divergence time and the OOA expansion were more recent
+(35--40ka, 45--55ka, resp.). The remainder of the parameters were largely
+unaffected by these shifts to more recent divergence times, and our
+interpretation of the inferred early history remains unchanged. The $95\%$
+confidence intervals around these parameters were relatively narrow ($\approx
+5$ka for the OOA split, $\approx 10$ka for the East/West African split),
+although this uncertainty does not capture uncertainty due to model
+mis-specification (as discussed in Section~\ref{sec:models}).
 
 \subsection{Alternative statistics for four models}
 
@@ -1952,7 +1978,7 @@ and $\sim$50--130ka under the clean split model.
         model.} We simulated 10 diploid individuals under the four highlighted
         models (Sec.~\ref{sec:IM-reinfer}). Using the joint-SFS, we reinferred
         a simpler isolation-with-migration (IM) model for pairs of populations
-        including the Nama to explore the effect of model misspecification on
+        including the Nama to explore the effect of model mis-specification on
         the earliest inferred divergence times between Khoe-San and other
         populations. We simulated data with Nama individuals sampled at present
         ($t=0$) as well as Nama individuals sampled 2,500 years ago, prior to
