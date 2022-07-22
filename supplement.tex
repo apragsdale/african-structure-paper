@@ -130,6 +130,10 @@ ancestry); and Europe: British (GBR). These were combined with the
 high-coverage Vindija Neanderthal genome \citep{Prufer2017-kk}, resulting in 290
 total samples used in demographic inference.
 
+\aprcomment{TODO: expand this section to include further discussion about why
+we chose each population, and why we have omitted some (such as those suggested
+in the reviews).}
+
 \subsection{Filtering and subsetting data}
 
 All analyses presented in this work focus on biallelic single nucleotide
@@ -141,7 +145,7 @@ outside of the 1000 Genomes strict callability mask. To enable comparison with
 Neanderthal DNA, we excluded regions for which the Vindija Neanderthal sample
 had less than 100 contiguous base pairs.
 
-\subsection{PCA and \texttt{ADMIXTURE} analysis}
+\subsection{PCA and \texttt{ADMIXTURE} analysis}\label{sec:dimred}
 
 We used principal component analysis (PCA) implemented in \texttt{scikit-learn}
 \citep{Pedregosa2011-ke} and \texttt{ADMIXTURE} version 1.3.0
@@ -191,8 +195,15 @@ $Dz_{i, j, k} = D_i(1-2p_{A,j})(1-2p_{B,k})$ and
 $\pi_{2;i,j,k,l}=p_{A,i}(1-p_{A,j})p_{B,k}(1-2p_{B,l})$. We consider statistics
 normalized by $\pi_2$ in an arbitrary reference population (throughout, we use the Mende
 $\pi_2$), which removes any dependence on the mutation rate. Thus, statistics
-take the form $\sigma_{d;i,j}^2 = \frac{\E[D^2_{i,j}]}{\E[\pi_2]}$,
-$\sigma_{Dz;i,j,k}=\frac{\E[Dz_{i,j,k}]}{\E[\pi_2]}$, and so on.
+take the form 
+\begin{equation}
+\begin{split}
+\sigma_{D;i,j}^2 = \frac{\E[D^2_{i,j}]}{\E[\pi_2]}\\
+\sigma_{Dz;i,j,k}=\frac{\E[Dz_{i,j,k}]}{\E[\pi_2]},
+\end{split}
+\label{def_ld}
+\end{equation}
+and so on.
 Multi-population pairwise diversity statistics $\E[H_i]=\E[2p_i(1-p_i)]$ and
 $\E[H_{i,j}] = \E[p_i(1-p_j) + p_j(1-p_i)]$ were also normalized by $H$ in the
 Mende, so that all pairwise diversity measures are relative to the reference
@@ -221,13 +232,20 @@ variants within and across populations, under the assumption of neutrality.
 
 For numerical convenience, observed genetic variants were binned by
 recombination distances. We assessed the robustness of the statistics to errors
-in the recombination maps by considering two different recombination maps, the
-OMNI YRI and HapMapII
-\citep{1000_Genomes_Project_Consortium2015-zq,International_HapMap_Consortium2007-vn}.
+in the recombination maps by considering three different recombination maps,
+the OMNI YRI and HapMapII
+\citep{1000_Genomes_Project_Consortium2015-zq,International_HapMap_Consortium2007-vn},
+and a recombination map inferred from the Nama \citep{Van_Eeden2021-od}.
 Statistics were largely unchanged by using a different map
-(Figure~\ref{fig:supp-omni-hapmap-comparison}), although both maps were
-inferred using array data, which is sparser than whole-genome sequencing data.
-In subsequent analyses, we used data based on recombination rates from the OMNI YRI map.
+(Figures~\ref{fig:supp-omni-hapmap-comparison},~\ref{fig:supp-omni-nama-comparison}).
+The OMNI and HapMap recombination maps resulted in LD statistics that were
+nearly identical, with only minor deviations between the OMNI/HapMap and the
+Nama-inferred recombination maps. Both the OMNI and HapMap maps were inferred
+using array data, which is sparser than whole-genome sequencing data as was
+used in the Nama map inference. In subsequent analyses, we used data based on
+recombination rates from the OMNI YRI map, and in the Supplemental Results we
+show that the inferences are robust when using the Nama recombination map
+(Section~\ref{sec:supp-alt-data}).
 
 We removed bins of recombination distance less than a recombination distance of
 $r = 5\times10^{-6}$ (at a rough estimate of 1 cM/Mb, this corresponds to a minimum
@@ -237,7 +255,7 @@ distances due to processes like multinucleotide mutations
 unphased genotypes to compute LD statistics, as proposed in
 \citet{Ragsdale2020-nz}. 
 
-\subsection{Estimating two-locus statistics with small sample sizes}
+\subsection{Estimating two-locus statistics with finite sample sizes}
 
 The approach from \citet{Ragsdale2020-nz} provides unbiased estimates of the LD
 statistics considered here, which can be directly compared to expectations for
@@ -326,9 +344,10 @@ before subsequent divergences (and either before or after the split of the
 Neanderthal branch). We tested models that allowed migration between the early
 stems, before subsequent splits and admixture events, as well as models that
 were restricted to isolation between stem branches. Depending on the specific
-parameters, such models encompass commonly-considered scenarios for admixture from a ghost archaic hominin population (e.g., if a long-isolated lineage more recently contributes a
-minority of ancestry to one or more populations), as well as relatively simple
-fragmentation-coalescence scenarios.
+parameters, such models encompass commonly-considered scenarios for admixture
+from a ghost archaic hominin population (e.g., if a long-isolated lineage more
+recently contributes a minority of ancestry to one or more populations), as
+well as relatively simple fragmentation-coalescence scenarios.
 
 Based on the geographical locations of present-day populations, we tentatively
 labeled ancestral branches using a parsimony in migration, referring to South,
@@ -369,14 +388,10 @@ Eurasian branch from the East African branch.
 
 We performed an initial round of optimization including all six populations
 with a family of models including single- and multiple-stem scenarios as
-described in the previous section. We identified parameters that reached
-consistent values across all models. These included the timings of recent or
-non-central divergences and admixture events:
+described in the previous section. We identified some parameters that reached
+consistent values across all models:
 \begin{itemize}
     \item Neanderthal/human split: 550ka
-    \item East/West African population split: 60ka
-    \item East African/European split: 50ka
-    \item Neanderthal introgression to Eurasian branch: 45ka
     \item Eurasian back-to-African migration: 12ka
 \end{itemize}
 When testing multiple variations of the more complex models, we kept these
@@ -389,15 +404,43 @@ admixtures, and growths and declines in effective population sizes. Many of
 these parameters were fixed based on previous historical, genetic, or
 anthropological research, namely
 \begin{itemize}
+    \item Neanderthal introgression to Eurasian branch: 45ka
     \item Mende population expansion and Gumuz population decline: 5ka \citep{Gopalan2022-pw}
     \item East African pastoralist to South African admixture: 2ka \citep{Uren2016-nn}
     \item European to South African admixture: 10 generations ago
     \item South African population decline following colonial admixture: 9 generations ago
 \end{itemize}
-allowed to vary in the fits. The total number of parameters that were
+The total number of parameters that were
 ultimately inferred were 21-31, depending on the complexity
 of the model.
 
+In our preliminary models, the unconstrained inferred split times between East
+African populations and Europeans was inferred to have occurred around $40$ka,
+which is more recent than we may have expected given the well-documented
+presence of modern humans outside of Africa at that time \citep{}, as well as
+previous genetics-based dating of splits between African and Eurasian
+populations \citep{}. The unconstrained inferred split between East and West
+African populations occurred about $10$ka earlier
+(Section~\ref{sec:supp-results}).
+%We see two non-exclusive explanations for this apparent discrepancy. First,
+%there is uncertainty in our model fit of this parameter. The $95\%$ confidence
+%interval allows for a split as far back as \sgcomment{$XX$}.
+Across all models, the $95\%$ confidence intervals for the OOA event was
+roughly $38 \pm 5$ka, and for the East/West African split was $45 \pm 10$ka.
+However, our confidence intervals do not capture all sources of uncertainty.
+For example, model mis-specification can lead to a mismatch between an inferred
+split time and the first time populations actually split. Our model supposes a
+single OOA event followed by constant symmetric migrations between populations,
+which is certainly an oversimplification \citep{}. Additionally, most previous
+estimates of the time of the OOA expansion compared Eurasian and West African
+populations. Our inferred time of the East/West African divergence aligns with
+previous estimates of the OOA event at $\approx 60$ka (themselves inferred from
+oversimplified demographic models). Rather than adding the many parameters
+required to account for these effects, we fixed the split time between
+Europeans and the East African ancestral population at $50$ka, and the split
+between East/West African population at $60$ka.
+%We discuss the sensitivity of our model to these assumptions in Section
+%\ref{sec:change-dates}.
 
 \subsection{Optimization using \moments}
 
@@ -419,9 +462,10 @@ L-BFGS-B methods (as implemented in the SciPy optimization package
 \citep{Virtanen2020-kr}). This process was repeated with alternating
 optimization methods until the best fit parameter set converged consistently.
 
-\subsection{Uncertainty and confidence intervals using Godambe methods}
+\subsection{Uncertainty and confidence intervals}
 
-To compute likelihoods, we needed an estimate of the joint distribution of summary statistics. 
+To compute likelihoods, we needed an estimate of the joint
+distribution of summary statistics. 
 We estimated uncertainty due to the finite amount of genetic material
 used in inference using bootstrap over 500 segments along the genome with
 roughly equal lengths of retained sequences within each segment. First, for
@@ -640,7 +684,21 @@ to $1\%$ to differentiation between the Nama and Mende or the Mende and Gumuz.
 
 \subsection{Back-to-Africa Gene flow and Neanderthal ancestry in Africa} 
 
-Back-to-Africa migrations likely introduced Neanderthal ancestry into Africa \cite{Chen2020}. This Neanderthal ancestry would cause reticulation in the ancestry of the African populations, and is therefore relevant to the modelling presented here. Our models do account for both Neanderthal admixture out of Africa and Back-to-Africa migrations, such that they predict the amount of Neanderthal ancestry that we would expect to find in African individuals. We find that the MSL are predicted to carry \sgcomment{TODO} $XX-YY \%$ Neanderthal ancestry, which is remarkably consistent with the results of \cite{Chen2020}. Since the IBD statistics from \cite{Chen2020} are not used in the present analysis, this serves as an independent validation of the present models. More importantly, since the Neanderthal admixture in Africa is properly accounted for in the model, we do not expect the presence of such ancestry to bias our estimate of reticulation in Africa.
+Back-to-Africa migrations likely introduced Neanderthal ancestry into Africa
+\citep{Chen2020-wh}. This Neanderthal ancestry would cause reticulation in the
+ancestry of the African populations, and is therefore relevant to the modeling
+presented here. The models we inferred account for both Neanderthal admixture
+in Eurasia and Back-to-Africa migrations, such that they predict the amount of
+Neanderthal ancestry that we would expect to find in African individuals. We
+find that African populations without high proportions of recent Eurasian
+ancestry are predicted to carry $0.1-0.2\%$ Neanderthal
+ancestry (Table~\ref{tab:supp-lineage-probabilitys}),
+which is remarkably consistent with the results of
+\citet{Chen2020-wh}. Since the IBD statistics from \citet{Chen2020-wh} are not
+used in the present analysis, this serves as an independent validation of the
+present models. More importantly, since the Neanderthal admixture in Africa is
+properly accounted for in the model, we do not expect the presence of such
+ancestry to bias our estimate of reticulation in Africa.
 
 \subsection{Relating model predictions to morphological variation}
 \label{sec:morpho_diff}
@@ -699,7 +757,86 @@ two stems based on $\Delta^2$ for contemporary humans.
 In this way, the predictions of our model can be related to morphological
 variation in the fossil record.
 
-\section{Validations using simulations from inferred demographic models}
+\section{Model validation}
+
+We took two approaches to validate demographic model inferences. First, we
+explored the effects of using alternative populations, sample sets, and
+recombination maps, and the effect of relaxing fixed parameters when fitting
+the demographic models to diversity and LD statistics. We then use simulations
+to test our inferred model predictions against other informative summary
+statistics. Results are shown in the Supplementary Results
+(Section~\ref{sec:supp-results}).
+
+\subsection{Validations using alternative data sets and model specification}
+
+\subsubsection{Alternate Thousand Genomes population sets}
+
+In our primary model fits, we used the Mende in Sierra Leone (MSL) and the
+British from England and Scotland (GBR). We tested the same models against a
+different West African population (the Yoruba from Ibidan, Nigeria, YRI), and
+two different European populations (Western Europeans from Utah, CEU, and
+Toscani in Italy, TSI). The CEU are closely related to GBR and are thus likely
+to be an equivalently close proxy for European ancestry in African individuals
+with admixed European ancestry. The TSI are likely more distantly related to
+the source of this European ancestry. We chose not to replace the GBR
+non-European Eurasian populations, as these would be poorer proxies for early
+Holocene and recent colonial migration from the Near East and Europe back to
+Africa, and it is unclear how such a model should be interpreted. We therefore
+refit each of our best-fit demographic models using the following alternate
+population sets: (Nama, YRI, Gumuz, Oromo/Amhara, and CEU), and (Nama, MSL,
+Gumuz, Oromo/Amhara, and TSI).
+
+\subsubsection{Variable thresholds of Nama-associated ancestry}
+
+The Nama have recent European ancestry, and Nama individuals in our dataset
+show varying levels of inferred ancestry relating to European populations
+(Figure~\ref{fig:diversity}D, in the main text). Each of our inferred models
+allows for gene flow from Eurasia to Africa after the out-of-Africa migration
+event, through early Holocene back-to-Africa migration in East Africa, recent
+colonial admixture in South Africa, and ongoing continuous migration between
+branches leading to East African and European populations. While our
+demographic models directly account for European ancestry in Nama individuals,
+inferred parameters relating to early divergences and population structure may
+be impacted by recent admixture.
+
+To assess the impact of recent European admixture in Nama individuals on
+inferred early divergence times and population structure, we subset the set of
+Nama individuals that we included based on inferred European-matching ancestry
+proportions. We used inferred ancestry proportions from \texttt{ADMIXTURE} with
+the number of clusters $K=4$ (Section~\ref{sec:dimred}) and kept individuals
+with either at least a) 90\% or b) 99\% proportion of inferred ancestry that
+clusters within the Nama group (colored green in Figure~\ref{fig:diversity}D).
+This left a) 18 Nama individuals with at least 90\% inferred South African
+ancestry, and b) 14 Nama individuals with at least 99\%. For each subset, we
+recomputed diversity and heterozygosity statistics and fit each of our
+demographic models to these statistics.
+
+\subsubsection{Varying fixed divergence times}
+\label{sec:change_dates}
+In order to reduce parameter space to avoid overfitting, we fixed parameters
+that have previously been inferred, including the timings of the early
+back-to-Africa migration contributing to the ancestry of East African
+agricultural populations (12ka), the divergence of West and East Africans
+(60ka), and the out-of-Africa migration event (50ka). Due to variability in
+inference and dating methods, there is some uncertainty surrounding these
+dates. We explored how variable timings of these events effect our inferred
+models by 1) increasing the fixed times of the E-W African split (to 100ka) and
+the out-of-Africa event (to 60ka), and 2) allowing those two parameters to be
+jointly fit in model optimization.
+
+\subsubsection{Recombination map inferred from Nama}
+
+Throughout, we used inferred recombination maps based on the YRI OMNI array
+data \citep{1000_Genomes_Project_Consortium2015-zq}. Because recombination
+rates can vary between populations, we tested the robustness of our demographic
+inference to the recombination map used to compute LD. We recomputed diversity
+and LD statistics using recombination rates from the Nama recombination map
+\citep{Van_Eeden2021-od}, and refit our best-fit demographic models to these
+statistics.
+
+\subsubsection{\aprcomment{TODO:} High-coverage Nama samples}
+
+\subsection{Validations using simulations from inferred demographic models}
 
 Here we focus on four parameterizations of early human history: (1) a “single
 origin” with recent expansion, (2) primary and second stem populations with
@@ -721,11 +858,11 @@ aspects of the data that have been used in other studies as evidence of
 population structure or archaic hominin admixture from an unidentified hominin species
 within Africa.
 
-\subsection{Simulation details}
+\subsubsection{Simulation details}
 
 The four inferred demographic models (single origin, continuous migration,
 merger without stem migration, and merger with stem migration) were converted
-to \demes format (Gower, Ragsdale, \emph{et al.}, in prep) and used as
+to \demes format \citep{Gower2022-yn} and used as
 the input demography for \msprime simulations. We sampled the same
 number of individuals from each population as used in the inference (Nama: 44,
 Mende: 85, Gumuz: 23, combined Oromo/Amhara: 46, British: 91, and Vindija
@@ -739,7 +876,7 @@ rate trajectories and distributions of deep branches passing through the
 Neanderthal branch. Each analysis followed the same procedure as described
 above in the analysis of the real data.
 
-\subsection{cSFS prediction under inferred models}
+\subsubsection{cSFS prediction under inferred models}
 
 We compared the observed cSFS to model predictions for the Nama, Mende, and
 Gumuz populations. The cSFS from data is sensitive to ancestral allele
@@ -760,7 +897,133 @@ projecting the sample size to $(n, 1)$ and taking $cSFS=SFS(:,1)$. $\theta$ and
 $p_{misid}$ were chosen to maximize a likelihood assuming that each observed
 entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
 
-\section{Supplementary results}
+\section{Supplementary results}\label{sec:supp-results}
+
+\subsection{Model fit using alternative datasets}
+\label{sec:supp-alt-data}
+
+All supplementary inference results are provided in Demes format
+\citep{Gower2022-yn} as a supplemental zipped archive.
+
+\subsubsection{Replacing Thousand Genomes populations}
+
+We replaced the Mende (MSL) and British (GBR) population sets with Yoruba (YRI)
+and Western and Northern Europeans (CEU), respectively, and refit our inferred
+demographic models to diversity and LD statistics computed from those
+populations (along with Nama, Oromo/Amhara, and Gumuz). Because the MSL and YRI
+share recent West African ancestry, and the GBR and CEU share recent European
+ancestry, we expected most parameters in inferred models using these two
+datasets to be largely similar. Indeed, all parameters inferred using the YRI
+and CEU data were well within one standard error of the same parameters
+inferred using the MSL and GBR data, across all tested models. The one
+exception to this was the recent size of the YRI branch, inferred to be
+somewhat smaller than the final size of the analogous MSL branch ($\approx
+20,000$ vs. $\approx 30,000$, resp.). Other population sizes, migration rates,
+and divergence times were highly consistent.
+
+Because CEU and GBR are genetically closely related, we also tested the
+consistency of inferred parameters when replacing GBR with Toscani from Italy,
+a more distantly related European population set than GBR. Most parameters in
+each of the tested models were consistent with parameters inferred using GBR.
+The only large difference was found in fitting the continuous migration model,
+Nama divergence was $\approx200$ka, rather than $135$ka. Migration rates during
+this early period of the model also shifted to larger values between the stem
+populations, demonstrating that divergence times and migration rates are
+confounded parameters in this model. Notably, the multiple merger model (which
+provides a better fit to the data) was inferred to have consistent divergence
+and merger times between the models fit using GBR and TSI, with ancestral
+populations ``reshuffling'' between 100 and 120ka.
+
+\subsubsection{Fit to LD statistics from Nama recombination map}
+
+The LD statistics computed using the OMNI YRI recombination map and the
+Nama-specific recombination map were very similar, with only a handful of
+statistics showing slight visible differences
+(Figure~\ref{fig:supp-omni-nama-comparison}). We therefore expected inferred
+demographic models to be highly consistent when fit to the two sets of
+statistics. Across each of our models, inferred parameters from fits using data
+from the Nama-specific map were unchanged, with best-fit values all within one
+estimated standard error from the inferred parameters from the OMNI YRI map.
+
+Among human populations, the Nama are relatively highly diverged from the
+sampled populations used in estimating the OMNI recombination maps (such as the
+YRI), and the two recombination maps were inferred using different
+computational methods from different types of sequencing data (arrays vs. whole
+genomes). Therefore, differences between these two maps are likely near the
+upper bound for differences in recombination rates between present-day human
+populations \citep{Van_Eeden2021-od}. Because our fits were highly consistent
+when using the two recombination maps, we conclude that inferences using the
+diversity and LD statistics here are robust to variation in recombination rates
+between present-day populations as well as to any differences in inferred
+recombination rates due to true recombination rate differences or typical
+statistical error in recombination rate estimation.
+
+\subsubsection{Varying Nama ancestry-proportion thresholds}
+
+In the demographic inference results presented in the main text, we did not
+impose a minimum threshold on inferred Nama ancestry (as estimated using
+AMDIXTURE). Because our proposed models allow for post-divergence gene flow as
+well as recent admixture events, we can jointly learn deeper history and recent
+admixture dynamics. This is in contrast to methods that do not account for
+ongoing migration or recent admixture events, for which un-admixed genomes (if
+they even exist) are needed for unbiased estimates of earlier history.
+Although the methods used in this paper (\texttt{moments-LD}) are able to infer
+early and recent history jointly, we tested the robustness of the inferred
+early history to varying ancestry proportions in the Nama population. To do
+this, we used ADMIXTURE to cluster inferred ancestry components, noting that
+ADMIXTURE-inferred ancestries are coarse and can be misleading about true
+underlying admixture proportions. Nonetheless, we included Nama individuals
+that exceeded either 90\% ro 99\% ancestry primarily shared among Nama
+individuals.
+
+For both thresholds, early history was robust in all tested models. Divergence
+times and migration rates did not vary significantly from the original fits
+that included all unrelated Nama individuals. The primary differences between
+these fits and the original fits that did not impose an ancestry threshold were
+the inferred admixture proportions of East African agriculturalists (2ka) and
+Europeans (10 generations ago) in the Nama population. The East African
+admixture proportion was reduced from $\approx 25\%$ to $20-22\%$, while the
+European admixture proportion was reduced from $\approx 15\%$ to either $5-6\%$
+(with a $90\%$ ancestry cutoff) or $3-5\%$ (with a $99\%$ ancestry cutoff). No
+other parameters were strongly affected by subsetting the Nama individuals by
+ADMIXTURE-inferred ancestry proportions. Because only the inferred proportions
+of recent admixture in our model fits changed, we conclude that our inferences
+of early history are robust to recent admixture, as long as that recent
+admixture is accounted for in the demographic models.
+
+\subsection{Relaxed inference of divergence times}
+\label{sec:change-dates}
+
+In the primary results presented in the main text
+(Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
+we fixed a number of parameters that have been previously inferred or are well
+constrained by historical records (Section~\ref{sec:models}), including the
+Eurasian out-of-Africa expansion at 50ka and the divergence of Western and
+Eastern African groups at 60ka. To evaluate the effects of these choices on the
+inference of other parameters in the model, we first fixed those modeled
+divergence times to 60ka (for the out-of-Africa expansion) and 100ka (for the
+E/W African divergence). In the next section, we allow those parameters to be
+fit along with all other model parameters.
+
+By fixing those divergence times to older dates, the inferred models preferred
+older dates for the other free divergence time parameters. These dates were
+stretched by a similar proportion that our fixed parameters were shifted, so
+that the Nama divergence time was inferred to be $\approx150$ka, rather than
+$\approx130$ka. Notably, older divergence times resulted in models with worse
+likelihoods than our primary presented results. Overall, these inferred models
+have a similar interpretation to the primary inference results, and the deep
+population structure was unaffected by these choices.
+
+When we allowed the out-of-Africa expansion and Eastern/Western African
+divergence times to be jointly fit in model optimization, we found that the
+best-fit inferred E/W divergence time and the OOA expansion were more recent
+(35--40ka, 45--55ka, resp.). The remainder of the parameters were largely
+unaffected by these shifts to more recent divergence times, and our
+interpretation of the inferred early history remains unchanged. The $95\%$
+confidence intervals around these parameters were relatively narrow ($\approx
+5$ka for the OOA split, $\approx 10$ka for the East/West African split),
+although this uncertainty does not capture uncertainty due to model
+mis-specification (as discussed in Section~\ref{sec:models}).
 
 \subsection{Alternative statistics for four models}
 
@@ -783,7 +1046,7 @@ relative to transversions as expected, qualitatively, from the higher
 transition mutation rate \citep{Hernandez2007-mf}.
 
 \subsubsection{Relate curves from inferred models}
-
+\label{inferred_relate}
 We used \Relate \citep{Speidel2019-nj} to reconstruct gene genealogies from the
 simulations under our four inferred demographic models. From each of these,
 following the same approach as for the analysis of the actual data, we computed
@@ -1235,7 +1498,8 @@ and $\sim$50--130ka under the clean split model.
     \centering
     \includegraphics{figures/supp-omni-hapmap-comparison.pdf}
     \caption{
-        \textbf{Comparison of LD statistics parsed using two recombination maps.}
+        \textbf{Comparison of LD statistics parsed using two array-based
+        recombination maps.}
         The recombination map determines genetic distances between pairs of SNPs,
         so using different maps could result in systematic biases in parsed
         statistics if the maps differ significantly. Here, the solid lines are
@@ -1247,6 +1511,28 @@ and $\sim$50--130ka under the clean split model.
         (0: Nama, 1: Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
     }
     \label{fig:supp-omni-hapmap-comparison}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-omni-nama-comparison.pdf}
+    \caption{
+        \textbf{Comparison of LD statistics parsed using OMNI YRI and
+        Nama-specific recombination map.}
+        The OMNI YRI recombination map and the Nama-inferred map
+        \citep{Van_Eeden2021-od} differ in two primary ways: 1) the YRI and
+        Nama have relatively highly diverged ancestries, and 2) the YRI
+        map was inferred from low-density array data, while the Nama map
+        was inferred from whole-genome sequencing data.
+        Nonetheless, LD statistics computed under recombination rates from
+        the two maps remain largely concordant, and inferences are
+        unaffected by recombination map choice (Section~\ref{sec:supp-results}).
+        Shading represents 95\% confidence intervals from the Nama-inferred
+        map. Notations for each statistic are described in
+        section~\ref{sec:supp-ld-stats}, and indexes represent populations
+        (0: Nama, 1: Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
+    }
+    \label{fig:supp-omni-nama-comparison}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1692,7 +1978,7 @@ and $\sim$50--130ka under the clean split model.
         model.} We simulated 10 diploid individuals under the four highlighted
         models (Sec.~\ref{sec:IM-reinfer}). Using the joint-SFS, we reinferred
         a simpler isolation-with-migration (IM) model for pairs of populations
-        including the Nama to explore the effect of model misspecification on
+        including the Nama to explore the effect of model mis-specification on
         the earliest inferred divergence times between Khoe-San and other
         populations. We simulated data with Nama individuals sampled at present
         ($t=0$) as well as Nama individuals sampled 2,500 years ago, prior to
