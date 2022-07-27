@@ -415,50 +415,48 @@ ultimately inferred were 21-31, depending on the complexity
 of the model.
 
 In our preliminary models, the unconstrained inferred split times between East
-African populations and Europeans was inferred to have occurred around $40$ka,
-which is more recent than we may have expected given the well-documented
-presence of modern humans outside of Africa at that time \citep{}, as well as
-previous genetics-based dating of splits between African and Eurasian
-populations \citep{}. The unconstrained inferred split between East and West
-African populations occurred about $10$ka earlier
-These recent split dates seems to be at odds with archaelogical evidence for earlier
- Out-of-Africa (OOA) expansion, and with the estimated date for Neanderthal admixture
- into OOA populations. The parameter uncertainty due to finite genomes
- does not account for this difference:  in the high-likelihood models, the $95\%$ confidence 
- intervals for the east African-European split was roughly $38 \pm 5$ka, 
- and for the East/West African split was $45 \pm 10$ka, with the uncertainties 
- reflecting 2 standard deviations according to bootstrap of genomic regions.  
-Thus we expect these discrepancies to result for model misspecification in the 
-details of the divergence between the ancestors of OOA and east African 
-populations. Our models supposes a
-single split prior to the OOA event followed by constant symmetric migrations 
-between eastern and OOA populations.
-which is certainly an oversimplification \citep{}. 
+African populations and Europeans was inferred to have occurred by around
+$40$ka, which is more recent than we may have expected given the
+well-documented presence of modern humans outside of Africa at that time
+\citep[e.g.]{Hublin2020-nk,Hajdinjak2021-jo}, as well as previous
+genetics-based dating of splits between African and Eurasian populations
+\citep[e.g.]{Jouganous2017-pq,Kamm2020-vn}. The unconstrained inferred split
+between East and West African populations occurred about $10$ka earlier. These
+recent split dates seems to be at odds with archaeological evidence for earlier
+Out-of-Africa (OOA) expansion, and with the estimated date for Neanderthal
+admixture into OOA populations. The parameter uncertainty due to finite genomes
+does not account for this difference: in the high-likelihood models, the $95\%$
+confidence intervals for the East African-European split was roughly $38 \pm
+5$ka, and for the East/West African split was $45 \pm 10$ka, with the
+uncertainties reflecting 2 standard deviations according to bootstrap of
+genomic regions.  Thus we expect these discrepancies to result from model
+misspecification in the details of the divergence between the ancestors of OOA
+and east African populations. Our models supposes a single split prior to the
+OOA event followed by constant symmetric migrations between eastern and OOA
+populations, which is certainly an oversimplification. 
 
-Since a detailed model for the Out of Africa and Back-to-Africa was not our main focus, 
-we chose to keep this simplified model, but fix the split between east African-European 
-split at $50ka.$ This allowed us to include Neanderthal admixture into the OOA 
-population at the previously-estimated $45ka$. Fixing this parameter pushed back the 
-estimated value for the split between the ancestors of east and West African populations at around 
-$60ka$, a value that we took as fixed in most subsequent analyses. 
-
+Since a detailed model for the Out of Africa and Back-to-Africa was not our
+main focus, we chose to keep this simplified model, but fix the split between
+east African-European split at $50$ka. This allowed us to include Neanderthal
+admixture into the OOA population at the previously-estimated $45$ka. Fixing
+this parameter pushed back the estimated value for the split between the
+ancestors of East and West African populations at around $60$ka, a value that
+we took as fixed in most subsequent analyses. 
 We discuss the sensitivity of our model to these assumptions in Section
 \ref{sec:change-dates}.
 
-\sgcomment{I feel like we should improve the discussion of relationship with previous estimates below, or remove.}
-
-In addition to archaeological evidence, previous genetic dating suggested 
-earlier dates for a split between European and African populations. Most of 
-these results focused on populations of recent West African ancestry. 
-
-Additionally, most previous
-estimates of the time of the OOA expansion compared Eurasian and West African
-populations. Our inferred time of the East/West African divergence aligns with
-previous estimates of the OOA event at $\approx 60$ka (themselves inferred from
-oversimplified demographic models). 
-
-%We discuss the sensitivity of our model to these assumptions in Section
-%\ref{sec:change-dates}.
+%\sgcomment{I feel like we should improve the discussion of relationship
+%with previous estimates below, or remove.}
+%
+%In addition to archaeological evidence, previous genetic dating suggested 
+%earlier dates for a split between European and African populations. Most of 
+%these results focused on populations of recent West African ancestry. 
+%
+%Additionally, most previous
+%estimates of the time of the OOA expansion compared Eurasian and West African
+%populations. Our inferred time of the East/West African divergence aligns with
+%previous estimates of the OOA event at $\approx 60$ka (themselves inferred from
+%oversimplified demographic models). 
 
 \subsection{Optimization using \moments}
 
@@ -852,8 +850,6 @@ and LD statistics using recombination rates from the Nama recombination map
 \citep{Van_Eeden2021-od}, and refit our best-fit demographic models to these
 statistics.
 
-\subsubsection{\aprcomment{TODO:} High-coverage Nama samples}
-
 \subsection{Validations using simulations from inferred demographic models}
 
 Here we focus on four parameterizations of early human history: (1) a “single
@@ -921,7 +917,9 @@ entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
 \label{sec:supp-alt-data}
 
 All supplementary inference results are provided in Demes format
-\citep{Gower2022-yn} as a supplemental zipped archive.
+\citep{Gower2022-yn} as a supplemental zipped archive. For each scenario,
+we refit the continuous migration and multiple merger models, with
+stem migration.
 
 \subsubsection{Replacing Thousand Genomes populations}
 
