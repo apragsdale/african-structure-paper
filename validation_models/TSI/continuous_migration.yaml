@@ -1,0 +1,104 @@
+description: Best fit continuous-migration model, replacing the British with the
+  Toscani from the Thousand Genomes data.
+time_units: years
+generation_time: 29
+demes:
+- name: anc
+  description: Ancestral population
+  epochs:
+  - {end_time: 1263214.6851668009, start_size: 8054.6600486100315}
+- name: stem1
+  description: Primary stem
+  ancestors: [anc]
+  epochs:
+  - {end_time: 550000, start_size: 8054.6600486100315}
+  - {end_time: 203559.52534244358, start_size: 6594.09795450403}
+- name: stem2
+  description: Secondary stem
+  ancestors: [anc]
+  epochs:
+  - {end_time: 5000, start_size: 13522.529788123411}
+- name: Vindija
+  description: Neanderthal lineage leading to Vindija sample
+  start_time: 550000
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 50000, start_size: 2206.912155539923}
+- name: NI
+  description: Introgressing Neanderthal lineage
+  start_time: 80000
+  ancestors: [Vindija]
+  epochs:
+  - {end_time: 45000, start_size: 2206.912155539923}
+- name: Nama
+  description: Branch leading to Nama
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 261, start_size: 12444.538375092312}
+  - {end_time: 0, start_size: 205.23704079097297}
+- name: Gumuz
+  description: E. African branch leading to Gumuz
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 5000, start_size: 6959.921029103522}
+  - {end_time: 0, start_size: 3787.8389200513125}
+- name: MSL
+  description: W. African branch leading to Yoruba
+  start_time: 60000
+  ancestors: [Gumuz]
+  epochs:
+  - {end_time: 5000, start_size: 9023.108889510004}
+  - {end_time: 0, start_size: 34600.51463711798}
+- name: TSI
+  description: Eurasian branch leading to TSI
+  start_time: 50000
+  ancestors: [Gumuz]
+  epochs:
+  - {end_time: 0, start_size: 843.247053851583, end_size: 20772.633506154307}
+- name: EP
+  description: Admixed E. African agriculturalist branch
+  start_time: 12000
+  ancestors: [Gumuz, TSI]
+  proportions: [0.34146670632894444, 0.6585332936710555]
+  epochs:
+  - {end_time: 0, start_size: 15066.546916311583}
+migrations:
+- demes: [stem1, stem2]
+  rate: 4.49151770765569e-05
+- demes: [stem2, Nama]
+  rate: 7.59756378402279e-05
+- demes: [stem2, MSL]
+  rate: 0.0002738672953957302
+- demes: [stem2, Gumuz]
+  rate: 5.8499170636679804e-05
+- demes: [stem2, EP]
+  rate: 5.8499170636679804e-05
+- demes: [Nama, MSL]
+  rate: 7.525748999024784e-06
+- demes: [Nama, Gumuz]
+  rate: 4.55063037765856e-05
+- demes: [Nama, EP]
+  rate: 4.55063037765856e-05
+- demes: [MSL, Gumuz]
+  rate: 0.0002136173510070054
+- demes: [MSL, EP]
+  rate: 0.0002136173510070054
+- demes: [Gumuz, TSI]
+  rate: 4.168345063661532e-05
+- demes: [TSI, EP]
+  rate: 4.168345063661532e-05
+- demes: [Gumuz, EP]
+  rate: 0.00032718712569761236
+pulses:
+- sources: [NI]
+  dest: TSI
+  time: 45000
+  proportions: [0.015]
+- sources: [EP]
+  dest: Nama
+  time: 2000
+  proportions: [0.2734112546434925]
+- sources: [TSI]
+  dest: Nama
+  time: 290
+  proportions: [0.15305335325099798]

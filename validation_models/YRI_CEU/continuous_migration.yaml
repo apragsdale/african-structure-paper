@@ -1,0 +1,104 @@
+description: Best fit continuous-migration model, replacing the Mende with the Yoruba,
+  and the British with the CEU from the Thousand Genomes data.
+time_units: years
+generation_time: 29
+demes:
+- name: anc
+  description: Ancestral population
+  epochs:
+  - {end_time: 1223696.7925448013, start_size: 7879.02378658472}
+- name: stem1
+  description: Primary stem
+  ancestors: [anc]
+  epochs:
+  - {end_time: 550000, start_size: 7879.02378658472}
+  - {end_time: 145455.3628789113, start_size: 8099.362626887929}
+- name: stem2
+  description: Secondary stem
+  ancestors: [anc]
+  epochs:
+  - {end_time: 5000, start_size: 13227.827319440015}
+- name: Vindija
+  description: Neanderthal lineage leading to Vindija sample
+  start_time: 550000
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 50000, start_size: 2859.6876248272833}
+- name: NI
+  description: Introgressing Neanderthal lineage
+  start_time: 80000
+  ancestors: [Vindija]
+  epochs:
+  - {end_time: 45000, start_size: 2859.6876248272833}
+- name: Nama
+  description: Branch leading to Nama
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 261, start_size: 11183.504610906248}
+  - {end_time: 0, start_size: 209.53892597676796}
+- name: Gumuz
+  description: E. African branch leading to Gumuz
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 5000, start_size: 7529.529029145674}
+  - {end_time: 0, start_size: 3596.6576395920806}
+- name: YRI
+  description: W. African branch leading to Yoruba
+  start_time: 60000
+  ancestors: [Gumuz]
+  epochs:
+  - {end_time: 5000, start_size: 8031.036936922034}
+  - {end_time: 0, start_size: 19157.278304194093}
+- name: CEU
+  description: Eurasian branch leading to CEU
+  start_time: 50000
+  ancestors: [Gumuz]
+  epochs:
+  - {end_time: 0, start_size: 940.8351341536954, end_size: 12854.273195831189}
+- name: EP
+  description: Admixed E. African agriculturalist branch
+  start_time: 12000
+  ancestors: [Gumuz, CEU]
+  proportions: [0.37062350111004316, 0.6293764988899568]
+  epochs:
+  - {end_time: 0, start_size: 13117.34374612281}
+migrations:
+- demes: [stem1, stem2]
+  rate: 5.828720056839554e-05
+- demes: [stem2, Nama]
+  rate: 7.325989355011793e-05
+- demes: [stem2, YRI]
+  rate: 0.0001600871227954646
+- demes: [stem2, Gumuz]
+  rate: 3.6494066008951994e-05
+- demes: [stem2, EP]
+  rate: 3.6494066008951994e-05
+- demes: [Nama, YRI]
+  rate: 9.98908631377135e-06
+- demes: [Nama, Gumuz]
+  rate: 4.103447714680876e-05
+- demes: [Nama, EP]
+  rate: 4.103447714680876e-05
+- demes: [YRI, Gumuz]
+  rate: 0.000255015682961699
+- demes: [YRI, EP]
+  rate: 0.000255015682961699
+- demes: [Gumuz, CEU]
+  rate: 4.4443629449569745e-05
+- demes: [CEU, EP]
+  rate: 4.4443629449569745e-05
+- demes: [Gumuz, EP]
+  rate: 0.00028358006540997807
+pulses:
+- sources: [NI]
+  dest: CEU
+  time: 45000
+  proportions: [0.015]
+- sources: [EP]
+  dest: Nama
+  time: 2000
+  proportions: [0.28770069614174226]
+- sources: [CEU]
+  dest: Nama
+  time: 290
+  proportions: [0.14611775557597353]

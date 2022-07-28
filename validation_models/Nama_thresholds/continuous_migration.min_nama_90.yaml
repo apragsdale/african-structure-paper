@@ -1,0 +1,105 @@
+description: Best fit continuous-migration model, including Nama individuals with
+  at least 90% of their genome clustering with other Nama individuals, as
+  estimated using ANCESTRY.
+time_units: years
+generation_time: 29
+demes:
+- name: anc
+  description: Ancestral population
+  epochs:
+  - {end_time: 1139397.6097949527, start_size: 7170.532490666197}
+- name: stem1
+  description: Primary stem
+  ancestors: [anc]
+  epochs:
+  - {end_time: 550000, start_size: 7170.532490666197}
+  - {end_time: 135307.8919806112, start_size: 7990.895678021641}
+- name: stem2
+  description: Secondary stem
+  ancestors: [anc]
+  epochs:
+  - {end_time: 5000, start_size: 14037.482320704963}
+- name: Vindija
+  description: Neanderthal lineage leading to Vindija sample
+  start_time: 550000
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 50000, start_size: 2807.155335928645}
+- name: NI
+  description: Introgressing Neanderthal lineage
+  start_time: 80000
+  ancestors: [Vindija]
+  epochs:
+  - {end_time: 45000, start_size: 2807.155335928645}
+- name: Nama
+  description: Branch leading to Nama
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 261, start_size: 12148.236754122712}
+  - {end_time: 0, start_size: 165.896552608977}
+- name: Gumuz
+  description: E. African branch leading to Gumuz
+  ancestors: [stem1]
+  epochs:
+  - {end_time: 5000, start_size: 7438.12801217977}
+  - {end_time: 0, start_size: 3754.2812405430777}
+- name: MSL
+  description: W. African branch leading to Mende
+  start_time: 60000
+  ancestors: [Gumuz]
+  epochs:
+  - {end_time: 5000, start_size: 9763.636195945239}
+  - {end_time: 0, start_size: 31695.513883152933}
+- name: GBR
+  description: Eurasian branch leading to British
+  start_time: 50000
+  ancestors: [Gumuz]
+  epochs:
+  - {end_time: 0, start_size: 1006.7029519135601, end_size: 11110.531250168264}
+- name: EP
+  description: Admixed E. African agriculturalist branch
+  start_time: 12000
+  ancestors: [Gumuz, GBR]
+  proportions: [0.34334759188068714, 0.6566524081193128]
+  epochs:
+  - {end_time: 0, start_size: 13297.397588516667}
+migrations:
+- demes: [stem1, stem2]
+  rate: 6.261315760599797e-05
+- demes: [stem2, Nama]
+  rate: 5.727833199850792e-05
+- demes: [stem2, MSL]
+  rate: 0.000154016584220273
+- demes: [stem2, Gumuz]
+  rate: 3.2511787104357136e-05
+- demes: [stem2, EP]
+  rate: 3.2511787104357136e-05
+- demes: [Nama, MSL]
+  rate: 9.169071426014146e-06
+- demes: [Nama, Gumuz]
+  rate: 3.6975935507781e-05
+- demes: [Nama, EP]
+  rate: 3.6975935507781e-05
+- demes: [MSL, Gumuz]
+  rate: 0.00021168570723377524
+- demes: [MSL, EP]
+  rate: 0.00021168570723377524
+- demes: [Gumuz, GBR]
+  rate: 3.562627195838835e-05
+- demes: [GBR, EP]
+  rate: 3.562627195838835e-05
+- demes: [Gumuz, EP]
+  rate: 0.00036535348872917975
+pulses:
+- sources: [NI]
+  dest: GBR
+  time: 45000
+  proportions: [0.015]
+- sources: [EP]
+  dest: Nama
+  time: 2000
+  proportions: [0.22168141005272504]
+- sources: [GBR]
+  dest: Nama
+  time: 290
+  proportions: [0.053505858879455845]
