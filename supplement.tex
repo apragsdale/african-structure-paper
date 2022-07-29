@@ -57,7 +57,7 @@
 \small
 \tableofcontents
 \normalsize
-\newpage
+%\newpage
 
 \section{Data and sequencing}
 
@@ -130,9 +130,32 @@ ancestry); and Europe: British (GBR). These were combined with the
 high-coverage Vindija Neanderthal genome \citep{Prufer2017-kk}, resulting in 290
 total samples used in demographic inference.
 
-\aprcomment{TODO: expand this section to include further discussion about why
-we chose each population, and why we have omitted some (such as those suggested
-in the reviews).}
+The number of publicly available whole-genome sequenced individuals from a
+diverse set of African groups has grown in recent years
+\citep[e.g.,][]{Mallick2016-lx,Bergstrom2020-cy,Schlebusch2020-zo}. Our choice
+of populations was motivated by both technical and study design considerations.
+First, while the diversity and linkage disequilibrium statistics used in our
+inferences are robust to low coverage sequencing data \citep{Ragsdale2019-nt},
+we wanted to have at least 20 individuals per population to increase accuracy
+in statistical measurements by reducing the variance due to small sample sizes
+\citep{Ragsdale2020-nz}. Second, merging of datasets post-variant calling can
+introduce biases in demographic inference due to batch effects. We therefore
+wanted to be able to perform joint calling in all of our samples. Together,
+these considerations make the jointly called Thousand Genomes and ADRP dataset
+best-suited for our demographic inference.
+
+From a study design perspective, our choice of populations aimed to improve our
+understanding of early human demography in Africa. The Nama derive ancestry
+from a relatively deeply diverged population branch, and thus their demographic
+history is of unique interest. Given previous archaeological and genetic
+evidence, we expected that a minimal model for the Nama must include
+pastoralist East African groups that contributed to the Nama
+\citep[e.g.,][]{Uren2016-nn}, as well as recent European admixture, each of
+which are represented in our jointly called dataset. Finally, because previous
+studies have suggested a role for ``ghost'' archaic admixture or deep structure
+in West African populations \citep[e.g.,][]{Speidel2019-nj,Durvasula2020-td},
+and because these same sample sets are included in our dataset, we chose to
+also include representatives of West African ancestry.
 
 \subsection{Filtering and subsetting data}
 
