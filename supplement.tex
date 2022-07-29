@@ -139,10 +139,11 @@ inferences are robust to low coverage sequencing data \citep{Ragsdale2019-nt},
 we wanted to have at least 20 individuals per population to increase accuracy
 in statistical measurements by reducing the variance due to small sample sizes
 \citep{Ragsdale2020-nz}. Second, merging of datasets post-variant calling can
-introduce biases in demographic inference due to batch effects. We therefore
-wanted to be able to perform joint calling in all of our samples. Together,
-these considerations make the jointly called Thousand Genomes and ADRP dataset
-best-suited for our demographic inference.
+introduce biases in demographic inference due to batch effects (as demonstrated
+in Section~\ref{sec:merged-bias}). We therefore wanted to be able to perform
+joint calling in all of our samples. Together, these considerations make the
+jointly called Thousand Genomes and ADRP dataset best-suited for our
+demographic inference.
 
 From a study design perspective, our choice of populations aimed to improve our
 understanding of early human demography in Africa. The Nama derive ancestry
@@ -150,12 +151,15 @@ from a relatively deeply diverged population branch, and thus their demographic
 history is of unique interest. Given previous archaeological and genetic
 evidence, we expected that a minimal model for the Nama must include
 pastoralist East African groups that contributed to the Nama
-\citep[e.g.,][]{Uren2016-nn}, as well as recent European admixture, each of
-which are represented in our jointly called dataset. Finally, because previous
-studies have suggested a role for ``ghost'' archaic admixture or deep structure
-in West African populations \citep[e.g.,][]{Speidel2019-nj,Durvasula2020-td},
-and because these same sample sets are included in our dataset, we chose to
-also include representatives of West African ancestry.
+\citep[e.g.,][]{Uren2016-nn}, as well as European colonial admixture.  The
+inclusion of three Ethiopian populations here represent some uncertainty in the
+possible source population for the pastoralist contribution to the Nama, and
+the Amhara and Oromo also have substantive ``back-to-Africa'' ancestry. The
+Gumuz serve as a representative of southwest Ethipian ancestry that pre-dates
+the Holocene back-to-Africa migration. Finally, because previous studies have
+suggested a role for ``ghost'' archaic admixture or deep structure in West
+African populations \citep[e.g.,][]{Speidel2019-nj,Durvasula2020-td}, we chose
+to also include representatives of West African ancestry.
 
 \subsection{Filtering and subsetting data}
 
@@ -327,15 +331,21 @@ predictions are discussed in the model prediction section below.
 
 \section{Model specification and fitting}
 \label{modelspec}
+
 For the early history, we tested model parameterizations that cover many of the
 proposed scenarios of population structure, size changes, and/or archaic
 hominin admixture. The simplest model, in terms of number of parameters, was a
-single-origin expansion of humans, with no structure in the stem and no
-archaic hominin admixture aside from the Neanderthal admixture in Eurasian populations
+single-origin expansion of humans, with no structure in the stem and no archaic
+hominin admixture aside from the Neanderthal admixture in Eurasian populations
 following the out-of-Africa migration. This model allowed for a population size
 change in the stem of humans between the ancestral split of the
 human-Neanderthal lineages and the more recent split of branches leading to
-southern and western/eastern African populations.
+southern and western/eastern African populations. The recent expansion and the
+African multi-regional models (Figure~\ref{fig:proposed-models}A and D) have
+the same topology, so interpretation of the model depends on the specified or
+inferred divergence times. Thus, because model optimization explores a wide
+range of parameter values, we account for both scenarios with this
+parameterization.
 
 To include population structure in early human history, we considered multiple
 parameterizations of models that allowed more than a single stem population. In
@@ -482,6 +492,7 @@ We discuss the sensitivity of our model to these assumptions in Section
 %oversimplified demographic models). 
 
 \subsection{Optimization using \moments}
+\label{sec:optimization}
 
 \texttt{moments-LD} uses a composite likelihood approach to simultaneously fit relative
 pairwise diversity and LD statistics over a range of recombination distances.
@@ -1202,13 +1213,86 @@ can be inversely confounded in SFS inference, fixing migration rates to zero
 results in more recent inferred $T$ (Fig.~\ref{fig:supp-IM-misspecification}).
 Even though each of our four models inferred divergences of all human
 populations $\sim$120ka, ancient structure and size changes in the simulations
-biases re-inferences and gives inflated estimates of $T$.
-Such an effect has been shown to occur when the ancestral
-population size increases prior to the population split
-\citep{Momigliano2021-th}, which is the case in our inferred single-origin model.
-Re-inferred $T$ between the Nama and other populations were $>$200ka under the IM model,
-and $\sim$50--130ka under the clean split model.
+biases re-inferences and gives inflated estimates of $T$. Such an effect has
+been shown to occur when the ancestral population size increases prior to the
+population split \citep{Momigliano2021-th}, which is the case in our inferred
+single-origin model. Re-inferred $T$ between the Nama and other populations
+were $>$200ka under the IM model, and $\sim$50--130ka under the clean split
+model.
 
+\subsection{Batch effects from merged data biases inference}\label{sec:merged-bias}
+
+Merging samples from multiple independently called datasets can cause
+systematic biases in computed diversity statistics (i.e., batch effects). In
+order to explore the severity of batch effects on the LD statistics used in our
+inferences, we took advantage of multiple independently sequenced and called
+datasets using the same individuals from the Thousand Genomes project. We used
+the phase 3 low coverage \citet{1000_Genomes_Project_Consortium2015-zq} data
+and the high coverage resequenced data of the same individuals
+\citep{Byrska-Bishop2021-jl} to 1) verify that computed diversity statistics
+and inferences are robust to low coverage data, and 2) demonstrate that merging
+data without joint variant calling can lead to substantial biases in inferred
+demographic parameters. We analyzed two populations, the Mende (MSL) and
+British (GBR), and considered a two-population isolation-with-migration model.
+
+We computed four sets of diversity and LD statistics, one set of statistics
+from the jointly called high coverage data, one from the jointly called low
+coverage data, and one each from merged high and low coverage (MSL high
+coverage and GBR low coverage; and GBR high coverage and MSL low coverage).
+Using the measurement variances from each two-locus statistic in the high
+coverage data, we estimated measurement error of the other three sets of
+statistics (low/low, low/high, and high/low) against the high coverage data.
+The jointly called low coverage data provided statistics that closely matched
+the high coverage statistics, with each statistic within 1--2 standard errors.
+On the other hand, both the merged datasets provided statistics that deviated
+from the jointly called data, particularly for the cross-population statistics
+(Figure~\ref{fig:supp-merged-data-SEs}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=5in]{figures/supp-SE-merged-data}
+    \caption{
+        \textbf{Average error of statistics from low coverage and merged datasets.}
+        Low coverage data provides consistent allelic diversity and linkage
+        disequilibrium measures to high coverage data. On the other hand,
+        merging separately called datasets can lead to large discrepancies
+        in computed LD statistics.
+    }
+    \label{fig:supp-merged-data-SEs}
+\end{figure}
+
+With the observation that the low and high coverage data provided broadly
+consistent statistics while the merged data provided inconsistent statistics,
+we next wanted to assess whether their differences affect model inference. To
+do this, we fit a two-population demographic model to the diversity and LD
+statistics as described in Section~\ref{sec:optimization}. The modest
+differences between the low and high coverage did not result in noticeable
+differences in the optimized model (with an MSL-GBR inferred divergence time of
+60ka, consistent with previous genomics studies). On the other hand, both
+merged datasets provided substantially inconsistent fits, both to the high and
+low coverage data and to each other. Notably, the inferred divergence time is
+significantly older, due to the overestimation of mutational differences
+between populations due to batch effects.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics{figures/supp-merged-data-model-fits}
+    \caption{
+        \textbf{Merged datasets bias demographic inferences.}
+        While statistics from low and high coverage datasets provide consistent
+        best-fit demographic models, merged datasets result in biased LD
+        statistics (Figure~\ref{fig:supp-merged-data-SEs}). These biased LD
+        statistics lead to large downstream biases in inferred demographic
+        models.
+    }
+    \label{fig:supp-merged-data-fits}
+\end{figure}
+
+More careful post-merging quality control may alleviate some of these
+discrepancies. However, low coverage data provides a consistent model fit to
+the high coverage data. Therefore, it is preferable to favor jointly called low
+coverage data over a mix of high coverage but separately called data, at least
+when using the diversity and LD statistics that we have in our analyses.
 
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{genetics}
