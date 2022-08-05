@@ -43,7 +43,7 @@ demes:
   - {end_time: 5000, start_size: 6959.921029103522}
   - {end_time: 0, start_size: 3787.8389200513125}
 - name: MSL
-  description: W. African branch leading to Yoruba
+  description: W. African branch leading to Mende
   start_time: 60000
   ancestors: [Gumuz]
   epochs:
