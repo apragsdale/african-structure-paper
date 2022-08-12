@@ -18,7 +18,13 @@
 \usepackage{bm}
 \usepackage{xspace}
 
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+
+
 \lstset{language=Python}
+
 
 % cross-reference with main text
 \usepackage{xr}
@@ -830,7 +836,7 @@ Toscani in Italy, TSI). The CEU are closely related to GBR and are thus likely
 to be an equivalently close proxy for European ancestry in African individuals
 with admixed European ancestry. The TSI are likely more distantly related to
 the source of this European ancestry. We chose not to replace the GBR
-non-European Eurasian populations, as these would be poorer proxies for early
+by non-European Eurasian populations, as these would be poorer proxies for early
 Holocene and recent colonial migration from the Near East and Europe back to
 Africa, and it is unclear how such a model should be interpreted. We therefore
 refit each of our best-fit demographic models using the following alternate
@@ -977,30 +983,42 @@ consistency of inferred parameters when replacing GBR with Toscani from Italy,
 a more distantly related European population set than GBR. Most parameters in
 each of the tested models were consistent with parameters inferred using GBR.
 The only large difference was found in fitting the continuous migration model,
-Nama divergence was $\approx200$ka, rather than $135$ka. Migration rates during
+Nama divergence was $\approx200$ka, rather than $135$ka. 
+Our original model using the dataset with GBR
+underestimated both $\sigma_{Dz}$ and $\sigma_{\pi_2}$ compared to data
+(Figure~\ref{fig:supp-continuous-migration-fits}), and as a result provided a poorer 
+fit to the data than the multiple merger model. 
+When fitting this same model to the TSI, the model provided a better fit to the $\sigma_{Dz}$ statistics but
+a worse fit to the $\sigma_{\pi_2}$ statistics (and still provided a
+significantly worse fit to the data compared to the multiple merger model).
+Migration rates during
 this early period of the model also shifted to larger values between the stem
 populations, demonstrating that divergence times and migration rates are
-confounded parameters in this model. Notably, the multiple merger model (which
+confounded parameters in this model. 
+These differences in inferred parameters are likely driven by a combination of factors: the continuous
+migration model mis-specifies historical dynamics in the range of 100-200ka;
+the TSI are an inappropriate proxy for recent European admixture in East and
+South Africa; the TSI may also carry recent North African ancestry, which
+is not captured in our model. Finally, there is an amount of confounding between divergence time
+and migration rates. 
+
+By contrast, the multiple merger model (which
 provides a better fit to the data) was inferred to have consistent divergence
 and merger times between the models fit using GBR and TSI, with ancestral
 populations ``reshuffling'' between 100 and 120ka.
+
+
+
+
 
 Across all validations to alternative datasets described in this section, model
 fits were largely robust and matched those shown in the main text
 (Figure~\ref{fig:best-fit-models})---the single outlier in these validations
 was the continuous migration model fit to the dataset that included TSI instead
-of GBR. The continuous migration model did not provide the best log-likelihood
-among tested models, and our original model using the dataset with GBR
-underestimated both $\sigma_{Dz}$ and $\sigma_{\pi_2}$ compared to data
-(Figure~\ref{fig:supp-continuous-migration-fits}). In fitting this same model
-to the TSI, the model provided a better fit to the $\sigma_{Dz}$ statistics but
-a worse fit to the $\sigma_{\pi_2}$ statistics (and still provided a
-significantly worse fit to the data compared to the multiple merger model).
-These differences are likely driven by a combination of factors: the continuous
-migration model mis-specifies historical dynamics in the range of 100-200ka;
-the TSI are an inappropriate proxy for recent European admixture in East and
-South Africa; and the TSI may also carry recent North African ancestry, which
-is not captured in our model. Together, this highlights the sensitivity of
+of GBR. We conclude that while there remain important issues 
+
+
+Together, this highlights the sensitivity of
 complex demographic inference to the choices of populations to include, as well
 as to choices of model specification.
 \aprcomment{not sure about these last two sentences}
@@ -1247,9 +1265,11 @@ B) clean split 200ka, C) population growth at 200ka followed by split 100ka,
 D) split 200ka followed by migration until 100ka, and E) split 200ka followed by 
 merger 105ka and a new split 100ka. 
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=5in]{figures/supp-toy-models}
+\begin{figure}
+
+    \includegraphics{figures/toy_models/toy_model_combo}
+
+
     \caption{The impact of model specification on coalescence rate and inference.
     We show five simplified demographic models that differ in demographic events, 
     occurring between 200ka and 100ka, that mark the transition between a single 
@@ -1262,7 +1282,10 @@ same daughter population, the right column shows instantaneous coalescence rates
 pairs of lineages coming from distinct populations.  
         \label{fig:toymodels}
     }
+
     \end{figure}
+    
+    
 
 
 
