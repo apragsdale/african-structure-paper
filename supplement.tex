@@ -167,7 +167,7 @@ suggested a role for ``ghost'' archaic admixture or deep structure in West
 African populations \citep[e.g.,][]{Speidel2019-nj,Durvasula2020-td}, we chose
 to also include representatives of West African ancestry.
 
-\subsection{Filtering and subsetting data}
+\subsection{Filtering and subsetting data}\label{sec:filtering}
 
 All analyses presented in this work focus on biallelic single nucleotide
 polymorphisms within the 1000 Genomes Phase 3 strict mask.  For the
@@ -268,7 +268,7 @@ recombination distances. We assessed the robustness of the statistics to errors
 in the recombination maps by considering three different recombination maps,
 the OMNI YRI and HapMapII
 \citep{1000_Genomes_Project_Consortium2015-zq,International_HapMap_Consortium2007-vn},
-and a recombination map inferred from the Nama \citep{Van_Eeden2021-od}.
+and a recombination map inferred from the Nama \citep{Van_Eeden2022-od}.
 Statistics were largely unchanged by using a different map
 (Figures~\ref{fig:supp-omni-hapmap-comparison},~\ref{fig:supp-omni-nama-comparison}).
 The OMNI and HapMap recombination maps resulted in LD statistics that were
@@ -287,6 +287,18 @@ distances due to processes like multinucleotide mutations
 \citep{Harris2014-zg,Ragsdale2019-nt}. To avoid uncertainty in phasing, we used
 unphased genotypes to compute LD statistics, as proposed in
 \citet{Ragsdale2020-nz}. 
+
+Statistics were computed from intergenic loci, as described in
+Section~\ref{sec:filtering}, to avoid biases due to direct or indirect
+selection in protein-coding regions. To assess how strongly selection in coding
+regions affects LD and diversity statistics, we also computed statistics from
+all regions of the genome that pass the Thousand Genomes strict mask.
+Genome-wide statistics showed slight deviations from statistics inferred from
+intergenic regions alone (Figure~\ref{fig:supp-inter-all-comparison}), although
+the differences were smaller than the differences between our best-fit models
+and the data they were fit to. Nonetheless, we chose to use only intergenic
+data to avoid possible biases due to selection in and around protein-coding
+regions.
 
 \subsection{Estimating two-locus statistics with finite sample sizes}
 
@@ -888,7 +900,7 @@ data \citep{1000_Genomes_Project_Consortium2015-zq}. Because recombination
 rates can vary between populations, we tested the robustness of our demographic
 inference to the recombination map used to compute LD. We recomputed diversity
 and LD statistics using recombination rates from the Nama recombination map
-\citep{Van_Eeden2021-od}, and refit our best-fit demographic models to these
+\citep{Van_Eeden2022-od}, and refit our best-fit demographic models to these
 statistics.
 
 \subsection{Validations using simulations from inferred demographic models}
@@ -1031,7 +1043,7 @@ YRI), and the two recombination maps were inferred using different
 computational methods from different types of sequencing data (arrays vs. whole
 genomes). Therefore, differences between these two maps are likely near the
 upper bound for differences in recombination rates between present-day human
-populations \citep{Van_Eeden2021-od}. Because our fits were highly consistent
+populations \citep{Van_Eeden2022-od}. Because our fits were highly consistent
 when using the two recombination maps, we conclude that inferences using the
 diversity and LD statistics here are robust to variation in recombination rates
 between present-day populations as well as to any differences in inferred
@@ -1712,7 +1724,7 @@ when using the diversity and LD statistics that we have in our analyses.
         \textbf{Comparison of LD statistics parsed using OMNI YRI and
         Nama-specific recombination map.}
         The OMNI YRI recombination map and the Nama-inferred map
-        \citep{Van_Eeden2021-od} differ in two primary ways: 1) the YRI and
+        \citep{Van_Eeden2022-od} differ in two primary ways: 1) the YRI and
         Nama have relatively highly diverged ancestries, and 2) the YRI
         map was inferred from low-density array data, while the Nama map
         was inferred from whole-genome sequencing data.
@@ -1725,6 +1737,24 @@ when using the diversity and LD statistics that we have in our analyses.
         (0: Nama, 1: Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
     }
     \label{fig:supp-omni-nama-comparison}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-intergenic-all-snps-comparison.pdf}
+    \caption{
+        \textbf{Comparison of LD statistics parsed from intergenic loci and
+        from all loci across the genome.} Statistics computed from intergenic
+        regions (dashed lines, shown with computed standard errors as shaded
+        regions) and those computed from all regions genome wide (solid lines)
+        do not show large differences. We chose to perform model inference
+        using intergenic regions alone to reduce bias due to selection in and
+        around protein-coding regions (Section~\ref{sec:computing-stats}).
+        Notations for each statistic are described in
+        section~\ref{sec:supp-ld-stats}, and indexes represent populations (0:
+        Nama, 1: Mende, 2: Gumuz, 3: Amhara/Oromo, 4: British).
+    }
+    \label{fig:supp-inter-all-comparison}
 \end{figure}
 
 \begin{figure}[ht]
