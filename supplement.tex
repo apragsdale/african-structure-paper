@@ -93,14 +93,15 @@ observed along PC1 and PC2 for 1000 Genomes vs. ADRP. Phasing on the combined
 dataset was performed via SHAPEIT2 \citep{Delaneau2013-aw} and utilized the duoHMM
 option for duos and trios. We present new whole-genome data for 82 Nama individuals 
 available under accession number EGAD00001006198.
-Among these 82 Nama samples, we down-sampled the individuals to minimize
-close relatives and admixture, such that 44 Nama genomes were retained.
 Second- and third-degrees relatives were inferred from reconstructed
 pedigrees with Omni2.5 SNP array data.
+Among these 82 Nama samples, we down-sampled the individuals to minimize
+close relatives and admixture, such that 44 Nama genomes were retained.
 Individuals with $>70\%$ estimated Khoe-San ancestry were retained for
 analysis, after partitioning ancestry into $k=6$ clusters with \texttt{ADMIXTURE}
 \citep{Alexander2009-sw} where alternative ancestries represent European, West
 African, Near Eastern, and East African gene flow. 
+
 
 \subsection{Nama sample collection and consent}
 
@@ -171,13 +172,18 @@ to also include representatives of West African ancestry.
 \subsection{Filtering and subsetting data}\label{sec:filtering}
 
 All analyses presented in this work focus on biallelic single nucleotide
-polymorphisms within the 1000 Genomes Phase 3 strict mask.  For the
-\texttt{moments-LD} analysis, we focused on intergenic regions because these
-appear less affected by natural selection compared to both synonymous and
-nonsynonymous variation \citep{Ragsdale2018-dd}, removing regions that fell
-outside of the 1000 Genomes strict callability mask. To enable comparison with
+polymorphisms within the 1000 Genomes Phase 3 strict mask ($L_{included}=XXXbp$).  
+To enable comparison with
 Neanderthal DNA, we excluded regions for which the Vindija Neanderthal sample
-had less than 100 contiguous base pairs.
+had less than 100 contiguous base pairs ($L_{included}=XXXbp$).
+For the
+\texttt{moments-LD} analysis, we further focused on intergenic regions because these
+appear less affected by natural selection compared to both synonymous and
+nonsynonymous variation \citep{Ragsdale2018-dd} ($L_{included}=XXX$). 
+
+The 290 individuals used in the moments.LD inference 
+featured 18,461,915 polymorphic biallelic SNPs genome-wide in the callable regions with 
+Neanderthal alignment, of which 8,115,115 were in intergenic and thus putatively neutral regions. 
 
 \subsection{PCA and \texttt{ADMIXTURE} analysis}\label{sec:dimred}
 
