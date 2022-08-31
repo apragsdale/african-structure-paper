@@ -172,18 +172,19 @@ to also include representatives of West African ancestry.
 \subsection{Filtering and subsetting data}\label{sec:filtering}
 
 All analyses presented in this work focus on biallelic single nucleotide
-polymorphisms within the 1000 Genomes Phase 3 strict mask ($L_{included}=XXXbp$).  
-To enable comparison with
-Neanderthal DNA, we excluded regions for which the Vindija Neanderthal sample
-had less than 100 contiguous base pairs ($L_{included}=XXXbp$).
-For the
-\texttt{moments-LD} analysis, we further focused on intergenic regions because these
-appear less affected by natural selection compared to both synonymous and
-nonsynonymous variation \citep{Ragsdale2018-dd} ($L_{included}=XXX$). 
+polymorphisms within the 1000 Genomes Phase 3 strict mask
+($L_{included}=2,064,554,803$bp). To enable comparison with Neanderthal DNA, we
+excluded regions for which the Vindija Neanderthal sample had less than 100
+contiguous base pairs with high quality variant calls
+($L_{included}=1,519,643,507$bp). For the \texttt{moments-LD} analysis, we
+further focused on intergenic regions because these appear less affected by
+natural selection compared to both synonymous and nonsynonymous variation
+\citep{Ragsdale2018-dd} ($L_{included}=637,639,065$bp). 
 
-The 290 individuals used in the moments.LD inference 
-featured 18,461,915 polymorphic biallelic SNPs genome-wide in the callable regions with 
-Neanderthal alignment, of which 8,115,115 were in intergenic and thus putatively neutral regions. 
+The 290 individuals used in the \texttt{moments-LD} inference featured
+18,461,915 polymorphic biallelic SNPs genome-wide in the callable regions with
+Neanderthal alignment, of which 8,115,115 were in intergenic and thus
+putatively neutral regions. 
 
 \subsection{PCA and \texttt{ADMIXTURE} analysis}\label{sec:dimred}
 
