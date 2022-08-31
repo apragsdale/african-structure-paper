@@ -826,8 +826,8 @@ two stems based on $\Delta^2$ for contemporary humans.
 In this way, the predictions of our model can be related to morphological
 variation in the fossil record.
 
-\section{Model validation}
-
+\section{Model validation strategy}
+\label{sec:validation_strategy}
 We took two approaches to validate demographic model inferences. First, we
 explored the effects of using alternative populations, sample sets, and
 recombination maps, and the effect of relaxing fixed parameters when fitting
@@ -965,8 +965,8 @@ projecting the sample size to $(n, 1)$ and taking $cSFS=SFS(:,1)$. $\theta$ and
 $p_{misid}$ were chosen to maximize a likelihood assuming that each observed
 entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
 
-\section{Supplementary results}\label{sec:supp-results}
-
+\section{Model validation results}\label{sec:supp-results}
+\label{sec:validation_results}
 \subsection{Model fit using alternative datasets}
 \label{sec:supp-alt-data}
 
@@ -975,7 +975,7 @@ All supplementary inference results are provided in Demes format
 refit the continuous migration and multiple merger models, with stem migration.
 
 \subsubsection{Replacing Thousand Genomes populations}
-
+\label{sec:replacing}
 We replaced the Mende (MSL) and British (GBR) population sets with Yoruba (YRI)
 and Western and Northern Europeans (CEU), respectively, and refit our inferred
 demographic models to diversity and LD statistics computed from those
@@ -1066,7 +1066,7 @@ early history to varying ancestry proportions in the Nama population. To do
 this, we used ADMIXTURE to cluster inferred ancestry components, noting that
 ADMIXTURE-inferred ancestries are coarse and can be misleading about true
 underlying admixture proportions. Nonetheless, we included Nama individuals
-that exceeded either 90\% ro 99\% ancestry primarily shared among Nama
+that exceeded either $90\%$ or $99\%$ ancestry primarily shared among Nama
 individuals.
 
 For both thresholds, early history was robust in all tested models. Divergence
@@ -1203,32 +1203,6 @@ compared to the data, but is closest in the merger-with-stem-migration model
 Given the qualitative discrepancies between the data IICR and the model IICR,
 the differences in Neanderthal branch affinities is unsurprising.
 
-\subsection{Mutation versus recombination rates}
-\label{sec:supp-mutation}
-
-Prior studies primarily relied on the mutation clock in order to date events
-such as population divergence, and uncertainty about the mutation rate
-translates in uncertainty in timing estimates (e.g., \citet{Moorjani2016-qj}).
-Recent whole genome sequencing studies from non-pathological pedigrees have
-typically estimated mutation rates to be $1.2-1.3\times10^{-8}$ per site per
-generation \citep{Sasani2019-zp,Tian2019-zv}. A rate of $1.3\times10^{-8}$ also
-approximates the rate predicted by a mutational model from gnomAD
-\citep{Karczewski2020-le} in the $\sim$650Mb of intergenic regions selected for
-demographic inference in this study.
-\texttt{moments-LD} differs from other approaches by
-relying on a recombination clock, which has been argued to be more robust to
-estimation than a mutational clock \citep{Moorjani2016-ur}.
-
-From our recombination-rate-calibrated demographic models, we can estimate the
-mutation rates needed to fit patterns of pairwise diversity. With our best-fit
-model (merger-with-stem-migration,
-Table~\ref{tab:supp-merger-with-stem-migration}), a mutation rate of
-$1.33\times10^{-8}$ recovers the observed diversity within and between
-populations, closely matching the average mutation rate estimated from the
-gnomAD mutation model. The other inferred demographic models
-(Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-without-stem-migration})
-would require mutation rates of $1.75-1.90\times10^{-8}$ to match pairwise
-diversity.
 
 \subsection{Re-inference of IM models from simulated data}
 \label{sec:IM-reinfer}
@@ -1375,6 +1349,35 @@ discrepancies. However, low coverage data provides a consistent model fit to
 the high coverage data. Therefore, it is preferable to favor jointly called low
 coverage data over a mix of high coverage but separately called data, at least
 when using the diversity and LD statistics that we have in our analyses.
+
+\section{Mutation versus recombination rates}
+\label{sec:supp-mutation}
+
+Prior studies primarily relied on the mutation clock in order to date events
+such as population divergence, and uncertainty about the mutation rate
+translates in uncertainty in timing estimates (e.g., \citet{Moorjani2016-qj}).
+Recent whole genome sequencing studies from non-pathological pedigrees have
+typically estimated mutation rates to be $1.2-1.3\times10^{-8}$ per site per
+generation \citep{Sasani2019-zp,Tian2019-zv}. A rate of $1.3\times10^{-8}$ also
+approximates the rate predicted by a mutational model from gnomAD
+\citep{Karczewski2020-le} in the $\sim$650Mb of intergenic regions selected for
+demographic inference in this study.
+\texttt{moments-LD} differs from other approaches by
+relying on a recombination clock, which has been argued to be more robust to
+estimation than a mutational clock \citep{Moorjani2016-ur}.
+
+From our recombination-rate-calibrated demographic models, we can estimate the
+mutation rates needed to fit patterns of pairwise diversity. With our best-fit
+model (merger-with-stem-migration,
+Table~\ref{tab:supp-merger-with-stem-migration}), a mutation rate of
+$1.33\times10^{-8}$ recovers the observed diversity within and between
+populations, closely matching the average mutation rate estimated from the
+gnomAD mutation model. The other inferred demographic models
+(Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-without-stem-migration})
+would require mutation rates of $1.75-1.90\times10^{-8}$ to match pairwise
+diversity.
+
+
 
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{genetics}
