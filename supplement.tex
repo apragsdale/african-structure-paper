@@ -82,7 +82,8 @@ that the high heterozygosity in these genomes both due to inherent genetic
 diversity and admixture may have violated base assumptions for this
 heterozygosity check. Genomes were then variant called with GATK3.2 Unified
 Genotyper \citep{DePristo2011-up} using joint calling across 2,478 individuals within
-the ADRP dataset with a minimum base quality of 17. Data were merged with 1000
+the African Diversity Reference Panel (ADRP) dataset with a
+minimum base quality of 17. Data were merged with 1000
 Genomes Phase 3 \citep{1000_Genomes_Project_Consortium2015-zq} using the union
 of sites identified with bcftools isec (-n+1) \citep{Danecek2021-kc} then refined
 with Variant Recalibrator with a truth sensitivity threshold of 99.5\%. HapMap
@@ -1746,7 +1747,7 @@ when using the diversity and LD statistics that we have in our analyses.
         \textbf{Comparison of LD statistics parsed from intergenic loci and
         from all loci across the genome.} Statistics computed from intergenic
         regions (dashed lines, shown with computed standard errors as shaded
-        regions) and those computed from all regions genome wide (solid lines)
+        regions) and those computed from all regions genome-wide (solid lines)
         do not show large differences. We chose to perform model inference
         using intergenic regions alone to reduce bias due to selection in and
         around protein-coding regions (Section~\ref{sec:computing-stats}).
