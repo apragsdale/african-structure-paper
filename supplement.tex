@@ -98,14 +98,14 @@ pedigrees with Omni2.5 SNP array data.
 Among these 82 Nama samples, we down-sampled the individuals to minimize
 close relatives and admixture, such that 44 Nama genomes were retained.
 Individuals with $>70\%$ estimated Khoe-San ancestry were retained for
-analysis, after partitioning ancestry into $k=6$ clusters with an initial \texttt{ADMIXTURE}
-\citep{Alexander2009-sw} analysis on \sgcomment{TODO: Brenna complete}, where alternative ancestries represent European, West
-African, Near Eastern, and East African gene flow. 
-Other \texttt{ADMIXTURE} analyses
-presented in this manuscript were restricted to a subset of 1157 individuals \sgcomment{TODO:  Aaron complete}.
-
-
-
+analysis, after partitioning ancestry into $K=6$ clusters with an initial
+\texttt{ADMIXTURE} \citep{Alexander2009-sw} analysis on the full ADRP
+dataset, where alternative ancestries represent European, West
+African, Near Eastern, and East African gene flow.
+Other \texttt{ADMIXTURE} analyses presented in this manuscript were
+restricted to a subset of 1157 individuals representing a subset
+of the full ADRP/Thousand Genomes dataset used in analyses presented here
+(see Section~\ref{sec:populations-used}).
 
 \subsection{Nama sample collection and consent}
 
@@ -121,6 +121,7 @@ University. Results stemming from genetic analyses have been communicated in
 representatives of the Richtersveld National Park.
 
 \subsection{Details about populations used in analyses}
+\label{sec:populations-used}
 
 From the merged dataset of the African Diversity Reference Panel (ADRP)
 \citep{Gurdasani2015-qy,Pagani2015-pz}
@@ -195,7 +196,8 @@ putatively neutral regions.
 We used principal component analysis (PCA) implemented in \texttt{scikit-learn}
 \citep{Pedregosa2011-ke} and \texttt{ADMIXTURE} version 1.3.0
 \citep{Alexander2011-aq} to summarize genetic diversity among a broader set of
-1000 Genomes and ADRP populations (Figure~\ref{fig:diversity} in the main text). Data
+1000 Genomes and ADRP populations (Figure~\ref{fig:diversity} in the main text,
+and Figure~\ref{fig:supp-admixture}). Data
 filtering was identical for both analyses. We retained biallelic SNPs with no
 missing data and minor allele frequency greater that 5\%. We then thinned the
 remaining sites to remove SNPs in high linkage disequilibrium with one another.
@@ -2246,4 +2248,21 @@ diversity.
     \label{fig:supp-IM-misspecification}
 \end{figure}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6in]{figures/supp-admixture-panels}
+    \caption{
+        \textbf{\texttt{ADMIXTURE} clustering using $K=2$ to $9$ clusters.}
+        \texttt{ADMIXTURE} \citep{Alexander2009-sw} was used to cluster all
+        individuals in the subset of populations used in analyses in this
+        paper. At $K=5$ clusters, West African populations begin to show
+        variable separation in assigned clusters, likely due to
+        isolation-by-distance demographic processes rather than recent
+        admixture events. Figure~\ref{fig:diversity}D in the main text shows
+        the \texttt{ADMIXTURE} results for $K=4$, which most clearly displays
+        known admixture events in the histories of East and South African
+        populations.
+    }
+    \label{fig:supp-admixture}
+\end{figure}
 \end{document}
