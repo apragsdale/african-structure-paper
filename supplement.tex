@@ -97,28 +97,95 @@ Second- and third-degrees relatives were inferred from reconstructed
 pedigrees with Omni2.5 SNP array data.
 Among these 82 Nama samples, we down-sampled the individuals to minimize
 close relatives and admixture, such that 44 Nama genomes were retained.
-Individuals with $>70\%$ estimated Khoe-San ancestry were retained for
-analysis, after partitioning ancestry into $K=6$ clusters with an initial
-\texttt{ADMIXTURE} \citep{Alexander2009-sw} analysis on the full ADRP
-dataset, where alternative ancestries represent European, West
-African, Near Eastern, and East African gene flow.
-Other \texttt{ADMIXTURE} analyses presented in this manuscript were
-restricted to a subset of 1157 individuals representing a subset
-of the full ADRP/Thousand Genomes dataset used in analyses presented here
-(see Section~\ref{sec:populations-used}).
+
+\subsubsection{ADMIXTURE} Nama individuals with $>70\%$ estimated Khoe-San
+ancestry were retained for analysis here, after partitioning ancestry into $K =
+6$ clusters with an \texttt{ADMIXTURE} \citep{Alexander2009-sw} analysis on the
+full ADRP dataset \citep{Van_Eeden2022-od}. The 27 ADRP populations represent a
+wide variety of West African, East African, North African and Bantu-speaking
+South Africans. Europeans (1000 Genomes: CEU) were included to account for
+colonial admixture. A Khoe-San specific ancestry emerged at $K = 3$,
+predominant in the Nama. This ancestry remained stable at higher $K$'s. At $K =
+6$, an ancestry representing the southern Bantu-speakers (Sotho and Zulu) also
+emerged, at low frequency in some Nama. Higher $K$'s highlighted
+population-specific ancestries or those with no representation in the Nama,
+therefore we focused on $K = 6$ for selection of high Khoe-San ancestry
+individuals. For illustration, \texttt{ADMIXTURE} analysis in
+Figures~\ref{fig:diversity}D~and~\ref{fig:supp-admixture} was restricted to
+1,157 individuals representing a subset of the full ADRP and several 1000
+Genomes populations used in analyses presented here (see
+Section~\ref{sec:populations-used}).
 
 \subsection{Nama sample collection and consent}
 
+\subsubsection{Ethics and Initiation of DNA Collection}
+
 DNA samples were collected from three Nama communities in the Richtersveld
-region of South Africa, which borders southern Namibia, in 2012. A community
-guide was present during each interview and facilitated consent in Afrikaans or
-Nama. Written consent was recorded per our IRB protocol with human subjects
-approval from Stanford University (Protocol \#13829), Stellenbosch University
-(N11/07/210) and later maintained via SUNY Stony Brook (Protocol \#727494).
-Saliva samples were extracted from Oragene [OGR-500] kits at Stellenbosch
-University. Results stemming from genetic analyses have been communicated in
-2015, 2019 and 2021 via community presentations, a radio interview and to
-representatives of the Richtersveld National Park.
+region of South Africa, which borders southern Namibia. Members of the Nama
+community in the Richtersveld were initially approached regarding a genetic
+ancestry study in 2011. The members included church elders, representatives at
+the Richtersveld National Park including the appointee for Peoples and
+Conservation (from which we obtained permission to sample individuals who still
+live in the park), the Richtersveld Cultural World Heritage Site Coordinator,
+and the Kuboes tourist office. All of these individuals self-identified as
+Nama. There was strong support for research that examined the extent to which
+the Nama are related to other Khoe-San populations, the impact of colonial
+migration, the time depth of their presence in southern Africa and
+relationships to other African groups. One primary concern was to make sure the
+research results were reported back to the community. Based on the positive
+response we received, permission was granted from the Stellenbosch University
+HREC to continue the study. Written consent was recorded per our IRB protocol
+with human subjects approval from Stanford University (Protocol \#13829),
+Stellenbosch University (N11/07/210) and later maintained via SUNY Stony Brook
+(Protocol \#727494). DNA were collected for the express purpose of understanding
+Nama population history, their relationship to other Africans and human
+evolution. No commercial activities are allowed. The IRB has approved the data
+for public deposition and sharing provided that the research is related to
+population history or human evolution.
+
+\subsubsection{Collection Procedures}
+
+Demographic and DNA collection was initiated in 2012 with a joint team of South
+African and American researchers which included both geneticists and
+anthropologists. Research assistants were fluent in Afrikaans, Nama and
+English. Collection primarily occurred at home, by first approaching a family
+member, gauging interest in the study, entering the home or sitting outside by
+their invitation, oral and written consent occurring with family members
+present and then finally -- completing the DNA sampling. By sampling
+individuals at home, members of the family are able to voice concerns, whether
+or not they decide to participate, and thus the final decisions are made in a
+slow and ethical manner. This process sometimes involved introducing the study
+and then returning at a later day in order to give participants sufficient time
+to consider. Saliva samples were extracted from Oragene [OGR-500] kits at
+Stellenbosch University. A copy of the English consent form is available as
+a Supplementalal Document.
+
+\subsubsection{Return of Results}
+
+Results stemming from genetic analyses have been communicated in 2015, 2019 and
+2021 via community presentations, a radio interview and in person to
+representatives of the Richtersveld National Park. We created a poster
+illustrating Khoe-San ancestry proportions, discriminating ancestry on maternal
+vs. paternal lineages, the relationship between the Nama and Kalahari Khoe-San
+populations, and the evolution of light skin pigmentation in southern Africa.
+The poster was printed in Afrikaans and presented to the tourism office in
+Kuboes (a central location) for display. A display panel on genetic ancestry is
+currently under construction for the Richtersveld National Park entrance,
+created in consultation with the authors here. Future community meetings are
+anticipated in 2023. We remain committed to upholding this decade long
+relationship with the Nama, and value the community’s input in the research
+process.
+
+%DNA samples were collected from three Nama communities in the Richtersveld
+%region of South Africa, which borders southern Namibia, in 2012. A community
+%guide was present during each interview and facilitated consent in Afrikaans or
+%Nama. Written consent was recorded per our IRB protocol with human subjects
+%approval from Stanford University (Protocol \#13829), Stellenbosch University
+%(N11/07/210) and later maintained via SUNY Stony Brook (Protocol \#727494).
+%Saliva samples were extracted from Oragene [OGR-500] kits at Stellenbosch
+%University. Results stemming from genetic analyses have been communicated in
+%2015, 2019 and 2021 via community presentations, a radio interview and to
+%representatives of the Richtersveld National Park.
 
 \subsection{Details about populations used in analyses}
 \label{sec:populations-used}
@@ -136,12 +203,13 @@ smaller set, excluding the Bakiga, Somali, and Zulu samples.
 
 For the demographic modeling, we further subset to the regional populations,
 from West Africa: Mende from Sierra Leone (MSL); South Africa: Nama from South
-Africa (newly sequenced); East Africa: Gumuz (traditionally hunter-gatherer
-with low levels of Eurasian admixture), Oromo and Amhara (combined as
-traditionally agriculturalists with large proportion of back-to-Africa Eurasian
-ancestry); and Europe: British (GBR). These were combined with the
-high-coverage Vindija Neanderthal genome \citep{Prufer2017-kk}, resulting in 290
-total samples used in demographic inference.
+Africa (newly sequenced, Figure~\ref{fig:supp-nama}); East Africa: Gumuz
+(traditionally hunter-gatherer with low levels of Eurasian admixture), Oromo
+and Amhara (combined as traditionally agriculturalists with large proportion of
+back-to-Africa Eurasian ancestry); and Europe: British (GBR). These were
+combined with the high-coverage Vindija Neanderthal genome
+\citep{Prufer2017-kk}, resulting in 290 total samples used in demographic
+inference.
 
 The number of publicly available whole-genome sequenced individuals from a
 diverse set of African groups has grown in recent years
@@ -1700,6 +1768,31 @@ diversity.
 
 \begin{figure}[ht]
     \centering
+    \includegraphics[width=\textwidth]{figures/SuppFig_HDV.60_CEU.Nama}
+    \caption{caption text}
+    \label{fig:supp-nama}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=5.75in]{figures/supp-admixture-panels}
+    \caption{
+        \textbf{\texttt{ADMIXTURE} clustering using $K=2$ to $9$ clusters.}
+        \texttt{ADMIXTURE} \citep{Alexander2009-sw} was used to cluster all
+        individuals in the subset of populations used in analyses in this
+        paper. At $K=5$ clusters, West African populations begin to show
+        variable separation in assigned clusters, likely due to
+        isolation-by-distance demographic processes rather than recent
+        admixture events. Figure~\ref{fig:diversity}D in the main text shows
+        the \texttt{ADMIXTURE} results for $K=4$, which most clearly displays
+        known admixture events in the histories of East and South African
+        populations.
+    }
+    \label{fig:supp-admixture}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
     \includegraphics{figures/mergers.pdf}
     \caption{
         \textbf{Two scenarios for population rearrangement.}
@@ -2248,21 +2341,4 @@ diversity.
     \label{fig:supp-IM-misspecification}
 \end{figure}
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=6in]{figures/supp-admixture-panels}
-    \caption{
-        \textbf{\texttt{ADMIXTURE} clustering using $K=2$ to $9$ clusters.}
-        \texttt{ADMIXTURE} \citep{Alexander2009-sw} was used to cluster all
-        individuals in the subset of populations used in analyses in this
-        paper. At $K=5$ clusters, West African populations begin to show
-        variable separation in assigned clusters, likely due to
-        isolation-by-distance demographic processes rather than recent
-        admixture events. Figure~\ref{fig:diversity}D in the main text shows
-        the \texttt{ADMIXTURE} results for $K=4$, which most clearly displays
-        known admixture events in the histories of East and South African
-        populations.
-    }
-    \label{fig:supp-admixture}
-\end{figure}
 \end{document}
