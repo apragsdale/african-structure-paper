@@ -1753,14 +1753,14 @@ diversity.
     \caption{
         \label{tab:supp-confidence-intervals}
         \textbf{GIM-computed confidence intervals are not underestimated.}
-        CIs computed with the Godambe information matrix (GIM) are larger than
-        those estimated by creating block bootstrap-replicate datasets and
-        refitting each model (200 times) to these datasets. Standard deviations
-        for each inferred parameter were then computed from these 200 model fits.
-        Parameters are as labeled and described in the above tables.
-        Blank standard errors indicate that parameter was not relevant
+        CIs computed with the Godambe information matrix (GIM) are largely
+        similar (i.e., within an order of magnitude) to those estimated by
+        creating 200 block bootstrap-replicate datasets (BS) and refitting each
+        modelto these datasets (see Section~\ref{sec:bootstrap-CIs}). Standard
+        deviations for each inferred parameter were computed from these 200
+        model fits. Parameters are as labeled and described in the above
+        tables. Blank standard errors indicate that parameter was not relevant
         to the given model.
-        \aprcomment{Fill in after perturbing starting conditions}
     }
     \centering
     \begin{tabular}[t]{l|cc|cc|cc|cc}
@@ -1769,40 +1769,40 @@ diversity.
         & \multicolumn{2}{c|}{Merger w/o mig.} & \multicolumn{2}{c}{Merger w/mig.} \\
         Parameter & GIM & BS & GIM & BS & GIM & BS & GIM & BS \\
         \midrule
-        $N_e$ & 403 & 127 & 1777 & 951 & 326 &  & 1369 &  \\
+        $N_e$ & 403 & 127 & 1777 & 951 & 326 & 406 & 1369 & 1408 \\
         $N_{MH}$ & 529 & 158 & & & & & & \\
-        $N_{stem1}$ & & & 1612 & 406 & 76 &  & 838 &  \\
-        $N_{stem2}$ & & & 2488 & 1001 & 1149 &  & 6668 &  \\
-        $N_{Nama_0}$ & 370 & 79 & 2989 & 512 & 384 &  & 1514 &  \\
-        $N_{Nama_F}$ & 9 & 2 & 54 & 4 & 7 &  & 31 &  \\
-        $N_{MSL_0}$ & 769 & 190 & 2479 & 285 & 322 &  & 1165 &  \\
-        $N_{MSL_F}$ & 606 & 185 & 6628 & 1250 & 987 &  & 4332 &  \\
-        $N_{EA}$ & 273 & 49 & 1841 & 138 & 246 &  & 1628 &  \\
-        $N_{Gumuz_F}$ & 131 & 56 & 915 & 80 & 102 &  & 337 &  \\
-        $N_{EP}$ & 491 & 106 & 3246 & 168 & 408 &  & 1684 &  \\
-        $N_{GBR_0}$ & 33 & 7 & 231 & 17 & 29 &  & 122 &  \\
-        $N_{GBR_F}$ & 507 & 117 & 2889 & 295 & 334 &  & 1678 &  \\
-        $N_{Neand}$ & 105 & 88 & 591 & 97 & 91 &  & 235 &  \\
-        $T_{stems}$ & & & 391E3 & 67E3 & 27E3 &  & 426E3 &  \\
-        $T_{stem1}$ & & & & & 20E3 &  & 166E3 &  \\
-        $m_{Nama-MSL}$ & 1.6E-6 & 1.2E-6 & 3.7E-6 & 2.7E-6 & 1.1E-6 &  & 4.0E-6 &  \\
-        $m_{Nama-EA}$ & 2.0E-6 & 1.3E-6 & 1.0E-5 & 1.8E-6 & 1.3E-6 &  & 9.1E-6 &  \\
-        $m_{MSL-EA}$ & 7.6E-6 & 1.1E-6 & 5.3E-5 & 3.0E-6 & 5.5E-6 &  & 2.6E-5 &  \\
-        $m_{EA-GBR}$ & 2.4E-6 & 1.1E-6 & 1.0E-5 & 1.9E-6 & 1.5E-6 &  & 5.5E-6 &  \\
-        $m_{EA-EA}$ & 1.3E-5 & 7.5E-6 & 8.4E-5 & 1.4E-5 & 1.3E-5 &  & 5.4E-5 &  \\
-        $f_{GBR \rightarrow EP}$ & 0.0039 & 0.0036 & 0.0037 & 0.0071 & 0.0037 &  & 0.0075 &  \\
-        $f_{EP \rightarrow Nama}$ & 0.0039 & 0.0040 & 0.0043 & 0.0072 & 0.0042 &  & 0.0049 &  \\
-        $f_{GBR \rightarrow Nama}$ & 0.0019 & 0.0020 & 0.0021 & 0.0030 & 0.0021 & & 0.0031 &  \\
-        $m_{stems}$ & & & 1.1E-5 & 7.7E-6 & & & 8.7E-5 &  \\
+        $N_{stem1}$ & & & 1612 & 406 & 76 & 122 & 838 & 164 \\
+        $N_{stem2}$ & & & 2488 & 1001 & 1149 & 2344 & 6668 & 1154 \\
+        $N_{Nama_0}$ & 370 & 79 & 2989 & 512 & 384 & 496 & 1514 & 538 \\
+        $N_{Nama_F}$ & 9 & 2 & 54 & 4 & 7 & 4 & 31 & 5 \\
+        $N_{MSL_0}$ & 769 & 190 & 2479 & 285 & 322 & 384 & 1165 & 421 \\
+        $N_{MSL_F}$ & 606 & 185 & 6628 & 1250 & 987 & 1031 & 4332 & 1404 \\
+        $N_{EA}$ & 273 & 49 & 1841 & 138 & 246 & 154 & 1628 & 252 \\
+        $N_{Gumuz_F}$ & 131 & 56 & 915 & 80 & 102 & 72 & 337 & 83 \\
+        $N_{EP}$ & 491 & 106 & 3246 & 168 & 408 & 177 & 1684 & 185 \\
+        $N_{GBR_0}$ & 33 & 7 & 231 & 17 & 29 & 17 & 122 & 21 \\
+        $N_{GBR_F}$ & 507 & 117 & 2889 & 295 & 334 & 203 & 1678 & 218 \\
+        $N_{Neand}$ & 105 & 88 & 591 & 97 & 91 & 94 & 235 & 158 \\
+        $T_{stems}$ & & & 391E3 & 67E3 & 27E3 & 7.6E3 & 426E3 & 284E3 \\
+        $T_{stem1}$ & & & & & 20E3 & 45E3 & 166E3 & 58E3 \\
+        $m_{Nama-MSL}$ & 1.6E-6 & 1.2E-6 & 3.7E-6 & 2.7E-6 & 1.1E-6 & 1.3E-6 & 4.0E-6 & 2.6E-6 \\
+        $m_{Nama-EA}$ & 2.0E-6 & 1.3E-6 & 1.0E-5 & 1.8E-6 & 1.3E-6 & 1.8E-6 & 9.1E-6 & 2.8E-6 \\
+        $m_{MSL-EA}$ & 7.6E-6 & 1.1E-6 & 5.3E-5 & 3.0E-6 & 5.5E-6 & 3.3E-6 & 2.6E-5 & 4.4E-6 \\
+        $m_{EA-GBR}$ & 2.4E-6 & 1.1E-6 & 1.0E-5 & 1.9E-6 & 1.5E-6 & 2.2E-6 & 5.5E-6 & 2.6E-6 \\
+        $m_{EA-EA}$ & 1.3E-5 & 7.5E-6 & 8.4E-5 & 1.4E-5 & 1.3E-5 & 1.4E-5 & 5.4E-5 & 1.9E-5 \\
+        $f_{GBR \rightarrow EP}$ & 0.0039 & 0.0036 & 0.0037 & 0.0071 & 0.0037 & 0.0066 & 0.0075 & 0.0084 \\
+        $f_{EP \rightarrow Nama}$ & 0.0039 & 0.0040 & 0.0043 & 0.0072 & 0.0042 & 0.0068 & 0.0049 & 0.0085 \\
+        $f_{GBR \rightarrow Nama}$ & 0.0019 & 0.0020 & 0.0021 & 0.0030 & 0.0021 & 0.0030 & 0.0031 & 0.0035 \\
+        $m_{stems}$ & & & 1.1E-5 & 7.7E-6 & & & 8.7E-5 & 2.5E-5 \\
         $m_{stem2-Nama}$ & & & 1.6E-5 & 1.1E-5 & & & & \\
         $m_{stem2-MSL}$ & & & 4.2E-5 & 1.7E-5 & & & & \\
         $m_{stem2-EA}$ & & & 9.0E-6 & 5.4E-6 & & & & \\
-        $T_{Nama}$ & 2525 & 1188 & 18E3 & 6400 & 8253 &  & 28E3 &  \\
-        $f_{stem 2 \rightarrow Nama}$ & & & & & 0.0086 &  & 0.067 &  \\
-        $T_{EA}$ & & & & & 3648 &  & 8865 &  \\
-        $f_{stem 2 \rightarrow EA}$ & & & & & 0.0074 &  & 0.059 &  \\
-        $T_{MSL}$ & & & & & 570 &  & 641 &  \\
-        $f_{stem 2 \rightarrow MSL}$ & & & & & 0.0036 &  & 0.0085 &  \\
+        $T_{Nama}$ & 2525 & 1188 & 18E3 & 6400 & 8253 & 4763 & 28E3 & 6283 \\
+        $f_{stem 2 \rightarrow Nama}$ & & & & & 0.0086 & 0.017 & 0.067 & 0.018 \\
+        $T_{EA}$ & & & & & 3648 & 2047 & 8865 & 4114 \\
+        $f_{stem 2 \rightarrow EA}$ & & & & & 0.0074 & 0.015 & 0.059 & 0.021 \\
+        $T_{MSL}$ & & & & & 570 & 1373 & 641 & 1613 \\
+        $f_{stem 2 \rightarrow MSL}$ & & & & & 0.0036 & 0.0066 & 0.0085 & 0.0076 \\
         \bottomrule
     \end{tabular}
 \end{table}
