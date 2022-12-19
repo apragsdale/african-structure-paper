@@ -578,6 +578,10 @@ we took as fixed in most subsequent analyses.
 We discuss the sensitivity of our model to these assumptions in Section
 \ref{sec:change-dates}.
 
+
+\aprcomment{TODO: add (here?) our reasoning and validation of the choice of
+60/50ka for fixed divergence times.}
+
 %\sgcomment{I feel like we should improve the discussion of relationship
 %with previous estimates below, or remove.}
 %
@@ -627,11 +631,19 @@ likelihood. The full model likelihood was taken as the product of likelihoods
 over each bin. In other words, we optimized a composite likelihood where
 observations in different bins were taken to be independent. 
 
-For the best fit parameters, we computed confidence intervals using the 
-same set of bootstrapped samples and Godambe Information
-approach \citep{Coffman2016-yq}, which corrects composite likelihood estimates of confidence intervals
-to account for nonindependence in the data, including linkage between loci and
-nonindependence of recombination bins.
+For the best fit parameters, we computed confidence intervals using the same
+set of bootstrapped samples and Godambe Information approach
+\citep{Coffman2016-yq}, which corrects composite likelihood estimates of
+confidence intervals to account for nonindependence in the data, including
+linkage between loci and nonindependence of recombination bins.
+
+\aprcomment{To ensure that our confidence intervals computed using the approach
+    from \citet{Coffman2016-yq} do not underestimate true CIs, we also
+    performed block bootstrap resampling of our data, 200 times, and refit each
+    model to the bootstrapped datasets. From these, we evaluated the
+distribution of inferred parameters, which should be similar to or narrower
+than the CIs estimated from the GIM approach. See
+Section~\ref{sec:bootstrap-CIs}.}
 
 Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}
 give the best fit values for all parameters in the four models considered here,
@@ -1433,6 +1445,21 @@ the high coverage data. Therefore, it is preferable to favor jointly called low
 coverage data over a mix of high coverage but separately called data, at least
 when using the diversity and LD statistics that we have in our analyses.
 
+\subsection{Evaluation of confidence intervals}
+\label{sec:bootstrap-CIs}
+
+\aprcomment{Here, point to tables for CIs, or SEs from Godambe vs reinferred
+models from bootstrapped data. See Table~\ref{tab:supp-confidence-intervals}}
+
+\subsection{Allowing for additional migrations}
+
+\aprcomment{Here, addressing major comment 3 from reviewer 4, migration between
+Nama and Mene and Nama and GBR.}
+
+\subsection{Replacing the reference population for statistics normalization}
+
+\aprcomment{Minor comment 3 from reviewer 4.}
+
 \section{Mutation versus recombination rates}
 \label{sec:supp-mutation}
 
@@ -1720,6 +1747,64 @@ diversity.
     $f_{stem 2 \rightarrow MSL}$ & Proportion of ancestry from secondary stem 2 admixture to Mende & 0.181 & 0.0085 \\
     \bottomrule
 \end{tabular}
+\end{table}
+
+\begin{table}[ht]
+    \caption{
+        \label{tab:supp-confidence-intervals}
+        \textbf{GIM-computed confidence intervals are not underestimated.}
+        CIs computed with the Godambe information matrix (GIM) are larger than
+        those estimated by creating block bootstrap-replicate datasets and
+        refitting each model (200 times) to these datasets. Standard deviations
+        for each inferred parameter were then computed from these 200 model fits.
+        Parameters are as labeled and described in the above tables.
+        Blank standard errors indicate that parameter was not relevant
+        to the given model.
+        \aprcomment{Fill in after perturbing starting conditions}
+    }
+    \centering
+    \begin{tabular}[t]{l|cc|cc|cc|cc}
+        \toprule
+        & \multicolumn{2}{c|}{Single origin} & \multicolumn{2}{c|}{Cont. mig.}
+        & \multicolumn{2}{c|}{Merger w/o mig.} & \multicolumn{2}{c}{Merger w/mig.} \\
+        Parameter & GIM & BS & GIM & BS & GIM & BS & GIM & BS \\
+        \midrule
+        $N_e$ & 403 & 127 & 1777 & 951 & 326 &  & 1369 &  \\
+        $N_{MH}$ & 529 & 158 & & & & & & \\
+        $N_{stem1}$ & & & 1612 & 406 & 76 &  & 838 &  \\
+        $N_{stem2}$ & & & 2488 & 1001 & 1149 &  & 6668 &  \\
+        $N_{Nama_0}$ & 370 & 79 & 2989 & 512 & 384 &  & 1514 &  \\
+        $N_{Nama_F}$ & 9 & 2 & 54 & 4 & 7 &  & 31 &  \\
+        $N_{MSL_0}$ & 769 & 190 & 2479 & 285 & 322 &  & 1165 &  \\
+        $N_{MSL_F}$ & 606 & 185 & 6628 & 1250 & 987 &  & 4332 &  \\
+        $N_{EA}$ & 273 & 49 & 1841 & 138 & 246 &  & 1628 &  \\
+        $N_{Gumuz_F}$ & 131 & 56 & 915 & 80 & 102 &  & 337 &  \\
+        $N_{EP}$ & 491 & 106 & 3246 & 168 & 408 &  & 1684 &  \\
+        $N_{GBR_0}$ & 33 & 7 & 231 & 17 & 29 &  & 122 &  \\
+        $N_{GBR_F}$ & 507 & 117 & 2889 & 295 & 334 &  & 1678 &  \\
+        $N_{Neand}$ & 105 & 88 & 591 & 97 & 91 &  & 235 &  \\
+        $T_{stems}$ & & & 391E3 & 67E3 & 27E3 &  & 426E3 &  \\
+        $T_{stem1}$ & & & & & 20E3 &  & 166E3 &  \\
+        $m_{Nama-MSL}$ & 1.6E-6 & 1.2E-6 & 3.7E-6 & 2.7E-6 & 1.1E-6 &  & 4.0E-6 &  \\
+        $m_{Nama-EA}$ & 2.0E-6 & 1.3E-6 & 1.0E-5 & 1.8E-6 & 1.3E-6 &  & 9.1E-6 &  \\
+        $m_{MSL-EA}$ & 7.6E-6 & 1.1E-6 & 5.3E-5 & 3.0E-6 & 5.5E-6 &  & 2.6E-5 &  \\
+        $m_{EA-GBR}$ & 2.4E-6 & 1.1E-6 & 1.0E-5 & 1.9E-6 & 1.5E-6 &  & 5.5E-6 &  \\
+        $m_{EA-EA}$ & 1.3E-5 & 7.5E-6 & 8.4E-5 & 1.4E-5 & 1.3E-5 &  & 5.4E-5 &  \\
+        $f_{GBR \rightarrow EP}$ & 0.0039 & 0.0036 & 0.0037 & 0.0071 & 0.0037 &  & 0.0075 &  \\
+        $f_{EP \rightarrow Nama}$ & 0.0039 & 0.0040 & 0.0043 & 0.0072 & 0.0042 &  & 0.0049 &  \\
+        $f_{GBR \rightarrow Nama}$ & 0.0019 & 0.0020 & 0.0021 & 0.0030 & 0.0021 & & 0.0031 &  \\
+        $m_{stems}$ & & & 1.1E-5 & 7.7E-6 & & & 8.7E-5 &  \\
+        $m_{stem2-Nama}$ & & & 1.6E-5 & 1.1E-5 & & & & \\
+        $m_{stem2-MSL}$ & & & 4.2E-5 & 1.7E-5 & & & & \\
+        $m_{stem2-EA}$ & & & 9.0E-6 & 5.4E-6 & & & & \\
+        $T_{Nama}$ & 2525 & 1188 & 18E3 & 6400 & 8253 &  & 28E3 &  \\
+        $f_{stem 2 \rightarrow Nama}$ & & & & & 0.0086 &  & 0.067 &  \\
+        $T_{EA}$ & & & & & 3648 &  & 8865 &  \\
+        $f_{stem 2 \rightarrow EA}$ & & & & & 0.0074 &  & 0.059 &  \\
+        $T_{MSL}$ & & & & & 570 &  & 641 &  \\
+        $f_{stem 2 \rightarrow MSL}$ & & & & & 0.0036 &  & 0.0085 &  \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
 \newcommand{\specialcell}[2][c]{%
