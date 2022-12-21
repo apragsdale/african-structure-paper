@@ -432,7 +432,15 @@ predictions are discussed in the model prediction section below.
 \section{Model specification and fitting}
 \label{modelspec}
 
-For the early history, we tested model parameterizations that cover many of the
+As is commonly done in demographic inference, 
+all models we considered are initialized from an ancestral panmictic population at 
+mutation-recombination-drift equilibrium. This allows for rapid initialization of the 
+summary statistics to reasonable values.
+The size $N_e$ of this ancestral population is a model-specific adjustable parameter 
+that also serves as a reference size to define subsequent population size changes.   
+
+For the early history following this initialization, 
+we tested model parameterizations that cover many of the
 proposed scenarios of population structure, size changes, and/or archaic
 hominin admixture. The simplest model, in terms of number of parameters, was a
 single-origin expansion of humans, with no structure in the stem and no archaic
