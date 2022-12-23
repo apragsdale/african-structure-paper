@@ -547,58 +547,49 @@ The total number of parameters that were
 ultimately inferred were 21-31, depending on the complexity
 of the model.
 
+\subsubsection{Fixing the East African and OOA divergence times}
+
 In our preliminary models, the unconstrained inferred split times between East
-African populations and Europeans was inferred to have occurred by around
-$40$ka, which is more recent than we may have expected given the
-well-documented presence of modern humans outside of Africa at that time
-\citep[e.g.]{Hublin2020-nk,Hajdinjak2021-jo}, as well as previous
-genetics-based dating of splits between African and Eurasian populations
-\citep[e.g.]{Jouganous2017-pq,Kamm2020-vn}. The unconstrained inferred split
-between East and West African populations occurred about $10$ka earlier. These
-recent split dates seem to be at odds with archaeological evidence for earlier
-Out-of-Africa (OOA) expansion, and with the estimated date for Neanderthal
-admixture into OOA populations. The parameter uncertainty due to finite genomes
-does not account for this difference: in the high-likelihood models, the $95\%$
-confidence intervals for the East African-European split was roughly $38 \pm
-5$ka, and for the East/West African split was $45 \pm 10$ka, with the
-uncertainties reflecting 2 standard deviations according to bootstrap of
-genomic regions.  Thus we expect these discrepancies to result from model
-misspecification in the details of the divergence between the ancestors of OOA
-and east African populations. Our models suppose a single split prior to the
-OOA event followed by constant symmetric migrations between eastern and OOA
-populations, which is certainly an oversimplification. 
+African populations and Europeans was inferred to have occurred around $40$ka,
+and the inferred split between East and West African populations occurred about
+$10$ka earlier. These recent split dates are at odds with archaeological
+evidence for an earlier Out-of-Africa (OOA) expansion
+\citep[e.g.]{Hublin2020-nk,Hajdinjak2021-jo}, with the estimated date for
+Neanderthal admixture into Eurasian populations \citep[e.g.][]{Reilly2022-ym},
+and with previous genetics-based dating of splits between African and Eurasian
+populations \citep[e.g.]{Gutenkunst2009-ff,Jouganous2017-pq,Kamm2020-vn}.  The
+parameter uncertainty of our inferred divergence times (which accounts for the
+non-independence of sites) does not account for these differences: in the
+high-likelihood models, the $95\%$ confidence intervals for the East
+African-European split was roughly $38 \pm 5$ka, and for the East/West African
+split was $45 \pm 10$ka, with the uncertainties reflecting 2 standard
+deviations according to bootstrap of genomic regions. We therefore expect these
+discrepancies to result from model misspecification in the details of the
+divergence between the ancestors of OOA and East African populations.
 
-Since a detailed model for the Out of Africa and Back-to-Africa was not our
-main focus, we chose to keep this simplified model, but fix the east
-African-Eurasian split at $50$ka \aprcomment{references of archaeological
-evidence of humans in Europe/near East by around 45ka}. This also allowed us to
-include Neanderthal admixture into the OOA population at the
-previously-estimated $45$ka \citep{}. Fixing these parameters (i.e., east
-Africa-Eurasian split at 50ka, Neanderthal admixture at 45ka) resulted in an
-estimated value for the split between the ancestors of East and West African
-populations at around $60$ka.  \aprcomment{here: agrees with previous estimates
-    of West African-European splits from LD \citep{Ragsdale2019-nt}, which used
-    different populations from the Thousand Genomes Project than here. It is
-    also in close alignment with inferred divergence times from an SFS-based
-    demographic inference ($\sim65$ka), which used synonymous variation from a
-subset of populations used in this study -- Mende (MSL), British (GBR), and Han
-Chinese (CHB) (Section or Supp fig?).} We took this value (60ka) as fixed in
-most subsequent analyses. We discuss the sensitivity of our model to these
+Our models suppose a single split leading to the OOA event followed by constant
+symmetric migrations between eastern African and OOA populations, which is an
+oversimplification. Previous studies that have focused on reconstructing the
+OOA divergence time and subsequent migration rates typically included more
+Eurasian populations and multiple epochs that allow for differing continuous
+migration rates and population sizes. Since a detailed model for the OOA (and
+Back-to-Africa) event was not our main focus, we chose to keep this simplified
+model, but fix the east African-Eurasian split at $50$ka \citep{Hublin2020-nk}.
+This also allowed us to include Neanderthal admixture into the OOA population
+at $45$ka.
+
+Fixing these parameters (i.e., East Africa-Eurasian split at 50ka, Neanderthal
+admixture at 45ka) resulted in an estimated value for the split between the
+ancestors of East and West African populations at around $60$ka. This timing
+agrees with previous LD-based estimates of West African-Eurasian divergence
+times \citep{Ragsdale2019-nt}, which used different populations than those used
+in this study. A date of $60$ka is also in close agreement with inferred
+divergence times from an SFS-based demographic inference (of $\sim65$ka), using
+synonymous variation from a subset of populations used in this study (Supp.
+Figure~\ref{fig:supp-OOA-SFS}) \aprcomment{TODO: add this figure}.
+We therefore took this value ($60$ka) as fixed
+in most subsequent analyses. We discuss the sensitivity of our model to these
 assumptions in Section~\ref{sec:change-dates}.
-
-
-%\sgcomment{I feel like we should improve the discussion of relationship
-%with previous estimates below, or remove.}
-%
-%In addition to archaeological evidence, previous genetic dating suggested 
-%earlier dates for a split between European and African populations. Most of 
-%these results focused on populations of recent West African ancestry. 
-%
-%Additionally, most previous
-%estimates of the time of the OOA expansion compared Eurasian and West African
-%populations. Our inferred time of the East/West African divergence aligns with
-%previous estimates of the OOA event at $\approx 60$ka (themselves inferred from
-%oversimplified demographic models). 
 
 \subsection{Optimization using \moments}
 \label{sec:optimization}
@@ -1341,40 +1332,32 @@ B) clean split 200ka, C) population growth at 200ka followed by split 100ka,
 D) split 200ka followed by migration until 100ka, and E) split 200ka followed by 
 merger 105ka and a new split 100ka. 
 
-\begin{figure}
-
+\begin{figure}[ht!]
+    \centering
     \includegraphics{figures/toy_models/toy_model_combo}
-
-
-    \caption{The impact of model specification on coalescence rate and inference.
-    We show five simplified demographic models that differ in demographic events, 
-    occurring between 200ka and 100ka, that mark the transition between a single 
-    ancestral population and two daughter populations. A) A clean split 100ka, 
-B) A clean split 200ka, C) population growth at 200ka followed by split 100ka, 
-D) split 200ka followed by migration until 100ka, and E) split 200ka followed by 
-merger 105ka and a new split 100ka. The left column shows model representation, 
-the middle column shows instantaneous coalescence rates for pairs of lineages from the
-same daughter population, the right column shows instantaneous coalescence rates for
-pairs of lineages coming from distinct populations.  
-        \label{fig:toymodels}
+    \caption{
+        \textbf{The impact of model specification on coalescence rate and
+        inference.} We show five simplified demographic models that differ in
+        demographic events, occurring between 200ka and 100ka, that mark the
+        transition between a single ancestral population and two daughter
+        populations. A: A clean split 100ka, B: A clean split 200ka, C:
+        population growth at 200ka followed by split 100ka, D: split 200ka
+        followed by migration until 100ka, and E: split 200ka followed by
+        merger 105ka and a new split 100ka. The left column shows model
+        representation, the middle column shows instantaneous coalescence rates
+        for pairs of lineages from the same daughter population, the right
+        column shows instantaneous coalescence rates for pairs of lineages
+        coming from distinct populations.  
     }
-
-    \end{figure}
-    
-    
-
-
-
+    \label{fig:toymodels}
+\end{figure}
 
 Models C), D), and E) show qualitatively similar patterns of coalescence rate. 
 Given the same data, an IM model (such as D) will infer a potentially much 
-deeper population divergence than growth model C and reticulation model E.    
- 
- 
+deeper population divergence than growth model C and reticulation model E.
 
-
-
-\subsection{Batch effects from merged data biases inference}\label{sec:merged-bias}
+\subsection{Batch effects from merged data biases inference}
+\label{sec:merged-bias}
 
 Merging samples from multiple independently called datasets can cause
 systematic biases in computed diversity statistics (i.e., batch effects). In
@@ -1406,11 +1389,12 @@ from the jointly called data, particularly for the cross-population statistics
     \centering
     \includegraphics[width=5in]{figures/supp-SE-merged-data}
     \caption{
-        \textbf{Average error of statistics from low coverage and merged datasets.}
-        Low coverage data provides allelic diversity and linkage
-        disequilibrium measures consistent with those from high coverage data (left panel). On the other hand,
-        merging separately called datasets can lead to large discrepancies
-        in computed LD statistics (middle and right panels).
+        \textbf{Average error of statistics from low coverage and merged
+        datasets.} Low coverage data provides allelic diversity and linkage
+        disequilibrium measures consistent with those from high coverage data
+        (left panel). On the other hand, merging separately called datasets can
+        lead to large discrepancies in computed LD statistics (middle and right
+        panels).
     }
     \label{fig:supp-merged-data-SEs}
 \end{figure}
