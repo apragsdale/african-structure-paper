@@ -591,14 +591,16 @@ Fixing these parameters (i.e., East Africa-Eurasian split at 50ka, Neanderthal
 admixture at 45ka) resulted in an estimated value for the split between the
 ancestors of East and West African populations at around $60$ka. This timing
 agrees with previous LD-based estimates of West African-Eurasian divergence
-times \citep{Ragsdale2019-nt}, which used different populations than those used
-in this study. A date of $60$ka is also in close agreement with inferred
-divergence times from an SFS-based demographic inference (of $\sim65$ka), using
-synonymous variation from a subset of populations used in this study (Supp.
-Figure~\ref{fig:supp-OOA-SFS}) \aprcomment{TODO: add this figure}.
-We therefore took this value ($60$ka) as fixed
-in most subsequent analyses. We discuss the sensitivity of our model to these
-assumptions in Section~\ref{sec:change-dates}.
+times, of $\sim61$ka ($50-64$ka, $95\%$ confidence interval)
+\citep{Ragsdale2019-nt}, which used a different set populations than those in
+this study. A date of $60$ka is also in close agreement with inferred
+divergence times of $\sim65$ka from both SFS-based demographic inference, using
+synonymous variation from a subset of populations used in this study (Mende,
+British, and Han Chinese), as well as that of LD-based inference using these
+same groups, of $53$ka ($43-63$ka, $95\%$ confidence interval). Taken
+altogether, we decided to fix this value ($60$ka) in most subsequent analyses.
+We discuss the sensitivity of our model to these assumptions in
+Section~\ref{sec:change-dates}.
 
 \subsection{Likelihoods, uncertainty, and confidence intervals}
 
@@ -1074,9 +1076,10 @@ entry in the cSFS is drawn from a Poisson distribution \citep{Sawyer1992-rt}.
 \subsection{Model fit using alternative datasets}
 \label{sec:supp-alt-data}
 
-All supplementary inference results are provided in Demes format
-\citep{Gower2022-yn} as a supplemental zipped archive. For each scenario, we
-refit the continuous migration and multiple merger models, with stem migration.
+All supplementary inference results discussed in this section are provided in
+Demes format \citep{Gower2022-yn} as a supplemental zipped archive. For each
+scenario, we refit the continuous migration and multiple merger models, with
+stem migration.
 
 \subsubsection{Replacing Thousand Genomes populations}
 \label{sec:replacing}
@@ -1214,7 +1217,7 @@ population structure was unaffected by these choices.
 When we allowed the out-of-Africa expansion and Eastern/Western African
 divergence times to be jointly fit in model optimization, we found that the
 best-fit inferred E/W divergence time and the OOA expansion were more recent
-(35--40ka, 45--55ka, resp.). The remainder of the parameters were largely
+($45-55$ka and $35-40$ka, resp.). The remainder of the parameters were largely
 unaffected by these shifts to more recent divergence times, and our
 interpretation of the inferred early history remains unchanged. The $95\%$
 confidence intervals around these parameters were relatively narrow ($\approx
@@ -1457,12 +1460,46 @@ models from bootstrapped data. See Table~\ref{tab:supp-confidence-intervals}}
 
 \subsection{Allowing for additional migrations}
 
-\aprcomment{Here, addressing major comment 3 from reviewer 4, migration between
-Nama and Mene and Nama and GBR.}
+In preliminary analyses, we found that inferred migration rates between the
+Nama and non-East African groups were orders of magnitude smaller than
+migration rates between other populations included in our inferences.
+Therefore, to reduce the number of parameters needing to be fit we fixed those
+rates to zero in subsequent fits, and our reported best-fit models did not
+include migration between the Mende and Eurasians, nor between the Nama and
+Eurasian populations (aside from recent colonial-period admixture). To assess
+the impact of this choice, we re-inferred four of our reported models (single
+origin, continuous migration, and merger with and without stem migration),
+while allowing for additional parameters to include continuous, symmetric
+migration for the duration of the coexistence of the Nama and Mende of the Nama
+and British.
+
+Indeed, the inferred migration rates for both of these pairs of populations
+were small, with $2N_em \ll 1$ in all cases. In the single origin model, the
+Mende-British migration rate was 1.04E-6 ($2N_em = 0.02$) and the Nama-British
+rate was 2.67E-6 ($2N_em = 0.05$). In the continuous migration model, these
+rates were 2.69E-6 ($2N_em = 0.038$) and 3.38E-6 ($2N_em = 0.048$), resp. In
+the merger without stem migration model, these rates were 2.96E-6 ($2N_em =
+0.064$) and 5.46E-6 ($2N_em=0.119$), resp. And in the merger with stem
+migration model, these rates were 2.64E-6 ($2N_em = 0.055$) and 3.19E-6 ($2N_em
+= 0.066$), resp. In comparison with other migration rates, with $2N_em \gtrsim
+1$, these migrations have negligible impact on underlying statistics. The fits
+to other parameters were negligibly different from those reported with these
+migrations fixed to zero, and log-likelihoods were unimproved.
 
 \subsection{Replacing the reference population for statistics normalization}
 
-\aprcomment{Minor comment 3 from reviewer 4.}
+We used observed $\pi_2$ and pairwise diversity in the Mende to normalize two-
+and one-locus statistics (see Section~\ref{sec:supp-ld-stats}). To confirm that
+this choice of normalization did not impact inferred model parameters, we reran
+each of our reported models using data normalized by $\pi_2$ and pairwise
+diversity in the Gumuz. As expected, the best fit parameters from fits using
+the Gumuz-normalized data were very close to those reported in
+Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration},
+and they were all well within the reported confidence intervals. Our results
+are therefore unlikely to be sensitive to this choice of normalization.
+
+Reinferred demographic models from this and preceding sections are reported in
+Demes format \citep{Gower2022-yn} as a supplemental archive.
 
 \section{Mutation versus recombination rates}
 \label{sec:supp-mutation}
@@ -1571,6 +1608,35 @@ diversity.
     \bottomrule
 \end{tabular}
 \end{table}
+
+%\begin{table}[ht]
+%    \caption{
+%        \label{tab:supp-OOA-SFS}
+%        \textbf{OOA parameters using LD and SFS statistics.}
+%        \aprcomment{To justify 60ka}
+%    }
+%    \centering
+%    \begin{tabular}[t]{rcc}
+%        \toprule
+%        Parameter & SFS from synonymous variation & LD from intergenic variation \\
+%        \midrule
+%        $N_e$ &  & \\
+%        $N_{AF}$ &  & \\
+%        $N_{B}$ &  & \\
+%        $N_{EU0}$ &  & \\
+%        $N_{EUF}$ &   & \\
+%        $N_{AS0}$ &  & \\
+%        $N_{ASF}$ &  & \\
+%        $m_{AF-B}$  & & \\
+%        $m_{AF-EU}$  & & \\
+%        $m_{AF-AS}$  & & \\
+%        $m_{EU-AS}$  & & \\
+%        $T_{EXP}$ &  & \\
+%        $T_{OOA}$ &  & \\
+%        $T_{EU-AS}$  & & \\
+%        \bottomrule
+%    \end{tabular}
+%\end{table}
 
 \begin{table}[ht]
 \caption{
