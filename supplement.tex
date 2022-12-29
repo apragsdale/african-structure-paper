@@ -603,6 +603,7 @@ We discuss the sensitivity of our model to these assumptions in
 Section~\ref{sec:change-dates}.
 
 \subsection{Likelihoods, uncertainty, and confidence intervals}
+\label{sec:likelihoods-uncertainty}
 
 \texttt{moments-LD} uses a composite multivariate Gaussian likelihood approach 
 to simultaneously fit relative pairwise diversity and LD statistics over a range of 
@@ -624,19 +625,17 @@ over each bin. In other words, we followed the approach of  \citet{Ragsdale2019-
 in optimizing a composite likelihood where
 observations in different bins were taken to be independent. 
 
-For the best fit parameters, we computed confidence intervals using the same
-set of bootstrapped samples and Godambe Information approach
+For the best fit parameters, we computed $95\%$ confidence intervals using the
+same set of bootstrapped samples and Godambe Information approach
 \citep{Coffman2016-yq}, which corrects composite likelihood estimates of
 confidence intervals to account for nonindependence in the data, including
-linkage between loci and nonindependence of recombination bins.
-
-\aprcomment{To ensure that our confidence intervals computed using the approach
-    from \citet{Coffman2016-yq} do not underestimate true CIs, we also
-    performed block bootstrap resampling of our data, 200 times, and refit each
-    model to the bootstrapped datasets. From these, we evaluated the
-distribution of inferred parameters, which should be similar to or narrower
-than the CIs estimated from the GIM approach. See
-Section~\ref{sec:bootstrap-CIs}.}
+linkage between loci and nonindependence of recombination bins.  To ensure that
+our confidence intervals computed using the approach from
+\citet{Coffman2016-yq} do not underestimate true CIs, we also performed block
+bootstrap resampling of our data, 200 times, and refit each model to the
+bootstrapped datasets. From these, we evaluated the distribution of inferred
+parameters, which should be similar to or narrower than the CIs estimated from
+the GIM approach (Section~\ref{sec:bootstrap-CIs}).
 
 Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}
 give the best fit values for all parameters in the four models considered here,
@@ -1455,8 +1454,61 @@ when using the diversity and LD statistics that we have in our analyses.
 \subsection{Evaluation of confidence intervals}
 \label{sec:bootstrap-CIs}
 
-\aprcomment{Here, point to tables for CIs, or SEs from Godambe vs reinferred
-models from bootstrapped data. See Table~\ref{tab:supp-confidence-intervals}}
+We created 200 block-bootstrap replicate datasets and refit our four reported
+models to each replicate (Section~\ref{sec:likelihoods-uncertainty}). From
+these refit models, we estimated the empirical uncertainty by taking the
+standard deviation of the distribution of each refit parameter. We compared
+these to our estimated standard errors from the Godambe Information Matrix
+(GIM) approach to check that the confidence intervals from the GIM approach do
+not underestimate true uncertainty (Table~\ref{tab:supp-confidence-intervals}).
+
+The GIM-computed standard errors are generally close to those from the fits to
+the bootstrap data, and some are larger (roughly 2--5x) than those from the
+bootstrap fits. A possible explanation for this discrepancy is that some
+parameters of our models come close to the lower and upper bounds allowed for
+those parameters (e.g., small recent population size in the Nama, a bottleneck
+in one of the stems). In such cases, the distribution of those reinferred
+parameters and other correlated parameters in the model may be narrower than
+the true uncertainties in those parameters. Model constraints and parameter
+bounds in optimization may also lead to parameters fits that are away from
+their true optimal value. In this case, the GIM-estimated confidence intervals
+should be larger and contain what would be found from an unconstrained fit.
+
+To demonstrate this effect, we simulated data under a simple
+isolation-with-migration model, in which population sizes are allowed to vary,
+and one population has a severe bottleneck in the most recent 1000 years
+(Figure~\ref{fig:supp-uncerts-toy}). We simulated 200 1Mb regions with
+$u=r=10^{-8}$, sampling 10 diploid individuals from each present-day population
+and computed LD statistics. From these, we inferred the best fit parameters
+without imposing bounds on the parameters, and we also reinferred the model
+imposing a lower bound of 300 on population sizes (the bottleneck size). From
+our fits, we computed confidence intervals using the Fisher information matrix
+(FIM) and GIM approaches, in both the unbounded and bounded fits. We also
+reinferred parameters over 200 bootstrapped replicate datasets to compare
+empirical uncertainties to those estimated CIs.
+
+As expected the FIM CIs underestimate the true uncertainty and the GIM CIs
+closely match empirical uncertainty from the bootstrap fits. In the fit that
+imposed a lower bound on population sizes, some GIM-estimated standard errors
+were larger than those from the unbounded fits.  However, the fit parameters
+were slightly shifted from the unbounded fits, due to hitting the lower bound
+of the bottleneck size. In these cases, the estimated CIs were larger but
+contained the true CIs from the unbounded GIM and bootstrap fits. For parameters
+that were not strongly affected by hitting the bounds, the CIs matched closely
+(Figure~\ref{fig:supp-uncerts-toy}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics{./figures/supp-uncerts-toy.pdf}
+    \caption{
+        \textbf{Evaluation of GIM confidence intervals using moments-LD.}
+        The GIM approach accurately estimates confidence intervals, accounting
+        for non-independence between regions of linked loci. GIM-estimated CIs
+        from the constrained fit are large enough to contain the true
+        uncertainty. Vertical dashed lines indicate simulated parameter values.
+    }
+    \label{fig:supp-uncerts-toy}
+\end{figure}
 
 \subsection{Allowing for additional migrations}
 
@@ -1608,35 +1660,6 @@ diversity.
     \bottomrule
 \end{tabular}
 \end{table}
-
-%\begin{table}[ht]
-%    \caption{
-%        \label{tab:supp-OOA-SFS}
-%        \textbf{OOA parameters using LD and SFS statistics.}
-%        \aprcomment{To justify 60ka}
-%    }
-%    \centering
-%    \begin{tabular}[t]{rcc}
-%        \toprule
-%        Parameter & SFS from synonymous variation & LD from intergenic variation \\
-%        \midrule
-%        $N_e$ &  & \\
-%        $N_{AF}$ &  & \\
-%        $N_{B}$ &  & \\
-%        $N_{EU0}$ &  & \\
-%        $N_{EUF}$ &   & \\
-%        $N_{AS0}$ &  & \\
-%        $N_{ASF}$ &  & \\
-%        $m_{AF-B}$  & & \\
-%        $m_{AF-EU}$  & & \\
-%        $m_{AF-AS}$  & & \\
-%        $m_{EU-AS}$  & & \\
-%        $T_{EXP}$ &  & \\
-%        $T_{OOA}$ &  & \\
-%        $T_{EU-AS}$  & & \\
-%        \bottomrule
-%    \end{tabular}
-%\end{table}
 
 \begin{table}[ht]
 \caption{
