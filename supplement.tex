@@ -1429,7 +1429,7 @@ low coverage data and to each other. Notably, the inferred divergence time is
 significantly older, due to the overestimation of mutational differences
 between populations due to batch effects.
 
-\begin{figure}[ht!]
+\begin{figure}[htb!]
     \centering
     \includegraphics{figures/supp-merged-data-model-fits}
     \caption{
@@ -1450,6 +1450,76 @@ discrepancies. However, low coverage data provides a consistent model fit to
 the high coverage data. Therefore, it is preferable to favor jointly called low
 coverage data over a mix of high coverage but separately called data, at least
 when using the diversity and LD statistics that we have in our analyses.
+
+\subsection{Model choice from likelihood differences}
+\label{sec:refit-simulated-data}
+
+The set of models we tested with the full dataset have varying complexity,
+ranging from a single origin expansion to multiple stem populations connected
+by migration and gene flow. Thus, our models have varying numbers of parameters
+($21$ in the simplest model, and $30$ in the most heavily parameterized). Our
+analyses found that the more complex models (multiple stems with ongoing
+migration) provided the best fit to the data. To ensure that these more complex
+models are not simply fitting noise in our data, we simulated data under both
+simpler and more complex models, with same sample sizes and similar genome
+length to that used in this study. From these, we fit each of our models and
+checked that the correct model was chosen.
+
+While simulations of datasets of this size are rapid, computing LD statistics
+is computationally burdensome. We simulated 500 1Mb regions under our best fit
+single origin, continuous migration, and merger with stem migration models.
+Using these simulated regions, we constructed 500 bootstrap replicate datasets
+by sampling with replacement. Each of these 500 replicate sets were fit using
+the models reported in the main text, and we compared log-likelihoods across
+each fit (Figure~\ref{fig:refit-lls}). In each case, even in the simpler single
+origin simulations, the correct model was recovered.  We conclude that our
+inferences are not simply fitting statistical noise, and the observed
+differences in log-likelihoods indicate a better recapitulation of the true
+history.
+
+\begin{table}[ht]
+    \caption{
+        \label{tab:confusion-matrix}
+        \textbf{Something like a confusion matrix}
+        \aprcomment{fix/fill caption}
+    }
+    \centering
+    \begin{tabular}[t]{lcccc}
+        \toprule
+        Simulated model & Single origin & Cont. migration & Merger w/out stem mig. & Merger w/stem mig. \\
+        \midrule
+        Single origin & 494 & 3 & 1 & 2 \\
+        Cont. migration & 0 & 500 & 0 & 0 \\
+        Merger w/stem mig. & 0 & 0 & 1 & 499 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The single origin model is nested within the more complex models (with
+migration from the additional stem population fixed to zero), those more
+complex models can always recover the log-likelihood found by the single origin
+model. We therefore explored the broader parameter space that included gene
+flow from the additional stem population. In these fits, the optimization
+converged either back to the nested single origin model, or it found a local
+optimum with lower log-likelihood than the simpler model (see first panel in
+Figure~\ref{fig:refit-lls}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics{./figures/supp-refit-lls.pdf}
+    \caption{
+        \textbf{Fits of four models to simulated data.} In three scenarios, a
+        simple single origin model and our preferred continuous migration and
+        merger with stem migration models, we simulated 500 replicates of 500
+        Mb with the same populations and sample sizes from our reported best
+        fit models. We then fit the four models reported in the main text to
+        each of these simulated datasets and compared log-likelihoods. In each
+        case, the simulated model is correctly chosen, even under the single
+        origin scenario. We conclude our more complex models (with more
+        parameters) are not simply fitting statistical noise.
+    }
+    \label{fig:refit-lls}
+\end{figure}
 
 \subsection{Evaluation of confidence intervals}
 \label{sec:bootstrap-CIs}
