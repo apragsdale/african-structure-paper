@@ -605,43 +605,31 @@ Section~\ref{sec:change-dates}.
 \subsection{Likelihoods, uncertainty, and confidence intervals}
 \label{sec:likelihoods-uncertainty}
 
-\texttt{moments-LD} uses a composite multivariate Gaussian likelihood approach 
-to simultaneously fit relative pairwise diversity and LD statistics over a range of 
-recombination distances.
-This composite likelihood and Gaussian assumption are described in more detail 
- and validated in \citet{Ragsdale2019-nt}, but we outline them here.  
-To compute likelihoods, we need an estimate of the joint
-distribution of summary statistics. 
-We estimate uncertainty due to the finite amount of genetic material
-used in inference using bootstrap over 500 segments along the genome with
-roughly equal lengths of retained sequences within each segment. First, for
-each distance bin, we use these bootstrap samples to obtain a
-variance-covariances matrix across all statistics. This variance-covariance
-matrix is used to obtain a model likelihood for each recombination distance
-bin and single-locus nucleotide diversity, as a multivariate Gaussian
-likelihood. 
-The full model likelihood is taken as the product of likelihoods
-over each bin. In other words, we followed the approach of  \citet{Ragsdale2019-nt} 
-in optimizing a composite likelihood where
-observations in different bins were taken to be independent. 
-
-\aprcomment{These paragraphs are outdated.. we drop Godambe. need to fix}
-
-For the best fit parameters, we computed $95\%$ confidence intervals using the
-same set of bootstrapped samples and Godambe Information approach
-\citep{Coffman2016-yq}, which corrects composite likelihood estimates of
-confidence intervals to account for nonindependence in the data, including
-linkage between loci and nonindependence of recombination bins.  To ensure that
-our confidence intervals computed using the approach from
-\citet{Coffman2016-yq} do not underestimate true CIs, we also performed block
-bootstrap resampling of our data, 200 times, and refit each model to the
-bootstrapped datasets. From these, we evaluated the distribution of inferred
-parameters, which should be similar to or narrower than the CIs estimated from
-the GIM approach (Section~\ref{sec:bootstrap-CIs}).
+\texttt{moments-LD} uses a composite multivariate Gaussian likelihood approach
+to simultaneously fit relative pairwise diversity and LD statistics over a
+range of recombination distances. This composite likelihood and Gaussian
+assumption are described in more detail and validated in
+\citet{Ragsdale2019-nt}, but we outline them here. To compute likelihoods, we
+need an estimate of the joint distribution of summary statistics. We estimate
+uncertainty due to the finite amount of genetic material used in inference
+using bootstrap over 500 segments along the genome with roughly equal lengths
+of retained sequences within each segment. First, for each distance bin, we use
+these bootstrap samples to obtain a variance-covariances matrix across all
+statistics. This variance-covariance matrix is used to obtain a model
+likelihood for each recombination distance bin and single-locus nucleotide
+diversity, as a multivariate Gaussian likelihood. The full model likelihood is
+taken as the product of likelihoods over each bin. In other words, we followed
+the approach of \citet{Ragsdale2019-nt} in optimizing a composite likelihood
+where observations in different bins were taken to be independent. We computed
+$95\%$ confidence intervals for each model using inferences from 200
+block-bootstrapped datasets, which were fit using the same procedure as the
+original data. From the resulting parameters from these fits, we removed the
+bottom $2.5\%$ and top $97.5\%$ values and report the range of the remaining
+fit parameter values.
 
 Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}
 give the best fit values for all parameters in the four models considered here,
-along with standard errors using computed using the Godambe method.
+along with 95\% confidence intervals from the refit bootstrapped datasets.
 Figures~\ref{fig:supp-single-origin-fits}--\ref{fig:supp-merger-with-stem-migration-fits}
 show the corresponding fits to many of the LD statistics used in the inference.
 The $\sigma_{Dz}$ statistics are fit poorly by the single-origin model, while
@@ -649,8 +637,6 @@ the models with multiple stems all provide reasonable fits to the data. The
 merger-with-stem-migration model performed the best of these four models,
 although the fits were nearly visually indistinguishable from the fits from the
 merger-with-stem-migration model.
-
-
 
 
 \subsection{Optimization using \moments}
@@ -1531,68 +1517,6 @@ Figure~\ref{fig:refit-lls}).
     \label{fig:refit-lls}
 \end{figure}
 
-\subsection{Evaluation of confidence intervals}
-\label{sec:bootstrap-CIs}
-
-\aprcomment{This section will be removed}
-
-We created 200 block-bootstrap replicate datasets and refit our four reported
-models to each replicate (Section~\ref{sec:likelihoods-uncertainty}). From
-these refit models, we estimated the empirical uncertainty by taking the
-standard deviation of the distribution of each refit parameter. We compared
-these to our estimated standard errors from the Godambe Information Matrix
-(GIM) approach to check that the confidence intervals from the GIM approach do
-not underestimate true uncertainty (Table~\ref{tab:supp-confidence-intervals}).
-
-The GIM-computed standard errors are generally close to those from the fits to
-the bootstrap data, and some are larger (roughly 2--5x) than those from the
-bootstrap fits. A possible explanation for this discrepancy is that some
-parameters of our models come close to the lower and upper bounds allowed for
-those parameters (e.g., small recent population size in the Nama, a bottleneck
-in one of the stems). In such cases, the distribution of
-parameters under constraints, and that of other correlated parameters in the model
-may be narrower than
-the true (unconstrained) uncertainties in those parameters. 
-%Model constraints and parameter
-%bounds in optimization may also lead to parameters fits that are away from
-%their true optimal value. In this case, the GIM-estimated confidence intervals
-%should be larger and contain what would be found from an unconstrained fit.
-
-To demonstrate this effect, we simulated data under a simple
-isolation-with-migration model, in which population sizes are allowed to vary,
-and one population has a severe bottleneck in the most recent 1000 years
-(Figure~\ref{fig:supp-uncerts-toy}). We simulated 200 1Mb regions with
-$u=r=10^{-8}$, sampling 10 diploid individuals from each present-day population
-and computed LD statistics. From these, we inferred the best fit parameters
-without imposing bounds on the parameters, and we also reinferred the model
-imposing a lower bound of 300 on population sizes (the bottleneck size). From
-our fits, we computed confidence intervals using the Fisher information matrix
-(FIM) and GIM approaches, in both the unbounded and bounded fits. We also
-reinferred parameters over 200 bootstrapped replicate datasets to compare
-empirical uncertainties to those estimated CIs.
-
-As expected the FIM CIs underestimate the true uncertainty and the GIM CIs
-closely match empirical uncertainty from the bootstrap fits. In the fit that
-imposed a lower bound on population sizes, some GIM-estimated standard errors
-were larger than those from the unbounded fits.  However, the fit parameters
-were slightly shifted from the unbounded fits, due to hitting the lower bound
-of the bottleneck size. In these cases, the estimated CIs were larger but
-contained the true CIs from the unbounded GIM and bootstrap fits. For parameters
-that were not strongly affected by hitting the bounds, the CIs matched closely
-(Figure~\ref{fig:supp-uncerts-toy}).
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics{./figures/supp-uncerts-toy.pdf}
-    \caption{
-        \textbf{Evaluation of GIM confidence intervals using moments-LD.}
-        The GIM approach accurately estimates confidence intervals, accounting
-        for non-independence between regions of linked loci. GIM-estimated CIs
-        from the constrained fit are large enough to contain the true
-        uncertainty. Vertical dashed lines indicate simulated parameter values.
-    }
-    \label{fig:supp-uncerts-toy}
-\end{figure}
 
 \subsection{Allowing for additional migrations}
 
@@ -1872,7 +1796,7 @@ diversity.
     $m_{stems}$ & Stem 1--stem 2 migration rate & $0$ & fixed \\
     $T_{Nama}$ & Time of Nama merger event & 115400 & 101400--116800 \\
     $f_{stem 2 \rightarrow Nama}$ & Proportion of stem 2 ancestry making up initial Nama lineage ($1-f$ from stem 1S) & 0.693 & 0.706--0.769 \\
-    $T_{EA}$ & Time of East Africa merger event & 92940 & 94500--10140 \\ %%% outside CI!
+    $T_{EA}$ & Time of East Africa merger event & 92940 & 94500--10140 \\
     $f_{stem 2 \rightarrow EA}$ & Proportion of stem 2 ancestry making up initial East Africa lineage ($1-f$ from stem 1E) & 0.502 & 0.510--0.564 \\
     $T_{MSL}$ & Time of secondary admixture from stem 2 to Mende & 23490 & 22920--25510 \\
     $f_{stem 2 \rightarrow MSL}$ & Proportion of ancestry from secondary stem 2 admixture to Mende & 0.170 & 0.174--0.196 \\
@@ -1885,7 +1809,8 @@ diversity.
     \label{tab:supp-merger-with-stem-migration}
     \textbf{Best-fit parameters from the Merger-With-Stem-Migration model.}
     Inferred values are scaled to physical units assuming a generation time of
-    29 years. This model gave a log-likelihood of -102,633. \aprcomment{check these at end}
+    29 years. This model gave a log-likelihood of -102,633.
+    \aprcomment{check these at end for each model}
     \aprcomment{if the slightly shift, also fix elsewhere in supp and main text}
 }
 \centering
@@ -1926,65 +1851,6 @@ diversity.
     \bottomrule
 \end{tabular}
 \end{table}
-
-%\begin{table}[ht]
-%    \caption{
-%        \label{tab:supp-confidence-intervals}
-%        \textbf{GIM-computed confidence intervals are not underestimated.}
-%        \aprcomment{This is out of date, needs to be removed}
-%        CIs computed with the Godambe information matrix (GIM) are largely
-%        similar (i.e., within an order of magnitude) to those estimated by
-%        creating 200 block bootstrap-replicate datasets (BS) and refitting each
-%        modelto these datasets (see Section~\ref{sec:bootstrap-CIs}). Standard
-%        deviations for each inferred parameter were computed from these 200
-%        model fits. Parameters are as labeled and described in the above
-%        tables. Blank standard errors indicate that parameter was not relevant
-%        to the given model.
-%    }
-%    \centering
-%    \begin{tabular}[t]{l|cc|cc|cc|cc}
-%        \toprule
-%        & \multicolumn{2}{c|}{Single origin} & \multicolumn{2}{c|}{Cont. mig.}
-%        & \multicolumn{2}{c|}{Merger w/o mig.} & \multicolumn{2}{c}{Merger w/mig.} \\
-%        Parameter & GIM & BS & GIM & BS & GIM & BS & GIM & BS \\
-%        \midrule
-%        $N_e$ & 403 & 127 & 1777 & 951 & 326 & 406 & 1369 & 1408 \\
-%        $N_{MH}$ & 529 & 158 & & & & & & \\
-%        $N_{stem1}$ & & & 1612 & 406 & 76 & 122 & 838 & 164 \\
-%        $N_{stem2}$ & & & 2488 & 1001 & 1149 & 2344 & 6668 & 1154 \\
-%        $N_{Nama_0}$ & 370 & 79 & 2989 & 512 & 384 & 496 & 1514 & 538 \\
-%        $N_{Nama_F}$ & 9 & 2 & 54 & 4 & 7 & 4 & 31 & 5 \\
-%        $N_{MSL_0}$ & 769 & 190 & 2479 & 285 & 322 & 384 & 1165 & 421 \\
-%        $N_{MSL_F}$ & 606 & 185 & 6628 & 1250 & 987 & 1031 & 4332 & 1404 \\
-%        $N_{EA}$ & 273 & 49 & 1841 & 138 & 246 & 154 & 1628 & 252 \\
-%        $N_{Gumuz_F}$ & 131 & 56 & 915 & 80 & 102 & 72 & 337 & 83 \\
-%        $N_{EP}$ & 491 & 106 & 3246 & 168 & 408 & 177 & 1684 & 185 \\
-%        $N_{GBR_0}$ & 33 & 7 & 231 & 17 & 29 & 17 & 122 & 21 \\
-%        $N_{GBR_F}$ & 507 & 117 & 2889 & 295 & 334 & 203 & 1678 & 218 \\
-%        $N_{Neand}$ & 105 & 88 & 591 & 97 & 91 & 94 & 235 & 158 \\
-%        $T_{stems}$ & & & 391E3 & 67E3 & 27E3 & 7.6E3 & 426E3 & 284E3 \\
-%        $T_{stem1}$ & & & & & 20E3 & 45E3 & 166E3 & 58E3 \\
-%        $m_{Nama-MSL}$ & 1.6E-6 & 1.2E-6 & 3.7E-6 & 2.7E-6 & 1.1E-6 & 1.3E-6 & 4.0E-6 & 2.6E-6 \\
-%        $m_{Nama-EA}$ & 2.0E-6 & 1.3E-6 & 1.0E-5 & 1.8E-6 & 1.3E-6 & 1.8E-6 & 9.1E-6 & 2.8E-6 \\
-%        $m_{MSL-EA}$ & 7.6E-6 & 1.1E-6 & 5.3E-5 & 3.0E-6 & 5.5E-6 & 3.3E-6 & 2.6E-5 & 4.4E-6 \\
-%        $m_{EA-GBR}$ & 2.4E-6 & 1.1E-6 & 1.0E-5 & 1.9E-6 & 1.5E-6 & 2.2E-6 & 5.5E-6 & 2.6E-6 \\
-%        $m_{EA-EA}$ & 1.3E-5 & 7.5E-6 & 8.4E-5 & 1.4E-5 & 1.3E-5 & 1.4E-5 & 5.4E-5 & 1.9E-5 \\
-%        $f_{GBR \rightarrow EP}$ & 0.0039 & 0.0036 & 0.0037 & 0.0071 & 0.0037 & 0.0066 & 0.0075 & 0.0084 \\
-%        $f_{EP \rightarrow Nama}$ & 0.0039 & 0.0040 & 0.0043 & 0.0072 & 0.0042 & 0.0068 & 0.0049 & 0.0085 \\
-%        $f_{GBR \rightarrow Nama}$ & 0.0019 & 0.0020 & 0.0021 & 0.0030 & 0.0021 & 0.0030 & 0.0031 & 0.0035 \\
-%        $m_{stems}$ & & & 1.1E-5 & 7.7E-6 & & & 8.7E-5 & 2.5E-5 \\
-%        $m_{stem2-Nama}$ & & & 1.6E-5 & 1.1E-5 & & & & \\
-%        $m_{stem2-MSL}$ & & & 4.2E-5 & 1.7E-5 & & & & \\
-%        $m_{stem2-EA}$ & & & 9.0E-6 & 5.4E-6 & & & & \\
-%        $T_{Nama}$ & 2525 & 1188 & 18E3 & 6400 & 8253 & 4763 & 28E3 & 6283 \\
-%        $f_{stem 2 \rightarrow Nama}$ & & & & & 0.0086 & 0.017 & 0.067 & 0.018 \\
-%        $T_{EA}$ & & & & & 3648 & 2047 & 8865 & 4114 \\
-%        $f_{stem 2 \rightarrow EA}$ & & & & & 0.0074 & 0.015 & 0.059 & 0.021 \\
-%        $T_{MSL}$ & & & & & 570 & 1373 & 641 & 1613 \\
-%        $f_{stem 2 \rightarrow MSL}$ & & & & & 0.0036 & 0.0066 & 0.0085 & 0.0076 \\
-%        \bottomrule
-%    \end{tabular}
-%\end{table}
 
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
