@@ -111,12 +111,13 @@ approaches are more challenging to interpret and fit to data.
 However, new population genetic tools now allow for inference involving tens to
 hundreds of genomes from multiple populations and greater complexity
 \citep{Kamm2020-vn,Ragsdale2019-nt,Speidel2019-nj}. Inspired by evidence for
-Neanderthal admixture with humans in Eurasia, several recent articles
+Neanderthal admixture with humans in Eurasia, several recent studies
 have shown that introducing an archaic hominin ghost population contributing to 
 African populations in the period surrounding the Out-of-Africa migration event
 substantially improves the description of genetic data relative to
 single-origin models, mostly in Western Africa
-\citep{Plagnol2006-lt,Hammer2011-bx,Hey2018-pw,Ragsdale2019-nt,Lorente-Galdos2019-vz,Durvasula2020-td},
+\citep{Plagnol2006-lt,Hammer2011-bx,Hey2018-pw,Ragsdale2019-nt,
+Lorente-Galdos2019-vz,Durvasula2020-td},
 %Plagnol: YRI 
 %Here we present a new method for addressing whether archaic human groups contributed to the modern gene pool (called ancient admixture),
 %we find strong evidence for ancient admixture in both a European and a West African population
@@ -138,12 +139,12 @@ single-origin models, mostly in Western Africa
 %title: "Recovering signals of ghost archaic introgression"
 %Abstract:"Our analyses of site frequency spectra indicate that these populations derive 2 to 19% of their genetic ancestry from an archaic population that diverged before the split of Neanderthals and modern humans." 
 but also in southern \cite{Hammer2011-bx,Lorente-Galdos2019-vz} 
-and central African \cite{Hsieh2016-gk, Hammer2011-bx,Lorente-Galdos2019-vz,Hey2018-pw}.
+and central African \cite{Hsieh2016-gk, Hammer2011-bx,Lorente-Galdos2019-vz,Hey2018-pw}
 populations.
 This has driven speculation about the geographic range of this ghost
 population, possible links to specific fossils, and the possibility of
-finding ancient DNA evidence \citep[e.g.,][]{Hsieh2016-gk}. However, these prior
-articles share two weaknesses. First, they only contrast a single-origin model
+finding ancient DNA evidence\citep{Hsieh2016-gk}. However, these prior
+studies share two weaknesses. First, they only contrast a single-origin model
 with an archaic hominin admixture model, leaving out other plausible models
 \citep{Henn2018-rf} (Figure~\ref{fig:proposed-models}).
 Second, they
@@ -151,7 +152,7 @@ focus on a small subset of African diversity, either because of small sample
 sizes (2-5 genomes) or because they rely on 1000 Genomes data which only
 recruited populations of recent West African or Bantu-speaking ancestry
 (Figure~\ref{fig:diversity}C). 
-While ancient DNA from Eurasia has helped us understand early human history
+While ancient DNA from Eurasia has helped to clarify early human history
 outside of Africa, there is no comparably ancient DNA to elucidate early history
 in Africa \citep{Lipson2022-xf}.
 
@@ -160,11 +161,10 @@ models by studying the genomes of contemporary populations. We take as our
 starting point four classes of models (single population expansion, single
 population expansion with regional persistence, archaic hominin admixture, and
 multi-regional evolution, Figure~\ref{fig:proposed-models}), using 290
-genomes of individuals from southern, eastern, and western Africa as well as Eurasia. By
-including geographically and genetically diverse populations across Africa, we
+genomes of individuals from southern, eastern, and western Africa as well as Eurasia.
+By including geographically and genetically diverse populations across Africa, we
 infer demographic models that explain more features of genetic diversity
-in more
-populations than previously reported. These analyses confirm the inadequacy of
+in more populations than previously reported. These analyses confirm the inadequacy of
 tree-like models and provide an opportunity to directly evaluate a wide range
 of alternative models. 
 
@@ -178,7 +178,7 @@ of alternative models.
         paleoanthropological literature into genetically testable demographic
         models \citep{Henn2018-rf}.
         We used these conceptual models as starting points to build detailed
-        parameterized demographic models (SI Section~\ref{modelspec})
+        parameterized demographic models (SI Section~\ref{sec:modelspec})
         that were then fit to genetic data. 
     }
     \label{fig:proposed-models}
@@ -238,35 +238,35 @@ years.
 
 We began with a model of geographic expansion from a single ancestral,
 unstructured source followed by migration between populations, without allowing
-for contribution from an African archaic hominin lineage or population structure prior
-to the expansion (Figure~\ref{fig:proposed-models}A or Figure~\ref{fig:proposed-models}D). As expected
-\citep{Ragsdale2019-nt}, this first model was a poor fit to the data
-qualitatively (Figure~\ref{fig:supp-single-origin-fits}) and quantitatively
-(log-likelihood ($LL$) $\approx -189,300$, Table~\ref{tab:supp-single-origin}).
-We next explored a suite of parameterized models in which population structure predates the
-differentiation of contemporary groups (Supporting Information (SI) Section~\ref{modelspec}). 
-Depending on the parameters, these encompassed models allowing for ancestral
-reticulation (such as fragmentation-and-coalescence or meta-population models,
+for contribution from an African archaic hominin lineage or population
+structure prior to the expansion (Figure~\ref{fig:proposed-models}A or
+Figure~\ref{fig:proposed-models}D). As expected \citep{Ragsdale2019-nt}, this
+first model was a poor fit to the data qualitatively
+(Figure~\ref{fig:supp-single-origin-fits}) and quantitatively (log-likelihood
+($LL$) $\approx -189,300$, Table~\ref{tab:supp-single-origin}).  We next
+explored a suite of parameterized models in which population structure predates
+the differentiation of contemporary groups (Supporting Information (SI)
+Section~\ref{sec:modelspec}).  Depending on the parameters, these encompassed
+models allowing for ancestral reticulation (such as
+fragmentation-and-coalescence or meta-population models,
 Figure~\ref{fig:proposed-models}B), archaic hominin admixture
 (Figure~\ref{fig:proposed-models}C), and African multi-regionalism
 (Figure~\ref{fig:proposed-models}D).
 
-Regardless of the model choice for early epochs, maximum-likelihood inference of human demographic
-history for the last 150ka was remarkably robust.
-In a reticulated model, we use ``divergence'' between populations to mean
-the time of their most recent shared ancestry.
-The earliest divergence among
+Regardless of the model choice for early epochs, maximum-likelihood inference
+of human demographic history for the last 150ka was remarkably robust.  In a
+reticulated model, we use ``divergence'' between populations to mean the time
+of their most recent shared ancestry. The earliest divergence among
 contemporary human populations differentiates the southern African Nama from
 other African groups between 110--135ka, with low to moderate levels of
 subsequent gene flow (Table \ref{tab:migration-rates}). In none of the
 high-likelihood models which we explored did the divergence between Nama and
-other populations exceed $\sim$140ka.
-We conclude that geographic patterns of contemporary \emph{Homo sapiens}
-population structure likely arise during MIS 5.
-Although we find evidence for earlier population structure in Africa (next section),
-contemporary populations cannot be easily mapped onto the more ancient
-`stem' groups as only a small proportion of drift between contemporary populations can
-be attributed to drift between stems (SI Section \ref{sec:f4},
+other populations exceed $\sim$140ka. We conclude that geographic patterns of
+contemporary \emph{Homo sapiens} population structure likely arise during MIS
+5. Although we find evidence for earlier population structure in Africa (next
+section), contemporary populations cannot be easily mapped onto the more
+ancient `stem' groups as only a small proportion of drift between contemporary
+populations can be attributed to drift between stems (SI Section \ref{sec:f4},
 Figures~\ref{fig:predictions} and
 \ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}).
 
@@ -281,23 +281,24 @@ to Europeans directly following the out-of-Africa migration which was set to
 1.5\% at 45ka (SI Section~\ref{sec:models}).
 
 We quantify migration rates among populations after their divergence
-$\approx120ka$. Prior to agripastoralist expansion 5ka, migration between the ancestors
-of the Nama and other groups is an order of magnitude weaker than that observed
-between between western and eastern Africans (Table \ref{tab:migration-rates}).
-All models infer relatively high gene flow between Ethiopia and western Africa
-($m\approx2\times10^{-4}$, the constant proportion of immigrant lineages per
-generation over 60ka). We further find that Back-to-Africa gene flow at the
-beginning of the Holocene primarily affected the ancestors of the Ethiopian
-agricultural populations \citep{Molinaro2019-rf}, comprising over half of their
-genetic ancestry, estimated to be approximately 65\%. We observe significant gene flow
-from the Amhara and Oromo into the Nama, a signal which is likely a proxy for
-the movement of eastern African caprid and cattle pastoralists
+$\sim$120ka. Prior to agripastoralist expansion 5ka, migration between the
+ancestors of the Nama and other groups is an order of magnitude weaker than
+that observed between between western and eastern Africans (Table
+\ref{tab:migration-rates}). All models infer relatively high gene flow between
+Ethiopia and western Africa ($m\approx2\times10^{-4}$, the constant proportion
+of immigrant lineages per generation over 60ka). We further find that
+Back-to-Africa gene flow at the beginning of the Holocene primarily affected
+the ancestors of the Ethiopian agricultural populations
+\citep{Molinaro2019-rf}, comprising over half of their genetic ancestry,
+estimated to be approximately 65\%. We observe significant gene flow from the
+Amhara and Oromo into the Nama, a signal which is likely a proxy for the
+movement of eastern African caprid and cattle pastoralists
 \citep{Henn2008-xo,Breton2014-xb}, here estimated to constitute a 25\% ancestry
-contribution 2,000 ya. While this gene flow is not apparent from the ADMIXTURE
-plot (Figure~\ref{fig:diversity}), the ancestry is likely grouped into the
-Khoe-San component which has drifted appreciably from its ancestral eastern
-African source. Colonial period admixture from Europeans into the Nama was
-estimated at 15\%, similar to proportions suggested by \texttt{ADMIXTURE}
+contribution 2,000 years ago. While this gene flow is not apparent from the
+ADMIXTURE plot (Figure~\ref{fig:diversity}), the ancestry is likely grouped
+into the Khoe-San component which has drifted appreciably from its ancestral
+eastern African source. Colonial period admixture from Europeans into the Nama
+was estimated at 15\%, similar to proportions suggested by \texttt{ADMIXTURE}
 (Figure~\ref{fig:diversity}).
 
 \begin{figure}[t!]
@@ -373,48 +374,48 @@ estimated at 15\%, similar to proportions suggested by \texttt{ADMIXTURE}
 
 \subsection*{Deep but connected population structure within Africa}
 
-To account for population structure prior to 135ka, three of our four models allowed for two or more
-``stem'' populations which could diverge either before or after the Neanderthal
-split. We considered models both with and without migration between these stem
-populations, and in both cases we tested two different types of gene exchange
-during the expansion phase, as illustrated in Figure \ref{fig:mergers}:
-1) One of the stem population expands (splits into
+To account for population structure prior to 135ka, three of our four models
+allowed for two or more ``stem'' populations which could diverge either before
+or after the Neanderthal split. We considered models both with and without
+migration between these stem populations, and in both cases we tested two
+different types of gene exchange during the expansion phase, as illustrated in
+Figure \ref{fig:mergers}: 1) One of the stem population expands (splits into
 contemporary populations), and the other stem population(s) has continuous
 symmetric migration with those populations; or 2) one or more of the stem
 populations expands, with instantaneous pulse (or ``merger'') events from the
-other stem population, so that recent populations are formed by mergers
-of multiple ancestral populations. Depending on parameter values,
-this scenario encompasses archaic hominin introgression and
-fragmentation-and-coalescence models (such as Figure~\ref{fig:proposed-models}B and C).
-For many parameters, confidence intervals based on bootstrapping are relatively narrow
+other stem population, so that recent populations are formed by mergers of
+multiple ancestral populations. Depending on parameter values, this scenario
+encompasses archaic hominin introgression and fragmentation-and-coalescence
+models (such as Figure~\ref{fig:proposed-models}B and C).  For many parameters,
+confidence intervals based on bootstrapping are relatively narrow
 (Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}),
-reflecting an informative statistical approach. Model assumptions
-have, however, a larger impact on parameter estimates (and thus, real uncertainty).
+reflecting an informative statistical approach. Model assumptions have,
+however, a larger impact on parameter estimates (and thus, real uncertainty).
 To convey model uncertainty, we highlight features of the two inferred models
-with high likelihoods. These are referred to as the
-``multiple-merger'' and the ``continuous-migration'' models. Both allow for
-migration between stem branches, but differ primarily in the timing of the
-early divergence of stem populations and their relative $N_e$
-(Figure~\ref{fig:best-fit-models}). The two models also differ in the mode of divergence, with the multiple-merger featuring a population reticulation during the Middle Pleistocene.
+with high likelihoods. These are referred to as the ``multiple-merger'' and the
+``continuous-migration'' models. Both allow for migration between stem
+branches, but differ primarily in the timing of the early divergence of stem
+populations and their relative $N_e$ (Figure~\ref{fig:best-fit-models}). The
+two models also differ in the mode of divergence, with the multiple-merger
+featuring a population reticulation during the Middle Pleistocene.
 
 Allowing for continuous migration between the stem populations substantially
-improved the fits relative to zero migration between stems
-($LL \approx -101,600$ vs. $-107,700$ in the merger model and
-$LL \approx -115,300$ vs. $-126,500$ in the continuous migration model).
-With continuous migration between stems, population
-structure extends back to 1.1--1.4Ma (Table~\ref{tab:migration-rates}).
-Migration between the stems in these models is moderate, with a fraction of
-migrant lineages each generation estimated as
-$m=6.3\times10^{-5}-1.3\times10^{-4}$. For comparison, this is similar
-to inferred migration rates between connected contemporary populations over the
+improved the fits relative to zero migration between stems ($LL \approx
+-101,600$ vs. $-107,700$ in the merger model and $LL \approx -115,300$ vs.
+$-126,500$ in the continuous migration model).  With continuous migration
+between stems, population structure extends back to up to 1.5Ma
+(Table~\ref{tab:migration-rates}).  Migration between the stems in these models
+is moderate, with a fraction of migrant lineages each generation estimated as
+$m=6.3\times10^{-5}-1.3\times10^{-4}$. For comparison, this is similar to
+inferred migration rates between connected contemporary populations over the
 past 50ka (Table~\ref{tab:migration-rates}). This ongoing (or at least,
 periodic) gene flow qualitatively distinguishes these models from previously
-proposed archaic hominin admixture models (Figure~\ref{fig:proposed-models}C) as
-the early branches remain closely related, and each branch contributes large
-amounts to all contemporary populations (Figure~\ref{fig:predictions}). 
+proposed archaic hominin admixture models (Figure~\ref{fig:proposed-models}C)
+as the early branches remain closely related, and each branch contributes large
+amounts to all contemporary populations (Figure~\ref{fig:predictions}).
 Because of this relatedness, only $1\%$ to $4\%$ of genetic differentiation
-among contemporary populations can be traced back
-to this early population structure (SI Section~\ref{sec:f4})
+among contemporary populations can be traced back to this early population
+structure (SI Section~\ref{sec:f4})
  
 Under the continuous-migration model, one of the two stems diverges into
 lineages leading to contemporary populations in western, southern and eastern
@@ -422,34 +423,33 @@ Africa, and the other (Stem 2) contributes variable ancestry to those
 populations. This migration from Stem 2 is highest with the Mende
 ($m=1.6\times10^{-4}$) compared to the Nama and East African populations
 ($m=5.9\times10^{-5}$ and $3.1\times10^{-5}$, respectively), with migration
-allowed to occur until 5ka. A
-sampled lineage from the Nama, Mende, and Gumuz have probabilities of being in
-Stem 2 at the time of Stem 1 expansion (135ka) of approximately $0.145$, $0.2$,
-and $0.13$, respectively, though these probabilities change over time,
-precluding the notion of a fixed admixture proportion.
+allowed to occur until 5ka. A sampled lineage from the Nama, Mende, and Gumuz
+have probabilities of being in Stem 2 at the time of Stem 1 expansion (135ka)
+of approximately $0.145$, $0.2$, and $0.13$, respectively, though these
+probabilities change over time, precluding the notion of a fixed admixture
+proportion.
 
 In contrast, under the multiple-merger model, stem populations merge with
-varying proportions to form the different contemporary groups. 
-We observe a sharp bottleneck in Stem 1 down to $N_e=100$ after the split of
-the Neanderthal branch. This represents the lower bound allowed in our
-optimization (i.e. an $N_e$ of 100), although the size of this
-bottleneck is poorly constrained (95\% confidence interval 100--851). After a long period of
-exchange with Stem 2, Stem 1 then fractures into ``Stem 1E'' and ``Stem 1S''
-478ka. The timing of this divergence was also poorly constrained (95\% CI 276–-478ka).
-These populations evolve independently until 119ka
-(101--125ka) when Stem 1S and Stem 2 combine to form the ancestors of the Nama, with
-proportions 30\%, 70\% respectively. Similarly, Stem 1E and Stem 2 combine in
-equal proportions (50\% each) to form the ancestors of the western Africans and
-eastern Africans (and thus also all individuals who later disperse during the
-Out of Africa event). Finally, the Mende receive a large additional pulse of
-gene flow from Stem 2, replacing 19\% of their population 25ka (22--26ka).
-The later Stem 2 contribution to the western African Mende resulted in
-better model fits ($\Delta LL \approx 60,000$).
-Speculatively, this may indicate that an ancestral Stem 2 population occupied western or
-central Africa, broadly speaking. The differing proportions in the Nama and
-eastern Africans may also indicate geographic separation of Stem 1S in southern
-Africa and Stem 1E in eastern Africa. 
-
+varying proportions to form the different contemporary groups.  We observe a
+sharp bottleneck in Stem 1 down to $N_e=100$ after the split of the Neanderthal
+branch. This represents the lower bound allowed in our optimization (i.e. an
+$N_e$ of 100), although the size of this bottleneck is poorly constrained (95\%
+confidence interval 100--851). After a long period of exchange with Stem 2,
+Stem 1 then fractures into ``Stem 1E'' and ``Stem 1S'' 478ka. The timing of
+this divergence was also poorly constrained (95\% CI 276–-478ka).  These
+populations evolve independently until 119ka (101--125ka) when Stem 1S and Stem
+2 combine to form the ancestors of the Nama, with proportions 30\%, 70\%
+respectively. Similarly, Stem 1E and Stem 2 combine in equal proportions (50\%
+each) to form the ancestors of the western Africans and eastern Africans (and
+thus also all individuals who later disperse during the Out of Africa event).
+Finally, the Mende receive a large additional pulse of gene flow from Stem 2,
+replacing 19\% (18--21\%) of their population 25ka (22--26ka). The later Stem 2
+contribution to the western African Mende resulted in better model fits
+($\Delta LL \approx 60,000$).  Speculatively, this may indicate that an
+ancestral Stem 2 population occupied western or central Africa, broadly
+speaking. The differing proportions in the Nama and eastern Africans may also
+indicate geographic separation of Stem 1S in southern Africa and Stem 1E in
+eastern Africa. 
 
 \begin{figure}[t!]
     \centering
@@ -473,6 +473,7 @@ Africa and Stem 1E in eastern Africa.
     }
     \label{fig:predictions}
 \end{figure}
+
 To assess robustness of the inferred models to analysis and reference
 population choices, SI Sections \ref{sec:validation_strategy}
 and \ref{sec:validation_results} present re-analyses changing the European and
@@ -484,22 +485,22 @@ reanalyses are quantitatively consistent.
 
 \subsection*{Reconciling multiple lines of genetic evidence}
 
-Previous studies have found support for archaic hominin admixture in Africa using
-two-locus statistics \citep{Hsieh2016-gk,Ragsdale2019-nt}, the conditional SFS
-(cSFS) \citep{Durvasula2020-td}, and reconstruction of gene genealogies
-\citep{Speidel2019-nj}. However, none of these studies considered a weakly
-structured stem. We validated our inferred models with additional independent
-approaches. We find that the observed cSFS (conditioned on the derived allele
-being carried in the Neanderthal sample) is very well-described by the merger
-model (Figures~\ref{fig:validation}A-C and
+Previous studies have found support for archaic hominin admixture in Africa
+using two-locus statistics \citep{Hsieh2016-gk,Ragsdale2019-nt}, the
+conditional SFS (cSFS) \citep{Durvasula2020-td}, and reconstruction of gene
+genealogies \citep{Speidel2019-nj}. However, none of these studies considered a
+weakly structured stem. We validated our inferred models with additional
+independent approaches. We find that the observed cSFS (conditioned on the
+derived allele being carried in the Neanderthal sample) is very well-described
+by the merger model (Figures~\ref{fig:validation}A-C and
 \ref{fig:supp-csfs-single-origin}--\ref{fig:supp-csfs-merger-with-stem-migration}),
-even though this statistic was not used in the fit. Our best-fit models outperform
-archaic hominin admixture models fit directly to the cSFS
-(for example, compare to Figure~1 in
-Durvasula and Sankararaman (2020)\citep{Durvasula2020-td}). 
-Specifically, it is the addition of migration between stems that results in a qualitative improvement 
-of the agreement 
-(compare Figures \ref{fig:supp-csfs-merger-without-stem-migration}  and \ref{fig:supp-csfs-merger-with-stem-migration}).
+even though this statistic was not used in the fit. Our best-fit models
+outperform archaic hominin admixture models fit directly to the cSFS (for
+example, compare to Figure~1 in Durvasula and Sankararaman
+(2020)\citep{Durvasula2020-td}).  Specifically, it is the addition of migration
+between stems that results in a qualitative improvement of the agreement
+(compare Figures \ref{fig:supp-csfs-merger-without-stem-migration}  and
+\ref{fig:supp-csfs-merger-with-stem-migration}).
 
 \begin{figure}[t!]
     \centering
