@@ -1361,6 +1361,49 @@ Models C), D), and E) show qualitatively similar patterns of coalescence rate.
 Given the same data, an IM model (such as D) will infer a potentially much 
 deeper population divergence than growth model C and reticulation model E.
 
+\subsection{Evaluation of estimated confidence intervals}
+\label{sec:confidence-intervals}
+
+We estimated 95\% confidence intervals (CIs) as reported in
+Tables~\ref{tab:supp-single-origin}--\ref{tab:supp-merger-with-stem-migration}
+by refitting each model to block-bootstrap replicated datasets. While our
+LD-based inference approach is expected to be unbiased
+\citep{Ragsdale2019-nt,Ragsdale2020-nz}, we tested whether our
+bootstrap-estimated CIs contain the true parameters using simulated data from
+our two highlighted models (the continuous migration model and the merger with
+stem migration model).
+
+To do this, we simulated 500 1Mb regions using the same sample sizes as our
+analyzed data, with per-base mutation and recombination rates $u=r=10^{-8}$,
+using \texttt{msprime} \citep{Baumdicker2022-mj}. From these simulated regions,
+we replicated our bootstrapping procedure by resampling (with replacement) 500
+regions. We repeated this 500 times (to obtain 500 bootstrap replicate
+datasets). We fit the full (non-bootstrapped) simulated dataset and each of the
+500 bootstrap replicates, and compared the inferred parameter values to the
+true simulated values (Figures~\ref{fig:supp-sim-BS-continuous-migration} and
+\ref{fig:supp-sim-BS-merger-with-stem-migration}).
+
+The distribution of refit values for vast majority of parameters overlapped
+with the true simulated value. This included every parameter from the
+continuous migration model, and all of the parameters in the merger with stem
+migration model except for the size, migration rate, and split time of Stem 1
+(which experienced a severe bottleneck in the deep past). Because the true
+simulated parameter for the bottleneck size in Stem 1 was at the lower bound
+($N=100$), this likely is due to the bottleneck re-inferences failing to
+fully converge. Overall, bootstrap-estimated CIs typically contain the true
+parameter, although CIs for parameters that lie at an optimization bound
+should be treated with caution.
+
+Finally, many features of recent human history were consistently parameterized
+across each of our tested models (such as recent migration rates and population
+sizes). We evaluated the consistency of these recent parameters across our
+different models (Figure~\ref{fig:supp-bootstrap-overlap}). In the case that
+the model provides a very poor fit to the data (the single origin model) the
+CIs of some parameters do not overlap with those of the other models (e.g.,
+Mende population sizes, and some migration rates). Many parameters are largely
+consistent across each of the models, showing that inferences of recent history
+are largely robust to the details of population structure in the distant past.
+
 \subsection{Batch effects from merged data biases inference}
 \label{sec:merged-bias}
 
@@ -2443,6 +2486,56 @@ diversity.
         favor of more ancient divergence times.
     }
     \label{fig:supp-IM-misspecification}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-simulated-continuous_migration-bootstrap-fits.pdf}
+    \caption{
+        \textbf{Evaluation of confidence intervals in the continuous migration
+        model.} From 500 replicate bootstrap datasets, the true (simulated)
+        parameter value lies within the distribution of inferred values from
+        the bootstrap datasets. Orange line: simulated parameter value. Green
+        line: inferred parameter value. Blue histogram: inferred parameter
+        values from 500 bootstrap replicate datasets.
+    }
+    \label{fig:supp-sim-BS-continuous-migration}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-simulated-merger_with_stem_migration-bootstrap-fits.pdf}
+    \caption{
+        \textbf{Evaluation of confidence intervals in the merger with stem
+        migration model.} From 500 replicate bootstrap datasets, the true
+        (simulated) parameter value typically lies within the distribution of
+        inferred values from the bootstrap datasets. Stem 1 experienced a
+        strong bottleneck, at the lower bound of allowed inferred values. In
+        this case, and other parameters directly related to Stem 1,
+        bootstrap-inferred values do not overlap with the true value, although
+        this may be due to incomplete convergence of the optimization at these
+        bounds of parameter space. Orange line: simulated parameter value.
+        Green line: inferred parameter value. Blue histogram: inferred
+        parameter values from 500 bootstrap replicate datasets.
+    }
+    \label{fig:supp-sim-BS-merger-with-stem-migration}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figures/supp-bootstrap-fits-overlap.pdf}
+    \caption{
+        \textbf{Overlap of bootstrap distributions of inferred parameters
+        across multiple parameterized models.} While the details of deep
+        history differ substantially between the different inferred models, the
+        parameterization of recent history (population sizes, migration rates)
+        are similar. Despite the differences in the deep history, many
+        parameters related to recent history are consistent across all tested
+        models. The single origin model (blue) more often has inferred values
+        distinct from other models, although this model provides a far worse
+        fit to the data than the other models.
+    }
+    \label{fig:supp-bootstrap-overlap}
 \end{figure}
 
 \begin{figure}[ht]
