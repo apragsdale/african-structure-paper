@@ -1504,13 +1504,13 @@ While simulations of datasets of this size are rapid, computing LD statistics
 is computationally burdensome. We simulated 500 1Mb regions under our best fit
 single origin, continuous migration, and merger with stem migration models.
 Using these simulated regions, we constructed 500 bootstrap replicate datasets
-by sampling with replacement. Each of these 500 replicate sets were fit using
+by sampling genomic regions with replacement. Each of these 500 replicate sets were fit using
 the models reported in the main text, and we compared log-likelihoods across
 each fit (Figure~\ref{fig:refit-lls}). The correct model was recovered in the
 all of the scenarios based on log-likelihoods alone
 (Table~\ref{tab:confusion-matrix}). We conclude that our inferences are not
 simply fitting statistical noise, and the observed differences in
-log-likelihoods indicate a better recapitulation of the true history.
+log-likelihoods indicate different abilities to capture signal present in the data. 
 
 \begin{table}[ht]
     \caption{
@@ -1527,7 +1527,7 @@ log-likelihoods indicate a better recapitulation of the true history.
     \centering
     \begin{tabular}[t]{lcccc}
         \toprule
-        Simulated model & Single origin & Cont. migration & Merger w/out stem mig. & Merger w/stem mig. \\
+        Simulated model$\downarrow$ & Single origin & Cont. migration & Merger w/out stem mig. & Merger w/stem mig. \\
         \midrule
         Single origin & 500 & 0 & 0 & 0 \\
         Cont. migration & 0 & 500 & 0 & 0 \\
