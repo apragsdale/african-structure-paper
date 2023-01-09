@@ -639,6 +639,8 @@ merger-with-stem-migration model performed the best of these four models,
 although the fits were nearly visually indistinguishable from the fits from the
 merger-with-stem-migration model.
 
+A simulation-based validation of the confidence interval calculation is provided in Section 
+\ref{sec:confidence-intervals}.
 
 \subsection{Optimization using \moments}
 \label{sec:optimization}
@@ -1401,12 +1403,23 @@ should be treated with caution.
 Finally, many features of recent human history were consistently parameterized
 across each of our tested models (such as recent migration rates and population
 sizes). We evaluated the consistency of these recent parameters across our
-different models (Figure~\ref{fig:supp-bootstrap-overlap}). In the case that
-the model provides a very poor fit to the data (the single origin model) the
-CIs of some parameters do not overlap with those of the other models (e.g.,
-Mende population sizes, and some migration rates). Many parameters are largely
+different models (Figure~\ref{fig:supp-bootstrap-overlap}). Since all models use 
+the same set of bootstrapped simulations, systematic differences between models 
+reflect the effect model specification rather than statistical uncertainty. The effects 
+of statistical uncertainty of model specifications need not be of the same order, but 
+we find it useful to compare the two sources of uncertainties. Because model 
+specification differences are mostly in the distant past, we expect to find more 
+differences caused by model specifications in the distant past.
+Many recent parameters are largely
 consistent across each of the models, showing that inferences of recent history
 are largely robust to the details of population structure in the distant past.
+The model that provides a very poor fit to the data (the single origin model) shows 
+stronger model specification effects even for recent parameters (e.g.,
+Mende population sizes, and some migration rates). 
+
+
+
+
 
 \subsection{Batch effects from merged data biases inference}
 \label{sec:merged-bias}
