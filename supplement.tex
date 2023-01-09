@@ -1503,7 +1503,7 @@ Using these simulated regions, we constructed 500 bootstrap replicate datasets
 by sampling with replacement. Each of these 500 replicate sets were fit using
 the models reported in the main text, and we compared log-likelihoods across
 each fit (Figure~\ref{fig:refit-lls}). The correct model was recovered in the
-vast majority of cases based on log-likelihoods alone
+all of the scenarios based on log-likelihoods alone
 (Table~\ref{tab:confusion-matrix}). We conclude that our inferences are not
 simply fitting statistical noise, and the observed differences in
 log-likelihoods indicate a better recapitulation of the true history.
@@ -1515,7 +1515,7 @@ log-likelihoods indicate a better recapitulation of the true history.
         models, based on the best fit parameters from fits to data. Using these
         simulated datasets, we reinferred four models that we tested in our
         analyses in the main text, including simple (single origin) and complex
-        models. Among 500 fits, we almost exclusively recover the simulated
+        models. Among 500 fits, we exclusively recover the simulated
         model, even when fitting more complex (i.e., more heavily
         parameterized) models to simpler simulated models (such as the single
         origin model).
@@ -1527,7 +1527,7 @@ log-likelihoods indicate a better recapitulation of the true history.
         \midrule
         Single origin & 500 & 0 & 0 & 0 \\
         Cont. migration & 0 & 500 & 0 & 0 \\
-        Merger w/stem mig. & 0 & 0 & 10 & 490 \\
+        Merger w/stem mig. & 0 & 0 & 0 & 500 \\
         \bottomrule
     \end{tabular}
 \end{table}
