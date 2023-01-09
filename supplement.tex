@@ -643,19 +643,22 @@ merger-with-stem-migration model.
 \subsection{Optimization using \moments}
 \label{sec:optimization}
 
-For each model tested, we ran multiple rounds of likelihood optimization, 
+For each model tested, we ran multiple rounds of likelihood optimization,
 alternating between the \emph{optimize\_log\_fmin},
 \emph{optimize\_log\_powell}, and \emph{optimize\_lbfgsb} methods to explore
-parameter space and hone in on the best fit parameters. Initial guesses for
-parameters were chosen from demographically plausible starting points and then
-perturbed to explore space, using gradient descent (on the log of the
-parameters). The best fits from these initial rounds of optimization were then
-chosen as the starting points for optimization using the Powell and/or the
-L-BFGS-B methods (as implemented in the SciPy optimization package
-\citep{Virtanen2020-kr}). This process was repeated with alternating
+parameter space and hone in on the best fit parameters.  We imposed bounds on
+many of the parameters in the fits (most of which did not hit the imposed
+bounds). Population sizes had a lower bound of $N_e=100$, migration rates were
+bounded between 0 and $10^{-3}$, and admixture proportions between 0 and 1.
+Event times were only constrained to occur in the proper order (so that
+populations were required to have positive existence times, for example).
+Initial guesses for parameters were chosen from demographically plausible
+starting points and then perturbed to explore space, using gradient descent (on
+the log of the parameters). The best fits from these initial rounds of
+optimization were then chosen as the starting points for optimization using the
+Powell and/or the L-BFGS-B methods (as implemented in the SciPy optimization
+package \citep{Virtanen2020-kr}). This process was repeated with alternating
 optimization methods until the best fit parameter set converged consistently.
-
-
 
 \section{Gene genealogy reconstruction}
 \label{sec:relate}
@@ -1783,7 +1786,7 @@ diversity.
     $N_{EP}$ & East African agriculturist size & 13110 & 12800--13290 \\
     $N_{GBR_0}$ & Initial British size & 951 & 940--981 \\
     $N_{GBR_F}$ & Final British size & 11874 & 11490--12090 \\
-    $N_{Neand}$ & Neanderthal size & 2620 & 2380--27950 \\
+    $N_{Neand}$ & Neanderthal size & 2620 & 2380--2750 \\
     $T_{stems}$ & Stem split time (years) & 1223000 & 1199000--1382000 \\
     $T_{Nama}$ & Nama split time (years) & 134200 & 127800--139900 \\
     $m_{Nama-MSL}$ & Nama--Mende symmetric migration rate & $0.92\times10^{-5}$ & $0.41\times10^{-5}$--$1.43\times10^{-5}$ \\
@@ -1819,7 +1822,7 @@ diversity.
     $N_{stem2}$ & Size of stem 2 lineage & 27850 & 26500--35060 \\
     $N_{Nama_0}$ & Initial Nama and stem 1S size & 12640 & 11310--12910 \\
     $N_{Nama_F}$ & Final Nama size & 227 & 223--238 \\
-    $N_{MSL_0}$ & Initial Mende size & 1190 & 10280--11630 \\
+    $N_{MSL_0}$ & Initial Mende size & 11190 & 10280--11630 \\
     $N_{MSL_F}$ & Final Mende size & 27440 & 25720--30180 \\
     $N_{EA}$ & Size of East African and stem 1E branch & 9016 & 8680--9140 \\
     $N_{Gumuz_F}$ & Final Gumuz size & 3440 & 3270--3470 \\
