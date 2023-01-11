@@ -648,12 +648,19 @@ A simulation-based validation of the confidence interval calculation is provided
 For each model tested, we ran multiple rounds of likelihood optimization,
 alternating between the \emph{optimize\_log\_fmin},
 \emph{optimize\_log\_powell}, and \emph{optimize\_lbfgsb} methods to explore
-parameter space and hone in on the best fit parameters.  We imposed bounds on
-many of the parameters in the fits (most of which did not hit the imposed
-bounds). Population sizes had a lower bound of $N_e=100$, migration rates were
+parameter space and hone in on the best fit parameters.  
+We imposed bounds on many of the parameters in the fits.
+This is done primarily to avoid optimisation exploring parts of the parameter space 
+that are unrealistic (e.g., negative migration rates), where the model calculation can 
+be costly (e.g., population splits billions of years ago), and where model assumptions 
+can break down (e.g., very small populations).  Population sizes had a lower bound of 
+$N_e=100$, migration rates were
 bounded between 0 and $10^{-3}$, and admixture proportions between 0 and 1.
 Event times were only constrained to occur in the proper order (so that
 populations were required to have positive existence times, for example).
+Most best-fit parameters were away from these boundaries.
+
+
 Initial guesses for parameters were chosen from demographically plausible
 starting points and then perturbed to explore space, using gradient descent (on
 the log of the parameters). The best fits from these initial rounds of
