@@ -10,7 +10,7 @@
 \usepackage{authblk}
 
 \usepackage{lineno}
-\linenumbers
+%\linenumbers
 \renewcommand{\Affilfont}{\normalsize}
 \renewcommand{\Authfont}{\normalsize}
 
@@ -169,22 +169,6 @@ tree-like models and provide an opportunity to directly evaluate a wide range
 of alternative models. 
 
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/proposed-models.png}
-    \caption{
-        \textbf{Proposed conceptual models of early human history in Africa.}
-        These models have been designed to translate models from the 
-        paleoanthropological literature into genetically testable demographic
-        models \citep{Henn2018-rf}.
-        We used these conceptual models as starting points to build detailed
-        parameterized demographic models (SI Section~\ref{sec:modelspec})
-        that were then fit to genetic data. 
-    }
-    \label{fig:proposed-models}
-\end{figure}
-
-
 \section*{Results}
 
 We inferred detailed demographic histories using 4x-8x whole-genome sequencing
@@ -193,7 +177,10 @@ South Africa, newly presented here), Mende (from Sierra Leone, MSL from the
 Phase 3 1000 Genomes Project \citep{1000_Genomes_Project_Consortium2015-zq}),
 Gumuz (recent descendants of a hunter-gatherer group from Ethiopia
 \citep{Gurdasani2015-qy,Gopalan2022-pw}), and eastern African agriculturalists
-(Amhara and Oromo from Ethiopia \citep{Gurdasani2015-qy}). The Amhara and Oromo
+(Amhara and Oromo from Ethiopia \citep{Gurdasani2015-qy}).
+\aprcomment{See Supplementary Information (SI) section 1.2 for details of
+sample collection and consent.}
+The Amhara and Oromo
 populations, despite speaking distinct Afro-Asiatic languages, are highly
 genetically similar \citep{Pagani2015-pz,Gopalan2022-pw} and thus the two
 groups were combined for a larger sample size (Figure~\ref{fig:diversity}). We also
@@ -212,28 +199,7 @@ changes, continuous and variable migration rates, and punctuated admixture
 events, to learn about the nature of population structure over the past million
 years.
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics{figures/samples-diversity.pdf}
-    \caption[width=\textwidth]{
-        \textbf{Genetic diversity across Africa.}
-        (A) Select populations from the 1000 Genomes and African Diversity Reference Panels
-        illustrate diversity from western, eastern and southern Africa.
-        We chose representatives from each region (bold labels)
-        to build parameterized models,
-        including the newly-sequenced Nama from South Africa, Mende
-        from Sierre Leone, Gumuz, Oromo and Amhara from Ethiopia, and the
-        British and Vindija Neanderthal individual.
-        (B, C) PCA highlights the range of genetic divergence anchored 
-        by western Africans, Nama, Gumuz and the British.
-        Percentages show variance explained by each principal component.
-        (D) \texttt{ADMIXTURE} with $K=4$ illustrates signatures of recent gene flow in Africa
-        which reflect colonial-period migration into the Nama,
-        Back-to-Africa gene flow among some Ethiopians, and Khoe-San admixture in the Zulu.
-    }
-    \label{fig:diversity}
-\end{figure}
-   
+  
 \subsection*{A Late Pleistocene common ancestry for contemporary humans}
 
 We began with a model of geographic expansion from a single ancestral,
@@ -245,7 +211,7 @@ first model was a poor fit to the data qualitatively
 (Figure~\ref{fig:supp-single-origin-fits}) and quantitatively (log-likelihood
 ($LL$) $\approx-$189,300, Table~\ref{tab:supp-single-origin}). We next
 explored a suite of parameterized models in which population structure predates
-the differentiation of contemporary groups (Supporting Information (SI)
+the differentiation of contemporary groups (SI
 Section~\ref{sec:modelspec}). Depending on the parameters, these encompassed
 models allowing for ancestral reticulation, such as
 fragmentation-and-coalescence or meta-population models
@@ -303,27 +269,6 @@ into the Khoe-San component which has drifted appreciably from its ancestral
 eastern African source. Colonial period admixture from Europeans into the Nama
 was estimated at $15\%$, similar to proportions suggested by \texttt{ADMIXTURE}
 (Figure~\ref{fig:diversity}).
-
-\begin{figure}[t!]
-    \centering
-    \includegraphics[width=0.65\textwidth]{figures/best-fit-models}
-    \caption{
-        \textbf{A weakly structured stem best describes two-locus statistics.}
-        In the two best-fitting parameterizations of early population structure,
-        continuous migration (A) and multiple mergers (B), models
-        that include ongoing migration between stem populations outperform
-        those in which stem populations are isolated. Most recent populations are
-        connected by continuous, reciprocal migration that are indicated by 
-        double-headed arrows (labels matched to migration rates and divergence
-        times in Table~\ref{tab:migration-rates}). These migrations last for the
-        duration of co-existence of contemporaneous populations with constant
-        migration rates over those intervals. The
-        merger-with-stem-migration model (B, with  $LL=-101,600$) outperformed the
-        continuous-migration model (A, with $LL=-115,300$).
-        Colors are used to distinguish overlapping branches and link to
-        Figure~\ref{fig:diversity}.}
-    \label{fig:best-fit-models}
-\end{figure}
 
 \begin{table}[t!]
     \centering
@@ -458,29 +403,6 @@ speaking. The differing proportions in the Nama and eastern Africans may also
 indicate geographic separation of Stem 1S in southern Africa and Stem 1E in
 eastern Africa. 
 
-\begin{figure}[t!]
-    \centering
-    \includegraphics{figures/predictions.pdf}
-    \caption{
-        \textbf{Structure among stems is weak and present-day structure is mostly recent.}
-        From the best fit models of our two parameterizations (A and B:
-        continuous migration, C and D: merger with stem migration),
-        we predicted pairwise differences $H_{i,j}$ between individuals
-        sampled from populations $i$ and $j$ existing at time $t$ (A and C).
-        (B and D) To understand how drift between stems explains contemporary structure, 
-        we also computed the proportion $\alpha^2$ of drift between pairs of
-        sampled contemporary
-        populations that aligns with drift between past populations
-        (here Nama and Mende, see SI Section~S\ref{sec:f4}
-        for details and additional comparisons in
-        Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}).
-        Both models infer deep population structure with modest contributions to
-        contemporary genetic differentiation.
-        Most present differentiation dates back to the last $100$ka.
-    }
-    \label{fig:predictions}
-\end{figure}
-
 To assess robustness of the inferred models to analysis and reference
 population choices, SI Sections \ref{sec:validation_strategy}
 and \ref{sec:validation_results} present re-analyses changing the European and
@@ -509,33 +431,6 @@ between stems that results in a qualitative improvement of the agreement
 (compare Figures \ref{fig:supp-csfs-merger-without-stem-migration}  and
 \ref{fig:supp-csfs-merger-with-stem-migration}).
 
-\begin{figure}[t!]
-    \centering
-    \includegraphics{figures/validation}
-    \caption{
-        \textbf{Model validation using independent statistics.} (A--C) Using
-        our best fit models to linkage disequilibrium and pairwise diversity statistics,
-        we simulated expected conditional site-frequency-spectra (cSFS) and
-        compared to the observed cSFS from the data. Our inferred models
-        provide a good fit to the data, even though these were not used in our
-        inference. Across the three populations, ancestral state
-        misidentification was consistently inferred to be $1.5-1.7\%$ for
-        intergenic loci (SI \ref{sec:misspecification}). (D, E) We used Relate
-        \citep{Speidel2019-nj} to reconstruct genome-wide gene genealogies,
-        which we used to estimate coalescence rate trajectories
-        and cross-coalescence rates between pairs of populations. While
-        coalescence rate distributions are informative statistics about past
-        evolutionary processes, interpretation can be hindered by migration and
-        population structure, and translating relative cross-coalescence rate
-        curves (RCCR) into population divergence times is especially prone
-        to misinterpretation. For example, the Mende-Gumuz comparison shows
-        a more recent increased RCCR than either population with the British,
-        a pattern that is recapitulated under our best-fit model, even though
-        the Mende-Gumuz split occurs prior to the Gumuz-British split.
-    }
-    \label{fig:validation}
-\end{figure}
-
 We used \texttt{Relate} \citep{Speidel2019-nj} to infer the distribution of
 coalescence rates over time in real data and data simulated from our inferred
 models. Many previous studies have found a reduction of coalescence rates
@@ -545,8 +440,6 @@ could be due to either an increase in population size or to ancestral
 population structure during the Middle Pleistocene \citep{Mazet2016-wn}.  All
 models, including the single-origin model, recapitulate an inferred ancestral
 increase in $N_e$ between $100$ka--$1$Ma
-%extending deeper in the past than the Relate estimate
-% APR: I don't understand this phrase I commented out
 (Figure~\ref{fig:supp-iicr-sim} and SI
 Section~\ref{inferred_relate}). Whereas the single-origin model achieves this by an
 increase in $N_e$ during that period, the best-fit model recapitulate this
@@ -615,7 +508,7 @@ Additional African populations such as those
 from Central Africa, other Khoe-San groups or pre-Holocene ancient DNA samples,
 could further test our proposed models.
 
-\subsection*{The Formation of Population Structure in Africa}
+\subsection*{The formation of population structure in Africa}
 
 Our inferred models paint a consistent picture of the Middle to Late
 Pleistocene as a critical period of change, assuming that estimates from the
@@ -753,22 +646,11 @@ comparable to those among contemporary human populations, the most
 morphologically divergent fossils are unlikely to represent branches that
 contributed appreciably to contemporary human ancestries.
 
-\section*{Data availability}
+\bibliographystyle{naturemag}
+\bibliography{paper}
 
-Nama sequencing data are available from the European Genome-Phenome Archive (EGA),
-accession number: EGAD00001006198. The African Diversity Reference Panel can be
-found at accession: EGAS00001000960.
-
-\section*{Code availability}
-
-Code for the software used in this paper is found at the following locations:\\
-moments-LD (\url{https://bitbucket.org/simongravel/moments}),\\
-Demes (\url{https://github.com/popsim-consortium/demes-python}),\\
-Relate (\url{https://myersgroup.github.io/relate/}),\\
-msprime (\url{https://github.com/tskit-dev/msprime}),\\
-tskit (\url{https://github.com/tskit-dev/tskit}),\\
-and scripts implementing analyses using each of these software are available at\\
-\url{https://github.com/apragsdale/african-structure-paper}.
+\section*{Supplementary information}
+Available in the online version of the paper.
 
 \section*{Acknowledgements}
 
@@ -788,6 +670,154 @@ R35GM133531 (to BMH). The content is solely the responsibility of the authors
 and does not necessarily represent the official views of the National
 Institutes of Health.
 
-\bibliographystyle{naturemag}
-\bibliography{paper}
+\section*{Competing interests}
+The authors declare no competing financial interests.
+
+\section*{Author contributions}
+\aprcomment{To do: fill in (e.g., designed the study, collected data,
+analyzed data, wrote and edited the manuscript)}
+\begin{itemize}
+    \item APR:
+    \item TDW:
+    \item EGA: 
+    \item EH:
+    \item MM:
+    \item BMH:
+    \item SG:
+\end{itemize}
+
+\section*{Methods}
+
+\aprcomment{This can be very short}
+
+\section*{Data availability}
+
+Nama sequencing data are available from the European Genome-Phenome Archive (EGA),
+accession number: EGAD00001006198. The African Diversity Reference Panel can be
+found at accession: EGAS00001000960.
+
+\section*{Code availability}
+
+Code for the software used in this paper is found at the following locations:\\
+moments-LD (\url{https://bitbucket.org/simongravel/moments}),\\
+Demes (\url{https://github.com/popsim-consortium/demes-python}),\\
+Relate (\url{https://myersgroup.github.io/relate/}),\\
+msprime (\url{https://github.com/tskit-dev/msprime}),\\
+tskit (\url{https://github.com/tskit-dev/tskit}),\\
+and scripts implementing analyses using each of these software are available at\\
+\url{https://github.com/apragsdale/african-structure-paper}.
+
+\break
+
+\section*{Figure captions}
+
+\begin{figure}[ht]
+    \centering
+    %\includegraphics[width=0.5\textwidth]{figures/proposed-models.png}
+    \caption{
+        \textbf{Proposed conceptual models of early human history in Africa.}
+        These models have been designed to translate models from the 
+        paleoanthropological literature into genetically testable demographic
+        models \citep{Henn2018-rf}.
+        We used these conceptual models as starting points to build detailed
+        parameterized demographic models (SI Section~\ref{sec:modelspec})
+        that were then fit to genetic data. 
+    }
+    \label{fig:proposed-models}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    %\includegraphics{figures/samples-diversity.pdf}
+    \caption[width=\textwidth]{
+        \textbf{Genetic diversity across Africa.}
+        (A) Select populations from the 1000 Genomes and African Diversity Reference Panels
+        illustrate diversity from western, eastern and southern Africa.
+        We chose representatives from each region (bold labels)
+        to build parameterized models,
+        including the newly-sequenced Nama from South Africa, Mende
+        from Sierre Leone, Gumuz, Oromo and Amhara from Ethiopia, and the
+        British and Vindija Neanderthal individual.
+        (B, C) PCA highlights the range of genetic divergence anchored 
+        by western Africans, Nama, Gumuz and the British.
+        Percentages show variance explained by each principal component.
+        (D) \texttt{ADMIXTURE} with $K=4$ illustrates signatures of recent gene flow in Africa
+        which reflect colonial-period migration into the Nama,
+        Back-to-Africa gene flow among some Ethiopians, and Khoe-San admixture in the Zulu.
+    }
+    \label{fig:diversity}
+\end{figure}
+ 
+\begin{figure}[t!]
+    \centering
+    %\includegraphics[width=0.65\textwidth]{figures/best-fit-models}
+    \caption{
+        \textbf{A weakly structured stem best describes two-locus statistics.}
+        In the two best-fitting parameterizations of early population structure,
+        continuous migration (A) and multiple mergers (B), models
+        that include ongoing migration between stem populations outperform
+        those in which stem populations are isolated. Most recent populations are
+        connected by continuous, reciprocal migration that are indicated by 
+        double-headed arrows (labels matched to migration rates and divergence
+        times in Table~\ref{tab:migration-rates}). These migrations last for the
+        duration of co-existence of contemporaneous populations with constant
+        migration rates over those intervals. The
+        merger-with-stem-migration model (B, with  $LL=-101,600$) outperformed the
+        continuous-migration model (A, with $LL=-115,300$).
+        Colors are used to distinguish overlapping branches and link to
+        Figure~\ref{fig:diversity}.}
+    \label{fig:best-fit-models}
+\end{figure}
+
+\begin{figure}[t!]
+    \centering
+    %\includegraphics{figures/predictions.pdf}
+    \caption{
+        \textbf{Structure among stems is weak and present-day structure is mostly recent.}
+        From the best fit models of our two parameterizations (A and B:
+        continuous migration, C and D: merger with stem migration),
+        we predicted pairwise differences $H_{i,j}$ between individuals
+        sampled from populations $i$ and $j$ existing at time $t$ (A and C).
+        (B and D) To understand how drift between stems explains contemporary structure, 
+        we also computed the proportion $\alpha^2$ of drift between pairs of
+        sampled contemporary
+        populations that aligns with drift between past populations
+        (here Nama and Mende, see SI Section~S\ref{sec:f4}
+        for details and additional comparisons in
+        Figures~\ref{fig:supp-f4s-single-origin}--\ref{fig:supp-f4s-merger-with-stem-migration}).
+        Both models infer deep population structure with modest contributions to
+        contemporary genetic differentiation.
+        Most present differentiation dates back to the last $100$ka.
+    }
+    \label{fig:predictions}
+\end{figure}
+
+\begin{figure}[t!]
+    \centering
+    %\includegraphics{figures/validation}
+    \caption{
+        \textbf{Model validation using independent statistics.} (A--C) Using
+        our best fit models to linkage disequilibrium and pairwise diversity statistics,
+        we simulated expected conditional site-frequency-spectra (cSFS) and
+        compared to the observed cSFS from the data. Our inferred models
+        provide a good fit to the data, even though these were not used in our
+        inference. Across the three populations, ancestral state
+        misidentification was consistently inferred to be $1.5-1.7\%$ for
+        intergenic loci (SI \ref{sec:misspecification}). (D, E) We used Relate
+        \citep{Speidel2019-nj} to reconstruct genome-wide gene genealogies,
+        which we used to estimate coalescence rate trajectories
+        and cross-coalescence rates between pairs of populations. While
+        coalescence rate distributions are informative statistics about past
+        evolutionary processes, interpretation can be hindered by migration and
+        population structure, and translating relative cross-coalescence rate
+        curves (RCCR) into population divergence times is especially prone
+        to misinterpretation. For example, the Mende-Gumuz comparison shows
+        a more recent increased RCCR than either population with the British,
+        a pattern that is recapitulated under our best-fit model, even though
+        the Mende-Gumuz split occurs prior to the Gumuz-British split.
+    }
+    \label{fig:validation}
+\end{figure}
+
+
 \end{document}
