@@ -236,7 +236,8 @@ Given this consistency in inferred recent history and the numerical challenge
 of optimizing a large number of parameters, we fixed several parameters related
 to recent population history so as to focus on more ancient events (SI Section
 \ref{sec:models}). These parameters were ones supported by multiple genetic and
-archaeological studies. Fixed parameters included the time of divergence
+archaeological studies \citep{Bergstrom2021-iw}.
+Fixed parameters included the time of divergence
 between western and eastern African populations, set to $60$ka, just prior to
 the split of Eurasians and East Africans set to $50$ka. We also fixed the
 amount of admixture from Neanderthals to Europeans directly following the
@@ -685,11 +686,59 @@ All authors read and edited the article.
 
 \subsection*{Data and sequencing}
 
-We used merged sequencing data from the African Diversity Reference Panel
+We used a subset of populations from the merged sequencing data from the
+African Diversity Reference Panel (ADRP) \citep{Gurdasani2015-qy,Pagani2015-pz}
+and the Thousand Genomes Project (1KGP)
+\citep{1000_Genomes_Project_Consortium2015-zq}. These included the Amhara,
+Bakiga, Gumuz, Nama, Oromo, Somali, and Zulu from ADRP, and ESN, GWD, LWK, MSL,
+YRI, CEU, GBR, CHB, and PJL from 1KGP. After filtering for relatedness and
+retaining Nama individuals with $>70\%$ estimated Khoe-San ancestry, we used
+data from 289 individuals, including 44 Nama individuals. These were merged
+with the high-coverage Neanderthal genome from Vindija Cave
+\citep{Prufer2017-kk}. We kept variants from regions that fell within the 1KGP
+srict callability mask, overlapped with at least 100 continuously called base
+pairs in the Neanderthal genome, and were annotated as intergenic.
+\texttt{ADMIXTURE} and PCA analyses were conducted on a subset of variants
+filtered to remove variants in high LD ($r^2$ threshold of $0.1$). See SI
+section \ref{sec:data-sequencing} for additional details on data and
+sequencing.
 
 \subsection*{LD and diversity statistics}
 
+We used multi-population LD and pairwise diversity statistics to fit
+parameterized demographic models to data \citep{Ragsdale2019-nt}. Unbiased LD
+statistics were computed from all variants in retained intergenic regions
+\citep{Ragsdale2020-nz}, for pairs of variants separated by recombination
+distances $r = 5\times10^{-6}$ to $5\times10^{-3}$. These were assigned to 16
+recombination distance bins, and average statistics were computed within each
+bin (SI section \ref{sec:computing-stats}). Expected statistics were computed
+in \texttt{moments}, which also performed likelihood-based parameter
+optimization. Conditional site frequency spectra (cSFS) were computed
+conditioned on the Vindija Neanderthal carrying the derived allele relative to
+the ancestral allele determined by a six-primate alignment
+\citep{1000_Genomes_Project_Consortium2015-zq}.
+
 \subsection*{Model specification and fitting}
+
+Model parameters include population sizes and size changes, split times,
+continuous migration rates, and admixture times and proportions. The simplest
+model we tested was a bifurcating tree-like structure, allowing for subsequent
+migrations and recent known admixture events. To include ancestral population
+structure, we tested models that included multiple stem groups, which each were
+allowed their own population size and could be connected by continuous
+migration. We tested multiple scenarios of early population structure,
+including long-lasting continuous migration between stem populations and
+scenarios of periods of isolation with subsequent merger events (SI
+section~\ref{sec:modelspec}). To avoid overfitting, we to incrementally added
+copmlexity to our model optimization, and we fixed a number of parameters that
+are constrained by historical records or are consistently estimated across
+multiple models and previous studies (SI section~\ref{sec:models}). Likelihoods
+were computed using a composite multivariate Gaussian likelihood approach, and
+confidence intervals were estimated by refitting each model to 200
+block-bootstrap replicate datasets (SI
+section~\ref{sec:likelihoods-uncertainty}). We iteratively used gradient
+descent and L-BFGS-B optimization routines to fit each parameterized model (SI
+section~\ref{sec:optimization}).
 
 \subsection*{Gene genalogy reconstruction}
 
