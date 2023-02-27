@@ -675,12 +675,12 @@ The authors declare no competing financial interests.
 
 \section*{Author contributions}
 
-\sgcomment{Rough first pass for contributions:}
-APR, BMH, and SG designed the study. BMH, EGA, EH, and MM designed and conducted 
-participant recruitment.   APR, BMH, and SG designed statistical analyses.
+APR, BMH, and SG designed the study.
+BMH, EGA, EH, and MM designed and conducted participant recruitment.
+APR, BMH, and SG designed statistical analyses.
 APR conducted statistical analyses. 
 APR, TDW, BMH, and SG interpreted the results and wrote the first draft of the article. 
-All authors read and edited the article.  
+All authors read and edited the article.
 
 \section*{Methods}
 
@@ -742,13 +742,23 @@ section~\ref{sec:optimization}).
 
 \subsection*{Gene genalogy reconstruction}
 
-\subsection*{Conditional site frequency spectrum}
+We used \texttt{Relate} \citep{Speidel2019-nj} to reconstruct genome-wide gene
+genealogies from the retained populations in the merged ADRP and 1KGP datasets
+(SI section~\ref{sec:relate}). From reconstructed genealogies, we computed
+coalescence rates within and between populations, which provide an estimate for
+effective population sizes over time and the relative cross-coalescence rates
+between pairs of populations. To compare reconstructed genealogies from data to
+model predictions, we used \texttt{msprime}
+\citep{Kelleher2016-lw,Baumdicker2022-mj} to simulate genomic data for equal
+numbers of samples for each population in our inferred models. We then applied
+\texttt{Relate} to these simulated datasets using the same mutation and
+recombination rates and generation time.
 
 \section*{Data availability}
 
-Nama sequencing data are available from the European Genome-Phenome Archive (EGA),
-accession number: EGAD00001006198. The African Diversity Reference Panel can be
-found at accession: EGAS00001000960.
+Nama sequencing data are available from the European Genome-Phenome Archive
+(EGA), accession number: EGAD00001006198. The African Diversity Reference Panel
+can be found at accession: EGAS00001000960.
 
 \section*{Code availability}
 
